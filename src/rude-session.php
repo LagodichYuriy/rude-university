@@ -20,8 +20,8 @@ class session
 		}
 
 
-		$username = get($_REQUEST, RUDE_FIELD_USERNAME);
-		$password = get($_REQUEST, RUDE_FIELD_PASSWORD);
+		$username = get(RUDE_FIELD_USERNAME);
+		$password = get(RUDE_FIELD_PASSWORD);
 
 		if (!$username || !$password)
 		{

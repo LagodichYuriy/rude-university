@@ -144,4 +144,9 @@ class query
 
 		return null;
 	}
+
+	public function escape($var)
+	{
+		return $this->database->escape($var);
+	}
 }

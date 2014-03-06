@@ -11,7 +11,9 @@ require_once './src/rude-crypt.php';
 require_once './src/rude-escape.php';
 require_once './src/rude-headers.php';
 require_once './src/rude-html.php';
+require_once './src/rude-js.php';
 require_once './src/rude-roles.php';
+require_once './src/rude-select.php';
 require_once './src/rude-session.php';
 require_once './src/rude-sysinfo.php';
 require_once './src/rude-url.php';
@@ -33,8 +35,13 @@ else
 }
 
 
-function get($src, $what, $default = false)
+function get($what, $src = false, $default = false)
 {
+	if ($src === false)
+	{
+		$src = $_REQUEST;
+	}
+
 	if (!empty($src[$what]))
 	{
 		return $src[$what];

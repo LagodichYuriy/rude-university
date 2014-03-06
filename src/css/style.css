@@ -65,8 +65,8 @@ span
 
 h2
 {
-	margin: 0;
-	padding: 0;
+	margin:    0;
+	padding:   0;
 	font-size: 12px;
 }
 
@@ -158,73 +158,80 @@ h2, h3
 
 .middle
 {
-	margin: 0 auto;
+	margin:  0 auto;
 	display: table;
 }
 
-
-
-
-
-
-
-
-.myform{
-	margin:0 auto;
-	width:400px;
-	padding:14px;
+.myform
+{
+	margin:  0 auto;
+	width:   400px;
+	padding: 14px;
 }
 
 /* ----------- stylized ----------- */
-#stylized{
-	border:solid 2px #b7ddf2;
-	background:#ebf4fb;
+#stylized
+{
+	border:     solid 2px #b7ddf2;
+	background: #ebf4fb;
 }
-#stylized h1 {
-	font-size:14px;
-	font-weight:bold;
-	margin-bottom:8px;
+
+#stylized h1
+{
+	font-size:     14px;
+	font-weight:   bold;
+	margin-bottom: 8px;
 }
-#stylized p{
-	font-size:11px;
-	color:#666666;
-	margin-bottom:20px;
-	border-bottom:solid 1px #b7ddf2;
-	padding-bottom:10px;
+
+#stylized p
+{
+	font-size:      11px;
+	color:          #666666;
+	margin-bottom:  20px;
+	border-bottom:  solid 1px #b7ddf2;
+	padding-bottom: 10px;
 }
-#stylized label{
-	display:block;
-	font-weight:bold;
-	text-align:right;
-	width:140px;
-	float:left;
+
+#stylized label
+{
+	display:     block;
+	font-weight: bold;
+	text-align:  right;
+	width:       140px;
+	float:       left;
 	padding-top: 7px;
-	clear: both;
+	clear:       both;
 }
-#stylized .small{
-	color:#666666;
-	display:block;
-	font-size:11px;
-	font-weight:normal;
-	text-align:right;
-	width:140px;
+
+#stylized .small
+{
+	color:       #666666;
+	display:     block;
+	font-size:   11px;
+	font-weight: normal;
+	text-align:  right;
+	width:       140px;
 }
-#stylized input{
-	float:left;
-	font-size:12px;
-	padding:4px 2px;
-	border:solid 1px #aacfe4;
-	width:200px;
-	margin:2px 0 20px 10px;
+
+#stylized input
+{
+	float:     left;
+	font-size: 12px;
+	padding:   4px 2px;
+	border:    solid 1px #aacfe4;
+	width:     200px;
+	margin:    2px 0 20px 10px;
 }
-#stylized button{
-	clear: both;
+
+#stylized button
+{
+	clear:       both;
 	margin-left: 150px;
-	width: 200px;
-	height: 25px;
-	text-align: center;
-	font-size: 11px;
-	outline: solid 2px #aacfe4;
+	width:       200px;
+	height:      25px;
+	text-align:  center;
+	font-size:   11px;
+	outline:     solid 2px #aacfe4;
 }
 
 .table
@@ -234,25 +241,25 @@ h2, h3
 
 .table-cell
 {
-	display: table-cell;
+	display:        table-cell;
 	vertical-align: middle;
 }
 
 .center
 {
-	width: 432px;
-	height: 241px;
+	width:    432px;
+	height:   241px;
 	position: absolute;
-	left: 50%;
-	top: 50%;
-	margin: -120px 0 0 -216px;
+	left:     50%;
+	top:      50%;
+	margin:   -120px 0 0 -216px;
 }
 
 .box
 {
-	border: solid 2px #b7ddf2;
-	background: #ebf4fb;
-	padding: 7px;
+	border:        solid 2px #b7ddf2;
+	background:    #ebf4fb;
+	padding:       7px;
 	margin-bottom: 8px;
 }
 
@@ -263,18 +270,18 @@ h2, h3
 
 select
 {
-	float: left;
+	float:     left;
 	font-size: 12px;
-	padding: 4px 2px;
-	border: solid 1px #aacfe4;
-	width: 200px;
-	margin: 2px 0 20px 10px;
+	padding:   4px 2px;
+	border:    solid 1px #aacfe4;
+	width:     200px;
+	margin:    2px 0 20px 10px;
 }
 
 h3
 {
-	margin: 0;
-	padding: 0;
+	margin:    0;
+	padding:   0;
 	font-size: 12px;
 }
 
@@ -286,4 +293,17 @@ h3
 .tool-desc
 {
 	display: inline;
+}
+
+.hidden
+{
+	display: none;
+}
+
+#error-box
+{
+	display: inline-block;
+	width: 200px;
+	padding-left: 150px;
+	margin-top: -22px;
 }

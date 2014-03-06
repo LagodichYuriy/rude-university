@@ -10,7 +10,8 @@ define('RUDE_TABLE_USERS',              RUDE_DATABASE_PREFIX . 'users');
 define('RUDE_TABLE_ROLES',              RUDE_DATABASE_PREFIX . 'roles');
 
 define('RUDE_DIR_ROOT',                 __DIR__);
-define('RUDE_DIR_TEMPLATES',            RUDE_DIR_ROOT . '/templates');
+define('RUDE_DIR_SRC',                  '/src');
+define('RUDE_DIR_TEMPLATES',            RUDE_DIR_ROOT . RUDE_DIR_SRC . '/templates');
 
 
 define('RUDE_TEMPLATE_DIR',             RUDE_DIR_TEMPLATES . '/rude');
@@ -37,15 +38,20 @@ define('RUDE_TASK_LOGOUT',              'logout');
 
 define('RUDE_TARGET',                   'target');
 
+define('RUDE_TASK_AJAX_ADD_USER_FORM',  'ajax_add_user_form');
 define('RUDE_TASK_AJAX_ADD_USER',       'ajax_add_user');
 
 define('RUDE_TEXT_USER_MANAGEMENT',     'Пользователи');
+define('RUDE_TEXT_ADD',                 'Добавить');
+define('RUDE_TEXT_ADD_NEW_USER',        'Добавить нового пользователя');
 define('RUDE_TEXT_LOGOUT',              'Выход');
 
 define('RUDE_HTML_INPUT_TYPE_TEXT',     'text');
 define('RUDE_HTML_INPUT_TYPE_PASSWORD', 'password');
 
+define('RUDE_FIELD_ID',                 'id');
 define('RUDE_FIELD_USERNAME',           'username');
 define('RUDE_FIELD_PASSWORD',           'password');
-define('RUDE_FIELD_ROLE',               'password');
 define('RUDE_FIELD_PASSWORD_REPEAT',    'password_repeat');
+define('RUDE_FIELD_ROLE',               'role');
+define('RUDE_FIELD_ROLES',              'roles');

@@ -1,7 +1,7 @@
 <?
 	namespace rude;
 
-	$task = get($_REQUEST, RUDE_TASK);
+	$task = get(RUDE_TASK);
 
 	switch ($task)
 	{
@@ -32,7 +32,12 @@
 				break;
 
 			case RUDE_TASK_USER_ADD:
-				$username = get($_REQUEST, 'username');
+				$username        = get(RUDE_FIELD_USERNAME);
+				$password        = get(RUDE_FIELD_PASSWORD);
+				$password_repeat = get(RUDE_FIELD_PASSWORD_REPEAT);
+				$role            = get(RUDE_FIELD_ROLE);
+
+				debug($_REQUEST);
 				break;
 
 			default:

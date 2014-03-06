@@ -10,8 +10,8 @@
 	?>
 
 	<div class="tool">
-		<a href="<?= url::ajax(RUDE_TASK_AJAX_ADD_USER) ?>" class="fancybox"><img src="src/icons/add.png"></a>
-		<a href="<?= url::ajax(RUDE_TASK_AJAX_ADD_USER) ?>" class="fancybox"><div class="tool-desc">Добавить нового пользователя</div></a>
+		<a href="<?= url::ajax(RUDE_TASK_AJAX_ADD_USER_FORM) ?>" class="fancybox"><img src="src/icons/add.png"></a>
+		<a href="<?= url::ajax(RUDE_TASK_AJAX_ADD_USER_FORM) ?>" class="fancybox"><div class="tool-desc"><?= RUDE_TEXT_ADD_NEW_USER ?></div></a>
 	</div>
 
 	<table>
@@ -36,7 +36,7 @@
 					<td><?= $user->salt ?></td>
 					<td><?= $user->role ?></td>
 					<td>
-						<a href="<?= url::ajax(RUDE_TASK_AJAX_ADD_USER) ?>" class="fancybox">
+						<a href="<?= url::ajax(RUDE_TASK_AJAX_ADD_USER_FORM) ?>" class="fancybox">
 							<img src="src/icons/edit.png">
 						</a>
 					</td>
@@ -52,23 +52,16 @@
 </div>
 
 
-
-
 <script>
 	$(document).ready(function ()
 	{
 		$(".fancybox").fancybox({
 			type: 'iframe',
 
-
-			width: 520,
-			height: 550,
-			autoScale: true,
-			transitionIn: 'none',
-			transitionOut: 'none',
-			scrolling: 'no',
-			centerOnScroll: false, // and not 'true',
-			autoCenter: false // and not 'true'
+			width: 432 + 20,
+			height: 335 + 20 + 40,
+			fitToView : false,
+			autoSize : false
 		});
 	});
 </script>
