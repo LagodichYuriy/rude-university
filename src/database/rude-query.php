@@ -9,26 +9,39 @@ define('RUDE_SQL_SELECT', 'SELECT');
 class query
 {
 	/** @var database  */
-	protected $database = null;        // database class
+	private $database = null;        // database class
 
 
-	protected $field_list = array();   // [optional] SELECT
-	protected $from_table = null;      // [required] FROM
-	protected $join_list = array();    // [optional] JOIN
-	protected $where_list = array();   // [optional] WHERE
-	protected $order_by = null;        // [optional] ORDER BY
-	protected $order_direction = null; // [optional] ASC/DESC
-	protected $limit = null;           // [optional] LIMIT
+	private $field_list = array();   // [optional] SELECT
+	private $from_table = null;      // [required] FROM
+	private $join_list = array();    // [optional] JOIN
+	private $where_list = array();   // [optional] WHERE
+	private $order_by = null;        // [optional] ORDER BY
+	private $order_direction = null; // [optional] ASC/DESC
+	private $limit = null;           // [optional] LIMIT
+
+
+	private $join_tables = null;     // [autogen]
 
 
 	/** @var \mysqli_result */
-	protected $result = null;          // query result
+	private $result = null;          // query result
 
-	public function __construct($from_table = null)
+	public function __construct($from_table)
 	{
 		$this->database = new database();
 
-		$this->select($from_table);
+		$this->from_table = $from_table;
+	}
+
+	public function columns($table = false)
+	{
+		if ($table === false)
+		{
+			$table = $this->from_table;
+		}
+
+		return $this->database->columns($table);
 	}
 
 	public function field($db_field)
@@ -56,16 +69,6 @@ class query
 		}
 	}
 
-	public function select($from_table)
-	{
-		$this->from_table = $from_table;
-	}
-
-	public function from($from)
-	{
-		$this->from_table = $from;
-	}
-
 	public function join($table, $field, $field_equals = false)
 	{
 		if ($field_equals === false)
@@ -73,54 +76,94 @@ class query
 			$field_equals = $field;
 		}
 
-		$this->join_list[] = $table . ' ON ' . $this->from_table . '.' . $field . ' = ' . $table . '.' . $field_equals;;
+		$this->join_tables[] = $table;
+		$this->join_list[] = $table . ' ON ' . $this->from_table . '.' . $field . ' = ' . $table . '.' . $field_equals;
 	}
 
 	public function sql()
 	{
-		$sql = '';
+		$sql  = '';
 
-		if (!isset($this->from_table)) { return false; }
-
-		if (empty($this->field_list))
-		{
-			$sql .= 'SELECT *' . PHP_EOL;
-		}
-		else
-		{
-			$sql .= 'SELECT ' . implode(',' . PHP_EOL, $this->field_list);
-		}
-
-		if (!empty($this->from_table))
-		{
-			$sql .= 'FROM ' . $this->from_table . PHP_EOL;
-		}
-
-		if (!empty($this->join_list))
-		{
-			$sql .= 'LEFT JOIN ' . implode(PHP_EOL, $this->join_list) . PHP_EOL;
-		}
-
-		if (empty($this->where_list))
-		{
-			$sql .= 'WHERE 1 = 1' . PHP_EOL;
-		}
-		else
-		{
-			$sql .= 'WHERE ' . implode(' AND ', $this->where_list) . PHP_EOL;
-		}
-
+		$sql .= $this->sql_select();
+		$sql .= $this->sql_from();
+		$sql .= $this->sql_join();
+		$sql .= $this->sql_where();
 
 		return $sql;
 	}
 
+	public function sql_select()
+	{
+		if (!empty($this->field_list))
+		{
+			return 'SELECT ' . implode(',' . PHP_EOL, $this->field_list);
+		}
+
+		if (!empty($this->join_tables))
+		{
+			$table_columns = $this->columns($this->from_table);
+
+
+			$select = 'SELECT ' . $this->from_table . '.*, ';
+
+			foreach ($this->join_tables as $join_table)
+			{
+				$join_columns = $this->columns($join_table);
+
+				$required_columns = array_diff($join_columns, $table_columns);
+
+
+				foreach ($required_columns as $required_column)
+				{
+					$select .= PHP_EOL . $join_table . '.' . $required_column . ',';
+				}
+
+				$select  = string::remove_last_char($select);
+				$select .= PHP_EOL;
+			}
+
+			return $select;
+		}
+
+
+		return 'SELECT *' . PHP_EOL;
+	}
+
+	public function sql_from()
+	{
+		if (!empty($this->from_table))
+		{
+			return 'FROM ' . $this->from_table . PHP_EOL;
+		}
+
+		return '';
+	}
+
+	public function sql_join()
+	{
+		if (!empty($this->join_list))
+		{
+			return 'LEFT JOIN ' . implode(PHP_EOL, $this->join_list) . PHP_EOL;
+		}
+
+		return '';
+	}
+
+	public function sql_where()
+	{
+		if (empty($this->where_list))
+		{
+			return 'WHERE 1 = 1' . PHP_EOL;
+		}
+
+		return 'WHERE ' . implode(' AND ', $this->where_list) . PHP_EOL;
+	}
+
 	public function start()
 	{
-		$database = new database();
-
 		$sql = $this->sql();
 
-		$this->result = $database->query($sql);
+		$this->result = $this->database->query($sql);
 	}
 
 	public function get_object_list()

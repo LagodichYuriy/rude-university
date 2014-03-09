@@ -13,7 +13,7 @@
 
 		case RUDE_TASK_LOGOUT:
 			session::destroy();
-			headers::redirect(RUDE_TEMPLATE_HTTP_INDEX);
+			headers::redirect(RUDE_FILE_INDEX);
 			break;
 	}
 ?>

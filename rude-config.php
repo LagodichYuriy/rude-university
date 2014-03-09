@@ -9,6 +9,8 @@ define('RUDE_DATABASE_PREFIX',          'univ_');
 define('RUDE_TABLE_USERS',              RUDE_DATABASE_PREFIX . 'users');
 define('RUDE_TABLE_ROLES',              RUDE_DATABASE_PREFIX . 'roles');
 
+define('RUDE_FILE_INDEX',               'index.php');
+
 define('RUDE_DIR_ROOT',                 __DIR__);
 define('RUDE_DIR_SRC',                  '/src');
 define('RUDE_DIR_TEMPLATES',            RUDE_DIR_ROOT . RUDE_DIR_SRC . '/templates');
@@ -53,5 +55,8 @@ define('RUDE_FIELD_ID',                 'id');
 define('RUDE_FIELD_USERNAME',           'username');
 define('RUDE_FIELD_PASSWORD',           'password');
 define('RUDE_FIELD_PASSWORD_REPEAT',    'password_repeat');
+define('RUDE_FIELD_HASH',               'hash');
+define('RUDE_FIELD_SALT',               'salt');
 define('RUDE_FIELD_ROLE',               'role');
+define('RUDE_FIELD_ROLE_ID',            'role_id');
 define('RUDE_FIELD_ROLES',              'roles');

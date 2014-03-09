@@ -6,7 +6,7 @@
 
 <div class="user_management">
 	<?
-		$user_list = users::get();
+		$user_list = users::get_all();
 	?>
 
 	<div class="tool">
@@ -16,14 +16,13 @@
 
 	<table>
 		<tr>
-			<th>id</th>
-			<th>username</th>
-			<th>hash</th>
-			<th>salt</th>
-			<th>role</th>
-			<th>edit</th>
-			<th>delete</th>
+			<th>#</th>
+			<th>Пользователь</th>
+			<th>Привелегии</th>
+			<th>Изменение параметров пользователя</th>
 		</tr>
+
+		<? debug($user_list) ?>
 
 		<?
 			foreach ($user_list as $user)
@@ -32,8 +31,6 @@
 				<tr>
 					<td><?= $user->id ?></td>
 					<td><?= $user->username ?></td>
-					<td><?= $user->hash ?></td>
-					<td><?= $user->salt ?></td>
 					<td><?= $user->role ?></td>
 					<td>
 						<a href="<?= url::ajax(RUDE_TASK_AJAX_ADD_USER_FORM) ?>" class="fancybox">

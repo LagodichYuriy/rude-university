@@ -29,11 +29,8 @@ class session
 		}
 
 
-		$query = new query(RUDE_TABLE_USERS);
-		$query->where(RUDE_FIELD_USERNAME, $username);
-		$query->start();
+		$user = users::get($username);
 
-		$user = $query->get_object();
 
 		if ($user === null)
 		{

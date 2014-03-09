@@ -8,6 +8,7 @@ require_once './src/database/rude-query.php';
 require_once './src/database/rude-cquery.php';
 
 require_once './src/rude-crypt.php';
+require_once './src/rude-errcode.php';
 require_once './src/rude-escape.php';
 require_once './src/rude-headers.php';
 require_once './src/rude-html.php';
@@ -15,6 +16,7 @@ require_once './src/rude-js.php';
 require_once './src/rude-roles.php';
 require_once './src/rude-select.php';
 require_once './src/rude-session.php';
+require_once './src/rude-string.php';
 require_once './src/rude-sysinfo.php';
 require_once './src/rude-url.php';
 require_once './src/rude-users.php';
