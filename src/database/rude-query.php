@@ -12,10 +12,10 @@ class query
 	private $database = null;        // database class
 
 
-	private $field_list = array();   // [optional] SELECT
+	private $field_list = null;      // [optional] SELECT
 	private $from_table = null;      // [required] FROM
-	private $join_list = array();    // [optional] JOIN
-	private $where_list = array();   // [optional] WHERE
+	private $join_list = null;       // [optional] JOIN
+	private $where_list = null;      // [optional] WHERE
 	private $order_by = null;        // [optional] ORDER BY
 	private $order_direction = null; // [optional] ASC/DESC
 	private $limit = null;           // [optional] LIMIT

@@ -9,7 +9,7 @@ class cquery
 
 
 	private $insert_table = null;     // [required] INSERT INTO
-	private $insert_fields = array(); // [required] VALUES
+	private $insert_fields = null;    // [required] VALUES
 
 	/** @var \mysqli_result */
 	private $result = null;           // query result

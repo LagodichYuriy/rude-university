@@ -4,7 +4,7 @@ namespace rude;
 
 class html
 {
-	public static function input($selector, $label = false, $type = RUDE_HTML_INPUT_TYPE_TEXT, $title = false)
+	public static function input($selector, $label = false, $value = false, $type = RUDE_HTML_INPUT_TYPE_TEXT, $title = false)
 	{
 		$result = '';
 
@@ -18,10 +18,9 @@ class html
 		$result .= ' name="' . $selector . '"';
 		$result .= ' id="' . $selector . '"';
 
-		if ($title !== false)
-		{
-			$result .= ' title="' . $title . '"';
-		}
+		if ($value !== false) { $result .= ' value="' . $value . '"'; }
+
+		if ($title !== false) { $result .= ' title="' . $title . '"'; }
 
 		$result .= '/>';
 
@@ -29,7 +28,7 @@ class html
 		return $result;
 	}
 
-	public static function select($id, $item_list, $label = false)
+	public static function select($id, $item_list, $label = false, $default = false)
 	{
 		$result = '';
 
@@ -43,7 +42,16 @@ class html
 
 		foreach ($item_list as $item)
 		{
-			$result .= '<option>' . $item . '</option>';
+			$result .= '<option';
+
+			if ($default !== false && $default == $item)
+			{
+				$result .= ' selected ';
+			}
+
+			$result .= '>';
+			$result .= $item;
+			$result .= '</option>';
 		}
 
 		$result .= '</select>';

@@ -31,15 +31,6 @@
 				require_once 'rude-user-management.php';
 				break;
 
-			case RUDE_TASK_USER_ADD:
-				$username        = get(RUDE_FIELD_USERNAME);
-				$password        = get(RUDE_FIELD_PASSWORD);
-				$password_repeat = get(RUDE_FIELD_PASSWORD_REPEAT);
-				$role            = get(RUDE_FIELD_ROLE);
-
-				debug($_REQUEST);
-				break;
-
 			default:
 				require_once 'rude-default.php';
 				break;

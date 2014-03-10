@@ -6,6 +6,8 @@ require_once 'rude-config.php';
 
 require_once './src/database/rude-query.php';
 require_once './src/database/rude-cquery.php';
+require_once './src/database/rude-dquery.php';
+require_once './src/database/rude-uquery.php';
 
 require_once './src/rude-crypt.php';
 require_once './src/rude-errcode.php';

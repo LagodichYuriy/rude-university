@@ -89,6 +89,11 @@ h2, h3
 	font-weight: bold;
 }
 
+.red
+{
+	color: red !important;
+}
+
 .small
 {
 	max-width: 10px;
@@ -234,6 +239,12 @@ h2, h3
 	outline:     solid 2px #aacfe4;
 }
 
+#stylized select
+{
+	text-indent: 0.01px; /* FireFox select arrow workaround */
+	text-overflow: ' ';  /* FireFox select arrow workaround */
+}
+
 .table
 {
 	display: table;
@@ -287,12 +298,23 @@ h3
 
 .tool
 {
-	padding-bottom: 6px;
+	border: solid 2px #b7ddf2;
+	background: #ebf4fb;
+	padding: 7px;
+	margin-bottom: 8px;
 }
 
 .tool-desc
 {
 	display: inline;
+	padding-left: 6px;
+	line-height: 16px;
+	color: blue;
+}
+
+.undecorated
+{
+	text-decoration: none;
 }
 
 .hidden
@@ -306,4 +328,58 @@ h3
 	width: 200px;
 	padding-left: 150px;
 	margin-top: -22px;
+	word-wrap: break-word;
+}
+
+.button-box
+{
+	padding-top: 20px;
+	padding-bottom: 10px;
+
+	position: relative;
+}
+
+.button
+{
+	float: left !important;
+	margin: 0 !important;
+	clear: none !important;
+	width: 190px !important;
+}
+
+.button-last
+{
+	float: right !important;
+	margin: 0 !important;
+	clear: none !important;
+	width: 190px !important;
+}
+
+.user-management
+{
+	display: table;
+	margin: 0 auto;
+}
+
+.float
+{
+	float: left;
+}
+
+.padding-small
+{
+	padding: 2px;
+}
+
+.full-width
+{
+	width: 100%;
+}
+
+.link
+{
+	display: inline;
+	padding-left: 6px;
+	line-height: 16px;
+	color: blue;
 }

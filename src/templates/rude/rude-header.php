@@ -11,4 +11,7 @@
 	<link rel="stylesheet" href="src/js/fancybox/jquery.fancybox.css" type="text/css" media="screen" />
 	<!-- FancyBox JS -->
 	<script type="text/javascript" src="src/js/fancybox/jquery.fancybox.pack.js"></script>
+
+	<!-- rude JS -->
+	<script type="text/javascript" src="src/js/rude.js"></script>
 </head>
