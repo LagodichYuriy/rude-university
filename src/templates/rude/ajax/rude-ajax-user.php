@@ -57,14 +57,7 @@ class ajax_user
 	{
 		$username = get(RUDE_FIELD_USERNAME);
 
-		debug($username, true);
-
-		$q = new dquery(RUDE_TABLE_USERS);
-		$q->where(RUDE_FIELD_USERNAME, $username);
-		$q->limit(1);
-		$q->start();
-
-		debug($q->sql());
+		users::delete($username);
 	}
 
 	public static function is_exists()
@@ -108,7 +101,6 @@ class ajax_user
 				<div id="error-box"></div>
 
 				<?= html::button(RUDE_TEXT_ADD, 'validate(); return false;'); ?>
-				<div class="spacer"></div>
 			</form>
 
 
@@ -223,7 +215,6 @@ class ajax_user
 				<div id="error-box"></div>
 
 				<?= html::button(RUDE_TEXT_ADD, 'validate(); return false;'); ?>
-				<div class="spacer"></div>
 			</form>
 
 
@@ -321,14 +312,12 @@ class ajax_user
 				$username = get(RUDE_FIELD_USERNAME);
 				?>
 
-				Вы точно уверены, что хотите удалить пользователя <?= $username ?>?
+				Вы точно уверены, что хотите удалить пользователя <b>"<?= $username ?></b>"?
 
 				<div class="button-box">
 					<button class="button" type="submit" onclick="delete_user('<?= $username ?>'); parent.$.fancybox.close();">Да</button>
 					<button class="button-last" type="submit" onclick="parent.$.fancybox.close();">Нет</button>
 				</div>
-
-				<div class="spacer"></div>
 			</form>
 
 			<script>
@@ -345,9 +334,7 @@ class ajax_user
 
 						success: function(data)
 						{
-							alert(data);
-
-//							parent.$.fancybox.close();
+							parent.$.fancybox.close();
 						}
 					});
 				}
@@ -359,7 +346,7 @@ class ajax_user
 	<?
 	}
 
-	public static function info()
+	public static function html()
 	{
 		?>
 		<table class="full-width">
@@ -381,9 +368,8 @@ class ajax_user
 					<td><?= $user->username ?></td>
 					<td><?= $user->role ?></td>
 					<td>
-						<a href="<?= url::ajax(RUDE_TASK_AJAX_USER_EDIT_FORM) . url::param(RUDE_FIELD_USERNAME, $user->username) ?>" class="fancybox"><img src="src/icons/edit.png" class="padding-small" title="Редактировать параметры пользователя" /></a>
-
-						<a href="<?= url::ajax(RUDE_TASK_AJAX_USER_DELETE_FORM) . url::param(RUDE_FIELD_USERNAME, $user->username) ?>" class="fancybox-small"><img src="src/icons/remove.png" class="padding-small" title="Удалить выбранного пользователя" /></a>
+						<a href="<?= url::ajax(RUDE_TASK_AJAX_USER_EDIT_FORM) . url::param(RUDE_FIELD_USERNAME, $user->username) ?>" class="fancybox"><img src="src/icons/edit.png" class="padding-small" title="<?= RUDE_TEXT_EDIT ?>" /></a>
+						<a href="<?= url::ajax(RUDE_TASK_AJAX_USER_DELETE_FORM) . url::param(RUDE_FIELD_USERNAME, $user->username) ?>" class="fancybox-small"><img src="src/icons/remove.png" class="padding-small" title="<?= RUDE_TEXT_DELETE_SELECTED ?>" /></a>
 					</td>
 				</tr>
 			<?
@@ -393,7 +379,7 @@ class ajax_user
 		<?
 	}
 
-	public static function info_js()
+	public static function js()
 	{
 		?>
 		<script>
@@ -436,7 +422,7 @@ class ajax_user
 					url: 'index.php',
 					data: {
 						task:     '<?= RUDE_TASK_AJAX ?>',
-						target:   '<?= RUDE_TASK_AJAX_USER_INFO ?>'
+						target:   '<?= RUDE_TASK_AJAX_USER_SUMMARY ?>'
 					},
 
 					success: function(data)

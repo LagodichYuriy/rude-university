@@ -31,6 +31,10 @@
 				require_once 'rude-user-management.php';
 				break;
 
+			case RUDE_TASK_ROLE_MANAGEMENT:
+				require_once 'rude-role-management.php';
+				break;
+
 			default:
 				require_once 'rude-default.php';
 				break;

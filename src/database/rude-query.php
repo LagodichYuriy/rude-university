@@ -4,28 +4,29 @@ namespace rude;
 
 require_once 'rude-database.php';
 
-define('RUDE_SQL_SELECT', 'SELECT');
-
 class query
 {
 	/** @var database  */
-	private $database = null;        // database class
+	private $database = null;          // database class
 
 
-	private $field_list = null;      // [optional] SELECT
-	private $from_table = null;      // [required] FROM
-	private $join_list = null;       // [optional] JOIN
-	private $where_list = null;      // [optional] WHERE
-	private $order_by = null;        // [optional] ORDER BY
-	private $order_direction = null; // [optional] ASC/DESC
-	private $limit = null;           // [optional] LIMIT
+	private $field_list = null;        // [optional] SELECT
+	private $from_table = null;        // [required] FROM
+	private $left_join_list = null;    // [optional] LEFT JOIN
+	private $right_join_list = null;   // [optional] RIGHT JOIN
+	private $where_list = null;        // [optional] WHERE
+	private $group_by = null;          // [optional] GROUP BY
+	private $order_by = null;          // [optional] ORDER BY
+	private $order_direction = null;   // [optional] ASC/DESC
+	private $limit = null;             // [optional] LIMIT
 
 
-	private $join_tables = null;     // [autogen]
+	private $left_join_tables = null;  // [autogen]
+	private $right_join_tables = null; // [autogen]
 
 
 	/** @var \mysqli_result */
-	private $result = null;          // query result
+	private $result = null;            // query result
 
 	public function __construct($from_table)
 	{
@@ -49,6 +50,44 @@ class query
 		$this->field_list[] = $db_field;
 	}
 
+	public function table($db_table)
+	{
+		$this->field_list[] = $db_table . '.*';
+	}
+
+	public function count($field, $alias = RUDE_FIELD_COUNT)
+	{
+		$this->field_list[] = $field;
+		$this->field_list[] = 'COUNT(`' . $field . '`) AS `' . $alias . '`';
+	}
+
+	public function join($table, $field, $field_equals = false)
+	{
+		if ($field_equals === false)
+		{
+			$field_equals = $field;
+		}
+
+		$this->left_join_tables[] = $table;
+		$this->left_join_list[] = $table . ' ON ' . $this->from_table . '.' . $field . ' = ' . $table . '.' . $field_equals;
+	}
+
+	public function left_join($table, $field, $field_equals = false)
+	{
+		$this->join($table, $field, $field_equals);
+	}
+
+	public function right_join($table, $field, $field_equals = false)
+	{
+		if ($field_equals === false)
+		{
+			$field_equals = $field;
+		}
+
+		$this->right_join_tables[] = $table;
+		$this->right_join_list[] = $table . ' ON ' . $this->from_table . '.' . $field . ' = ' . $table . '.' . $field_equals;
+	}
+
 	public function where($where, $val = false)
 	{
 		if ($val === false)
@@ -69,15 +108,9 @@ class query
 		}
 	}
 
-	public function join($table, $field, $field_equals = false)
+	public function group_by($field)
 	{
-		if ($field_equals === false)
-		{
-			$field_equals = $field;
-		}
-
-		$this->join_tables[] = $table;
-		$this->join_list[] = $table . ' ON ' . $this->from_table . '.' . $field . ' = ' . $table . '.' . $field_equals;
+		$this->group_by = $field;
 	}
 
 	public function sql()
@@ -86,8 +119,10 @@ class query
 
 		$sql .= $this->sql_select();
 		$sql .= $this->sql_from();
-		$sql .= $this->sql_join();
+		$sql .= $this->sql_left_join();
+		$sql .= $this->sql_right_join();
 		$sql .= $this->sql_where();
+		$sql .= $this->sql_group_by();
 
 		return $sql;
 	}
@@ -99,14 +134,14 @@ class query
 			return 'SELECT ' . implode(',' . PHP_EOL, $this->field_list);
 		}
 
-		if (!empty($this->join_tables))
+		if (!empty($this->left_join_tables))
 		{
 			$table_columns = $this->columns($this->from_table);
 
 
 			$select = 'SELECT ' . $this->from_table . '.*, ';
 
-			foreach ($this->join_tables as $join_table)
+			foreach ($this->left_join_tables as $join_table)
 			{
 				$join_columns = $this->columns($join_table);
 
@@ -139,11 +174,21 @@ class query
 		return '';
 	}
 
-	public function sql_join()
+	public function sql_left_join()
 	{
-		if (!empty($this->join_list))
+		if (!empty($this->left_join_list))
 		{
-			return 'LEFT JOIN ' . implode(PHP_EOL, $this->join_list) . PHP_EOL;
+			return 'LEFT JOIN ' . implode(PHP_EOL, $this->left_join_list) . PHP_EOL;
+		}
+
+		return '';
+	}
+
+	public function sql_right_join()
+	{
+		if (!empty($this->right_join_list))
+		{
+			return 'RIGHT JOIN ' . implode(PHP_EOL, $this->right_join_list) . PHP_EOL;
 		}
 
 		return '';
@@ -157,6 +202,16 @@ class query
 		}
 
 		return 'WHERE ' . implode(' AND ', $this->where_list) . PHP_EOL;
+	}
+
+	public function sql_group_by()
+	{
+		if ($this->group_by)
+		{
+			return 'GROUP BY ' . $this->group_by . PHP_EOL;
+		}
+
+		return '';
 	}
 
 	public function start()

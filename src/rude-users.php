@@ -50,6 +50,14 @@ class users
 		return $q->get_id();
 	}
 
+	public static function delete($username)
+	{
+		$q = new dquery(RUDE_TABLE_USERS);
+		$q->where(RUDE_FIELD_USERNAME, $username);
+		$q->limit(1);
+		$q->start();
+	}
+
 	public static function is_exists($username, $password)
 	{
 		$user = users::get($username);

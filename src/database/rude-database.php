@@ -58,7 +58,7 @@ class database
 		$result = $this->query($sql);
 
 
-		$table_columns = [];
+		$table_columns = null;
 
 		while ($column = $result->fetch_row())
 		{

@@ -208,6 +208,21 @@ h2, h3
 	clear:       both;
 }
 
+#stylized input[type=checkbox]
+{
+	margin: 0px 0 0px 122px;
+	width: 25px;
+	clear: none;
+}
+
+#stylized .label-checkbox
+{
+	width: 200px;
+	text-align: left;
+	clear: right;
+	margin-top: -7px;
+}
+
 #stylized .small
 {
 	color:       #666666;
@@ -355,7 +370,7 @@ h3
 	width: 190px !important;
 }
 
-.user-management
+.middle
 {
 	display: table;
 	margin: 0 auto;
@@ -382,4 +397,11 @@ h3
 	padding-left: 6px;
 	line-height: 16px;
 	color: blue;
+}
+
+.clear
+{
+	clear: both;
+
+	padding-bottom: 20px;
 }

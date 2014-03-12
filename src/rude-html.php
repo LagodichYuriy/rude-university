@@ -28,6 +28,19 @@ class html
 		return $result;
 	}
 
+	public static function checkbox($selector, $label = false)
+	{
+		$result = '<input type="checkbox" id="' . $selector . '" name="' . $selector . '">';
+
+		if ($label !== false)
+		{
+			$result .= '<label for="' . $selector . '" class="label-checkbox">' . $label . '</label>';
+		}
+
+
+		return $result;
+	}
+
 	public static function select($id, $item_list, $label = false, $default = false)
 	{
 		$result = '';
