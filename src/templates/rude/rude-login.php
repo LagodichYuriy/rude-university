@@ -2,7 +2,7 @@
 <? require_once 'rude-header.php' ?>
 <body>
 <div id="container">
-	<div class="middle center">
+	<div class="center">
 		<div id="stylized" class="myform">
 			<form id="form" name="form" method="post" action="index.php">
 				<h1>Авторизация</h1>
@@ -54,8 +54,8 @@
 
 			function validate()
 			{
-				var username        = $('#username').val();
-				var password        = $('#password').val();
+				var username = $('#username').val();
+				var password = $('#password').val();
 
 
 				if (username && password)

@@ -101,23 +101,31 @@ define('RUDE_TASK_AJAX_ROLE_DELETE',      'ajax_role_delete');
 define('RUDE_TASK_AJAX_ROLE_SUMMARY',     'ajax_role_summary');
 
 
+/* ======================================================================= */
+/* Education management section [ADD/EDIT/DELETE] + same AJAX combinations */
+/* ======================================================================= */
+define('RUDE_TASK_EDUCATION_MANAGEMENT',  'education_management');
+
+
+
 /* =========================================================== */
 /* Language constants (defines & russian language equivalents) */
 /* =========================================================== */
-define('RUDE_TEXT_YES',             'да');
-define('RUDE_TEXT_NO',              'нет');
+define('RUDE_TEXT_YES',                  'да');
+define('RUDE_TEXT_NO',                   'нет');
 
-define('RUDE_TEXT_USER_MANAGEMENT', 'Пользователи');
-define('RUDE_TEXT_ROLE_MANAGEMENT', 'Роли');
-define('RUDE_TEXT_ADD',             'Добавить');
-define('RUDE_TEXT_ADD_NEW_USER',    'Добавить нового пользователя');
-define('RUDE_TEXT_ADD_NEW_ROLE',    'Добавить новую роль');
-define('RUDE_TEXT_USER_ROLE',       'Роль пользователя');
-define('RUDE_TEXT_LOGOUT',          'Выход');
-define('RUDE_TEXT_EDIT',            'редактировать');
-define('RUDE_TEXT_DELETE_SELECTED', 'Удалить выбранное');
+define('RUDE_TEXT_USER_MANAGEMENT',      'Пользователи');
+define('RUDE_TEXT_ROLE_MANAGEMENT',      'Роли');
+define('RUDE_TEXT_EDUCATION_MANAGEMENT', 'Учебная программа');
+define('RUDE_TEXT_ADD',                  'Добавить');
+define('RUDE_TEXT_ADD_NEW_USER',         'Добавить нового пользователя');
+define('RUDE_TEXT_ADD_NEW_ROLE',         'Добавить новую роль');
+define('RUDE_TEXT_USER_ROLE',            'Роль пользователя');
+define('RUDE_TEXT_LOGOUT',               'Выход');
+define('RUDE_TEXT_EDIT',                 'редактировать');
+define('RUDE_TEXT_DELETE_SELECTED',      'Удалить выбранное');
 
-define('RUDE_TEXT_UTF8_DOTS',       '••••••••');
+define('RUDE_TEXT_UTF8_DOTS',            '••••••••');
 
 
 /* ============================================================ */

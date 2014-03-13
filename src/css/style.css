@@ -210,16 +210,16 @@ h2, h3
 
 #stylized input[type=checkbox]
 {
-	margin: 0px 0 0px 122px;
-	width: 25px;
-	clear: none;
+	margin: 0 2px 0 122px;
+	width:  25px;
+	clear:  none;
 }
 
 #stylized .label-checkbox
 {
-	width: 200px;
+	width:      200px;
 	text-align: left;
-	clear: right;
+	clear:      right;
 	margin-top: -7px;
 }
 
@@ -256,8 +256,8 @@ h2, h3
 
 #stylized select
 {
-	text-indent: 0.01px; /* FireFox select arrow workaround */
-	text-overflow: ' ';  /* FireFox select arrow workaround */
+	text-indent:   0.01px; /* FireFox select arrow workaround */
+	text-overflow: ' '; /* FireFox select arrow workaround */
 }
 
 .table
@@ -313,18 +313,18 @@ h3
 
 .tool
 {
-	border: solid 2px #b7ddf2;
-	background: #ebf4fb;
-	padding: 7px;
+	border:        solid 2px #b7ddf2;
+	background:    #ebf4fb;
+	padding:       7px;
 	margin-bottom: 8px;
 }
 
 .tool-desc
 {
-	display: inline;
+	display:      inline;
 	padding-left: 6px;
-	line-height: 16px;
-	color: blue;
+	line-height:  16px;
+	color:        blue;
 }
 
 .undecorated
@@ -339,41 +339,53 @@ h3
 
 #error-box
 {
-	display: inline-block;
-	width: 200px;
+	display:      inline-block;
+	width:        200px;
 	padding-left: 150px;
-	margin-top: -22px;
-	word-wrap: break-word;
+	margin-top:   -22px;
+	word-wrap:    break-word;
 }
 
 .button-box
 {
-	padding-top: 20px;
+	padding-top:    20px;
 	padding-bottom: 10px;
 
-	position: relative;
+	position:       relative;
 }
 
 .button
 {
-	float: left !important;
+	float:  left !important;
 	margin: 0 !important;
-	clear: none !important;
-	width: 190px !important;
+	clear:  none !important;
+	width:  190px !important;
 }
 
 .button-last
 {
-	float: right !important;
+	float:  right !important;
 	margin: 0 !important;
-	clear: none !important;
-	width: 190px !important;
+	clear:  none !important;
+	width:  190px !important;
 }
 
 .middle
 {
-	display: table;
-	margin: 0 auto;
+	float: left;
+}
+
+.middle-item-first
+{
+	width: 300px;
+	clear: both;
+	float: left;
+}
+
+.middle-item
+{
+	float: left;
+	padding-left: 8px;
 }
 
 .float
@@ -391,17 +403,28 @@ h3
 	width: 100%;
 }
 
-.link
+.navigation-link
 {
-	display: inline;
+	display:      block;
 	padding-left: 6px;
-	line-height: 16px;
-	color: blue;
+	line-height:  16px;
+	color:        blue;
 }
 
 .clear
 {
-	clear: both;
+	clear:          both;
 
 	padding-bottom: 20px;
+}
+
+.checkbox-item
+{
+	float: left;
+}
+
+.sidebar-left
+{
+	float: left;
+	padding-top: 40px;
 }

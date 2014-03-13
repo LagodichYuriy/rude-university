@@ -368,8 +368,8 @@ class ajax_user
 					<td><?= $user->username ?></td>
 					<td><?= $user->role ?></td>
 					<td>
-						<a href="<?= url::ajax(RUDE_TASK_AJAX_USER_EDIT_FORM) . url::param(RUDE_FIELD_USERNAME, $user->username) ?>" class="fancybox"><img src="src/icons/edit.png" class="padding-small" title="<?= RUDE_TEXT_EDIT ?>" /></a>
-						<a href="<?= url::ajax(RUDE_TASK_AJAX_USER_DELETE_FORM) . url::param(RUDE_FIELD_USERNAME, $user->username) ?>" class="fancybox-small"><img src="src/icons/remove.png" class="padding-small" title="<?= RUDE_TEXT_DELETE_SELECTED ?>" /></a>
+						<a href="<?= url::ajax(RUDE_TASK_AJAX_USER_EDIT_FORM) . url::param(RUDE_FIELD_USERNAME, $user->username) ?>" class="fancybox-users"><img src="src/icons/edit.png" class="padding-small" title="<?= RUDE_TEXT_EDIT ?>" /></a>
+						<a href="<?= url::ajax(RUDE_TASK_AJAX_USER_DELETE_FORM) . url::param(RUDE_FIELD_USERNAME, $user->username) ?>" class="fancybox-users-small"><img src="src/icons/remove.png" class="padding-small" title="<?= RUDE_TEXT_DELETE_SELECTED ?>" /></a>
 					</td>
 				</tr>
 			<?
@@ -385,7 +385,7 @@ class ajax_user
 		<script>
 			$(document).ready(function ()
 			{
-				$(".fancybox").fancybox({
+				$(".fancybox-users").fancybox({
 					type: 'iframe',
 
 					width: 432 + 20,
@@ -394,28 +394,28 @@ class ajax_user
 					autoSize : false,
 					'beforeClose': function()
 					{
-						reload_info();
+						reload_info_users();
 					}
 				});
 			});
 
 			$(document).ready(function ()
 			{
-				$(".fancybox-small").fancybox({
+				$(".fancybox-users-small").fancybox({
 					type: 'iframe',
 
 					width: 432 + 20,
-					height: 168 + 20 + 10,
+					height: 172 + 20 + 10,
 					fitToView : false,
 					autoSize : false,
 					'beforeClose': function()
 					{
-						reload_info();
+						reload_info_users();
 					}
 				});
 			});
 
-			function reload_info()
+			function reload_info_users()
 			{
 				$.ajax({
 					type: 'POST',
@@ -427,7 +427,7 @@ class ajax_user
 
 					success: function(data)
 					{
-						rude_animation('#info', data);
+						rude_animation('#info-users', data);
 					}
 				});
 			}

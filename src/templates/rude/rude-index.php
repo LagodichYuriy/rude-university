@@ -20,9 +20,11 @@
 <html>
 <? require_once 'rude-header.php' ?>
 <body>
-<div id="navigation">
-	<? require_once 'rude-navigation-panel.php'; ?>
+
+<div class="sidebar-left">
+	<? require_once 'rude-sidebar-left.php'; ?>
 </div>
+
 <div id="container">
 	<?
 		switch ($task)
@@ -33,6 +35,10 @@
 
 			case RUDE_TASK_ROLE_MANAGEMENT:
 				require_once 'rude-role-management.php';
+				break;
+
+			case RUDE_TASK_EDUCATION_MANAGEMENT:
+				require_once 'rude-education-management.php';
 				break;
 
 			default:

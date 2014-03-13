@@ -43,8 +43,12 @@ class ajax_role
 
 				<?= html::input(RUDE_FIELD_ROLE, 'Роль'); ?>
 
-				<?= html::checkbox(RUDE_FIELD_ALLOW_USER_MANAGEMENT, 'Управление пользователями'); ?>
-				<?= html::checkbox(RUDE_FIELD_ALLOW_ROLE_MANAGEMENT, 'Управление ролями'); ?>
+				<div class="checkbox-item">
+					<?= html::checkbox(RUDE_FIELD_ALLOW_USER_MANAGEMENT, 'Управление пользователями'); ?>
+				</div>
+				<div class="checkbox-item">
+					<?= html::checkbox(RUDE_FIELD_ALLOW_ROLE_MANAGEMENT, 'Управление ролями'); ?>
+				</div>
 
 				<div class="clear"></div>
 
@@ -218,7 +222,7 @@ class ajax_role
 
 					<td>
 <!--						<a href="--><?//= url::ajax(RUDE_TASK_AJAX_ROLE_EDIT_FORM) . url::param(RUDE_FIELD_ROLE, $role->role) ?><!--" class="fancybox-smallest"><img src="src/icons/edit.png" class="padding-small" title="--><?//= RUDE_TEXT_EDIT ?><!--" /></a>-->
-						<a href="<?= url::ajax(RUDE_TASK_AJAX_ROLE_DELETE_FORM) . url::param(RUDE_FIELD_ROLE, $role->role) ?>" class="fancybox-small"><img src="src/icons/remove.png" class="padding-small" title="<?= RUDE_TEXT_DELETE_SELECTED ?>" /></a>
+						<a href="<?= url::ajax(RUDE_TASK_AJAX_ROLE_DELETE_FORM) . url::param(RUDE_FIELD_ROLE, $role->role) ?>" class="fancybox-roles-small"><img src="src/icons/remove.png" class="padding-small" title="<?= RUDE_TEXT_DELETE_SELECTED ?>" /></a>
 					</td>
 				</tr>
 			<?
@@ -234,7 +238,7 @@ class ajax_role
 		<script>
 			$(document).ready(function ()
 			{
-				$(".fancybox-smallest").fancybox({
+				$(".fancybox-roles-smallest").fancybox({
 					type: 'iframe',
 
 					width: 432 + 20,
@@ -243,28 +247,28 @@ class ajax_role
 					autoSize : false,
 					'beforeClose': function()
 					{
-						reload_info();
+						reload_info_roles();
 					}
 				});
 			});
 
 			$(document).ready(function ()
 			{
-				$(".fancybox-small").fancybox({
+				$(".fancybox-roles-small").fancybox({
 					type: 'iframe',
 
 					width: 432 + 20,
-					height: 168 + 20 + 10,
+					height: 172 + 20 + 10,
 					fitToView : false,
 					autoSize : false,
 					'beforeClose': function()
 					{
-						reload_info();
+						reload_info_roles();
 					}
 				});
 			});
 
-			function reload_info()
+			function reload_info_roles()
 			{
 				$.ajax({
 					type: 'POST',
@@ -276,7 +280,7 @@ class ajax_role
 
 					success: function(data)
 					{
-						rude_animation('#info', data);
+						rude_animation('#info-roles', data);
 					}
 				});
 			}
