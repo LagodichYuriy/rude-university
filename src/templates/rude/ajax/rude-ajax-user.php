@@ -4,9 +4,32 @@ namespace rude;
 
 class ajax_user
 {
-	public static function add()
+    public static function has_access()
+    {
+        $role_name = get(RUDE_FIELD_ROLE, $_SESSION);
+
+        if ($role_name === false)
+        {
+            return false;
+        }
+
+        $role = roles::get_by_name($role_name);
+
+        if ($role === null)
+        {
+            return false;
+        }
+        return $role->allow_user_management === '1';
+    }
+
+    public static function add()
 	{
-		$username = get(RUDE_FIELD_USERNAME);
+		if (!ajax_user::has_access())
+        {
+            die();
+        }
+
+        $username = get(RUDE_FIELD_USERNAME);
 		$password = get(RUDE_FIELD_PASSWORD);
 		$role     = get(RUDE_FIELD_ROLE);
 
@@ -28,7 +51,12 @@ class ajax_user
 
 	public static function edit()
 	{
-		$id       = get(RUDE_FIELD_ID);
+        if (!ajax_user::has_access())
+        {
+            die();
+        }
+
+        $id       = get(RUDE_FIELD_ID);
 		$username = get(RUDE_FIELD_USERNAME);
 		$password = get(RUDE_FIELD_PASSWORD);
 		$role     = get(RUDE_FIELD_ROLE);
@@ -55,7 +83,12 @@ class ajax_user
 
 	public static function delete()
 	{
-		$username = get(RUDE_FIELD_USERNAME);
+        if (!ajax_user::has_access())
+        {
+            die();
+        }
+
+        $username = get(RUDE_FIELD_USERNAME);
 
 		users::delete($username);
 	}
