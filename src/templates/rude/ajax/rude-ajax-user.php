@@ -4,32 +4,32 @@ namespace rude;
 
 class ajax_user
 {
-    public static function has_access()
-    {
-        $role_name = get(RUDE_FIELD_ROLE, $_SESSION);
+	public static function has_access()
+	{
+	    $role_name = get(RUDE_FIELD_ROLE, $_SESSION);
 
-        if ($role_name === false)
-        {
-            return false;
-        }
+		if ($role_name === false)
+		{
+			return false;
+		}
 
-        $role = roles::get_by_name($role_name);
+		$role = roles::get_by_name($role_name);
 
-        if ($role === null)
-        {
-            return false;
-        }
-        return $role->allow_user_management === '1';
-    }
+		if ($role === null)
+		{
+			return false;
+		}
+		return $role->allow_user_management === '1';
+	}
 
     public static function add()
 	{
 		if (!ajax_user::has_access())
-        {
-            die();
-        }
+		{
+			die();
+		}
 
-        $username = get(RUDE_FIELD_USERNAME);
+		$username = get(RUDE_FIELD_USERNAME);
 		$password = get(RUDE_FIELD_PASSWORD);
 		$role     = get(RUDE_FIELD_ROLE);
 
@@ -51,12 +51,12 @@ class ajax_user
 
 	public static function edit()
 	{
-        if (!ajax_user::has_access())
-        {
-            die();
-        }
+		if (!ajax_user::has_access())
+		{
+			die();
+		}
 
-        $id       = get(RUDE_FIELD_ID);
+		$id       = get(RUDE_FIELD_ID);
 		$username = get(RUDE_FIELD_USERNAME);
 		$password = get(RUDE_FIELD_PASSWORD);
 		$role     = get(RUDE_FIELD_ROLE);
@@ -83,12 +83,12 @@ class ajax_user
 
 	public static function delete()
 	{
-        if (!ajax_user::has_access())
-        {
-            die();
-        }
+		if (!ajax_user::has_access())
+		{
+			die();
+		}
 
-        $username = get(RUDE_FIELD_USERNAME);
+		$username = get(RUDE_FIELD_USERNAME);
 
 		users::delete($username);
 	}

@@ -4,11 +4,11 @@
 <? require_once 'ajax/rude-ajax-role.php'; ?>
 
 <?
-    if (!ajax_user::has_access())
-    {
-        headers::redirect(RUDE_FILE_INDEX);
-        die();
-    }
+	if (!ajax_user::has_access())
+	{
+		headers::redirect(RUDE_FILE_INDEX);
+		die();
+	}
 
 ?>
 

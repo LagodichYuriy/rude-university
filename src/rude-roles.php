@@ -12,14 +12,14 @@ class roles
 		return $q->get_object_list();
 	}
 
-    public static function get_by_name($role_name)
-    {
-        $q = new query(RUDE_TABLE_ROLES);
-        $q->where(RUDE_FIELD_ROLE, $role_name);
-        $q->start();
+	public static function get_by_name($role_name)
+	{
+		$q = new query(RUDE_TABLE_ROLES);
+		$q->where(RUDE_FIELD_ROLE, $role_name);
+		$q->start();
 
-        return $q->get_object();
-    }
+		return $q->get_object();
+	}
 
 	public static function get_id($role_name)
 	{
