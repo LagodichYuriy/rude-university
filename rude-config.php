@@ -114,6 +114,7 @@ define('RUDE_TASK_EDUCATION_MANAGEMENT',  'education_management');
 define('RUDE_TEXT_YES',                  'да');
 define('RUDE_TEXT_NO',                   'нет');
 
+define('RUDE_TEXT_INDEX_PAGE',           'Главная');
 define('RUDE_TEXT_USER_MANAGEMENT',      'Пользователи');
 define('RUDE_TEXT_ROLE_MANAGEMENT',      'Роли');
 define('RUDE_TEXT_EDUCATION_MANAGEMENT', 'Учебная программа');

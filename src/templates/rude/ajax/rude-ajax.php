@@ -5,6 +5,7 @@ namespace rude;
 require_once 'rude-ajax-role.php';
 require_once 'rude-ajax-user.php';
 
+
 $target = get(RUDE_TARGET);
 
 switch ($target)
@@ -50,7 +51,7 @@ switch ($target)
 		break;
 
 	case RUDE_TASK_AJAX_ROLE_EDIT:
-		ajax_role::edit();
+//		ajax_role::edit(); // TODO: implement it
 		break;
 
 	case RUDE_TASK_AJAX_ROLE_DELETE:
@@ -62,7 +63,7 @@ switch ($target)
 		break;
 
 	case RUDE_TASK_AJAX_ROLE_EDIT_FORM:
-		ajax_role::html_form_edit();
+//		ajax_role::html_form_edit(); // TODO: implement it
 		break;
 
 	case RUDE_TASK_AJAX_ROLE_DELETE_FORM:
