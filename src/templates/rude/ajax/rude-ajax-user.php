@@ -52,7 +52,6 @@ class ajax_user
 		$q->start();
 	}
 
-
 	public static function delete()
 	{
 		$username = get(RUDE_FIELD_USERNAME);
@@ -353,7 +352,7 @@ class ajax_user
 			<tr>
 				<th>#</th>
 				<th>Пользователь</th>
-				<th>Привелегии</th>
+				<th>Привилегии</th>
 				<th>Действия</th>
 			</tr>
 
