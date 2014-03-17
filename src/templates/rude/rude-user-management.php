@@ -3,9 +3,25 @@
 <? require_once 'ajax/rude-ajax-user.php'; ?>
 <? require_once 'ajax/rude-ajax-role.php'; ?>
 
+<?
+$permissions = users::permissions();
+
+$access_to_users = $permissions[RUDE_FIELD_ALLOW_USER_MANAGEMENT];
+$access_to_roles = $permissions[RUDE_FIELD_ALLOW_ROLE_MANAGEMENT];
+
+
+if (!$access_to_users && !$access_to_roles)
+{
+	headers::redirect(RUDE_FILE_INDEX);
+	die();
+}
+?>
+
 <div class="box">
 	<h2>Управление пользователями</h2>
 </div>
+
+<? if ($access_to_users) : ?>
 
 <div class="middle">
 	<div class="middle-item">
@@ -21,6 +37,9 @@
 		<? ajax_user::js(); ?>
 	</div>
 
+<? endif; ?>
+
+<? if ($access_to_roles) : ?>
 
 	<div class="middle-item">
 		<div class="tool">
@@ -33,4 +52,5 @@
 		</div>
 	</div>
 
+<? endif; ?>
 </div>

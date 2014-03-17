@@ -78,4 +78,22 @@ class users
 
 		return false;
 	}
+
+	public static function permissions($field = false)
+	{
+		if ($field === false)
+		{
+			$username = get(RUDE_FIELD_USERNAME, $_SESSION);
+			$user = users::get($username);
+		}
+		else
+		{
+			$user = users::get($field);
+		}
+
+		$permissions[RUDE_FIELD_ALLOW_USER_MANAGEMENT] = $user->allow_user_management === '1';
+		$permissions[RUDE_FIELD_ALLOW_ROLE_MANAGEMENT] = $user->allow_role_management === "1";
+
+		return $permissions;
+	}
 }
