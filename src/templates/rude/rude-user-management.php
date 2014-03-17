@@ -31,8 +31,6 @@
 		<div id="info-roles">
 			<? ajax_role::html(); ?>
 		</div>
-
-		<? ajax_role::js(); ?>
 	</div>
 
 </div>

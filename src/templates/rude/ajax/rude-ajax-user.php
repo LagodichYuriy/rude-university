@@ -383,54 +383,7 @@ class ajax_user
 	{
 		?>
 		<script>
-			$(document).ready(function ()
-			{
-				$(".fancybox-users").fancybox({
-					type: 'iframe',
 
-					width: 432 + 20,
-					height: 335 + 20 + 40,
-					fitToView : false,
-					autoSize : false,
-					'beforeClose': function()
-					{
-						reload_info_users();
-					}
-				});
-			});
-
-			$(document).ready(function ()
-			{
-				$(".fancybox-users-small").fancybox({
-					type: 'iframe',
-
-					width: 432 + 20,
-					height: 172 + 20 + 10,
-					fitToView : false,
-					autoSize : false,
-					'beforeClose': function()
-					{
-						reload_info_users();
-					}
-				});
-			});
-
-			function reload_info_users()
-			{
-				$.ajax({
-					type: 'POST',
-					url: 'index.php',
-					data: {
-						task:     '<?= RUDE_TASK_AJAX ?>',
-						target:   '<?= RUDE_TASK_AJAX_USER_SUMMARY ?>'
-					},
-
-					success: function(data)
-					{
-						rude_animation('#info-users', data);
-					}
-				});
-			}
 		</script>
 		<?
 	}

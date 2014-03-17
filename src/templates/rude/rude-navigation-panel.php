@@ -1,5 +1,6 @@
 <div class="toolbar">
 	<div class="box">
+		<a href="<?= RUDE_FILE_INDEX ?>" class="navigation-link"><?= RUDE_TEXT_INDEX_PAGE ?></a>
 		<a href="?task=<?= RUDE_TASK_USER_MANAGEMENT ?>" class="navigation-link"><?= RUDE_TEXT_USER_MANAGEMENT ?></a>
 		<a href="?task=<?= RUDE_TASK_EDUCATION_MANAGEMENT ?>" class="navigation-link"><?= RUDE_TEXT_EDUCATION_MANAGEMENT ?></a>
 
