@@ -6,6 +6,12 @@ class ajax_user
 {
 	public static function add()
 	{
+		$permissions = users::permissions();
+		if ($permissions[RUDE_FIELD_ALLOW_USER_MANAGEMENT])
+		{
+			return false;
+		}
+
 		$username = get(RUDE_FIELD_USERNAME);
 		$password = get(RUDE_FIELD_PASSWORD);
 		$role     = get(RUDE_FIELD_ROLE);
@@ -28,6 +34,12 @@ class ajax_user
 
 	public static function edit()
 	{
+		$permissions = users::permissions();
+		if ($permissions[RUDE_FIELD_ALLOW_USER_MANAGEMENT])
+		{
+			return false;
+		}
+
 		$id       = get(RUDE_FIELD_ID);
 		$username = get(RUDE_FIELD_USERNAME);
 		$password = get(RUDE_FIELD_PASSWORD);
@@ -52,9 +64,14 @@ class ajax_user
 		$q->start();
 	}
 
-
 	public static function delete()
 	{
+		$permissions = users::permissions();
+		if ($permissions[RUDE_FIELD_ALLOW_USER_MANAGEMENT])
+		{
+			return false;
+		}
+
 		$username = get(RUDE_FIELD_USERNAME);
 
 		users::delete($username);
@@ -353,7 +370,7 @@ class ajax_user
 			<tr>
 				<th>#</th>
 				<th>Пользователь</th>
-				<th>Привелегии</th>
+				<th>Привилегии</th>
 				<th>Действия</th>
 			</tr>
 

@@ -6,6 +6,11 @@ class ajax_role
 {
 	public static function add()
 	{
+		$permissions = users::permissions();
+		if ($permissions[RUDE_FIELD_ALLOW_ROLE_MANAGEMENT])
+		{
+			return false;
+		}
 		$role = get(RUDE_FIELD_ROLE);
 		$allow_user_management = get(RUDE_FIELD_ALLOW_USER_MANAGEMENT);
 		$allow_role_management = get(RUDE_FIELD_ALLOW_ROLE_MANAGEMENT);
@@ -23,6 +28,12 @@ class ajax_role
 
 	public static function delete()
 	{
+		$permissions = users::permissions();
+		if ($permissions[RUDE_FIELD_ALLOW_ROLE_MANAGEMENT])
+		{
+			return false;
+		}
+
 		$role_id = get(RUDE_FIELD_ROLE_ID);
 
 		roles::delete($role_id);
