@@ -4,8 +4,19 @@ namespace rude;
 
 class ajax_role
 {
+	public static function has_access()
+	{
+		$allow_role_management = get(RUDE_FIELD_ALLOW_ROLE_MANAGEMENT, $_SESSION);
+		return $allow_role_management === '1';
+	}
+
 	public static function add()
 	{
+		if (!ajax_role::has_access())
+		{
+			die();
+		}
+
 		$role = get(RUDE_FIELD_ROLE);
 		$allow_user_management = get(RUDE_FIELD_ALLOW_USER_MANAGEMENT);
 		$allow_role_management = get(RUDE_FIELD_ALLOW_ROLE_MANAGEMENT);
@@ -23,13 +34,30 @@ class ajax_role
 
 	public static function delete()
 	{
+		if (!ajax_role::has_access())
+		{
+			die();
+		}
+
 		$role_id = get(RUDE_FIELD_ROLE_ID);
+
+		$role = roles::get_by_id($role_id);
+
+		if ($role === null || $role->role === get(RUDE_FIELD_ROLE, $_SESSION))
+		{
+			die();
+		}
 
 		roles::delete($role_id);
 	}
 
 	public static function html_form_add()
 	{
+		if (!ajax_role::has_access())
+		{
+			die();
+		}
+
 		?>
 		<html>
 		<? require_once(RUDE_TEMPLATE_DIR . '/rude-header.php') ?>
@@ -122,6 +150,18 @@ class ajax_role
 
 	public static function html_form_delete()
 	{
+		if (!ajax_role::has_access())
+		{
+			die();
+		}
+
+		$role = get(RUDE_FIELD_ROLE);
+
+		if ($role === get(RUDE_FIELD_ROLE, $_SESSION))
+		{
+			die();
+		}
+
 		?>
 		<html>
 		<? require_once(RUDE_TEMPLATE_DIR . '/rude-header.php') ?>
@@ -133,8 +173,6 @@ class ajax_role
 				<p class="red">Внимание! Данная операция необратима!</p>
 
 				<?
-				$role = get(RUDE_FIELD_ROLE);
-
 				$role_id = roles::get_id($role);
 				?>
 
@@ -222,7 +260,9 @@ class ajax_role
 
 					<td>
 <!--						<a href="--><?//= url::ajax(RUDE_TASK_AJAX_ROLE_EDIT_FORM) . url::param(RUDE_FIELD_ROLE, $role->role) ?><!--" class="fancybox-smallest"><img src="src/icons/edit.png" class="padding-small" title="--><?//= RUDE_TEXT_EDIT ?><!--" /></a>-->
+					<? if ($role->role !== get(RUDE_FIELD_ROLE, $_SESSION)) : ?>
 						<a href="<?= url::ajax(RUDE_TASK_AJAX_ROLE_DELETE_FORM) . url::param(RUDE_FIELD_ROLE, $role->role) ?>" class="fancybox-roles-small"><img src="src/icons/remove.png" class="padding-small" title="<?= RUDE_TEXT_DELETE_SELECTED ?>" /></a>
+					<? endif; ?>
 					</td>
 				</tr>
 			<?

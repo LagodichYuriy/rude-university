@@ -3,11 +3,20 @@
 <? require_once 'ajax/rude-ajax-user.php'; ?>
 <? require_once 'ajax/rude-ajax-role.php'; ?>
 
+<?
+	if (!ajax_user::has_access() && !ajax_role::has_access())
+	{
+		headers::redirect(RUDE_FILE_INDEX);
+		die();
+	}
+?>
+
 <div class="box">
 	<h2>Управление пользователями</h2>
 </div>
 
 <div class="middle">
+<? if (ajax_user::has_access()) : ?>
 	<div class="middle-item">
 		<div class="tool">
 			<a href="<?= url::ajax(RUDE_TASK_AJAX_USER_ADD_FORM) ?>" class="fancybox-users float"><img src="src/icons/add.png"></a>
@@ -20,8 +29,9 @@
 
 		<? ajax_user::js(); ?>
 	</div>
+<? endif; ?>
 
-
+<? if (ajax_role::has_access()) : ?>
 	<div class="middle-item">
 		<div class="tool">
 			<a href="<?= url::ajax(RUDE_TASK_AJAX_ROLE_ADD_FORM) ?>" class="fancybox-roles-smallest float"><img src="src/icons/add.png"></a>
@@ -32,5 +42,6 @@
 			<? ajax_role::html(); ?>
 		</div>
 	</div>
+<? endif; ?>
 
 </div>

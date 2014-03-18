@@ -4,8 +4,19 @@ namespace rude;
 
 class ajax_user
 {
-	public static function add()
+	public static function has_access()
 	{
+		$allow_user_management = get(RUDE_FIELD_ALLOW_USER_MANAGEMENT, $_SESSION);
+		return $allow_user_management === '1';
+	}
+
+    public static function add()
+	{
+		if (!ajax_user::has_access())
+		{
+			die();
+		}
+
 		$username = get(RUDE_FIELD_USERNAME);
 		$password = get(RUDE_FIELD_PASSWORD);
 		$role     = get(RUDE_FIELD_ROLE);
@@ -28,6 +39,11 @@ class ajax_user
 
 	public static function edit()
 	{
+		if (!ajax_user::has_access())
+		{
+			die();
+		}
+
 		$id       = get(RUDE_FIELD_ID);
 		$username = get(RUDE_FIELD_USERNAME);
 		$password = get(RUDE_FIELD_PASSWORD);
@@ -55,7 +71,17 @@ class ajax_user
 
 	public static function delete()
 	{
+		if (!ajax_user::has_access())
+		{
+			die();
+		}
+
 		$username = get(RUDE_FIELD_USERNAME);
+
+		if ($username === get(RUDE_FIELD_USERNAME, $_SESSION))
+		{
+			die();
+		}
 
 		users::delete($username);
 	}
@@ -76,6 +102,11 @@ class ajax_user
 
 	public static function html_form_add()
 	{
+		if (!ajax_user::has_access())
+		{
+			die();
+		}
+
 		?>
 		<html>
 		<? require_once(RUDE_TEMPLATE_DIR . '/rude-header.php') ?>
@@ -183,6 +214,11 @@ class ajax_user
 
 	public static function html_form_edit()
 	{
+		if (!ajax_user::has_access())
+		{
+			die();
+		}
+
 		?>
 		<html>
 		<? require_once(RUDE_TEMPLATE_DIR . '/rude-header.php') ?>
@@ -298,6 +334,18 @@ class ajax_user
 
 	public static function html_form_delete()
 	{
+		if (!ajax_user::has_access())
+		{
+			die();
+		}
+
+		$username = get(RUDE_FIELD_USERNAME);
+
+		if ($username === get(RUDE_FIELD_USERNAME, $_SESSION))
+		{
+			die();
+		}
+
 		?>
 		<html>
 		<? require_once(RUDE_TEMPLATE_DIR . '/rude-header.php') ?>
@@ -307,10 +355,6 @@ class ajax_user
 			<form id="form" name="form" method="post" action="index.php?task=<?= RUDE_TASK_USER_DELETE ?>">
 				<h1>Удаление пользователя</h1>
 				<p class="red">Внимание! Данная операция необратима!</p>
-
-				<?
-				$username = get(RUDE_FIELD_USERNAME);
-				?>
 
 				Вы точно уверены, что хотите удалить пользователя <b>"<?= $username ?></b>"?
 
@@ -369,7 +413,9 @@ class ajax_user
 					<td><?= $user->role ?></td>
 					<td>
 						<a href="<?= url::ajax(RUDE_TASK_AJAX_USER_EDIT_FORM) . url::param(RUDE_FIELD_USERNAME, $user->username) ?>" class="fancybox-users"><img src="src/icons/edit.png" class="padding-small" title="<?= RUDE_TEXT_EDIT ?>" /></a>
+					<? if ($user->username !== get(RUDE_FIELD_USERNAME, $_SESSION)) : ?>
 						<a href="<?= url::ajax(RUDE_TASK_AJAX_USER_DELETE_FORM) . url::param(RUDE_FIELD_USERNAME, $user->username) ?>" class="fancybox-users-small"><img src="src/icons/remove.png" class="padding-small" title="<?= RUDE_TEXT_DELETE_SELECTED ?>" /></a>
+					<? endif; ?>
 					</td>
 				</tr>
 			<?
