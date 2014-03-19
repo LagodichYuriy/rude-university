@@ -4,8 +4,19 @@ namespace rude;
 
 class ajax_role
 {
+    public static function having_access()
+    {
+        $role_name = get(RUDE_FIELD_ROLE, $_SESSION);
+        $role = roles::get_role_by_name($role_name);
+        return $role->allow_role_management === '1';
+    }
+
 	public static function add()
 	{
+        if (!ajax_role::having_access())
+        {
+            die();
+        }
 		$role = get(RUDE_FIELD_ROLE);
 		$allow_user_management = get(RUDE_FIELD_ALLOW_USER_MANAGEMENT);
 		$allow_role_management = get(RUDE_FIELD_ALLOW_ROLE_MANAGEMENT);
@@ -23,13 +34,27 @@ class ajax_role
 
 	public static function delete()
 	{
-		$role_id = get(RUDE_FIELD_ROLE_ID);
+        if(!ajax_role::having_access())
+        {
+            die();
+        }
+        $role_id = get(RUDE_FIELD_ROLE_ID);
 
 		roles::delete($role_id);
 	}
 
 	public static function html_form_add()
 	{
+        if(!ajax_role::having_access())
+        {
+            die();
+        }
+        $role = get(RUDE_FIELD_ROLE);
+
+        if ($role === get(RUDE_FIELD_ROLE, $_SESSION))
+		{
+    		die();
+    	}
 		?>
 		<html>
 		<? require_once(RUDE_TEMPLATE_DIR . '/rude-header.php') ?>
@@ -122,6 +147,10 @@ class ajax_role
 
 	public static function html_form_delete()
 	{
+        if(!ajax_role::having_access())
+        {
+            die();
+        }
 		?>
 		<html>
 		<? require_once(RUDE_TEMPLATE_DIR . '/rude-header.php') ?>
@@ -141,8 +170,8 @@ class ajax_role
 				Вы точно уверены, что хотите удалить роль <b>"<?= $role ?>"</b>?
 
 				<div class="button-box">
-					<button class="button" type="submit" onclick="delete_role('<?= $role_id ?>'); parent.$.fancybox.close();">Да</button>
-					<button class="button-last" type="submit" onclick="parent.$.fancybox.close();">Нет</button>
+        			<button class="button" type="submit" onclick="delete_role('<?= $role_id ?>'); parent.$.fancybox.close();">Да</button>
+        			<button class="button-last" type="submit" onclick="parent.$.fancybox.close();">Нет</button>
 				</div>
 			</form>
 
@@ -174,7 +203,11 @@ class ajax_role
 
 	public static function html()
 	{
-		?>
+//		if(!ajax_role::having_access())
+//        {
+//            die();
+//        }
+        ?>
 		<table class="full-width">
 			<tr>
 				<th>#</th>
@@ -183,6 +216,9 @@ class ajax_role
 				<th>Управление пользователями</th>
 				<th>Управление ролями</th>
 				<th>Действия</th>
+                <?
+
+                ?>
 			</tr>
 
 			<?
@@ -221,8 +257,10 @@ class ajax_role
 					</td>
 
 					<td>
+                <? if (ajax_role::having_access()) : ?>
 <!--						<a href="--><?//= url::ajax(RUDE_TASK_AJAX_ROLE_EDIT_FORM) . url::param(RUDE_FIELD_ROLE, $role->role) ?><!--" class="fancybox-smallest"><img src="src/icons/edit.png" class="padding-small" title="--><?//= RUDE_TEXT_EDIT ?><!--" /></a>-->
 						<a href="<?= url::ajax(RUDE_TASK_AJAX_ROLE_DELETE_FORM) . url::param(RUDE_FIELD_ROLE, $role->role) ?>" class="fancybox-roles-small"><img src="src/icons/remove.png" class="padding-small" title="<?= RUDE_TEXT_DELETE_SELECTED ?>" /></a>
+                <? endif; ?>
 					</td>
 				</tr>
 			<?

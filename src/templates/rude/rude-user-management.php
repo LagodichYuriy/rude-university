@@ -1,7 +1,13 @@
 <? namespace rude; ?>
-
 <? require_once 'ajax/rude-ajax-user.php'; ?>
 <? require_once 'ajax/rude-ajax-role.php'; ?>
+
+<? if (!(ajax_user::having_access() or ajax_role::having_access()))
+{
+    headers::redirect(RUDE_FILE_INDEX);
+    die();
+}
+?>
 
 <div class="box">
 	<h2>Управление пользователями</h2>
@@ -9,11 +15,12 @@
 
 <div class="middle">
 	<div class="middle-item">
-		<div class="tool">
-			<a href="<?= url::ajax(RUDE_TASK_AJAX_USER_ADD_FORM) ?>" class="fancybox-users float"><img src="src/icons/add.png"></a>
-			<a href="<?= url::ajax(RUDE_TASK_AJAX_USER_ADD_FORM) ?>" class="fancybox-users undecorated"><div class="tool-desc"><?= RUDE_TEXT_ADD_NEW_USER ?></div></a>
-		</div>
-
+        <? if (ajax_user::having_access()) : ?>
+		    <div class="tool">
+    			<a href="<?= url::ajax(RUDE_TASK_AJAX_USER_ADD_FORM) ?>" class="fancybox-users float"><img src="src/icons/add.png"></a>
+    			<a href="<?= url::ajax(RUDE_TASK_AJAX_USER_ADD_FORM) ?>" class="fancybox-users undecorated"><div class="tool-desc"><?= RUDE_TEXT_ADD_NEW_USER ?></div></a>
+	    	</div>
+        <? endif; ?>
 		<div id="info-users">
 			<? ajax_user::html(); ?>
 		</div>
@@ -23,11 +30,12 @@
 
 
 	<div class="middle-item">
+        <? if (ajax_role::having_access()) : ?>
 		<div class="tool">
-			<a href="<?= url::ajax(RUDE_TASK_AJAX_ROLE_ADD_FORM) ?>" class="fancybox-roles-smallest float"><img src="src/icons/add.png"></a>
+            <a href="<?= url::ajax(RUDE_TASK_AJAX_ROLE_ADD_FORM) ?>" class="fancybox-roles-smallest float"><img src="src/icons/add.png"></a>
 			<a href="<?= url::ajax(RUDE_TASK_AJAX_ROLE_ADD_FORM) ?>" class="fancybox-roles-smallest undecorated"><div class="tool-desc"><?= RUDE_TEXT_ADD_NEW_ROLE ?></div></a>
 		</div>
-
+        <? endif; ?>
 		<div id="info-roles">
 			<? ajax_role::html(); ?>
 		</div>

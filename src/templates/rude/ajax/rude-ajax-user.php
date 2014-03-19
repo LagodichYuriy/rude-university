@@ -4,8 +4,20 @@ namespace rude;
 
 class ajax_user
 {
+
+    public static function having_access()
+    {
+        $role_name = get(RUDE_FIELD_ROLE, $_SESSION);
+        $role = roles::get_role_by_name($role_name);
+        return $role->allow_user_management === '1';
+    }
+
 	public static function add()
 	{
+        if(!ajax_user::having_access())
+        {
+            die();
+        }
 		$username = get(RUDE_FIELD_USERNAME);
 		$password = get(RUDE_FIELD_PASSWORD);
 		$role     = get(RUDE_FIELD_ROLE);
@@ -28,6 +40,10 @@ class ajax_user
 
 	public static function edit()
 	{
+        if(!ajax_user::having_access())
+        {
+            die();
+        }
 		$id       = get(RUDE_FIELD_ID);
 		$username = get(RUDE_FIELD_USERNAME);
 		$password = get(RUDE_FIELD_PASSWORD);
@@ -55,6 +71,10 @@ class ajax_user
 
 	public static function delete()
 	{
+        if(!ajax_user::having_access())
+        {
+            die();
+        }
 		$username = get(RUDE_FIELD_USERNAME);
 
 		users::delete($username);
@@ -76,6 +96,10 @@ class ajax_user
 
 	public static function html_form_add()
 	{
+        if(!ajax_user::having_access())
+        {
+            die();
+        }
 		?>
 		<html>
 		<? require_once(RUDE_TEMPLATE_DIR . '/rude-header.php') ?>
@@ -183,6 +207,10 @@ class ajax_user
 
 	public static function html_form_edit()
 	{
+        if(!ajax_user::having_access())
+        {
+            die();
+        }
 		?>
 		<html>
 		<? require_once(RUDE_TEMPLATE_DIR . '/rude-header.php') ?>
@@ -298,6 +326,10 @@ class ajax_user
 
 	public static function html_form_delete()
 	{
+        if(!ajax_user::having_access())
+        {
+            die();
+        }
 		?>
 		<html>
 		<? require_once(RUDE_TEMPLATE_DIR . '/rude-header.php') ?>
@@ -341,7 +373,6 @@ class ajax_user
 			</script>
 		</div>
 		</body>
-
 		</html>
 	<?
 	}
@@ -368,8 +399,13 @@ class ajax_user
 					<td><?= $user->username ?></td>
 					<td><?= $user->role ?></td>
 					<td>
+                        <? if (ajax_user::having_access()) : ?>
 						<a href="<?= url::ajax(RUDE_TASK_AJAX_USER_EDIT_FORM) . url::param(RUDE_FIELD_USERNAME, $user->username) ?>" class="fancybox-users"><img src="src/icons/edit.png" class="padding-small" title="<?= RUDE_TEXT_EDIT ?>" /></a>
-						<a href="<?= url::ajax(RUDE_TASK_AJAX_USER_DELETE_FORM) . url::param(RUDE_FIELD_USERNAME, $user->username) ?>" class="fancybox-users-small"><img src="src/icons/remove.png" class="padding-small" title="<?= RUDE_TEXT_DELETE_SELECTED ?>" /></a>
+                        <? endif; ?>
+                        <? if (ajax_user::having_access()) : ?>
+                            <a href="<?= url::ajax(RUDE_TASK_AJAX_USER_DELETE_FORM) . url::param(RUDE_FIELD_USERNAME, $user->username) ?>" class="fancybox-users-small"><img src="src/icons/remove.png" class="padding-small" title="<?= RUDE_TEXT_DELETE_SELECTED ?>" /></a>
+    					<? endif; ?>
+<!--                       <a href="--><?//= url::ajax(RUDE_TASK_AJAX_USER_DELETE_FORM) . url::param(RUDE_FIELD_USERNAME, $user->username) ?><!--" class="fancybox-users-small"><img src="src/icons/remove.png" class="padding-small" title="--><?//= RUDE_TEXT_DELETE_SELECTED ?><!--" /></a>-->
 					</td>
 				</tr>
 			<?
