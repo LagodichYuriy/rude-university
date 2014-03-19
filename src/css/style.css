@@ -329,7 +329,7 @@ h3
 
 .undecorated
 {
-	text-decoration: none;
+    text-decoration: none;
 }
 
 .hidden
@@ -427,4 +427,38 @@ h3
 {
 	float: left;
 	padding-top: 40px;
+}
+
+/* Time budget table */
+
+.no-border-bottom
+{
+    border-bottom-width: 0;
+}
+
+.no-border-top
+{
+    border-top-width: 0;
+}
+
+.underline
+{
+    text-decoration: underline;
+}
+
+.uppercase
+{
+    text-transform: uppercase;
+}
+
+.small-width {
+    min-width: 20px;
+}
+
+.small-height {
+    min-height: 20px;
+}
+
+.medium-width {
+    min-width: 40px;
 }
