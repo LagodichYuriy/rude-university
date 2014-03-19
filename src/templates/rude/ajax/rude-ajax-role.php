@@ -41,9 +41,9 @@ class ajax_role
 
 		$role_id = get(RUDE_FIELD_ROLE_ID);
 
-		$role = roles::get_by_id($role_id);
+		$user_role_id = roles::get_id(get(RUDE_FIELD_ROLE, $_SESSION));
 
-		if ($role === null || $role->role === get(RUDE_FIELD_ROLE, $_SESSION))
+		if ($role_id === $user_role_id)
 		{
 			die();
 		}
