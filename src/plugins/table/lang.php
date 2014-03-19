@@ -25,3 +25,30 @@ define('RUDE_PLUGIN_TABLE_TOTAL_SEMESTER',         'семестр');
 define('RUDE_PLUGIN_TABLE_TOTAL_WEEKS',            'недель');
 
 define('RUDE_PLUGIN_TABLE_OF_THEM',                'Из них');
+
+/* Time budget table */
+
+define('RUDE_TABLE_TIME_BUDGET_COURSES', 			   		'курсы');
+
+define('RUDE_TABLE_TIME_BUDGET_SEPTEMBER',			   		'сентябрь');
+define('RUDE_TABLE_TIME_BUDGET_OCTOBER',			   		'октябрь');
+define('RUDE_TABLE_TIME_BUDGET_NOVEMBER',			   		'ноябрь');
+define('RUDE_TABLE_TIME_BUDGET_DECEMBER',			   		'декабрь');
+define('RUDE_TABLE_TIME_BUDGET_JANUARY',			   		'январь');
+define('RUDE_TABLE_TIME_BUDGET_FEBRUARY',			   		'февраль');
+define('RUDE_TABLE_TIME_BUDGET_MARCH',				   		'март');
+define('RUDE_TABLE_TIME_BUDGET_APRIL',				   		'апрель');
+define('RUDE_TABLE_TIME_BUDGET_MAY',				   		'май');
+define('RUDE_TABLE_TIME_BUDGET_JUNE',				   		'июнь');
+define('RUDE_TABLE_TIME_BUDGET_JULE',				   		'июль');
+define('RUDE_TABLE_TIME_BUDGET_AUGUST',				   		'август');
+
+define('RUDE_TABLE_TIME_BUDGET_THEORETICAL_EDUСATION',  	'Теоретическое обучение');
+define('RUDE_TABLE_TIME_BUDGET_EXAMINATION_SESSION',    	'Экзаменационная сессия');
+define('RUDE_TABLE_TIME_BUDGET_PRACTICE', 			   		'Практики');
+define('RUDE_TABLE_TIME_BUDGET_DIPLOMA_DESIGN',				'Дипломное проектирование');
+define('RUDE_TABLE_TIME_BUDGET_STATE_EXAMS',		   		'Гос. экз, защита дипл. проекта');
+define('RUDE_TABLE_TIME_BUDGET_HOLIDAYS',			   		'Каникулы');
+define('RUDE_TABLE_TIME_BUDGET_ALL',				   		'Всего');
+
+
