@@ -43,8 +43,6 @@ class session
 			return false;
 		}
 
-        $_SESSION[RUDE_FIELD_ALLOW_ROLE_MANAGEMENT] = $user->allow_role_managment;
-        $_SESSION[RUDE_FIELD_ALLOW_USER_MANAGEMENT] = $user->allow_user_managment;
 		$_SESSION[RUDE_FIELD_USERNAME]              = $user->username;
 		$_SESSION[RUDE_FIELD_PASSWORD]              = $user->hash;
 		$_SESSION[RUDE_FIELD_ROLE]                  = $user->role;
@@ -52,9 +50,7 @@ class session
 
 		if (empty($_SESSION[RUDE_FIELD_USERNAME]) or
 			empty($_SESSION[RUDE_FIELD_PASSWORD]) or
-			empty($_SESSION[RUDE_FIELD_ROLE])  or
-            empty($_SESSION[RUDE_FIELD_ALLOW_USER_MANAGEMENT]) or
-            empty($_SESSION[RUDE_FIELD_ALLOW_ROLE_MANAGEMENT]))
+			empty($_SESSION[RUDE_FIELD_ROLE]))
 		{
 			return false;
 		}
