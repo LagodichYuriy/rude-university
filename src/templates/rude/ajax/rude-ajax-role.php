@@ -203,10 +203,6 @@ class ajax_role
 
 	public static function html()
 	{
-//		if(!ajax_role::having_access())
-//        {
-//            die();
-//        }
         ?>
 		<table class="full-width">
 			<tr>
