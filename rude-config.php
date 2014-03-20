@@ -115,9 +115,9 @@ define('RUDE_TEXT_YES',                  'да');
 define('RUDE_TEXT_NO',                   'нет');
 
 define('RUDE_TEXT_INDEX_PAGE',           'Главная');
-define('RUDE_TEXT_USER_MANAGEMENT',      'Пользователи');
+define('RUDE_TEXT_USER_MANAGEMENT',      'Управление');
 define('RUDE_TEXT_ROLE_MANAGEMENT',      'Роли');
-define('RUDE_TEXT_EDUCATION_MANAGEMENT', 'Учебная программа');
+define('RUDE_TEXT_EDUCATION_MANAGEMENT', 'Календарь');
 define('RUDE_TEXT_ADD',                  'Добавить');
 define('RUDE_TEXT_ADD_NEW_USER',         'Добавить нового пользователя');
 define('RUDE_TEXT_ADD_NEW_ROLE',         'Добавить новую роль');

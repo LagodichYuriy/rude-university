@@ -2,10 +2,6 @@
 
 <?// require_once 'ajax/rude-ajax-education.php'; ?>
 
-<div class="box">
-	<h2>Главная страница</h2>
-</div>
-
 <div class="middle">
 <!--	<div class="tool">-->
 <!--		<a href="--><?//= url::ajax(RUDE_TASK_AJAX_ROLE_ADD_FORM) ?><!--" class="fancybox-smallest float"><img src="src/icons/add.png"></a>-->

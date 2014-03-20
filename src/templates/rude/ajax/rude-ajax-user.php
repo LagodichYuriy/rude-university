@@ -393,14 +393,16 @@ class ajax_user
 	public static function html()
 	{
 		?>
-		<table class="full-width">
+		<table class="ui collapsing table segment">
+			<thead>
 			<tr>
 				<th>#</th>
 				<th>Пользователь</th>
 				<th>Привелегии</th>
 				<th>Действия</th>
 			</tr>
-
+			</thead>
+			<tbody>
 			<?
 			$user_list = users::get();
 
@@ -413,24 +415,16 @@ class ajax_user
 					<td><?= $user->role ?></td>
 					<td>
 						<a href="<?= url::ajax(RUDE_TASK_AJAX_USER_EDIT_FORM) . url::param(RUDE_FIELD_USERNAME, $user->username) ?>" class="fancybox-users"><img src="src/icons/edit.png" class="padding-small" title="<?= RUDE_TEXT_EDIT ?>" /></a>
-					<? if ($user->username !== get(RUDE_FIELD_USERNAME, $_SESSION)) : ?>
-						<a href="<?= url::ajax(RUDE_TASK_AJAX_USER_DELETE_FORM) . url::param(RUDE_FIELD_USERNAME, $user->username) ?>" class="fancybox-users-small"><img src="src/icons/remove.png" class="padding-small" title="<?= RUDE_TEXT_DELETE_SELECTED ?>" /></a>
-					<? endif; ?>
+						<? if ($user->username !== get(RUDE_FIELD_USERNAME, $_SESSION)) : ?>
+							<a href="<?= url::ajax(RUDE_TASK_AJAX_USER_DELETE_FORM) . url::param(RUDE_FIELD_USERNAME, $user->username) ?>" class="fancybox-users-small"><img src="src/icons/remove.png" class="padding-small" title="<?= RUDE_TEXT_DELETE_SELECTED ?>" /></a>
+						<? endif; ?>
 					</td>
 				</tr>
 			<?
 			}
 			?>
+			</tbody>
 		</table>
-		<?
-	}
-
-	public static function js()
-	{
-		?>
-		<script>
-
-		</script>
 		<?
 	}
 }

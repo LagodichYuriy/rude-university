@@ -33,10 +33,6 @@
 				require_once 'rude-user-management.php';
 				break;
 
-			case RUDE_TASK_ROLE_MANAGEMENT:
-				require_once 'rude-role-management.php';
-				break;
-
 			case RUDE_TASK_EDUCATION_MANAGEMENT:
 				require_once 'rude-education-management.php';
 				break;

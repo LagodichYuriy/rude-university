@@ -12,6 +12,24 @@
 	<!-- FancyBox JS -->
 	<script type="text/javascript" src="src/js/fancybox/jquery.fancybox.pack.js"></script>
 
+
+	<!-- semantic CSS -->
+	<link rel="stylesheet" href="src/js/semantic/css/semantic.min.css" type="text/css" />
+	<!-- semantic JS -->
+	<script type="text/javascript" src="src/js/semantic/javascript/semantic.min.js"></script>
+
+	<!-- semantic module sidebar CSS -->
+	<link rel="stylesheet" href="src/js/semantic/modules/sidebar.min.css" type="text/css" />
+	<!-- semantic module sidebar JS -->
+	<script type="text/javascript" src="src/js/semantic/modules/sidebar.min.js"></script>
+
+	<!-- semantic module popup CSS -->
+	<link rel="stylesheet" href="src/js/semantic/modules/popup.min.css" type="text/css" />
+	<!-- semantic module popup JS -->
+	<script type="text/javascript" src="src/js/semantic/modules/popup.min.js"></script>
+
+
+
 	<!-- rude JS -->
 	<script type="text/javascript" src="src/js/rude.js"></script>
 </head>

@@ -213,15 +213,15 @@ class ajax_role
 	public static function html()
 	{
 		?>
-		<table class="full-width">
-			<tr>
+		<table class="ui collapsing table segment">
+			<thead>
 				<th>#</th>
 				<th>Название</th>
 				<th>Пользователей</th>
 				<th>Управление пользователями</th>
 				<th>Управление ролями</th>
 				<th>Действия</th>
-			</tr>
+			</thead>
 
 			<?
 			$role_list = roles::count();
@@ -259,7 +259,6 @@ class ajax_role
 					</td>
 
 					<td>
-<!--						<a href="--><?//= url::ajax(RUDE_TASK_AJAX_ROLE_EDIT_FORM) . url::param(RUDE_FIELD_ROLE, $role->role) ?><!--" class="fancybox-smallest"><img src="src/icons/edit.png" class="padding-small" title="--><?//= RUDE_TEXT_EDIT ?><!--" /></a>-->
 					<? if ($role->role !== get(RUDE_FIELD_ROLE, $_SESSION)) : ?>
 						<a href="<?= url::ajax(RUDE_TASK_AJAX_ROLE_DELETE_FORM) . url::param(RUDE_FIELD_ROLE, $role->role) ?>" class="fancybox-roles-small"><img src="src/icons/remove.png" class="padding-small" title="<?= RUDE_TEXT_DELETE_SELECTED ?>" /></a>
 					<? endif; ?>

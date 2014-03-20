@@ -11,11 +11,10 @@
 	}
 ?>
 
-<div class="box">
-	<h2>Управление пользователями</h2>
-</div>
+
 
 <div class="middle">
+
 <? if (ajax_user::has_access()) : ?>
 	<div class="middle-item">
 		<div class="tool">
@@ -26,8 +25,6 @@
 		<div id="info-users">
 			<? ajax_user::html(); ?>
 		</div>
-
-		<? ajax_user::js(); ?>
 	</div>
 <? endif; ?>
 

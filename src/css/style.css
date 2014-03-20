@@ -5,42 +5,42 @@ body
 	color:       #484848;
 }
 
-table, td, th
-{
-	border:      1px solid #bbb;
-	padding:     4px;
-	text-align:  center;
+/*table, td, th*/
+/*{*/
+	/*border:      1px solid #bbb;*/
+	/*padding:     4px;*/
+	/*text-align:  center;*/
 
-	font-family: Verdana, sans-serif;
-	font-size:   11px;
-}
+	/*font-family: Verdana, sans-serif;*/
+	/*font-size:   11px;*/
+/*}*/
 
-table
-{
-	border-collapse: collapse;
-	margin-bottom:   5px;
+/*table*/
+/*{*/
+	/*border-collapse: collapse;*/
+	/*margin-bottom:   5px;*/
 
-	display:         table;
-	border-spacing:  2px;
-	border-color:    gray;
+	/*display:         table;*/
+	/*border-spacing:  2px;*/
+	/*border-color:    gray;*/
 
-	float:           left;
-	margin-right:    5px;
-}
+	/*float:           left;*/
+	/*margin-right:    5px;*/
+/*}*/
 
-tr
-{
-	display:        table-row;
-	vertical-align: inherit;
-	border-color:   inherit;
-}
+/*tr*/
+/*{*/
+	/*display:        table-row;*/
+	/*vertical-align: inherit;*/
+	/*border-color:   inherit;*/
+/*}*/
 
-tbody
-{
-	display:        table-row-group;
-	vertical-align: middle;
-	border-color:   inherit;
-}
+/*tbody*/
+/*{*/
+	/*display:        table-row-group;*/
+	/*vertical-align: middle;*/
+	/*border-color:   inherit;*/
+/*}*/
 
 textarea
 {
@@ -273,8 +273,8 @@ h2, h3
 
 .center
 {
-	width:    432px;
-	height:   241px;
+	/*width:    432px;*/
+	/*height:   241px;*/
 	position: absolute;
 	left:     50%;
 	top:      50%;
@@ -311,12 +311,24 @@ h3
 	font-size: 12px;
 }
 
+.heavy
+{
+	width: 429px;
+}
+
 .tool
 {
-	border:        solid 2px #b7ddf2;
-	background:    #ebf4fb;
-	padding:       7px;
-	margin-bottom: 8px;
+	position: relative;
+	background-color: #FFF;
+	-webkit-box-shadow: 0 0 0 1px rgba(0,0,0,.1);
+	box-shadow: 0 0 0 1px rgba(0,0,0,.1);
+	margin: 1em 0;
+	padding: 1em;
+	border-radius: 5px;
+	-webkit-box-sizing: border-box;
+	-moz-box-sizing: border-box;
+	-ms-box-sizing: border-box;
+	box-sizing: border-box;
 }
 
 .tool-desc
@@ -461,4 +473,16 @@ h3
 
 .medium-width {
     min-width: 40px;
+}
+
+#container
+{
+	position: absolute;
+	left: 276px;
+	top: 0;
+}
+
+.menu
+{
+	padding-bottom: 20px;
 }
