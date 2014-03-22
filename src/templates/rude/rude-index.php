@@ -29,12 +29,20 @@
 	<?
 		switch ($task)
 		{
-			case RUDE_TASK_USER_MANAGEMENT:
-				require_once 'rude-user-management.php';
+			case RUDE_TASK_MANAGEMENT_USERS:
+				require_once 'rude-management-users.php';
 				break;
 
-			case RUDE_TASK_EDUCATION_MANAGEMENT:
-				require_once 'rude-education-management.php';
+			case RUDE_TASK_MANAGEMENT_EDUCATION:
+				require_once 'rude-management-education.php';
+				break;
+
+			case RUDE_TASK_MANAGEMENT_REPORTS:
+				require_once 'rude-management-reports.php';
+				break;
+
+			case RUDE_TASK_MANAGEMENT_FACULTIES:
+				require_once 'rude-management-faculties.php';
 				break;
 
 			default:

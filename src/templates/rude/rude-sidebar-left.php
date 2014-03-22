@@ -14,13 +14,14 @@
 			<? if (ajax_user::has_access() or ajax_role::has_access()) : ?>
 			<b>Пользователи</b>
 			<div class="menu">
-					<a class="item" href="?task=<?= RUDE_TASK_USER_MANAGEMENT ?>"><?= RUDE_TEXT_USER_MANAGEMENT ?></a>
+					<a class="item" href="?task=<?= RUDE_TASK_MANAGEMENT_USERS ?>"><?= RUDE_TEXT_MANAGEMENT_USERS ?></a>
 			</div>
 			<? endif; ?>
 
 			<b>Учебная программа</b>
 			<div class="menu">
-				<a class="item" href="?task=<?= RUDE_TASK_EDUCATION_MANAGEMENT ?>"><?= RUDE_TEXT_EDUCATION_MANAGEMENT ?></a>
+				<a class="item" href="?task=<?= RUDE_TASK_MANAGEMENT_FACULTIES ?>"><?= RUDE_TEXT_MANAGEMENT_FACULTIES ?></a>
+				<a class="item" href="?task=<?= RUDE_TASK_MANAGEMENT_EDUCATION ?>"><?= RUDE_TEXT_MANAGEMENT_EDUCATION ?></a>
 			</div>
 
 			<div class="menu">

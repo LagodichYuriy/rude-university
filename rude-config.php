@@ -20,9 +20,9 @@ define('RUDE_ERR_SHOW_MESSAGES', true);
 /* ======================================================================== */
 /* Database table names which are frequently used in query() set of classes */
 /* ======================================================================== */
-define('RUDE_TABLE_USERS', RUDE_DATABASE_PREFIX . 'users');
-define('RUDE_TABLE_ROLES', RUDE_DATABASE_PREFIX . 'roles');
-
+define('RUDE_TABLE_USERS',     RUDE_DATABASE_PREFIX . 'users');
+define('RUDE_TABLE_ROLES',     RUDE_DATABASE_PREFIX . 'roles');
+define('RUDE_TABLE_FACULTIES', RUDE_DATABASE_PREFIX . 'faculties');
 
 
 /* ========================= */
@@ -68,7 +68,8 @@ define('RUDE_TASK_LOGOUT',                'logout');
 /* ================================================================== */
 /* User management section [ADD/EDIT/DELETE] + same AJAX combinations */
 /* ================================================================== */
-define('RUDE_TASK_USER_MANAGEMENT',       'user_management');
+define('RUDE_TASK_MANAGEMENT_USERS',      'user_management');
+
 define('RUDE_TASK_USER_ADD',              'user_add');
 define('RUDE_TASK_USER_EDIT',             'user_edit');
 define('RUDE_TASK_USER_DELETE',           'user_delete');
@@ -86,7 +87,8 @@ define('RUDE_TASK_AJAX_USER_SUMMARY',     'ajax_user_summary');
 /* ================================================================== */
 /* Role management section [ADD/EDIT/DELETE] + same AJAX combinations */
 /* ================================================================== */
-define('RUDE_TASK_ROLE_MANAGEMENT',       'role_management');
+define('RUDE_TASK_MANAGEMENT_ROLES',      'role_management');
+
 define('RUDE_TASK_ROLE_ADD',              'role_add');
 define('RUDE_TASK_ROLE_EDIT',             'role_edit');
 define('RUDE_TASK_ROLE_DELETE',           'role_delete');
@@ -104,8 +106,19 @@ define('RUDE_TASK_AJAX_ROLE_SUMMARY',     'ajax_role_summary');
 /* ======================================================================= */
 /* Education management section [ADD/EDIT/DELETE] + same AJAX combinations */
 /* ======================================================================= */
-define('RUDE_TASK_EDUCATION_MANAGEMENT',  'education_management');
+define('RUDE_TASK_MANAGEMENT_EDUCATION',  'education_management');
 
+
+/* ==================================================================== */
+/* Report management section [ADD/EDIT/DELETE] + same AJAX combinations */
+/* ==================================================================== */
+define('RUDE_TASK_MANAGEMENT_REPORTS',    'report_management');
+
+
+/* ===================================================================== */
+/* Faculty management section [ADD/EDIT/DELETE] + same AJAX combinations */
+/* ===================================================================== */
+define('RUDE_TASK_MANAGEMENT_FACULTIES',  'faculty_management');
 
 
 /* =========================================================== */
@@ -115,9 +128,10 @@ define('RUDE_TEXT_YES',                  'да');
 define('RUDE_TEXT_NO',                   'нет');
 
 define('RUDE_TEXT_INDEX_PAGE',           'Главная');
-define('RUDE_TEXT_USER_MANAGEMENT',      'Управление');
-define('RUDE_TEXT_ROLE_MANAGEMENT',      'Роли');
-define('RUDE_TEXT_EDUCATION_MANAGEMENT', 'Календарь');
+define('RUDE_TEXT_MANAGEMENT_USERS',     'Управление');
+define('RUDE_TEXT_MANAGEMENT_ROLES',     'Роли');
+define('RUDE_TEXT_MANAGEMENT_EDUCATION', 'Календарь');
+define('RUDE_TEXT_MANAGEMENT_FACULTIES', 'Факультеты');
 define('RUDE_TEXT_ADD',                  'Добавить');
 define('RUDE_TEXT_ADD_NEW_USER',         'Добавить нового пользователя');
 define('RUDE_TEXT_ADD_NEW_ROLE',         'Добавить новую роль');
@@ -144,6 +158,8 @@ define('RUDE_FIELD_ID',                    'id');
 define('RUDE_FIELD_USERNAME',              'username');
 define('RUDE_FIELD_PASSWORD',              'password');
 define('RUDE_FIELD_PASSWORD_REPEAT',       'password_repeat');
+define('RUDE_FIELD_NAME',                  'name');
+define('RUDE_FIELD_SHORTNAME',             'shortname');
 define('RUDE_FIELD_HASH',                  'hash');
 define('RUDE_FIELD_SALT',                  'salt');
 define('RUDE_FIELD_ROLE',                  'role');

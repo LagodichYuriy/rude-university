@@ -7,6 +7,7 @@ class ajax_user
 	public static function has_access()
 	{
 		$allow_user_management = get(RUDE_FIELD_ALLOW_USER_MANAGEMENT, $_SESSION);
+
 		return $allow_user_management === '1';
 	}
 
