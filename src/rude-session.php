@@ -12,9 +12,9 @@ class session
 		session_start();
 
 
-		if (!empty($_SESSION[RUDE_FIELD_USERNAME]) &&
-			!empty($_SESSION[RUDE_FIELD_PASSWORD]) &&
-			!empty($_SESSION[RUDE_FIELD_ROLE]))
+		if (!empty($_SESSION[RUDE_FIELD_USERNAME]) and
+		    !empty($_SESSION[RUDE_FIELD_PASSWORD]) and
+		    !empty($_SESSION[RUDE_FIELD_ROLE]))
 		{
 			return true;
 		}
@@ -44,18 +44,18 @@ class session
 		}
 
 
-		$_SESSION[RUDE_FIELD_USERNAME] = $user->username;
-		$_SESSION[RUDE_FIELD_PASSWORD] = $user->hash;
-		$_SESSION[RUDE_FIELD_ROLE]     = $user->role;
+		$_SESSION[RUDE_FIELD_USERNAME]              = $user->username;
+		$_SESSION[RUDE_FIELD_PASSWORD]              = $user->hash;
+		$_SESSION[RUDE_FIELD_ROLE]                  = $user->role;
 		$_SESSION[RUDE_FIELD_ALLOW_USER_MANAGEMENT] = $user->allow_user_management;
 		$_SESSION[RUDE_FIELD_ALLOW_ROLE_MANAGEMENT] = $user->allow_role_management;
 
 
 		if (empty($_SESSION[RUDE_FIELD_USERNAME]) or
-			empty($_SESSION[RUDE_FIELD_PASSWORD]) or
-			empty($_SESSION[RUDE_FIELD_ROLE]) or
-			empty($_SESSION[RUDE_FIELD_ALLOW_USER_MANAGEMENT] or
-			empty($_SESSION[RUDE_FIELD_ALLOW_ROLE_MANAGEMENT])))
+		    empty($_SESSION[RUDE_FIELD_PASSWORD]) or
+		    empty($_SESSION[RUDE_FIELD_ROLE]) or
+		    empty($_SESSION[RUDE_FIELD_ALLOW_USER_MANAGEMENT]) or
+		    empty($_SESSION[RUDE_FIELD_ALLOW_ROLE_MANAGEMENT]))
 		{
 			return false;
 		}

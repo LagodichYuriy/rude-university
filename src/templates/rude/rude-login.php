@@ -2,22 +2,9 @@
 	namespace rude;
 
 
-	switch (RUDE_TASK)
+	if (get(RUDE_TASK) == RUDE_TASK_AJAX_USER_IS_EXISTS)
 	{
-		case RUDE_TASK_AJAX:
-			$username = get(RUDE_FIELD_USERNAME);
-			$password = get(RUDE_FIELD_PASSWORD);
-
-			if (users::is_exists($username, $password))
-			{
-				session::init();
-
-				die('1');
-			}
-
-			die('0');
-
-			break;
+		ajax::is_auth_valid();
 	}
 ?>
 <html>
@@ -47,65 +34,82 @@
 				</div>
 			</div>
 			<div class="ui error message">
-				<div class="header">We noticed some issues</div>
+				<div class="header"></div>
 			</div>
 			<div id="submit" class="ui blue submit button">Войти</div>
 		</form>
 	</div>
 
 	<script>
-		$('.ui.form').form({ username: {
-			identifier: 'username',
-				rules: [
-				{
+		$('.ui.form').form(
+		{
+			username:
+			{
+				identifier: 'username',
+
+				rules:
+				[{
 					type: 'empty',
 					prompt: 'Пожалуйста, введите имя пользователя'
-				}
-			]
-		},
-		password: {
-			identifier: 'password',
-				rules: [
-				{
+				}]
+			},
+
+			password:
+			{
+				identifier: 'password',
+
+				rules:
+				[{
 					type: 'empty',
 					prompt: 'Пожалуйста, укажите пароль'
-				}
-			]
-		}, onSuccess: submit});
+				}]
+			}
+		});
 
+		$(".form").submit(function (event) {
 
-		function submit()
-		{
+			event.preventDefault();
+
 			var username = $('#username').val();
 			var password = $('#password').val();
 
+			if (!username || !password)
+			{
+				return true; // allow default semantic-UI validation
+			}
 
 			$.ajax({
-				type: 'POST',
-				url: 'index.php',
-				data: {
-					task:     '<?= RUDE_TASK_AJAX ?>',
-					target:   '<?= RUDE_TASK_AJAX_USER_IS_EXISTS ?>',
+				type: "POST",
 
+				data:
+				{
 					username: username,
 					password: password
 				},
+
+				url: 'index.php?<?= RUDE_TASK ?>=<?= RUDE_TASK_AJAX_USER_IS_EXISTS ?>',
 
 				success: function(code)
 				{
 					switch (code)
 					{
-//						case '1':
-//							break;
-
-						default:
-							alert(code);
+						case '<?= RUDE_CODE_USER_IS_NOT_EXISTS ?>':
+							rude_semantic_error('Указанного пользователя не существует');
 							break;
 
+						case '<?= RUDE_CODE_FAILED_TO_INIT_SESSION ?>':
+							rude_semantic_error('Ошибка при попытке инициализации сессии');
+							break;
+
+						default:
+							window.location.replace("<?= RUDE_FILE_INDEX ?>"); // in any other case try to reload page
+							break;
 					}
 				}
 			});
-		}
+
+			return true;
+		});
 	</script>
 
 <? require_once 'rude-footer.php' ?>

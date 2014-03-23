@@ -171,3 +171,15 @@ define('RUDE_FIELD_ROLES',                 'roles');
 define('RUDE_FIELD_COUNT',                 'count');
 define('RUDE_FIELD_ALLOW_USER_MANAGEMENT', 'allow_user_management');
 define('RUDE_FIELD_ALLOW_ROLE_MANAGEMENT', 'allow_role_management');
+
+
+
+/* =============================================== */
+/* Code and statuses, primary used in AJAX answers */
+/* =============================================== */
+define('RUDE_CODE_FAILURE',                    '0');
+define('RUDE_CODE_SUCCESS',                    '1');
+
+define('RUDE_CODE_FAILED_TO_INIT_SESSION',     '2');
+define('RUDE_CODE_WRONG_USERNAME_OR_PASSWORD', '5');
+define('RUDE_CODE_USER_IS_NOT_EXISTS',         '6');

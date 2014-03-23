@@ -18,6 +18,7 @@ class users
 		if ($field === false)
 		{
 			$q->start();
+
 			return $q->get_object_list();
 		}
 
@@ -32,6 +33,7 @@ class users
 		}
 
 		$q->start();
+
 
 		return $q->get_object();
 	}
@@ -70,8 +72,7 @@ class users
 
 		list($hash, $salt) = crypt::struct_password($password, $user->salt);
 
-		if ($hash == $user->hash &&
-			$salt == $user->salt)
+		if ($hash == $user->hash and $salt == $user->salt)
 		{
 			return true;
 		}
