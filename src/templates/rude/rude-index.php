@@ -46,7 +46,7 @@
 				break;
 
 			default:
-				require_once 'rude-default.php';
+				require_once 'rude-index-default.php';
 				break;
 		}
 	?>

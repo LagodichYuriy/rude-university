@@ -127,7 +127,7 @@ define('RUDE_TASK_MANAGEMENT_FACULTIES',  'faculty_management');
 define('RUDE_TEXT_YES',                  'да');
 define('RUDE_TEXT_NO',                   'нет');
 
-define('RUDE_TEXT_INDEX_PAGE',           'Главная');
+define('RUDE_TEXT_INDEX_PAGE',           'Ознакомление');
 define('RUDE_TEXT_MANAGEMENT_USERS',     'Управление');
 define('RUDE_TEXT_MANAGEMENT_ROLES',     'Роли');
 define('RUDE_TEXT_MANAGEMENT_EDUCATION', 'Календарь');
@@ -139,6 +139,9 @@ define('RUDE_TEXT_USER_ROLE',            'Роль пользователя');
 define('RUDE_TEXT_LOGOUT',               'Выход');
 define('RUDE_TEXT_EDIT',                 'редактировать');
 define('RUDE_TEXT_DELETE_SELECTED',      'Удалить выбранное');
+define('RUDE_TEXT_USERS',                'Пользователи');
+define('RUDE_TEXT_NAVIGATION_PANEL',     'Панель навигации');
+define('RUDE_EDUCATIONAL_PROGRAM',       'Учебная программа');
 
 define('RUDE_TEXT_UTF8_DOTS',            '••••••••');
 

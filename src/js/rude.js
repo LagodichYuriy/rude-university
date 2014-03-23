@@ -4,9 +4,9 @@
 
 function rude_animation(selector, data)
 {
-	$(selector).fadeOut('slow', function() {
+	$(selector).slideToggle('slow', function() {
 		$(selector).html(data)
-	}).fadeIn('slow');
+	}).slideToggle('slow');
 }
 
 

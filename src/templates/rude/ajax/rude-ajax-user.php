@@ -394,9 +394,9 @@ class ajax_user
 	public static function html()
 	{
 		?>
-		<table class="ui collapsing table segment">
+		<table class="ui loading form collapsing table segment full-width">
 			<thead>
-			<tr>
+			<tr class="small-font">
 				<th>#</th>
 				<th>Пользователь</th>
 				<th>Привелегии</th>

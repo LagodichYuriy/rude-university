@@ -213,8 +213,8 @@ class ajax_role
 	public static function html()
 	{
 		?>
-		<table class="ui collapsing table segment">
-			<thead>
+		<table class="ui collapsing table segment full-width">
+			<thead class="small-font">
 				<th>#</th>
 				<th>Название</th>
 				<th>Пользователей</th>
