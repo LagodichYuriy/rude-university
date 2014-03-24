@@ -4,488 +4,428 @@ namespace rude;
 
 class ajax_user
 {
-<<<<<<< HEAD
-	public static function has_access()
-	{
-		$allow_user_management = get(RUDE_FIELD_ALLOW_USER_MANAGEMENT, $_SESSION);
-
-		return $allow_user_management === '1';
-	}
-
-    public static function add()
-	{
-		if (!ajax_user::has_access())
-		{
-			die();
-		}
-
-=======
-
-    public static function having_access()
+    public static function has_access()
     {
-        $role_name = get(RUDE_FIELD_ROLE, $_SESSION);
-        $role = roles::get_role_by_name($role_name);
-        return $role->allow_user_management === '1';
+        $allow_user_management = get(RUDE_FIELD_ALLOW_USER_MANAGEMENT, $_SESSION);
+
+        return $allow_user_management === '1';
     }
 
-	public static function add()
-	{
-        if(!ajax_user::having_access())
+    public static function add()
+    {
+        if (!ajax_user::has_access())
         {
             die();
         }
->>>>>>> 8f1d8f6aadd003f3003e260dc0cacc9e92d327d6
-		$username = get(RUDE_FIELD_USERNAME);
-		$password = get(RUDE_FIELD_PASSWORD);
-		$role     = get(RUDE_FIELD_ROLE);
 
-		$q = new query(RUDE_TABLE_ROLES);
-		$q->where(RUDE_FIELD_ROLE, $role);
-		$q->start();
+        $username = get(RUDE_FIELD_USERNAME);
+        $password = get(RUDE_FIELD_PASSWORD);
+        $role = get(RUDE_FIELD_ROLE);
 
-		$role = $q->get_object();
+        $q = new query(RUDE_TABLE_ROLES);
+        $q->where(RUDE_FIELD_ROLE, $role);
+        $q->start();
 
-		if ($role === null)
-		{
-			die();
-		}
+        $role = $q->get_object();
 
-		$role_id = $role->id;
-
-		$user_id = users::add($username, $password, $role_id);
-	}
-
-	public static function edit()
-	{
-<<<<<<< HEAD
-		if (!ajax_user::has_access())
-		{
-			die();
-		}
-
-=======
-        if(!ajax_user::having_access())
+        if ($role === null)
         {
             die();
         }
->>>>>>> 8f1d8f6aadd003f3003e260dc0cacc9e92d327d6
-		$id       = get(RUDE_FIELD_ID);
-		$username = get(RUDE_FIELD_USERNAME);
-		$password = get(RUDE_FIELD_PASSWORD);
-		$role     = get(RUDE_FIELD_ROLE);
 
+        $role_id = $role->id;
 
-		$role_id = roles::get_id($role);
+        $user_id = users::add($username, $password, $role_id);
+    }
 
-
-		$q = new uquery(RUDE_TABLE_USERS);
-
-		if ($username) { $q->update(RUDE_FIELD_USERNAME,       $username); }
-		if ($role_id)  { $q->update(RUDE_FIELD_ROLE_ID,  (int) $role_id);  }
-
-		if ($password && $password != RUDE_TEXT_UTF8_DOTS)
-		{
-			$q->update(RUDE_FIELD_PASSWORD, $password);
-		}
-
-		$q->where(RUDE_FIELD_ID, (int) $id);
-		$q->limit(1);
-		$q->start();
-	}
-
-
-	public static function delete()
-	{
-<<<<<<< HEAD
-		if (!ajax_user::has_access())
-		{
-			die();
-		}
-
-=======
-        if(!ajax_user::having_access())
+    public static function edit()
+    {
+        if (!ajax_user::has_access())
         {
             die();
         }
->>>>>>> 8f1d8f6aadd003f3003e260dc0cacc9e92d327d6
-		$username = get(RUDE_FIELD_USERNAME);
 
-		if ($username === get(RUDE_FIELD_USERNAME, $_SESSION))
-		{
-			die();
-		}
-
-		users::delete($username);
-	}
-
-	public static function is_exists()
-	{
-		$username = get(RUDE_FIELD_USERNAME);
-		$password = get(RUDE_FIELD_PASSWORD);
+        $id = get(RUDE_FIELD_ID);
+        $username = get(RUDE_FIELD_USERNAME);
+        $password = get(RUDE_FIELD_PASSWORD);
+        $role = get(RUDE_FIELD_ROLE);
 
 
-		if (users::is_exists($username, $password))
-		{
-			echo '1'; die;
-		}
+        $role_id = roles::get_id($role);
 
-		echo '0'; die;
-	}
 
-	public static function html_form_add()
-	{
-<<<<<<< HEAD
-		if (!ajax_user::has_access())
-		{
-			die();
-		}
+        $q = new uquery(RUDE_TABLE_USERS);
 
-=======
-        if(!ajax_user::having_access())
+        if ($username) { $q->update(RUDE_FIELD_USERNAME, $username); }
+        if ($role_id) { $q->update(RUDE_FIELD_ROLE_ID, (int) $role_id); }
+
+        if ($password && $password != RUDE_TEXT_UTF8_DOTS)
+        {
+            $q->update(RUDE_FIELD_PASSWORD, $password);
+        }
+
+        $q->where(RUDE_FIELD_ID, (int) $id);
+        $q->limit(1);
+        $q->start();
+    }
+
+
+    public static function delete()
+    {
+        if (!ajax_user::has_access())
         {
             die();
         }
->>>>>>> 8f1d8f6aadd003f3003e260dc0cacc9e92d327d6
-		?>
-		<html>
-		<? require_once(RUDE_TEMPLATE_DIR . '/rude-header.php') ?>
 
-		<body>
-		<div id="stylized" class="myform">
-			<form id="form" name="form" method="post" action="index.php?task=<?= RUDE_TASK_USER_ADD ?>">
-				<h1>Добавление пользователя</h1>
-				<p>Форма для добавления новых пользователей</p>
+        $username = get(RUDE_FIELD_USERNAME);
 
-
-				<?= html::input(RUDE_FIELD_USERNAME, 'Логин'); ?>
-				<?= html::input(RUDE_FIELD_PASSWORD, 'Пароль'); ?>
-				<?= html::input(RUDE_FIELD_PASSWORD_REPEAT, 'Пароль (повторно)'); ?>
-
-				<?
-				$role_list = roles::get();
-				$item_list = select::fields($role_list, RUDE_FIELD_ROLE);
-				?>
-
-				<?=	html::select(RUDE_FIELD_ROLE, $item_list, RUDE_TEXT_USER_ROLE); ?>
-
-				<div id="error-box"></div>
-
-				<?= html::button(RUDE_TEXT_ADD, 'validate(); return false;'); ?>
-			</form>
-
-
-			<script>
-				function validate()
-				{
-					var username        = $('#<?= RUDE_FIELD_USERNAME ?>').val();
-					var password        = $('#<?= RUDE_FIELD_PASSWORD ?>').val();
-					var password_repeat = $('#<?= RUDE_FIELD_PASSWORD_REPEAT ?>').val();
-
-					var role            = $('#<?= RUDE_FIELD_ROLE ?>').val();
-
-
-					if (username && password && password_repeat && (password == password_repeat))
-					{
-						add_user(username, password, role);
-					}
-
-
-					var log = '<pre>';
-
-					if (!username)
-					{
-						log += '> Введите имя пользователя' + '<br />';
-					}
-
-					if (!password)
-					{
-						log += '> Укажите пароль' + '<br />';
-					}
-
-					if (!password_repeat)
-					{
-						log += '> Укажите пароль повторно' + '<br />';
-					}
-
-					if (password != password_repeat)
-					{
-						log += '> Пароли дожны совпадать' + '<br />';
-					}
-
-					log += '</pre>';
-
-
-					errors(log);
-				}
-
-				function errors(log)
-				{
-					rude_animation('#error-box', log);
-				}
-
-				function add_user(username, password, role)
-				{
-					$.ajax({
-						type: 'POST',
-						url: 'index.php',
-						data: {
-							task:     '<?= RUDE_TASK_AJAX ?>',
-							target:   '<?= RUDE_TASK_AJAX_USER_ADD ?>',
-
-							username: username,
-							password: password,
-							role:     role
-						},
-
-						success: function(data)
-						{
-							parent.$.fancybox.close();
-						}
-					});
-				}
-			</script>
-		</div>
-		</body>
-
-		</html>
-		<?
-	}
-
-	public static function html_form_edit()
-	{
-<<<<<<< HEAD
-		if (!ajax_user::has_access())
-		{
-			die();
-		}
-
-=======
-        if(!ajax_user::having_access())
+        if ($username === get(RUDE_FIELD_USERNAME, $_SESSION))
         {
             die();
         }
->>>>>>> 8f1d8f6aadd003f3003e260dc0cacc9e92d327d6
-		?>
-		<html>
-		<? require_once(RUDE_TEMPLATE_DIR . '/rude-header.php') ?>
 
-		<body>
-		<div id="stylized" class="myform">
-			<form id="form" name="form" method="post" action="index.php?task=<?= RUDE_TASK_USER_EDIT ?>">
-				<h1>Изменение пользователя</h1>
-				<p>Форма для изменения данных пользователя</p>
+        users::delete($username);
+    }
 
-				<?
-					$username = get(RUDE_FIELD_USERNAME);
-
-					$user = users::get($username);
-				?>
-
-				<?= html::input(RUDE_FIELD_ID, false, $user->id, RUDE_HTML_INPUT_TYPE_HIDDEN); ?>
-
-				<?= html::input(RUDE_FIELD_USERNAME, 'Логин', $user->username); ?>
-				<?= html::input(RUDE_FIELD_PASSWORD, 'Пароль', RUDE_TEXT_UTF8_DOTS); ?>
-				<?= html::input(RUDE_FIELD_PASSWORD_REPEAT, 'Пароль (повторно)', RUDE_TEXT_UTF8_DOTS); ?>
-
-				<?
-				$role_list = roles::get();
-				$item_list = select::fields($role_list, RUDE_FIELD_ROLE);
-				?>
-
-				<?=	html::select(RUDE_FIELD_ROLE, $item_list, RUDE_TEXT_USER_ROLE, $user->role); ?>
-
-				<div id="error-box"></div>
-
-				<?= html::button(RUDE_TEXT_ADD, 'validate(); return false;'); ?>
-			</form>
+    public static function is_exists()
+    {
+        $username = get(RUDE_FIELD_USERNAME);
+        $password = get(RUDE_FIELD_PASSWORD);
 
 
-			<script>
-				function validate()
-				{
-					var id              = $('#<?= RUDE_FIELD_ID ?>').val();
-					var username        = $('#<?= RUDE_FIELD_USERNAME ?>').val();
-					var password        = $('#<?= RUDE_FIELD_PASSWORD ?>').val();
-					var password_repeat = $('#<?= RUDE_FIELD_PASSWORD_REPEAT ?>').val();
-					var role            = $('#<?= RUDE_FIELD_ROLE ?>').val();
+        if (users::is_exists($username, $password))
+        {
+            echo '1'; die;
+        }
 
+        echo '0'; die;
+    }
 
-					if (username && password && password_repeat && (password == password_repeat))
-					{
-						edit_user(id, username, password, role);
-					}
-
-
-					var log = '<pre>';
-
-					if (!username)
-					{
-						log += '> Введите имя пользователя' + '<br />';
-					}
-
-					if (!password)
-					{
-						log += '> Укажите пароль' + '<br />';
-					}
-
-					if (!password_repeat)
-					{
-						log += '> Укажите пароль повторно' + '<br />';
-					}
-
-					if (password != password_repeat)
-					{
-						log += '> Пароли дожны совпадать' + '<br />';
-					}
-
-					log += '</pre>';
-
-
-					errors(log);
-				}
-
-				function errors(log)
-				{
-					rude_animation('#error-box', log);
-				}
-
-				function edit_user(id, username, password, role)
-				{
-					$.ajax({
-						type: 'POST',
-						url: 'index.php',
-						data: {
-							task:     '<?= RUDE_TASK_AJAX ?>',
-							target:   '<?= RUDE_TASK_AJAX_USER_EDIT ?>',
-
-							id      : id,
-							username: username,
-							password: password,
-							role:     role
-						},
-
-						success: function(data)
-						{
-							parent.$.fancybox.close();
-						}
-					});
-				}
-			</script>
-		</div>
-		</body>
-
-		</html>
-	<?
-	}
-
-	public static function html_form_delete()
-	{
-<<<<<<< HEAD
-		if (!ajax_user::has_access())
-		{
-			die();
-		}
-
-		$username = get(RUDE_FIELD_USERNAME);
-
-		if ($username === get(RUDE_FIELD_USERNAME, $_SESSION))
-		{
-			die();
-		}
-
-=======
-        if(!ajax_user::having_access())
+    public static function html_form_add()
+    {
+        if (!ajax_user::has_access())
         {
             die();
         }
->>>>>>> 8f1d8f6aadd003f3003e260dc0cacc9e92d327d6
-		?>
-		<html>
-		<? require_once(RUDE_TEMPLATE_DIR . '/rude-header.php') ?>
 
-		<body>
-		<div id="stylized" class="myform">
-			<form id="form" name="form" method="post" action="index.php?task=<?= RUDE_TASK_USER_DELETE ?>">
-				<h1>Удаление пользователя</h1>
-				<p class="red">Внимание! Данная операция необратима!</p>
+        ?>
+        <html>
+        <? require_once(RUDE_TEMPLATE_DIR . '/rude-header.php') ?>
 
-				Вы точно уверены, что хотите удалить пользователя <b>"<?= $username ?></b>"?
+        <body>
+        <div id="stylized" class="myform">
+            <form id="form" name="form" method="post" action="index.php?task=<?= RUDE_TASK_USER_ADD ?>">
+                <h1>Добавление пользователя</h1>
+                <p>Форма для добавления новых пользователей</p>
 
-				<div class="button-box">
-					<button class="button" type="submit" onclick="delete_user('<?= $username ?>'); parent.$.fancybox.close();">Да</button>
-					<button class="button-last" type="submit" onclick="parent.$.fancybox.close();">Нет</button>
-				</div>
-			</form>
 
-			<script>
-				function delete_user(username)
-				{
-					$.ajax({
-						type: 'POST',
-						url: 'index.php',
-						data: {
-							task:     '<?= RUDE_TASK_AJAX ?>',
-							target:   '<?= RUDE_TASK_AJAX_USER_DELETE ?>',
-							username: '<?= $username ?>'
-						},
+                <?= html::input(RUDE_FIELD_USERNAME, 'Логин'); ?>
+                <?= html::input(RUDE_FIELD_PASSWORD, 'Пароль'); ?>
+                <?= html::input(RUDE_FIELD_PASSWORD_REPEAT, 'Пароль (повторно)'); ?>
 
-						success: function(data)
-						{
-							parent.$.fancybox.close();
-						}
-					});
-				}
-			</script>
-		</div>
-		</body>
-		</html>
-	<?
-	}
+                <?
+                $role_list = roles::get();
+                $item_list = select::fields($role_list, RUDE_FIELD_ROLE);
+                ?>
 
-	public static function html()
-	{
-		?>
-		<table class="ui loading form collapsing table segment full-width">
-			<thead>
-			<tr class="small-font">
-				<th>#</th>
-				<th>Пользователь</th>
-				<th>Привелегии</th>
-				<th>Действия</th>
-			</tr>
-			</thead>
-			<tbody>
-			<?
-			$user_list = users::get();
+                <?=	html::select(RUDE_FIELD_ROLE, $item_list, RUDE_TEXT_USER_ROLE); ?>
 
-			foreach ($user_list as $user)
-			{
-				?>
-				<tr>
-					<td><?= $user->id ?></td>
-					<td><?= $user->username ?></td>
-					<td><?= $user->role ?></td>
-					<td>
-                        <? if (ajax_user::having_access()) : ?>
-						<a href="<?= url::ajax(RUDE_TASK_AJAX_USER_EDIT_FORM) . url::param(RUDE_FIELD_USERNAME, $user->username) ?>" class="fancybox-users"><img src="src/icons/edit.png" class="padding-small" title="<?= RUDE_TEXT_EDIT ?>" /></a>
-<<<<<<< HEAD
-						<? if ($user->username !== get(RUDE_FIELD_USERNAME, $_SESSION)) : ?>
-							<a href="<?= url::ajax(RUDE_TASK_AJAX_USER_DELETE_FORM) . url::param(RUDE_FIELD_USERNAME, $user->username) ?>" class="fancybox-users-small"><img src="src/icons/remove.png" class="padding-small" title="<?= RUDE_TEXT_DELETE_SELECTED ?>" /></a>
-						<? endif; ?>
-=======
-                        <? endif; ?>
-                        <? if (ajax_user::having_access()) : ?>
+                <div id="error-box"></div>
+
+                <?= html::button(RUDE_TEXT_ADD, 'validate(); return false;'); ?>
+            </form>
+
+
+            <script>
+                function validate()
+                {
+                    var username = $('#<?= RUDE_FIELD_USERNAME ?>').val();
+                    var password = $('#<?= RUDE_FIELD_PASSWORD ?>').val();
+                    var password_repeat = $('#<?= RUDE_FIELD_PASSWORD_REPEAT ?>').val();
+
+                    var role = $('#<?= RUDE_FIELD_ROLE ?>').val();
+
+
+                    if (username && password && password_repeat && (password == password_repeat))
+                    {
+                        add_user(username, password, role);
+                    }
+
+
+                    var log = '<pre>';
+
+                    if (!username)
+                    {
+                        log += '> Введите имя пользователя' + '<br />';
+                    }
+
+                    if (!password)
+                    {
+                        log += '> Укажите пароль' + '<br />';
+                    }
+
+                    if (!password_repeat)
+                    {
+                        log += '> Укажите пароль повторно' + '<br />';
+                    }
+
+                    if (password != password_repeat)
+                    {
+                        log += '> Пароли дожны совпадать' + '<br />';
+                    }
+
+                    log += '</pre>';
+
+
+                    errors(log);
+                }
+
+                function errors(log)
+                {
+                    rude_animation('#error-box', log);
+                }
+
+                function add_user(username, password, role)
+                {
+                    $.ajax({
+                        type: 'POST',
+                        url: 'index.php',
+                        data: {
+                            task: '<?= RUDE_TASK_AJAX ?>',
+                            target: '<?= RUDE_TASK_AJAX_USER_ADD ?>',
+
+                            username: username,
+                            password: password,
+                            role: role
+                        },
+
+                        success: function(data)
+                        {
+                            parent.$.fancybox.close();
+                        }
+                    });
+                }
+            </script>
+        </div>
+        </body>
+
+        </html>
+    <?
+    }
+
+    public static function html_form_edit()
+    {
+        if (!ajax_user::has_access())
+        {
+            die();
+        }
+
+        ?>
+        <html>
+        <? require_once(RUDE_TEMPLATE_DIR . '/rude-header.php') ?>
+
+        <body>
+        <div id="stylized" class="myform">
+            <form id="form" name="form" method="post" action="index.php?task=<?= RUDE_TASK_USER_EDIT ?>">
+                <h1>Изменение пользователя</h1>
+                <p>Форма для изменения данных пользователя</p>
+
+                <?
+                $username = get(RUDE_FIELD_USERNAME);
+
+                $user = users::get($username);
+                ?>
+
+                <?= html::input(RUDE_FIELD_ID, false, $user->id, RUDE_HTML_INPUT_TYPE_HIDDEN); ?>
+
+                <?= html::input(RUDE_FIELD_USERNAME, 'Логин', $user->username); ?>
+                <?= html::input(RUDE_FIELD_PASSWORD, 'Пароль', RUDE_TEXT_UTF8_DOTS); ?>
+                <?= html::input(RUDE_FIELD_PASSWORD_REPEAT, 'Пароль (повторно)', RUDE_TEXT_UTF8_DOTS); ?>
+
+                <?
+                $role_list = roles::get();
+                $item_list = select::fields($role_list, RUDE_FIELD_ROLE);
+                ?>
+
+                <?=	html::select(RUDE_FIELD_ROLE, $item_list, RUDE_TEXT_USER_ROLE, $user->role); ?>
+
+                <div id="error-box"></div>
+
+                <?= html::button(RUDE_TEXT_ADD, 'validate(); return false;'); ?>
+            </form>
+
+
+            <script>
+                function validate()
+                {
+                    var id = $('#<?= RUDE_FIELD_ID ?>').val();
+                    var username = $('#<?= RUDE_FIELD_USERNAME ?>').val();
+                    var password = $('#<?= RUDE_FIELD_PASSWORD ?>').val();
+                    var password_repeat = $('#<?= RUDE_FIELD_PASSWORD_REPEAT ?>').val();
+                    var role = $('#<?= RUDE_FIELD_ROLE ?>').val();
+
+
+                    if (username && password && password_repeat && (password == password_repeat))
+                    {
+                        edit_user(id, username, password, role);
+                    }
+
+
+                    var log = '<pre>';
+
+                    if (!username)
+                    {
+                        log += '> Введите имя пользователя' + '<br />';
+                    }
+
+                    if (!password)
+                    {
+                        log += '> Укажите пароль' + '<br />';
+                    }
+
+                    if (!password_repeat)
+                    {
+                        log += '> Укажите пароль повторно' + '<br />';
+                    }
+
+                    if (password != password_repeat)
+                    {
+                        log += '> Пароли дожны совпадать' + '<br />';
+                    }
+
+                    log += '</pre>';
+
+
+                    errors(log);
+                }
+
+                function errors(log)
+                {
+                    rude_animation('#error-box', log);
+                }
+
+                function edit_user(id, username, password, role)
+                {
+                    $.ajax({
+                        type: 'POST',
+                        url: 'index.php',
+                        data: {
+                            task: '<?= RUDE_TASK_AJAX ?>',
+                            target: '<?= RUDE_TASK_AJAX_USER_EDIT ?>',
+
+                            id : id,
+                            username: username,
+                            password: password,
+                            role: role
+                        },
+
+                        success: function(data)
+                        {
+                            parent.$.fancybox.close();
+                        }
+                    });
+                }
+            </script>
+        </div>
+        </body>
+
+        </html>
+    <?
+    }
+
+    public static function html_form_delete()
+    {
+        if (!ajax_user::has_access())
+        {
+            die();
+        }
+
+        $username = get(RUDE_FIELD_USERNAME);
+
+        if ($username === get(RUDE_FIELD_USERNAME, $_SESSION))
+        {
+            die();
+        }
+
+        ?>
+        <html>
+        <? require_once(RUDE_TEMPLATE_DIR . '/rude-header.php') ?>
+
+        <body>
+        <div id="stylized" class="myform">
+            <form id="form" name="form" method="post" action="index.php?task=<?= RUDE_TASK_USER_DELETE ?>">
+                <h1>Удаление пользователя</h1>
+                <p class="red">Внимание! Данная операция необратима!</p>
+
+                Вы точно уверены, что хотите удалить пользователя <b>"<?= $username ?></b>"?
+
+                <div class="button-box">
+                    <button class="button" type="submit" onclick="delete_user('<?= $username ?>'); parent.$.fancybox.close();">Да</button>
+                    <button class="button-last" type="submit" onclick="parent.$.fancybox.close();">Нет</button>
+                </div>
+            </form>
+
+            <script>
+                function delete_user(username)
+                {
+                    $.ajax({
+                        type: 'POST',
+                        url: 'index.php',
+                        data: {
+                            task: '<?= RUDE_TASK_AJAX ?>',
+                            target: '<?= RUDE_TASK_AJAX_USER_DELETE ?>',
+                            username: '<?= $username ?>'
+                        },
+
+                        success: function(data)
+                        {
+                            parent.$.fancybox.close();
+                        }
+                    });
+                }
+            </script>
+        </div>
+        </body>
+
+        </html>
+    <?
+    }
+
+    public static function html()
+    {
+        ?>
+        <table class="ui loading form collapsing table segment full-width">
+            <thead>
+            <tr class="small-font">
+                <th>#</th>
+                <th>Пользователь</th>
+                <th>Привелегии</th>
+                <th>Действия</th>
+            </tr>
+            </thead>
+            <tbody>
+            <?
+            $user_list = users::get();
+
+            foreach ($user_list as $user)
+            {
+                ?>
+                <tr>
+                    <td><?= $user->id ?></td>
+                    <td><?= $user->username ?></td>
+                    <td><?= $user->role ?></td>
+                    <td>
+                        <a href="<?= url::ajax(RUDE_TASK_AJAX_USER_EDIT_FORM) . url::param(RUDE_FIELD_USERNAME, $user->username) ?>" class="fancybox-users"><img src="src/icons/edit.png" class="padding-small" title="<?= RUDE_TEXT_EDIT ?>" /></a>
+                        <? if ($user->username !== get(RUDE_FIELD_USERNAME, $_SESSION)) : ?>
                             <a href="<?= url::ajax(RUDE_TASK_AJAX_USER_DELETE_FORM) . url::param(RUDE_FIELD_USERNAME, $user->username) ?>" class="fancybox-users-small"><img src="src/icons/remove.png" class="padding-small" title="<?= RUDE_TEXT_DELETE_SELECTED ?>" /></a>
-    					<? endif; ?>
-<!--                       <a href="--><?//= url::ajax(RUDE_TASK_AJAX_USER_DELETE_FORM) . url::param(RUDE_FIELD_USERNAME, $user->username) ?><!--" class="fancybox-users-small"><img src="src/icons/remove.png" class="padding-small" title="--><?//= RUDE_TEXT_DELETE_SELECTED ?><!--" /></a>-->
->>>>>>> 8f1d8f6aadd003f3003e260dc0cacc9e92d327d6
-					</td>
-				</tr>
-			<?
-			}
-			?>
-			</tbody>
-		</table>
-		<?
-	}
+                        <? endif; ?>
+                    </td>
+                </tr>
+            <?
+            }
+            ?>
+            </tbody>
+        </table>
+    <?
+    }
 }
