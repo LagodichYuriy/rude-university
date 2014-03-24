@@ -297,11 +297,12 @@ class table_time_budget {
 
 	private static function body_html() {
 		?>
-		<? for ($i = 0; $i < 4; $i++) : ?>
+		<? $a = array('I', 'II', 'III', 'IV');
+        for ($i = 0; $i < 4; $i++) : ?>
 			<tr>
 				<td>
 					<div>
-						<?= array('I', 'II', 'III', 'IV')[$i]; ?>
+						<?= $a[$i]; ?>
 					</div>
 				</td>
 				<? for ($j = 0; $j < 52; $j++) : ?>
