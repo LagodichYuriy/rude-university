@@ -19,6 +19,7 @@ class table_time_budget {
 
 	private static function header_html() {
 		?>
+        <table border = 1>
 		<tr>
 			<td rowspan="3">
 				<div class="rotate-270 uppercase">
@@ -46,6 +47,9 @@ class table_time_budget {
 					<?= RUDE_TABLE_TIME_BUDGET_NOVEMBER ?>
 				</div>
 			</td>
+            <td class="no-border-bottom">
+                <div class="small-height"></div>
+            </td>
 			<td colspan="4">
 				<div class="small-height">
 					<?= RUDE_TABLE_TIME_BUDGET_DECEMBER ?>
@@ -149,11 +153,12 @@ class table_time_budget {
 			</td>
 		</tr>
 		<tr>
-			<td class="no-border-bottom">1</td>
+			<td>1</td>
+            <td class="no-border-bottom">1</td>
 			<td class="no-border-bottom">8</td>
 			<td class="no-border-bottom">15</td>
 			<td class="no-border-bottom">22</td>
-			<td class="no-border-top no-border-bottom">
+			<td class="no-border-bottom">
 				<div class="underline">29</div>09
 			</td>
 			<td class="no-border-bottom">6</td>
@@ -165,6 +170,9 @@ class table_time_budget {
 			<td class="no-border-bottom">3</td>
 			<td class="no-border-bottom">10</td>
 			<td class="no-border-bottom">17</td>
+            <td class="no-border-top no-border-bottom">
+                <div class="underline">27</div>10
+            </td>
 			<td class="no-border-bottom">24</td>
 			<td class="no-border-bottom">1</td>
 			<td class="no-border-bottom">8</td>
@@ -218,7 +226,6 @@ class table_time_budget {
 			<td class="no-border-bottom">3</td>
 			<td class="no-border-bottom">10</td>
 			<td class="no-border-bottom">17</td>
-			<td class="no-border-bottom">24</td>
 		</tr>
 		<tr>
 			<td class="no-border-top">1</td>
@@ -292,6 +299,7 @@ class table_time_budget {
 			<td class="no-border-top">17</td>
 			<td class="no-border-top">24</td>
 		</tr>
+        </table>
 		<?
 	}
 
@@ -299,15 +307,29 @@ class table_time_budget {
 		?>
 		<? $a = array('I', 'II', 'III', 'IV');
         for ($i = 0; $i < 4; $i++) : ?>
-			<tr>
-				<td>
-					<div>
-						<?= $a[$i]; ?>
-					</div>
-				</td>
+			<table border = 1>
+                        <tr>
+                            <td rowspan="3"class = "table-width">
+                                <?= $a[$i]; ?>
+                            </td>
+                        </tr>
+
 				<? for ($j = 0; $j < 52; $j++) : ?>
 					<td>
-						<div class="small-width small-height"></div>
+						<div class="small-width small-height">
+                            <form method="post" name="drop_down_box">
+                                <select name="menu" size="1" style="width:15px" >
+                                    <option selected="selected" value="first"></option>
+                                    <option value="second" style = "padding-left: 0px">:</option>
+                                    <option value="third">=</option>
+                                    <option value="fifth">//</option>
+                                    <option value="sixth">O</option>
+                                    <option value="seventh">/</option>
+                                    <option value="eighth">X</option>
+                                    <option value="ninth">И</option>
+                                </select>
+                            </form>
+                        </div>
 					</td>
 				<? endfor; ?>
 				<? for ($j = 0; $j < 7; $j++) : ?>
@@ -316,6 +338,7 @@ class table_time_budget {
 					</td>
 				<? endfor; ?>
 			</tr>
+            </table>
 		<? endfor; ?>
 		<?
 	}

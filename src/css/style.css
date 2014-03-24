@@ -529,3 +529,7 @@ h3
 	min-width: 160px;
 	float: left;
 }
+.table-width
+{
+    width: 56px;
+}
