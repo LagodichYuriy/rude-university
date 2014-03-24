@@ -17,12 +17,18 @@ require_once './src/rude-escape.php';
 require_once './src/rude-headers.php';
 require_once './src/rude-html.php';
 require_once './src/rude-js.php';
-require_once './src/rude-roles.php';
+
 require_once './src/rude-select.php';
 require_once './src/rude-session.php';
 require_once './src/rude-string.php';
 require_once './src/rude-sysinfo.php';
 require_once './src/rude-url.php';
+
+require_once './src/rude-departments.php';
+require_once './src/rude-faculties.php';
+require_once './src/rude-qualifications.php';
+require_once './src/rude-roles.php';
+require_once './src/rude-specialties.php';
 require_once './src/rude-users.php';
 
 require_once './src/rude-ajax.php';

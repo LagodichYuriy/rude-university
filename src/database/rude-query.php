@@ -52,7 +52,7 @@ class query
 
 	public function table($db_table)
 	{
-		$this->field_list[] = $db_table . '.*';
+		$this->field_list[] = $db_table . '.*' . PHP_EOL;
 	}
 
 	public function count($field, $alias = RUDE_FIELD_COUNT)
