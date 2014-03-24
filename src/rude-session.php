@@ -43,12 +43,18 @@ class session
 			return false;
 		}
 
+<<<<<<< HEAD
 
 		$_SESSION[RUDE_FIELD_USERNAME]              = $user->username;
 		$_SESSION[RUDE_FIELD_PASSWORD]              = $user->hash;
 		$_SESSION[RUDE_FIELD_ROLE]                  = $user->role;
 		$_SESSION[RUDE_FIELD_ALLOW_USER_MANAGEMENT] = $user->allow_user_management;
 		$_SESSION[RUDE_FIELD_ALLOW_ROLE_MANAGEMENT] = $user->allow_role_management;
+=======
+		$_SESSION[RUDE_FIELD_USERNAME]              = $user->username;
+		$_SESSION[RUDE_FIELD_PASSWORD]              = $user->hash;
+		$_SESSION[RUDE_FIELD_ROLE]                  = $user->role;
+>>>>>>> 8f1d8f6aadd003f3003e260dc0cacc9e92d327d6
 
 
 		if (empty($_SESSION[RUDE_FIELD_USERNAME]) or

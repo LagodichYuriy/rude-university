@@ -4,6 +4,7 @@ namespace rude;
 
 class ajax_role
 {
+<<<<<<< HEAD
 	public static function has_access()
 	{
 		$allow_role_management = get(RUDE_FIELD_ALLOW_ROLE_MANAGEMENT, $_SESSION);
@@ -17,6 +18,21 @@ class ajax_role
 			die();
 		}
 
+=======
+    public static function having_access()
+    {
+        $role_name = get(RUDE_FIELD_ROLE, $_SESSION);
+        $role = roles::get_role_by_name($role_name);
+        return $role->allow_role_management === '1';
+    }
+
+	public static function add()
+	{
+        if (!ajax_role::having_access())
+        {
+            die();
+        }
+>>>>>>> 8f1d8f6aadd003f3003e260dc0cacc9e92d327d6
 		$role = get(RUDE_FIELD_ROLE);
 		$allow_user_management = get(RUDE_FIELD_ALLOW_USER_MANAGEMENT);
 		$allow_role_management = get(RUDE_FIELD_ALLOW_ROLE_MANAGEMENT);
@@ -34,12 +50,20 @@ class ajax_role
 
 	public static function delete()
 	{
+<<<<<<< HEAD
 		if (!ajax_role::has_access())
 		{
 			die();
 		}
 
 		$role_id = get(RUDE_FIELD_ROLE_ID);
+=======
+        if(!ajax_role::having_access())
+        {
+            die();
+        }
+        $role_id = get(RUDE_FIELD_ROLE_ID);
+>>>>>>> 8f1d8f6aadd003f3003e260dc0cacc9e92d327d6
 
 		$user_role_id = roles::get_id(get(RUDE_FIELD_ROLE, $_SESSION));
 
@@ -53,11 +77,24 @@ class ajax_role
 
 	public static function html_form_add()
 	{
+<<<<<<< HEAD
 		if (!ajax_role::has_access())
 		{
 			die();
 		}
 
+=======
+        if(!ajax_role::having_access())
+        {
+            die();
+        }
+        $role = get(RUDE_FIELD_ROLE);
+
+        if ($role === get(RUDE_FIELD_ROLE, $_SESSION))
+		{
+    		die();
+    	}
+>>>>>>> 8f1d8f6aadd003f3003e260dc0cacc9e92d327d6
 		?>
 		<html>
 		<? require_once(RUDE_TEMPLATE_DIR . '/rude-header.php') ?>
@@ -150,6 +187,7 @@ class ajax_role
 
 	public static function html_form_delete()
 	{
+<<<<<<< HEAD
 		if (!ajax_role::has_access())
 		{
 			die();
@@ -162,6 +200,12 @@ class ajax_role
 			die();
 		}
 
+=======
+        if(!ajax_role::having_access())
+        {
+            die();
+        }
+>>>>>>> 8f1d8f6aadd003f3003e260dc0cacc9e92d327d6
 		?>
 		<html>
 		<? require_once(RUDE_TEMPLATE_DIR . '/rude-header.php') ?>
@@ -179,8 +223,8 @@ class ajax_role
 				Вы точно уверены, что хотите удалить роль <b>"<?= $role ?>"</b>?
 
 				<div class="button-box">
-					<button class="button" type="submit" onclick="delete_role('<?= $role_id ?>'); parent.$.fancybox.close();">Да</button>
-					<button class="button-last" type="submit" onclick="parent.$.fancybox.close();">Нет</button>
+        			<button class="button" type="submit" onclick="delete_role('<?= $role_id ?>'); parent.$.fancybox.close();">Да</button>
+        			<button class="button-last" type="submit" onclick="parent.$.fancybox.close();">Нет</button>
 				</div>
 			</form>
 
@@ -212,16 +256,29 @@ class ajax_role
 
 	public static function html()
 	{
+<<<<<<< HEAD
 		?>
 		<table class="ui collapsing table segment full-width">
 			<thead class="small-font">
+=======
+        ?>
+		<table class="full-width">
+			<tr>
+>>>>>>> 8f1d8f6aadd003f3003e260dc0cacc9e92d327d6
 				<th>#</th>
 				<th>Название</th>
 				<th>Пользователей</th>
 				<th>Управление пользователями</th>
 				<th>Управление ролями</th>
 				<th>Действия</th>
+<<<<<<< HEAD
 			</thead>
+=======
+                <?
+
+                ?>
+			</tr>
+>>>>>>> 8f1d8f6aadd003f3003e260dc0cacc9e92d327d6
 
 			<?
 			$role_list = roles::count();
@@ -259,9 +316,16 @@ class ajax_role
 					</td>
 
 					<td>
+<<<<<<< HEAD
 					<? if ($role->role !== get(RUDE_FIELD_ROLE, $_SESSION)) : ?>
 						<a href="<?= url::ajax(RUDE_TASK_AJAX_ROLE_DELETE_FORM) . url::param(RUDE_FIELD_ROLE, $role->role) ?>" class="fancybox-roles-small"><img src="src/icons/remove.png" class="padding-small" title="<?= RUDE_TEXT_DELETE_SELECTED ?>" /></a>
 					<? endif; ?>
+=======
+                <? if (ajax_role::having_access()) : ?>
+<!--						<a href="--><?//= url::ajax(RUDE_TASK_AJAX_ROLE_EDIT_FORM) . url::param(RUDE_FIELD_ROLE, $role->role) ?><!--" class="fancybox-smallest"><img src="src/icons/edit.png" class="padding-small" title="--><?//= RUDE_TEXT_EDIT ?><!--" /></a>-->
+						<a href="<?= url::ajax(RUDE_TASK_AJAX_ROLE_DELETE_FORM) . url::param(RUDE_FIELD_ROLE, $role->role) ?>" class="fancybox-roles-small"><img src="src/icons/remove.png" class="padding-small" title="<?= RUDE_TEXT_DELETE_SELECTED ?>" /></a>
+                <? endif; ?>
+>>>>>>> 8f1d8f6aadd003f3003e260dc0cacc9e92d327d6
 					</td>
 				</tr>
 			<?
