@@ -20,9 +20,13 @@ define('RUDE_ERR_SHOW_MESSAGES', true);
 /* ======================================================================== */
 /* Database table names which are frequently used in query() set of classes */
 /* ======================================================================== */
-define('RUDE_TABLE_USERS',     RUDE_DATABASE_PREFIX . 'users');
-define('RUDE_TABLE_ROLES',     RUDE_DATABASE_PREFIX . 'roles');
-define('RUDE_TABLE_FACULTIES', RUDE_DATABASE_PREFIX . 'faculties');
+define('RUDE_TABLE_DEPARTMENTS',    RUDE_DATABASE_PREFIX . 'departments');
+define('RUDE_TABLE_FACULTIES',      RUDE_DATABASE_PREFIX . 'faculties');
+define('RUDE_TABLE_QUALIFICATIONS', RUDE_DATABASE_PREFIX . 'qualifications');
+define('RUDE_TABLE_ROLES',          RUDE_DATABASE_PREFIX . 'roles');
+define('RUDE_TABLE_SPECIALTIES',    RUDE_DATABASE_PREFIX . 'specialties');
+define('RUDE_TABLE_USERS',          RUDE_DATABASE_PREFIX . 'users');
+
 
 
 /* ========================= */
@@ -118,32 +122,95 @@ define('RUDE_TASK_MANAGEMENT_REPORTS',    'report_management');
 /* ===================================================================== */
 /* Faculty management section [ADD/EDIT/DELETE] + same AJAX combinations */
 /* ===================================================================== */
-define('RUDE_TASK_MANAGEMENT_FACULTIES',  'faculty_management');
+define('RUDE_TASK_MANAGEMENT_FACULTIES',     'faculty_management');
+
+define('RUDE_TASK_AJAX_FACULTY_ADD_FORM',    'ajax_faculty_add_form');
+define('RUDE_TASK_AJAX_FACULTY_EDIT_FORM'  , 'ajax_faculty_edit_form');
+define('RUDE_TASK_AJAX_FACULTY_DELETE_FORM', 'ajax_faculty_delete_form');
+define('RUDE_TASK_AJAX_FACULTY_ADD',         'ajax_faculty_add');
+define('RUDE_TASK_AJAX_FACULTY_EDIT',        'ajax_faculty_edit');
+define('RUDE_TASK_AJAX_FACULTY_DELETE',      'ajax_faculty_delete');
+define('RUDE_TASK_AJAX_FACULTY_SUMMARY',     'ajax_faculty_summary');
+
+
+/* ======================================================================== */
+/* Department management section [ADD/EDIT/DELETE] + same AJAX combinations */
+/* ======================================================================== */
+define('RUDE_TASK_MANAGEMENT_DEPARTMENTS',      'department_management');
+
+define('RUDE_TASK_AJAX_DEPARTMENT_ADD_FORM',    'ajax_department_add_form');
+define('RUDE_TASK_AJAX_DEPARTMENT_EDIT_FORM'  , 'ajax_department_edit_form');
+define('RUDE_TASK_AJAX_DEPARTMENT_DELETE_FORM', 'ajax_department_delete_form');
+define('RUDE_TASK_AJAX_DEPARTMENT_ADD',         'ajax_department_add');
+define('RUDE_TASK_AJAX_DEPARTMENT_EDIT',        'ajax_department_edit');
+define('RUDE_TASK_AJAX_DEPARTMENT_DELETE',      'ajax_department_delete');
+define('RUDE_TASK_AJAX_DEPARTMENT_SUMMARY',     'ajax_department_summary');
+
+
+/* =========================================================================== */
+/* Qualification management section [ADD/EDIT/DELETE] + same AJAX combinations */
+/* =========================================================================== */
+define('RUDE_TASK_MANAGEMENT_QUALIFICATIONS',      'qualification_management');
+
+define('RUDE_TASK_AJAX_QUALIFICATION_ADD_FORM',    'ajax_qualification_add_form');
+define('RUDE_TASK_AJAX_QUALIFICATION_EDIT_FORM'  , 'ajax_qualification_edit_form');
+define('RUDE_TASK_AJAX_QUALIFICATION_DELETE_FORM', 'ajax_qualification_delete_form');
+define('RUDE_TASK_AJAX_QUALIFICATION_ADD',         'ajax_qualification_add');
+define('RUDE_TASK_AJAX_QUALIFICATION_EDIT',        'ajax_qualification_edit');
+define('RUDE_TASK_AJAX_QUALIFICATION_DELETE',      'ajax_qualification_delete');
+define('RUDE_TASK_AJAX_QUALIFICATION_SUMMARY',     'ajax_qualification_summary');
+
+
+/* ======================================================================= */
+/* Specialty management section [ADD/EDIT/DELETE] + same AJAX combinations */
+/* ======================================================================= */
+define('RUDE_TASK_MANAGEMENT_SPECIALTIES',     'specialty_management');
+
+define('RUDE_TASK_AJAX_SPECIALTY_ADD_FORM',    'ajax_specialty_add_form');
+define('RUDE_TASK_AJAX_SPECIALTY_EDIT_FORM'  , 'ajax_specialty_edit_form');
+define('RUDE_TASK_AJAX_SPECIALTY_DELETE_FORM', 'ajax_specialty_delete_form');
+define('RUDE_TASK_AJAX_SPECIALTY_ADD',         'ajax_specialty_add');
+define('RUDE_TASK_AJAX_SPECIALTY_EDIT',        'ajax_specialty_edit');
+define('RUDE_TASK_AJAX_SPECIALTY_DELETE',      'ajax_specialty_delete');
+define('RUDE_TASK_AJAX_SPECIALTY_SUMMARY',     'ajax_specialty_summary');
 
 
 /* =========================================================== */
 /* Language constants (defines & russian language equivalents) */
 /* =========================================================== */
-define('RUDE_TEXT_YES',                  'да');
-define('RUDE_TEXT_NO',                   'нет');
+define('RUDE_TEXT_YES',                       'да');
+define('RUDE_TEXT_NO',                        'нет');
 
-define('RUDE_TEXT_INDEX_PAGE',           'Ознакомление');
-define('RUDE_TEXT_MANAGEMENT_USERS',     'Управление');
-define('RUDE_TEXT_MANAGEMENT_ROLES',     'Роли');
-define('RUDE_TEXT_MANAGEMENT_EDUCATION', 'Календарь');
-define('RUDE_TEXT_MANAGEMENT_FACULTIES', 'Факультеты');
-define('RUDE_TEXT_ADD',                  'Добавить');
-define('RUDE_TEXT_ADD_NEW_USER',         'Добавить нового пользователя');
-define('RUDE_TEXT_ADD_NEW_ROLE',         'Добавить новую роль');
-define('RUDE_TEXT_USER_ROLE',            'Роль пользователя');
-define('RUDE_TEXT_LOGOUT',               'Выход');
-define('RUDE_TEXT_EDIT',                 'редактировать');
-define('RUDE_TEXT_DELETE_SELECTED',      'Удалить выбранное');
-define('RUDE_TEXT_USERS',                'Пользователи');
-define('RUDE_TEXT_NAVIGATION_PANEL',     'Панель навигации');
-define('RUDE_EDUCATIONAL_PROGRAM',       'Учебная программа');
+define('RUDE_TEXT_INDEX_PAGE',                'Ознакомление');
+define('RUDE_TEXT_MANAGEMENT_USERS',          'Пользователи');
+define('RUDE_TEXT_MANAGEMENT_ROLES',          'Роли');
+define('RUDE_TEXT_MANAGEMENT_EDUCATION',      'Календарь');
 
-define('RUDE_TEXT_UTF8_DOTS',            '••••••••');
+define('RUDE_TEXT_MANAGEMENT_COMPLEX',        'Управление комплексом');
+
+define('RUDE_TEXT_MANAGEMENT_DEPARTMENTS',    'Кафедры');
+define('RUDE_TEXT_MANAGEMENT_FACULTIES',      'Факультеты');
+define('RUDE_TEXT_MANAGEMENT_QUALIFICATIONS', 'Квалификации');
+define('RUDE_TEXT_MANAGEMENT_SPECIALTIES',    'Специальности');
+
+define('RUDE_TEXT_ADD',                       'Добавить');
+define('RUDE_TEXT_ADD_NEW_DEPARTMENT',        'Добавить новую кафедру');
+define('RUDE_TEXT_ADD_NEW_FACULTY',           'Добавить новый факультет');
+define('RUDE_TEXT_ADD_NEW_QUALIFICATION',     'Добавить новую квалификацию');
+define('RUDE_TEXT_ADD_NEW_ROLE',              'Добавить новую роль');
+define('RUDE_TEXT_ADD_NEW_SPECIALTY',         'Добавить новую специальность');
+define('RUDE_TEXT_ADD_NEW_USER',              'Добавить нового пользователя');
+
+define('RUDE_TEXT_USER_ROLE',                 'Роль пользователя');
+define('RUDE_TEXT_LOGOUT',                    'Выход');
+define('RUDE_TEXT_EDIT',                      'редактировать');
+define('RUDE_TEXT_DELETE_SELECTED',           'Удалить выбранное');
+define('RUDE_TEXT_USERS',                     'Пользователи');
+define('RUDE_TEXT_NAVIGATION_PANEL',          'Панель навигации');
+define('RUDE_TEXT_SUMMARY_INFORMATION',       'Суммарная информация');
+define('RUDE_TEXT_EDUCATIONAL_PROGRAM',       'Учебная программа');
+
+define('RUDE_TEXT_UTF8_DOTS',                 '••••••••');
 
 
 /* ============================================================ */
@@ -169,6 +236,8 @@ define('RUDE_FIELD_ROLE',                  'role');
 define('RUDE_FIELD_ROLE_ID',               'role_id');
 define('RUDE_FIELD_ROLES',                 'roles');
 define('RUDE_FIELD_COUNT',                 'count');
+define('RUDE_FIELD_QUALIFICATION_ID',      'qualification_id');
+define('RUDE_FIELD_FACULTY_ID',            'faculty_id');
 define('RUDE_FIELD_ALLOW_USER_MANAGEMENT', 'allow_user_management');
 define('RUDE_FIELD_ALLOW_ROLE_MANAGEMENT', 'allow_role_management');
 

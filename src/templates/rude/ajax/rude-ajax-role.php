@@ -4,11 +4,14 @@ namespace rude;
 
 class ajax_role
 {
-    public static function has_access()
-    {
-        $allow_role_management = get(RUDE_FIELD_ALLOW_ROLE_MANAGEMENT, $_SESSION);
-        return $allow_role_management === '1';
-    }
+
+	public static function has_access()
+	{
+		$allow_role_management = get(RUDE_FIELD_ALLOW_ROLE_MANAGEMENT, $_SESSION);
+
+		return $allow_role_management === '1';
+	}
+
 
     public static function add()
     {

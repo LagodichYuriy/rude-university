@@ -29,6 +29,22 @@
 	<?
 		switch ($task)
 		{
+			case RUDE_TASK_MANAGEMENT_DEPARTMENTS:
+				require_once 'rude-management-departments.php';
+				break;
+
+			case RUDE_TASK_MANAGEMENT_FACULTIES:
+				require_once 'rude-management-faculties.php';
+				break;
+
+			case RUDE_TASK_MANAGEMENT_QUALIFICATIONS:
+				require_once 'rude-management-qualifications.php';
+				break;
+
+			case RUDE_TASK_MANAGEMENT_SPECIALTIES:
+				require_once 'rude-management-specialties.php';
+				break;
+
 			case RUDE_TASK_MANAGEMENT_USERS:
 				require_once 'rude-management-users.php';
 				break;
@@ -39,10 +55,6 @@
 
 			case RUDE_TASK_MANAGEMENT_REPORTS:
 				require_once 'rude-management-reports.php';
-				break;
-
-			case RUDE_TASK_MANAGEMENT_FACULTIES:
-				require_once 'rude-management-faculties.php';
 				break;
 
 			default:

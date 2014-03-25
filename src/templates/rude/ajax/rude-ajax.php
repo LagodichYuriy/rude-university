@@ -2,6 +2,7 @@
 
 namespace rude;
 
+require_once 'rude-ajax-faculty.php';
 require_once 'rude-ajax-role.php';
 require_once 'rude-ajax-user.php';
 
@@ -72,6 +73,17 @@ switch ($target)
 
 	case RUDE_TASK_AJAX_ROLE_SUMMARY:
 		ajax_role::html();
+		break;
+
+
+
+
+	case RUDE_TASK_AJAX_FACULTY_ADD:
+		ajax_faculty::add();
+		break;
+
+	case RUDE_TASK_AJAX_FACULTY_SUMMARY:
+		ajax_faculty::html();
 		break;
 
 	default:

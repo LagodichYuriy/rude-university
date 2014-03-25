@@ -11,6 +11,9 @@ class database
 	/** @var \mysqli  */
 	private $mysqli = null;
 
+	/** @var \mysqli_result  */
+	private $result = null;
+
 	public function __construct($host = RUDE_DATABASE_HOST,
                                 $user = RUDE_DATABASE_USER,
                                 $pass = RUDE_DATABASE_PASS,
@@ -31,14 +34,14 @@ class database
 
 	public function query($string)
 	{
-		$result = $this->mysqli->query($string);
+		$this->result = $this->mysqli->query($string);
 
-		if ($result === false)
+		if ($this->result === false)
 		{
 			new errcode(RUDE_ERR_MYSQL_CONNECTION_ERROR, $string);
 		}
 
-		return $result;
+		return $this->result;
 	}
 
 	public function escape($var)
@@ -74,5 +77,27 @@ class database
 		}
 
 		return $table_columns;
+	}
+
+	public function get_object_list()
+	{
+		$object_list = array();
+
+		while ($object = $this->result->fetch_object())
+		{
+			$object_list[] = $object;
+		}
+
+		return $object_list;
+	}
+
+	public function get_object()
+	{
+		if ($object = $this->result->fetch_object())
+		{
+			return $object;
+		}
+
+		return null;
 	}
 }
