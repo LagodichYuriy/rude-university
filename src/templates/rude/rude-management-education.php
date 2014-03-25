@@ -1,6 +1,5 @@
-<?
-
-namespace rude;
+<? namespace rude;?>
+    <?
 
 class table_time_budget {
 

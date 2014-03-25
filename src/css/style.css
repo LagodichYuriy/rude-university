@@ -7,42 +7,7 @@ body
 	background-color: rgb(238, 238, 238);
 }
 
-/*table, td, th*/
-/*{*/
-	/*border:      1px solid #bbb;*/
-	/*padding:     4px;*/
-	/*text-align:  center;*/
 
-	/*font-family: Verdana, sans-serif;*/
-	/*font-size:   11px;*/
-/*}*/
-
-/*table*/
-/*{*/
-	/*border-collapse: collapse;*/
-	/*margin-bottom:   5px;*/
-
-	/*display:         table;*/
-	/*border-spacing:  2px;*/
-	/*border-color:    gray;*/
-
-	/*float:           left;*/
-	/*margin-right:    5px;*/
-/*}*/
-
-/*tr*/
-/*{*/
-	/*display:        table-row;*/
-	/*vertical-align: inherit;*/
-	/*border-color:   inherit;*/
-/*}*/
-
-/*tbody*/
-/*{*/
-	/*display:        table-row-group;*/
-	/*vertical-align: middle;*/
-	/*border-color:   inherit;*/
-/*}*/
 
 textarea
 {
@@ -476,60 +441,4 @@ h3
 {
 	float: left;
 	padding-top: 40px;
-}
-
-/* Time budget table */
-
-.no-border-bottom
-{
-    border-bottom-width: 0;
-}
-
-.no-border-top
-{
-    border-top-width: 0;
-}
-
-.underline
-{
-    text-decoration: underline;
-}
-
-.uppercase
-{
-    text-transform: uppercase;
-}
-
-.small-width {
-    min-width: 20px;
-}
-
-.small-height {
-    min-height: 20px;
-}
-
-.medium-width {
-    min-width: 40px;
-}
-
-#container
-{
-	padding-left: 276px;
-	padding-right: 34px;
-	position: relative;
-}
-
-.menu
-{
-	padding-bottom: 20px;
-}
-
-.definition
-{
-	min-width: 160px;
-	float: left;
-}
-.table-width
-{
-    width: 56px;
 }
