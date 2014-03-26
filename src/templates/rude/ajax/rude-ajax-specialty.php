@@ -25,7 +25,7 @@ class ajax_specialty
 			{
 				?>
 				<tr>
-					<td><?= $i++    ?></td>
+					<td><?= $i++ ?></td>
 					<td><?= $specialty->faculty_shortname  ?></td>
 					<td><?= $specialty->{RUDE_FIELD_NAME}  ?></td>
 					<td><?= $specialty->qualification_name ?></td>

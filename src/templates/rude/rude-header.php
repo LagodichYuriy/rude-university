@@ -13,6 +13,15 @@
 	<script type="text/javascript" src="src/js/fancybox/jquery.fancybox.pack.js"></script>
 
 
+
+
+	<!-- semantic module dropdown CSS -->
+	<!-- IMPORTANT: dropdown should be called before main semantic-ui library! -->
+	<link rel="stylesheet" href="src/js/semantic/modules/dropdown.min.css" type="text/css" />
+	<!-- semantic module dropdown JS -->
+	<!-- IMPORTANT: dropdown should be called before main semantic-ui library! -->
+	<script type="text/javascript" src="src/js/semantic/modules/dropdown.min.js"></script>
+
 	<!-- semantic CSS -->
 	<link rel="stylesheet" href="src/js/semantic/css/semantic.min.css" type="text/css" />
 	<!-- semantic JS -->
@@ -27,7 +36,6 @@
 	<link rel="stylesheet" href="src/js/semantic/modules/popup.min.css" type="text/css" />
 	<!-- semantic module popup JS -->
 	<script type="text/javascript" src="src/js/semantic/modules/popup.min.js"></script>
-
 
 
 	<!-- rude JS -->

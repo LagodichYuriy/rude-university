@@ -11,6 +11,13 @@ define('RUDE_DATABASE_NAME',   'university');
 define('RUDE_DATABASE_PREFIX', 'univ_');
 
 
+
+/* =================================== */
+/* Date and time configuration section */
+/* =================================== */
+define('RUDE_TIMEZONE', 'Europe/Minsk');
+
+
 /* ======================================== */
 /* Debug notification configuration section */
 /* ======================================== */
@@ -20,6 +27,7 @@ define('RUDE_ERR_SHOW_MESSAGES', true);
 /* ======================================================================== */
 /* Database table names which are frequently used in query() set of classes */
 /* ======================================================================== */
+define('RUDE_TABLE_CLASSES',        RUDE_DATABASE_PREFIX . 'classes');
 define('RUDE_TABLE_DEPARTMENTS',    RUDE_DATABASE_PREFIX . 'departments');
 define('RUDE_TABLE_FACULTIES',      RUDE_DATABASE_PREFIX . 'faculties');
 define('RUDE_TABLE_QUALIFICATIONS', RUDE_DATABASE_PREFIX . 'qualifications');
@@ -192,6 +200,7 @@ define('RUDE_TEXT_MANAGEMENT_DEPARTMENTS',    'Кафедры');
 define('RUDE_TEXT_MANAGEMENT_FACULTIES',      'Факультеты');
 define('RUDE_TEXT_MANAGEMENT_QUALIFICATIONS', 'Квалификации');
 define('RUDE_TEXT_MANAGEMENT_SPECIALTIES',    'Специальности');
+define('RUDE_TEXT_MANAGEMENT_REPORTS',        'Учебные планы');
 
 define('RUDE_TEXT_ADD',                       'Добавить');
 define('RUDE_TEXT_ADD_NEW_DEPARTMENT',        'Добавить новую кафедру');

@@ -6,6 +6,8 @@ require_once 'rude-config.php';
 
 require_once './src/rude-globals.php';
 
+require_once './src/rude-timestamp.php';
+
 require_once './src/database/rude-query.php';
 require_once './src/database/rude-cquery.php';
 require_once './src/database/rude-dquery.php';
@@ -24,6 +26,7 @@ require_once './src/rude-string.php';
 require_once './src/rude-sysinfo.php';
 require_once './src/rude-url.php';
 
+require_once './src/rude-classes.php';
 require_once './src/rude-departments.php';
 require_once './src/rude-faculties.php';
 require_once './src/rude-qualifications.php';
@@ -35,6 +38,8 @@ require_once './src/rude-ajax.php';
 
 require_once './src/plugins/table/table.php';
 
+
+\rude\timestamp::set_timezone(RUDE_TIMEZONE);
 
 
 $is_valid = \rude\session::init();

@@ -16,7 +16,6 @@ class departments
 	{
 		$q = new cquery(RUDE_TABLE_FACULTIES);
 		$q->add(RUDE_FIELD_NAME, $name);
-		$q->add(RUDE_FIELD_SHORTNAME, $shortname);
 		$q->start();
 
 		return $q->get_id();

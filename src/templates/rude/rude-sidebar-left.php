@@ -28,7 +28,8 @@
 
 			<b><?= RUDE_TEXT_EDUCATIONAL_PROGRAM ?></b>
 			<div class="menu">
-				<a class="item" href="?task=<?= RUDE_TASK_MANAGEMENT_EDUCATION   ?>"><?= RUDE_TEXT_MANAGEMENT_EDUCATION   ?></a>
+				<a class="item" href="?task=<?= RUDE_TASK_MANAGEMENT_EDUCATION ?>"><?= RUDE_TEXT_MANAGEMENT_EDUCATION ?></a>
+				<a class="item" href="?task=<?= RUDE_TASK_MANAGEMENT_REPORTS   ?>"><?= RUDE_TEXT_MANAGEMENT_REPORTS   ?></a>
 			</div>
 
 			<div class="menu">
