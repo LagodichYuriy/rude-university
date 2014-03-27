@@ -447,7 +447,7 @@ h3
 	font-size: 10px!important;
 }
 
-.padding-small
+.small-padding
 {
 	padding: 2px;
 }
@@ -468,8 +468,7 @@ h3
 .clear
 {
 	clear:          both;
-
-	padding-bottom: 20px;
+	padding-bottom: 1em;
 }
 
 .checkbox-item
@@ -538,4 +537,9 @@ h3
 .ui.dropdown .menu .item
 {
 	font-size: 10px!important;
+}
+
+.margin-button
+{
+	margin-top: 1.2em!important;
 }

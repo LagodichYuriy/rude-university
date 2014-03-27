@@ -78,6 +78,25 @@ function rude_reload_users()
 }
 
 
+/* ================================ */
+/* Helps to define current HTTP url */
+/* ================================ */
+function rude_url()
+{
+	return window.location.pathname;
+}
+
+/* ============================ */
+/* Helps to define current host */
+/* ============================ */
+function rude_url_host()
+{
+	var http = location.protocol;
+	var slashes = http.concat("//");
+
+	return slashes.concat(window.location.hostname);
+}
+
 
 /* ======================================= */
 /* jQuery + fancybox popup section [roles] */

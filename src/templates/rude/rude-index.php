@@ -7,13 +7,18 @@
 	{
 		case RUDE_TASK_AJAX:
 			require_once 'ajax/rude-ajax.php';
-
-			exit();
-			break;
+			die;
 
 		case RUDE_TASK_LOGOUT:
 			session::destroy();
 			headers::redirect(RUDE_FILE_INDEX);
+			break;
+
+		case RUDE_TASK_REPORT_PREVIEW:
+			require_once 'rude-report-preview.php';
+			die;
+
+		default:
 			break;
 	}
 ?>

@@ -27,13 +27,15 @@ define('RUDE_ERR_SHOW_MESSAGES', true);
 /* ======================================================================== */
 /* Database table names which are frequently used in query() set of classes */
 /* ======================================================================== */
-define('RUDE_TABLE_CLASSES',        RUDE_DATABASE_PREFIX . 'classes');
-define('RUDE_TABLE_DEPARTMENTS',    RUDE_DATABASE_PREFIX . 'departments');
-define('RUDE_TABLE_FACULTIES',      RUDE_DATABASE_PREFIX . 'faculties');
-define('RUDE_TABLE_QUALIFICATIONS', RUDE_DATABASE_PREFIX . 'qualifications');
-define('RUDE_TABLE_ROLES',          RUDE_DATABASE_PREFIX . 'roles');
-define('RUDE_TABLE_SPECIALTIES',    RUDE_DATABASE_PREFIX . 'specialties');
-define('RUDE_TABLE_USERS',          RUDE_DATABASE_PREFIX . 'users');
+define('RUDE_TABLE_CLASSES',           RUDE_DATABASE_PREFIX . 'classes');
+define('RUDE_TABLE_DEPARTMENTS',       RUDE_DATABASE_PREFIX . 'departments');
+define('RUDE_TABLE_DISCIPLINES',       RUDE_DATABASE_PREFIX . 'disciplines');
+define('RUDE_TABLE_DISCIPLINES_TYPES', RUDE_DATABASE_PREFIX . 'disciplines_types');
+define('RUDE_TABLE_FACULTIES',         RUDE_DATABASE_PREFIX . 'faculties');
+define('RUDE_TABLE_QUALIFICATIONS',    RUDE_DATABASE_PREFIX . 'qualifications');
+define('RUDE_TABLE_ROLES',             RUDE_DATABASE_PREFIX . 'roles');
+define('RUDE_TABLE_SPECIALTIES',       RUDE_DATABASE_PREFIX . 'specialties');
+define('RUDE_TABLE_USERS',             RUDE_DATABASE_PREFIX . 'users');
 
 
 
@@ -74,6 +76,7 @@ define('RUDE_TASK_TABLE_PREVIEW',         'table_preview');
 
 define('RUDE_TASK_AJAX',                  'ajax');
 define('RUDE_TASK_LOGOUT',                'logout');
+define('RUDE_TASK_REPORT_PREVIEW',        'report_preview');
 
 
 
@@ -247,6 +250,8 @@ define('RUDE_FIELD_ROLES',                 'roles');
 define('RUDE_FIELD_COUNT',                 'count');
 define('RUDE_FIELD_QUALIFICATION_ID',      'qualification_id');
 define('RUDE_FIELD_FACULTY_ID',            'faculty_id');
+define('RUDE_FIELD_NAME_TYPE_ID',          'type_id');
+define('RUDE_FIELD_NAME_TYPE_NAME',        'type_name');
 define('RUDE_FIELD_ALLOW_USER_MANAGEMENT', 'allow_user_management');
 define('RUDE_FIELD_ALLOW_ROLE_MANAGEMENT', 'allow_role_management');
 

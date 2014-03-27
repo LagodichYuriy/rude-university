@@ -28,6 +28,7 @@ require_once './src/rude-url.php';
 
 require_once './src/rude-classes.php';
 require_once './src/rude-departments.php';
+require_once './src/rude-disciplines.php';
 require_once './src/rude-faculties.php';
 require_once './src/rude-qualifications.php';
 require_once './src/rude-roles.php';

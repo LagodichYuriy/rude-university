@@ -27,6 +27,11 @@
 	<!-- semantic JS -->
 	<script type="text/javascript" src="src/js/semantic/javascript/semantic.min.js"></script>
 
+	<!-- semantic module accordion CSS -->
+	<link rel="stylesheet" href="src/js/semantic/modules/accordion.min.css" type="text/css" />
+	<!-- semantic module accordion JS -->
+	<script type="text/javascript" src="src/js/semantic/modules/accordion.min.js"></script>
+
 	<!-- semantic module sidebar CSS -->
 	<link rel="stylesheet" href="src/js/semantic/modules/sidebar.min.css" type="text/css" />
 	<!-- semantic module sidebar JS -->
