@@ -71,6 +71,10 @@ body
     min-width: 56px;
 }
 
+.td-width
+{
+    min-width: 25px;
+}
 select {
     float: none;
     margin: 2px 0px -9px 0px;

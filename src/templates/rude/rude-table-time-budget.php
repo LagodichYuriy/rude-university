@@ -114,42 +114,7 @@ class table_time_budget {
                 <div class="small-height">
                     <?= RUDE_TABLE_TIME_BUDGET_AUGUST ?>
                 </div>
-                <!-- </td>
-            <td rowspan="3">
-                <div>
-                    <?/*= RUDE_TABLE_TIME_BUDGET_THEORETICAL_EDUСATION */?>
-                </div>
-            </td>
-            <td rowspan="3">
-                <div>
-                    <?/*= RUDE_TABLE_TIME_BUDGET_EXAMINATION_SESSION */?>
-                </div>
-            </td>
-            <td rowspan="3">
-                <div>
-                    <?/*= RUDE_TABLE_TIME_BUDGET_PRACTICE */?>
-                </div>
-            </td>
-            <td rowspan="3">
-                <div>
-                    <?/*= RUDE_TABLE_TIME_BUDGET_DIPLOMA_DESIGN */?>
-                </div>
-            </td>
-            <td rowspan="3">
-                <div>
-                    <?/*= RUDE_TABLE_TIME_BUDGET_STATE_EXAMS */?>
-                </div>
-            </td>
-            <td rowspan="3">
-                <div>
-                    <?/*= RUDE_TABLE_TIME_BUDGET_HOLIDAYS */?>
-                </div>
-            </td>
-            <td rowspan="3">
-                <div>
-                    <?/*= RUDE_TABLE_TIME_BUDGET_ALL */?>
-                </div>
-            </td>-->
+
         </tr>
         <tr>
             <td class="no-border-bottom">1</td>
@@ -299,7 +264,6 @@ class table_time_budget {
     <?
     }
 
-
     private static function body_html() {
         ?>
         <? $a = array('I', 'II', 'III', 'IV');
@@ -311,21 +275,7 @@ class table_time_budget {
                     </td>
 
                     <? for ($j = 0; $j < 52; $j++) : ?>
-                        <td id = <?echo $j?> >
-                            <div class="small-width small-height">
-                                <form method="post" name="drop_down_box">
-                                    <select  name="menu" size="1" style="width:22px"  >
-                                        <option selected="selected" value="first"></option>
-                                        <option value="second"  >:</option>
-                                        <option value="third"   >=</option>
-                                        <option value="fifth"   >//</option>
-                                        <option value="sixth"   >O</option>
-                                        <option value="seventh" >/</option>
-                                        <option value="eighth"  >X</option>
-                                        <option value="ninth"   >И</option>
-                                    </select>
-                                </form>
-                            </div>
+                        <td class = "td-width" id = <?echo $j?>>0
                         </td>
                     <? endfor; ?>
                 </tr>
@@ -600,12 +550,12 @@ class table_time_budget {
 
                     <? for ($j = 0; $j < 52; $j++) : ?>
                         <th id = <?echo $j?> >
+
                             <div class="ui dropdown">
                                 <i class="dropdown icon"></i>
                                 <div class="menu">
-                                    <div class="item" value = 'nin'>Edit</div>
-                                    <div class="item">Remove</div>
-                                    <div class="item">Hide</div>
+                                    <div class="item" data-value="option1">Option 1</div>
+                                    <div class="item" data-value="option2">Option 2</div>
                                 </div>
                             </div>
                         </th>

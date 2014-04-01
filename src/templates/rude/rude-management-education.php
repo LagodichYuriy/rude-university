@@ -5,7 +5,7 @@
 
 <div class="middle">
 	<div class="middle-item">
-
+<?table_time_budget::html()?>
 
 	</div>
 </div>
