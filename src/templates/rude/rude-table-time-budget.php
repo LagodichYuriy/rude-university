@@ -540,6 +540,7 @@ class table_time_budget {
 
     private static function semantic_ui_body_html()
     {
+
         $a = array('I', 'II', 'III', 'IV');
         for ($i = 0; $i < 4; $i++) : ?>
             <table border = 1 class="ui basic table">
@@ -548,16 +549,26 @@ class table_time_budget {
                         <?= $a[$i]; ?>
                     </th>
 
+                    <script>$('.ui.dropdown').dropdown();</script>
+
                     <? for ($j = 0; $j < 52; $j++) : ?>
                         <th id = <?echo $j?> >
 
                             <div class="ui dropdown">
-                                <i class="dropdown icon"></i>
+                                <div class="text"> </div>
+                                <?= " "?><i class="dropdown icon"></i>
                                 <div class="menu">
-                                    <div class="item" data-value="option1">Option 1</div>
-                                    <div class="item" data-value="option2">Option 2</div>
+                                    <div class="item" data-value="option1"> </div>
+                                    <div class="item" data-value="О">О</div>
+                                    <div class="item" data-value="/">/</div>
+                                    <div class="item" data-value="=">=</div>
+                                    <div class="item" data-value=":">:</div>
+                                    <div class="item" data-value="Х">Х</div>
+                                    <div class="item" data-value="//">//</div>
+                                    <div class="item" data-value="И">И</div>
                                 </div>
                             </div>
+
                         </th>
                     <? endfor; ?>
                 </tr>
