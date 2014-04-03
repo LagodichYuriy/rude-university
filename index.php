@@ -18,6 +18,7 @@ require_once './src/rude-errcode.php';
 require_once './src/rude-escape.php';
 require_once './src/rude-headers.php';
 require_once './src/rude-html.php';
+require_once './src/rude-image.php';
 require_once './src/rude-js.php';
 
 require_once './src/rude-select.php';

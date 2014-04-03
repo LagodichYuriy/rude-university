@@ -111,6 +111,10 @@
 							<div class="ui green submit button mini" onclick="add_module()">Добавить</div>
 						</div>
 					</div>
+
+					<div>
+
+					</div>
 				</div>
 			</div>
 
@@ -133,7 +137,7 @@
 
 	function add_module()
 	{
-		var html = $('#module').html();
+		var html = $('#modules').html();
 	}
 
 	function get_report()
@@ -143,10 +147,6 @@
 
 	function show_report()
 	{
-
-
-		var win = window.open('.<?= RUDE_TEMPLATE_HTTP_INDEX . url::param(RUDE_TASK, RUDE_TASK_REPORT_PREVIEW, true) ?>', '_blank');
-
-		win.focus();
+		window.open('.<?= RUDE_TEMPLATE_HTTP_INDEX . url::param(RUDE_TASK, RUDE_TASK_REPORT_PREVIEW, true) ?>', '_blank').focus();
 	}
 </script>
