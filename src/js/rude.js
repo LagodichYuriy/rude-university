@@ -43,6 +43,9 @@ $(document).ready(function ()
 	});
 });
 
+
+
+
 $(document).ready(function ()
 {
 	$(".fancybox-users-small").fancybox({
@@ -150,3 +153,96 @@ function rude_reload_roles()
 		}
 	});
 }
+
+
+
+/* ======================================= */
+/* jQuery + fancybox popup section [faculties] */
+/* ======================================= */
+
+$(document).ready(function ()
+{
+	$(".fancybox-faculties").fancybox({
+		type: 'iframe',
+
+		width: 432 + 20,
+		height: 239,
+		fitToView : false,
+		autoSize : false,
+
+	});
+});
+
+$(document).ready(function ()
+{
+	$(".fancybox-faculties-edit").fancybox({
+		type: 'iframe',
+
+		width: 432 + 20,
+		height: 239,
+		fitToView : false,
+		autoSize : false,
+
+	});
+});
+
+
+$(document).ready(function ()
+{
+	$(".fancybox-faculties-delete").fancybox({
+		type: 'iframe',
+
+		width: 432 + 20,
+		height: 172,
+		fitToView : false,
+		autoSize : false,
+
+	});
+});
+
+
+
+
+/* ======================================= */
+/* jQuery + fancybox popup section [qualification] */
+/* ======================================= */
+
+$(document).ready(function ()
+{
+	$(".fancybox-qualification").fancybox({
+		type: 'iframe',
+
+		width: 432 + 20,
+		height: 180,
+		fitToView : false,
+		autoSize : false,
+
+	});
+});
+
+$(document).ready(function ()
+{
+	$(".fancybox-qualification-edit").fancybox({
+		type: 'iframe',
+
+		width: 432 + 20,
+		height: 209,
+		fitToView : false,
+		autoSize : false,
+
+	});
+});
+
+
+$(document).ready(function ()
+{
+	$(".fancybox-qualification-delete").fancybox({
+		type: 'iframe',
+
+		width: 432 + 20,
+		height: 172,
+		fitToView : false,
+		autoSize : false,
+
+	});
+});
