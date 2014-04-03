@@ -3,6 +3,31 @@
 namespace rude;
 
 class table_time_budget {
+    public static function table_body($j)
+    {
+        ?><td class = "td-width" id = <?echo $j?>><?= " "?></td><?
+    }
+
+    public static function ui_table_body($j)
+    {
+        ?><th id = <?echo $j?> >
+               <div class="ui dropdown">
+                 <div class="text"> </div>
+                  <?= " "?><i class="dropdown icon"></i>
+                  <div class="menu">
+                      <div class="item" data-value="option1"> </div>
+                      <div class="item" data-value="О">О</div>
+                      <div class="item" data-value="/">/</div>
+                      <div class="item" data-value="=">=</div>
+                      <div class="item" data-value=":">:</div>
+                      <div class="item" data-value="Х">Х</div>
+                      <div class="item" data-value="//">//</div>
+                      <div class="item" data-value="И">И</div>
+                  </div>
+              </div>
+          </th>
+    <?
+    }
 
     public static function html() {
         ?>
@@ -275,7 +300,7 @@ class table_time_budget {
                     </td>
 
                     <? for ($j = 0; $j < 52; $j++) : ?>
-                        <td class = "td-width" id = <?echo $j?>><?= " "?></td>
+                        <?table_time_budget::table_body($j)?>
                     <? endfor; ?>
                 </tr>
             </table>
@@ -539,8 +564,8 @@ class table_time_budget {
 
     private static function semantic_ui_body_html()
     {
-
         $a = array('I', 'II', 'III', 'IV');
+
         for ($i = 0; $i < 4; $i++) : ?>
             <table border = 1 class="ui basic table">
                 <tr id = <? echo "$i" ?> >
@@ -548,31 +573,13 @@ class table_time_budget {
                         <?= $a[$i]; ?>
                     </th>
 
-                    <script>$('.ui.dropdown').dropdown();</script>
-
                     <? for ($j = 0; $j < 52; $j++) : ?>
-                        <th id = <?echo $j?> >
-
-                            <div class="ui dropdown">
-                                <div class="text"> </div>
-                                <?= " "?><i class="dropdown icon"></i>
-                                <div class="menu">
-                                    <div class="item" data-value="option1"> </div>
-                                    <div class="item" data-value="О">О</div>
-                                    <div class="item" data-value="/">/</div>
-                                    <div class="item" data-value="=">=</div>
-                                    <div class="item" data-value=":">:</div>
-                                    <div class="item" data-value="Х">Х</div>
-                                    <div class="item" data-value="//">//</div>
-                                    <div class="item" data-value="И">И</div>
-                                </div>
-                            </div>
-
-                        </th>
+                        <?table_time_budget::ui_table_body($j)?>
                     <? endfor; ?>
                 </tr>
             </table>
         <? endfor; ?>
+        <script>$('.ui.dropdown').dropdown();</script>
     <?
     }
 }
