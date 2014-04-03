@@ -387,6 +387,7 @@ class table_time_budget {
         <tr>
 
         <tr>
+
             <th class="no-border-bottom">1</th>
             <th class="no-border-bottom">8</th>
             <th class="no-border-bottom">15</th>
@@ -459,77 +460,76 @@ class table_time_budget {
             <th class="no-border-bottom">24</th>
         </tr>
         <tr>
-            <th class="no-border-top"></th>
-            <th class="no-border-top">1</th>
-            <th class="no-border-top">8</th>
-            <th class="no-border-top">15</th>
-            <th class="no-border-top">22</th>
+            <th></th>
+            <th class="no-border-top">7</th>
+            <th class="no-border-top">14</th>
+            <th class="no-border-top">21</th>
+            <th class="no-border-top">28</th>
             <th class="no-border-top">
-                <div class="underline">29</div>09
+                <div class="underline">05</div>10
             </th>
-            <th class="no-border-top">6</th>
-            <th class="no-border-top">13</th>
-            <th class="no-border-top">20</th>
-            <th class="no-border-top">
-                <div class="underline">27</div>10
-            </th>
-            <th class="no-border-top">3</th>
-            <th class="no-border-top">10</th>
-            <th class="no-border-top">17</th>
-            <th class="no-border-top">24</th>
-            <th class="no-border-top">1</th>
-            <th class="no-border-top">8</th>
-            <th class="no-border-top">15</th>
-            <th class="no-border-top">22</th>
-            <th class="no-border-top">
-                <div class="underline">29</div>12
-            </th>
-            <th class="no-border-top">5</th>
             <th class="no-border-top">12</th>
             <th class="no-border-top">19</th>
+            <th class="no-border-top">26</th>
             <th class="no-border-top">
-                <div class="underline">26</div>01
+                <div class="underline">02</div>11
             </th>
-            <th class="no-border-top">2</th>
-            <th class="no-border-top">9</th>
-            <th class="no-border-top">16</th>
-            <th class="no-border-top">
-                <div class="underline">23</div>02
-            </th>
-            <th class="no-border-top">2</th>
-            <th class="no-border-top">9</th>
+            <th class="no-border-top">7</th>
             <th class="no-border-top">16</th>
             <th class="no-border-top">23</th>
+            <th class="no-border-top">30</th>
+            <th class="no-border-top">7</th>
+            <th class="no-border-top">14</th>
+            <th class="no-border-top">21</th>
+            <th class="no-border-top">28</th>
             <th class="no-border-top">
-                <div class="underline">30</div>03
+                <div class="underline">04</div>01
             </th>
-            <th class="no-border-top">6</th>
-            <th class="no-border-top">13</th>
-            <th class="no-border-top">20</th>
-            <th class="no-border-top">
-                <div class="underline">27</div>04
-            </th>
-            <th class="no-border-top">4</th>
             <th class="no-border-top">11</th>
             <th class="no-border-top">18</th>
             <th class="no-border-top">25</th>
-            <th class="no-border-top">1</th>
+            <th class="no-border-top">
+                <div class="underline">01</div>02
+            </th>
             <th class="no-border-top">8</th>
             <th class="no-border-top">15</th>
             <th class="no-border-top">22</th>
             <th class="no-border-top">
-                <div class="underline">29</div>06
+                <div class="underline">01</div>03
             </th>
-            <th class="no-border-top">6</th>
-            <th class="no-border-top">13</th>
-            <th class="no-border-top">20</th>
+            <th class="no-border-top">8</th>
+            <th class="no-border-top">15</th>
+            <th class="no-border-top">22</th>
+            <th class="no-border-top">29</th>
             <th class="no-border-top">
-                <div class="underline">27</div>07
+                <div class="underline">05</div>04
             </th>
-            <th class="no-border-top">3</th>
+            <th class="no-border-top">12</th>
+            <th class="no-border-top">19</th>
+            <th class="no-border-top">26</th>
+            <th class="no-border-top">
+                <div class="underline">03</div>05
+            </th>
             <th class="no-border-top">10</th>
             <th class="no-border-top">17</th>
-
+            <th class="no-border-top">24</th>
+            <th class="no-border-top">31</th>
+            <th class="no-border-top">7</th>
+            <th class="no-border-top">14</th>
+            <th class="no-border-top">21</th>
+            <th class="no-border-top">28</th>
+            <th class="no-border-top">
+                <div class="underline">05</div>07
+            </th>
+            <th class="no-border-top">12</th>
+            <th class="no-border-top">19</th>
+            <th class="no-border-top">26</th>
+            <th class="no-border-top">
+                <div class="underline">02</div>08
+            </th>
+            <th class="no-border-top">9</th>
+            <th class="no-border-top">16</th>
+            <th class="no-border-top">23</th>
             <th class="no-border-top">31</th>
         </tr>
         </table>
