@@ -46,6 +46,9 @@ define('RUDE_FILE_INDEX',          'index.php');
 
 define('RUDE_DIR_ROOT',             __DIR__);
 define('RUDE_DIR_SRC',              '/src');
+define('RUDE_DIR_ICONS',            RUDE_DIR_SRC . '/icons');
+define('RUDE_DIR_FONTS',            RUDE_DIR_SRC . '/fonts');
+
 define('RUDE_DIR_TEMPLATES',        RUDE_DIR_ROOT . RUDE_DIR_SRC . '/templates');
 
 define('RUDE_TEMPLATE_DIR',         RUDE_DIR_TEMPLATES . '/rude');

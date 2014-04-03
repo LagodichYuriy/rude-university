@@ -8,12 +8,8 @@ class rude_report_timetable
 {
 	public static function html()
 	{
-		$image = new image(RUDE_REPORT_TABLE_FINAL_CREDITS, 130, 20);
-
-		debug($image, true);
-
 		?>
-		<table class="border">
+		<table class="border font-10">
 			<tr>
 				<td rowspan="4"><?= RUDE_REPORT_TABLE_NO ?></td>
 				<td rowspan="4"><?= RUDE_REPORT_TABLE_CYCLE_NAME ?></td>
@@ -24,12 +20,12 @@ class rude_report_timetable
 			</tr>
 
 			<tr>
-				<td rowspan="3" class="relative small column"><div class="rotate_270"><?= RUDE_REPORT_TABLE_EXAMS ?></div></td>
-				<td rowspan="3" class="relative small column"><div class="rotate_270"><?= RUDE_REPORT_TABLE_CREADITS ?></div></td>
-				<td rowspan="3" class="relative small column"><div class="rotate_270"><?= RUDE_REPORT_TABLE_MODEL_CALCULATIONS ?></div></td>
-				<td rowspan="3" class="relative small column"><div class="rotate_270"><?= RUDE_REPORT_TABLE_TOTAL ?></div></td>
-				<td rowspan="3" class="relative small column"><div class="rotate_270"><?= RUDE_REPORT_TABLE_CLASSROOM_FULL_TIME ?></div></td>
-				<td rowspan="3" class="relative small column"><div class="rotate_270"><?= RUDE_REPORT_TABLE_CLASSROOM_EVENING_TIME ?></div></td>
+				<td rowspan="3" class="relative small column"><div class="rotate_270"><? new image(RUDE_REPORT_TABLE_EXAMS)                  ?></div></td>
+				<td rowspan="3" class="relative small column"><div class="rotate_270"><? new image(RUDE_REPORT_TABLE_CREDITS)                ?></div></td>
+				<td rowspan="3" class="relative small column"><div class="rotate_270"><? new image(RUDE_REPORT_TABLE_MODEL_CALCULATIONS)     ?></div></td>
+				<td rowspan="3" class="relative small column"><div class="rotate_270"><? new image(RUDE_REPORT_TABLE_TOTAL)                  ?></div></td>
+				<td rowspan="3" class="relative small column"><div class="rotate_270"><? new image(RUDE_REPORT_TABLE_CLASSROOM_FULL_TIME)    ?></div></td>
+				<td rowspan="3" class="relative small column"><div class="rotate_270"><? new image(RUDE_REPORT_TABLE_CLASSROOM_EVENING_TIME) ?></div></td>
 
 				<td colspan="3" class="tiny"><?= RUDE_REPORT_TABLE_OF_THEM ?></td>
 

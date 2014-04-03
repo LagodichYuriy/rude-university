@@ -14,6 +14,7 @@ require_once './src/database/rude-dquery.php';
 require_once './src/database/rude-uquery.php';
 
 require_once './src/rude-crypt.php';
+require_once './src/rude-environment.php';
 require_once './src/rude-errcode.php';
 require_once './src/rude-escape.php';
 require_once './src/rude-headers.php';

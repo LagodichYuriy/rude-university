@@ -9,6 +9,12 @@ body
 	max-width: 29.7cm;
 }
 
+.font-10
+{
+	font-family: Times New Roman, Times, Tahoma, Verdana, Arial, Helvetica, sans-serif;
+	font-size: 10pt;
+}
+
 .font-11
 {
 	font-family: Times New Roman, Times, Tahoma, Verdana, Arial, Helvetica, sans-serif;
@@ -95,7 +101,9 @@ body
 	left:   3px;
 }
 
-.border table, .border td, .border th
+.border table,
+.border td,
+.border th
 {
 	border:      1px solid #bbb;
 	padding:     4px;

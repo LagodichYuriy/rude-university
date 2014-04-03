@@ -4,7 +4,7 @@ define('RUDE_REPORT_TABLE_NO',                     '№ п/п');
 define('RUDE_REPORT_TABLE_CYCLE_NAME',             'Название цикла, интегрированного модуля, учебной дисциплины, курсовой работы (проекта)');
 define('RUDE_REPORT_TABLE_DEPARTMENT',             'Кафедра');
 define('RUDE_REPORT_TABLE_EXAMS',                  'Экзаменов');
-define('RUDE_REPORT_TABLE_CREADITS',               'Зачётов');
+define('RUDE_REPORT_TABLE_CREDITS',               'Зачётов');
 define('RUDE_REPORT_TABLE_MODEL_CALCULATIONS',     'Расчётная работа, типовые расчёты');
 define('RUDE_REPORT_TABLE_TOTAL',                  'Всего');
 define('RUDE_REPORT_TABLE_CLASSROOM_FULL_TIME',    'Аудиторных дневной формы обуч.');
