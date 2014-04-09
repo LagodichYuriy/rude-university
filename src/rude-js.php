@@ -1,0 +1,10 @@
+<?
+
+namespace rude;
+
+
+
+class js
+{
+
+}

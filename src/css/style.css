@@ -1,0 +1,518 @@
+body
+{
+	font-family: Verdana, sans-serif;
+	font-size:   12px;
+	color:       #484848;
+
+	background-color: rgb(238, 238, 238);
+}
+
+textarea
+{
+	max-width:     1135px;
+	width:         1135px;
+	height:        199px;
+	margin-bottom: 5px;
+	border:        1px solid #bbb;
+	font-size:     10px;
+}
+
+label
+{
+	font-family: Consolas, Monaco, Lucida Console, Liberation Mono, DejaVu Sans Mono, Bitstream Vera Sans Mono, Courier New, monospace;
+}
+
+span
+{
+	color:       #145F5F;
+	font-weight: bold;
+}
+
+h2
+{
+	margin:    0;
+	padding:   0;
+	font-size: 12px;
+}
+
+h3
+{
+	font-size:     1em;
+
+	border-top:    1px black solid;
+	border-bottom: 1px black solid;
+}
+
+h2, h3
+{
+	font-weight: bold;
+	margin-left: -2px;
+}
+
+p
+{
+	text-align: justify;
+}
+
+.bold
+{
+	font-weight: bold;
+}
+
+.red
+{
+	color: red !important;
+}
+
+.small
+{
+	max-width: 10px;
+}
+
+.relative
+{
+	position: relative;
+}
+
+.nowrap
+{
+	white-space: nowrap;
+}
+
+.thin
+{
+	max-height: 20px;
+}
+
+.column
+{
+	height: 260px;
+}
+
+.short
+{
+	height: 86px;
+	left:   3px;
+}
+
+.tiny
+{
+	height:  14px;
+	padding: 0;
+}
+
+.rotate_270
+{
+	position:                 absolute;
+	white-space:              nowrap;
+	width:                    10px;
+	bottom:                   2px;
+	left:                     3px;
+
+	-webkit-transform:        rotate(-90deg);
+	-moz-transform:           rotate(-90deg);
+	-ms-transform:            rotate(-90deg);
+	-o-transform:             rotate(-90deg);
+	transform:                rotate(-90deg);
+
+	-webkit-transform-origin: 50% 50%;
+	-moz-transform-origin:    50% 50%;
+	-ms-transform-origin:     50% 50%;
+	-o-transform-origin:      50% 50%;
+	transform-origin:         50% 50%;
+
+	/* Should be unset in IE9+ I think. */
+	filter:                   progid:DXImageTransform.Microsoft.BasicImage(rotation=3);
+}
+
+.last_column
+{
+	bottom: 70px;
+	left:   6px;
+}
+
+.middle
+{
+	margin:  0 auto;
+	display: table;
+}
+
+.myform
+{
+	margin:  0 auto;
+	width:   400px;
+	padding: 14px;
+}
+
+/* ----------- stylized ----------- */
+#stylized
+{
+	border:     solid 2px #b7ddf2;
+	background: #ebf4fb;
+}
+
+#stylized h1
+{
+	font-size:     14px;
+	font-weight:   bold;
+	margin-bottom: 8px;
+}
+
+#stylized p
+{
+	font-size:      11px;
+	color:          #666666;
+	margin-bottom:  20px;
+	border-bottom:  solid 1px #b7ddf2;
+	padding-bottom: 10px;
+}
+
+#stylized label
+{
+	display:     block;
+	font-weight: bold;
+	text-align:  right;
+	width:       140px;
+	float:       left;
+	padding-top: 7px;
+	clear:       both;
+}
+
+#stylized input[type=checkbox]
+{
+	margin: 0 2px 0 122px;
+	width:  25px;
+	clear:  none;
+}
+
+#stylized .label-checkbox
+{
+	width:      200px;
+	text-align: left;
+	clear:      right;
+	margin-top: -7px;
+}
+
+#stylized .small
+{
+	color:       #666666;
+	display:     block;
+	font-size:   11px;
+	font-weight: normal;
+	text-align:  right;
+	width:       140px;
+}
+
+#stylized input
+{
+	float:     left;
+	font-size: 12px;
+	padding:   4px 2px;
+	border:    solid 1px #aacfe4;
+	width:     200px;
+	margin:    2px 0 20px 10px;
+}
+
+#stylized button
+{
+	clear:       both;
+	margin-left: 150px;
+	width:       200px;
+	height:      25px;
+	text-align:  center;
+	font-size:   11px;
+	outline:     solid 2px #aacfe4;
+}
+
+#stylized select
+{
+	text-indent:   0.01px; /* FireFox select arrow workaround */
+	text-overflow: ' '; /* FireFox select arrow workaround */
+}
+
+.table
+{
+	display: table;
+}
+
+.table-cell
+{
+	display:        table-cell;
+	vertical-align: middle;
+}
+
+.center
+{
+	/*width:    432px;*/
+	/*height:   241px;*/
+	position: absolute;
+	left:     50%;
+	top:      50%;
+	margin:   -120px 0 0 -216px;
+}
+
+.box
+{
+	border:        solid 2px #b7ddf2;
+	background:    #ebf4fb;
+	padding:       7px;
+	margin-bottom: 8px;
+}
+
+.logout
+{
+	float: right;
+}
+
+select
+{
+	float:     left;
+	font-size: 12px;
+	padding:   4px 2px;
+	border:    solid 1px #aacfe4;
+	width:     200px;
+	margin:    2px 0 20px 10px;
+}
+
+h3
+{
+	margin:    0;
+	padding:   0;
+	font-size: 12px;
+}
+
+.heavy
+{
+	width: 429px;
+}
+
+.tool
+{
+	position: relative;
+	background-color: #FFF;
+	-webkit-box-shadow: 0 0 0 1px rgba(0,0,0,.1);
+	box-shadow: 0 0 0 1px rgba(0,0,0,.1);
+	margin: 0 0 1em 0;
+	padding: 1em;
+	border-radius: 5px;
+	-webkit-box-sizing: border-box;
+	-moz-box-sizing: border-box;
+	-ms-box-sizing: border-box;
+	box-sizing: border-box;
+}
+
+.tool-desc
+{
+	display:      inline;
+	padding-left: 6px;
+	line-height:  16px;
+	color:        blue;
+}
+
+.undecorated
+{
+    text-decoration: none;
+}
+
+.hidden
+{
+	display: none;
+}
+
+#error-box
+{
+	display:      inline-block;
+	width:        200px;
+	padding-left: 150px;
+	margin-top:   -22px;
+	word-wrap:    break-word;
+}
+
+.button-box
+{
+	padding-top:    20px;
+	padding-bottom: 10px;
+
+	position:       relative;
+}
+
+.button
+{
+	float:  left !important;
+	margin: 0 !important;
+	clear:  none !important;
+	width:  190px !important;
+}
+
+.button-last
+{
+	float:  right !important;
+	margin: 0 !important;
+	clear:  none !important;
+	width:  190px !important;
+}
+
+.middle
+{
+	float: left;
+	background-color: #ffffff;
+	border: 1px solid #dddddd;
+	padding: 16px;
+	overflow: hidden;
+	width: 100%;
+	height: 100%;
+}
+
+.middle-item-first
+{
+	width: 300px;
+	clear: both;
+	float: left;
+}
+
+.middle-item
+{
+	float: left;
+}
+
+.two-column
+{
+	width: 49%;
+}
+
+.first
+{
+	padding-right: 2%;
+}
+
+.two-column-spacer
+{
+	width: 2%;
+}
+
+.any-height
+{
+	height: 1px;
+}
+
+.float
+{
+	float: left;
+}
+
+.small-font
+{
+	font-size: 8px;
+}
+
+.medium-font
+{
+	font-size: 10px!important;
+}
+
+.small-padding
+{
+	padding: 2px;
+}
+
+.full-width
+{
+	width: 100% !important;
+}
+
+.navigation-link
+{
+	display:      block;
+	padding-left: 6px;
+	line-height:  16px;
+	color:        blue;
+}
+
+.clear
+{
+	clear:          both;
+	padding-bottom: 1em;
+}
+
+.checkbox-item
+{
+	float: left;
+}
+
+.sidebar-left
+{
+	float: left;
+	padding-top: 40px;
+}
+
+/* Time budget table */
+
+.no-border-bottom
+{
+    border-bottom-width: 0;
+}
+
+.no-border-top
+{
+    border-top-width: 0;
+}
+
+.underline
+{
+    text-decoration: underline;
+}
+
+.uppercase
+{
+    text-transform: uppercase;
+}
+
+.small-width {
+    min-width: 20px;
+}
+
+.small-height {
+    min-height: 20px;
+}
+
+.medium-width {
+    min-width: 40px;
+}
+
+#container
+{
+	padding-left: 276px;
+	padding-right: 34px;
+	position: relative;
+}
+
+.menu
+{
+	padding-bottom: 20px;
+}
+
+.definition
+{
+	min-width: 160px;
+	float: left;
+}
+
+.ui.dropdown .menu .item
+{
+	font-size: 10px!important;
+}
+
+.margin-button
+{
+	margin-top: 1.2em!important;
+}
+
+.title
+{
+	font-size: 10px;
+}
+
+.ajax_bg
+{
+	background: #F9f9f9;
+}
