@@ -402,7 +402,11 @@ h3
 
 .small-font
 {
+<<<<<<< HEAD
 	font-size: 8px!important;
+=======
+	font-size: 8px;
+>>>>>>> 50ccc2e4ffd02f6db1d20ffae8ac2dec7db8457f
 }
 
 .medium-font
@@ -447,6 +451,7 @@ h3
 
 /* Time budget table */
 
+<<<<<<< HEAD
 .no-border-bottom
 {
     border-bottom-width: 0;
@@ -457,6 +462,8 @@ h3
     border-top-width: 0;
 }
 
+=======
+>>>>>>> 50ccc2e4ffd02f6db1d20ffae8ac2dec7db8457f
 .underline
 {
     text-decoration: underline;
@@ -467,6 +474,7 @@ h3
     text-transform: uppercase;
 }
 
+<<<<<<< HEAD
 .small-width {
     min-width: 20px;
 }
@@ -478,6 +486,9 @@ h3
 
 .medium-width
 {
+=======
+.medium-width {
+>>>>>>> 50ccc2e4ffd02f6db1d20ffae8ac2dec7db8457f
     min-width: 40px;
 }
 
@@ -517,6 +528,7 @@ h3
 .ajax_bg
 {
 	background: #F9f9f9;
+<<<<<<< HEAD
 }
 
 .width-20
@@ -562,4 +574,6 @@ h3
 .margin-left-2
 {
 	margin-left: 2%!important;
+=======
+>>>>>>> 50ccc2e4ffd02f6db1d20ffae8ac2dec7db8457f
 }

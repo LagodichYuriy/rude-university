@@ -3,9 +3,15 @@
 namespace rude;
 
 define('RUDE_REPORT_IMAGE_DEFAULT_WIDTH',  250);
+<<<<<<< HEAD
 define('RUDE_REPORT_IMAGE_DEFAULT_HEIGHT', 14);
 
 define('RUDE_IMAGE_DEFAULT_FONT', RUDE_DIR_ROOT . RUDE_DIR_FONTS . '/Liberation/LiberationSans-Regular.ttf');
+=======
+define('RUDE_REPORT_IMAGE_DEFAULT_HEIGHT', 20);
+
+define('RUDE_IMAGE_DEFAULT_FONT', RUDE_DIR_ROOT . RUDE_DIR_FONTS . '/LiberationSans-Regular.ttf');
+>>>>>>> 50ccc2e4ffd02f6db1d20ffae8ac2dec7db8457f
 
 class image
 {
@@ -23,13 +29,20 @@ class image
 	private $bytecode = null; // rendered image
 
 
+<<<<<<< HEAD
 	public function __construct($text, $width = RUDE_REPORT_IMAGE_DEFAULT_WIDTH, $height = RUDE_REPORT_IMAGE_DEFAULT_HEIGHT, $angle = 90, $font = RUDE_IMAGE_DEFAULT_FONT, $font_size = 9)
+=======
+	public function __construct($text, $width = RUDE_REPORT_IMAGE_DEFAULT_WIDTH, $height = RUDE_REPORT_IMAGE_DEFAULT_HEIGHT, $angle = 90, $font = RUDE_IMAGE_DEFAULT_FONT)
+>>>>>>> 50ccc2e4ffd02f6db1d20ffae8ac2dec7db8457f
 	{
 		$this->width = $width;
 		$this->height = $height;
 
 		$this->font = $font;
+<<<<<<< HEAD
 		$this->font_size = $font_size;
+=======
+>>>>>>> 50ccc2e4ffd02f6db1d20ffae8ac2dec7db8457f
 
 		$this->text = $text;
 		$this->angle = $angle;
@@ -59,7 +72,11 @@ class image
 
 		imagefill($this->image, 0, 0, $color_bg);
 
+<<<<<<< HEAD
 		imagettftext($this->image, $this->font_size, 0, 0, 12, $color_fg, $this->font, $this->text);
+=======
+		imagettftext($this->image, 10, 0, 2, 12, $color_fg, $this->font, $this->text);
+>>>>>>> 50ccc2e4ffd02f6db1d20ffae8ac2dec7db8457f
 
 		$this->image = $this->rotate($this->angle, $color_bg);
 
