@@ -155,15 +155,16 @@ b
 	padding: 0;
 }
 
-/*.bottom*/
-/*{*/
-	/*vertical-align: bottom;*/
-	/*margin-bottom: 0;*/
-/*}*/
+.bottom
+{
+	vertical-align: bottom;
+	margin-bottom: 0;
+}
 
-/*.bottom img*/
-/*{*/
-	/*margin-left: -2px;*/
+.bottom img
+{
+	margin-left: -2px;
+}
 
 .short
 {
