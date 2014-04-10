@@ -3,80 +3,83 @@
 <? require_once 'ajax/rude-ajax-education.php'; ?>
 <? require_once 'rude-table-time-budget.php'; ?>
 <style type = "text/css">
-    .no-border-bottom
-    {
-        text-align:center;
-        border-bottom-width: 0;
-        min-width: 25px;
-    }
 
-    .no-border-top
-    {
-        text-align:center;
-        border-top-width: 0;
-        min-width: 25px;
-    }
+	.no-border-bottom
+	{
+		text-align:center;
+		border-bottom-width: 0;
+		min-width: 35px;
+	}
 
-    .underline
-    {
-        text-decoration: underline;
-    }
+	.no-border-top
+	{
+		text-align:center;
+		border-top-width: 0;
+		min-width: 35px;
+	}
 
-    .uppercase
-    {
-        text-transform: uppercase;
-    }
+	.underline
+	{
+		text-decoration: underline;
+	}
 
-    .small-width {
-        min-width: 25px;
-    }
+	.uppercase
+	{
+		text-transform: uppercase;
+	}
 
-    .small-height {
-        min-height: 20px;
-    }
+	.small-width {
+		min-width: 25px;
+	}
 
-    .medium-width {
-        text-align:center;
-        min-width: 40px;
-    }
+	.small-height {
+		text-align: center;
+		min-height: 20px;
+	}
 
-    .table-width {
-        text-align:center;
-        min-width: 56px;
-    }
+	.medium-width {
+		text-align: center;
+		min-width: 35px;
+	}
 
-    #container
-    {
-        padding-left: 276px;
-        padding-right: 34px;
-        position: relative;
-    }
+	#container
+	{
+		padding-left: 276px;
+		padding-right: 34px;
+		position: relative;
+	}
 
-    .menu
-    {
-        padding-bottom: 20px;
-    }
+	.menu
+	{
+		padding-bottom: 20px;
+	}
 
-    .definition
-    {
-        min-width: 160px;
-        float: left;
-    }
+	.definition
+	{
+		min-width: 160px;
+		float: left;
+	}
 
-    .table-width {
-        min-width: 56px;
-    }
-
-    .td-width
-    {
-        min-width: 25px;
-    }
-
+	.table-width {
+		text-align: center;
+		min-width: 62px;
+	}
+	.courses-width
+	{
+		min-width: 62px;
+	}
+	.td-width
+	{
+		min-width: 30px;
+	}
+	.margin_bottom
+	{
+		margin-bottom: 200px;
+	}
 </style>
 
 <div class="middle">
 	<div class="middle-item">
-<?table_time_budget::html()?>
-
+		<?table_time_budget::html()?>
 	</div>
 </div>
