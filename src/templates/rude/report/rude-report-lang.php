@@ -29,7 +29,9 @@ define('RUDE_REPORT_TABLE_OF_THEM',                'Из них');
 
 /* Time budget table */
 
-define('RUDE_TABLE_TIME_BUDGET_COURSES', 			   		'курсы');
+define('RUDE_TABLE_TIME_BUDGET_COURSES',                    'курсы');
+define('RUDE_TABLE_TIME_BUDGET_TIMETABLE',                  'График учебного процесса');
+define('RUDE_TABLE_TIME_BUDGET_TOTALS',                     'Сводные данные по бюджету времени');
 
 define('RUDE_TABLE_TIME_BUDGET_SEPTEMBER',			   		'сентябрь');
 define('RUDE_TABLE_TIME_BUDGET_OCTOBER',			   		'октябрь');

@@ -5,7 +5,8 @@ namespace rude;
 define('RUDE_REPORT_IMAGE_DEFAULT_WIDTH',  250);
 define('RUDE_REPORT_IMAGE_DEFAULT_HEIGHT', 14);
 
-define('RUDE_IMAGE_DEFAULT_FONT', RUDE_DIR_ROOT . RUDE_DIR_FONTS . '/Liberation/LiberationSans-Regular.ttf');
+define('RUDE_IMAGE_DEFAULT_FONT',      RUDE_DIR_ROOT . RUDE_DIR_FONTS . '/Liberation/LiberationSans-Regular.ttf');
+define('RUDE_IMAGE_DEFAULT_FONT_BOLD', RUDE_DIR_ROOT . RUDE_DIR_FONTS . '/Liberation/LiberationSans-Bold.ttf');
 
 class image
 {

@@ -21,6 +21,13 @@ function rude_animation(selector, data)
 }
 
 
+/* ===================================== */
+/* Helps to erase the last one character */
+/* ===================================== */
+function rude_remove_last_char(string)
+{
+	return string.substring(0, string.length - 1);
+}
 
 /* ======================================= */
 /* jQuery + fancybox popup section [users] */

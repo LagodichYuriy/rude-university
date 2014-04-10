@@ -4,7 +4,7 @@ namespace rude;
 
 require_once 'rude-report-lang.php';
 
-class rude_report_timetable
+class report_timetable
 {
 	public static function html()
 	{
@@ -60,26 +60,26 @@ class rude_report_timetable
 				<td colspan="3" class="tiny"><div class="nowrap">X <?= RUDE_REPORT_TABLE_TOTAL_SEMESTER ?></div><div class="nowrap">7 <?= RUDE_REPORT_TABLE_TOTAL_WEEKS ?></div></td>
 			</tr>
 			<tr>
-				<? rude_report_timetable::html_td_total() ?>
-				<? rude_report_timetable::html_td_total() ?>
-				<? rude_report_timetable::html_td_total() ?>
-				<? rude_report_timetable::html_td_total() ?>
-				<? rude_report_timetable::html_td_total() ?>
-				<? rude_report_timetable::html_td_total() ?>
-				<? rude_report_timetable::html_td_total() ?>
-				<? rude_report_timetable::html_td_total() ?>
-				<? rude_report_timetable::html_td_total() ?>
-				<? rude_report_timetable::html_td_total() ?>
+				<? report_timetable::html_td_total() ?>
+				<? report_timetable::html_td_total() ?>
+				<? report_timetable::html_td_total() ?>
+				<? report_timetable::html_td_total() ?>
+				<? report_timetable::html_td_total() ?>
+				<? report_timetable::html_td_total() ?>
+				<? report_timetable::html_td_total() ?>
+				<? report_timetable::html_td_total() ?>
+				<? report_timetable::html_td_total() ?>
+				<? report_timetable::html_td_total() ?>
 			</tr>
 
 			<tr>
-				<? rude_report_timetable::html_td_loop(1, 43); ?>
+				<? report_timetable::html_td_loop(1, 43); ?>
 			</tr>
 
 			<tr>
-				<? rude_report_timetable::html_td_empty(1) ?>
+				<? report_timetable::html_td_empty(1) ?>
 				<td>Цикл социально­гуманитарных дисциплин</td>
-				<? rude_report_timetable::html_td_empty(41) ?>
+				<? report_timetable::html_td_empty(41) ?>
 			</tr>
 		</table>
 	<?

@@ -563,3 +563,54 @@ h3
 {
 	margin-left: 2%!important;
 }
+
+.border table,
+.border td,
+.border th
+{
+	border:      1px solid #bbb;
+	padding:     4px;
+	text-align:  center;
+}
+
+.border table
+{
+	border-collapse: collapse;
+	margin-bottom: 5px;
+
+	display: table;
+	border-spacing: 2px;
+	border-color: gray;
+
+	float: left;
+	margin-right: 5px;
+}
+
+.no-padding td
+{
+	padding: 0!important;
+}
+
+.align-center,
+.align-center tr,
+.align-center td,
+.align-center th
+{
+	text-align: center!important;
+}
+
+.min-cell-18 tr,
+.min-cell-18 td,
+.min-cell-18 th
+{
+	min-width: 18px!important;
+}
+
+.square-cell
+{
+	text-align: center;
+	border-radius: 0!important;
+	font-size: 8px!important;
+	padding: 0!important;
+	border: none!important;
+}

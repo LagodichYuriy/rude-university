@@ -47,6 +47,11 @@ b
 	font-family: 'LiberationSerifBold';
 }
 
+th
+{
+	font-family: 'LiberationSerifBold';
+}
+
 .border tr,
 .border td,
 .border th
@@ -172,11 +177,46 @@ b
 	left:   3px;
 }
 
-.border table,
-.border td,
-.border th
+/*.border table,*/
+/*.border td,*/
+/*.border th*/
+/*{*/
+	/*border:      1px solid #bbb;*/
+	/*padding:     4px;*/
+	/*text-align:  center;*/
+/*}*/
+
+.underline
 {
-	border:      1px solid #bbb;
-	padding:     4px;
-	text-align:  center;
+	text-decoration: underline;
+}
+
+.uppercase
+{
+	text-transform: uppercase;
+}
+
+.no-padding td
+{
+	padding: 0;
+}
+
+.small-font
+{
+	font-size: 8px!important;
+}
+
+.medium-font
+{
+	font-size: 10px!important;
+}
+
+.large-font
+{
+	font-size: 14px!important;
+}
+
+.margin-bottom-50
+{
+	margin-bottom: 50px;
 }

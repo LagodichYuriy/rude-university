@@ -2,12 +2,12 @@
 
 namespace rude;
 
-class rude_report_header
+class report_header
 {
 	public static function html()
 	{
 		?>
-		<table class="font-11 line-16">
+		<table class="font-11 line-16 margin-bottom-50">
 			<tr>
 				<td class="width-25">
 					<p>УТВЕРЖДАЮ</p>

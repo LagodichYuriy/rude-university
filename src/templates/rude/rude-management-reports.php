@@ -1,4 +1,8 @@
-<? namespace rude; ?>
+<?
+	namespace rude;
+
+	require_once 'report/rude-report-lang.php';
+?>
 
 <div class="middle">
 	<div class="middle-item full-width">
@@ -97,11 +101,11 @@
 			</div>
 
 			<div class="ui accordion full-width">
-				<div class="active title">
+				<div class="title">
 					<i class="dropdown icon"></i>
 					Список циклов (компоненты и модули специальности)
 				</div>
-				<div class="active content">
+				<div class="content">
 					<div class="fields">
 						<div class="field small-font width-80 padding-right-1">
 							<label>Название цикла</label>
@@ -122,6 +126,255 @@
 						<tbody id="modules">
 
 						</tbody>
+					</table>
+				</div>
+
+				<div class="title">
+					<i class="dropdown icon"></i>
+					Календарь учебного процесса
+				</div>
+				<div class="content">
+					<table class="ui basic table small-font border no-padding align-center min-cell-18">
+						<tr>
+							<th rowspan="3">
+									<?= string::after_each_char(RUDE_TABLE_TIME_BUDGET_COURSES, RUDE_HTML_NEWLINE) ?>
+							</th>
+
+							<th colspan="4">
+								<?= RUDE_TABLE_TIME_BUDGET_SEPTEMBER ?></div>
+							</th>
+
+							<th></th>
+
+							<th colspan="3">
+								<?= RUDE_TABLE_TIME_BUDGET_OCTOBER ?>
+							</th>
+
+							<th></th>
+
+							<th colspan="4">
+								<?= RUDE_TABLE_TIME_BUDGET_NOVEMBER ?>
+							</th>
+
+							<th colspan="4">
+									<?= RUDE_TABLE_TIME_BUDGET_DECEMBER ?>
+							</th>
+
+							<th></th>
+
+							<th colspan="3">
+								<?= RUDE_TABLE_TIME_BUDGET_JANUARY ?>
+							</th>
+
+							<th></th>
+
+							<th colspan="3">
+								<?= RUDE_TABLE_TIME_BUDGET_FEBRUARY ?>
+							</th>
+
+							<th></th>
+
+							<th colspan="4">
+								<?= RUDE_TABLE_TIME_BUDGET_MARCH ?>
+							</th>
+
+							<th></th>
+
+							<th colspan="3">
+								<?= RUDE_TABLE_TIME_BUDGET_APRIL ?>
+							</th>
+
+							<th></th>
+
+							<th colspan="4">
+								<div>
+									<?= RUDE_TABLE_TIME_BUDGET_MAY ?>
+								</div>
+							</th>
+							<th colspan="4">
+									<?= RUDE_TABLE_TIME_BUDGET_JUNE ?>
+							</th>
+
+							<th></th>
+
+							<th colspan="3">
+									<?= RUDE_TABLE_TIME_BUDGET_JULE ?>
+							</th>
+
+							<th></th>
+
+							<th colspan="4">
+								<?= RUDE_TABLE_TIME_BUDGET_AUGUST ?>
+							</th>
+						</tr>
+						<tr>
+							<td>1</td>
+							<td>8</td>
+							<td>15</td>
+							<td>22</td>
+							<td>
+								<div class="underline">29</div>09
+							</td>
+							<td>6</td>
+							<td>13</td>
+							<td>20</td>
+							<td>
+								<div class="underline">27</div>10
+							</td>
+							<td>3</td>
+							<td>10</td>
+							<td>17</td>
+							<td>24</td>
+							<td>1</td>
+							<td>8</td>
+							<td>15</td>
+							<td>22</td>
+							<td>
+								<div class="underline">29</div>12
+							</td>
+							<td>5</td>
+							<td>12</td>
+							<td>19</td>
+							<td>
+								<div class="underline">26</div>01
+							</td>
+							<td>2</td>
+							<td>9</td>
+							<td>16</td>
+							<td>
+								<div class="underline">23</div>02
+							</td>
+							<td>2</td>
+							<td>9</td>
+							<td>16</td>
+							<td>23</td>
+							<td>
+								<div class="underline">30</div>03
+							</td>
+							<td>6</td>
+							<td>13</td>
+							<td>20</td>
+							<td>
+								<div class="underline">27</div>04
+							</td>
+							<td>4</td>
+							<td>11</td>
+							<td>18</td>
+							<td>25</td>
+							<td>1</td>
+							<td>8</td>
+							<td>15</td>
+							<td>22</td>
+							<td>
+								<div class="underline">29</div>06
+							</td>
+							<td>6</td>
+							<td>13</td>
+							<td>20</td>
+							<td>
+								<div class="underline">27</div>07
+							</td>
+							<td>3</td>
+							<td>10</td>
+							<td>17</td>
+							<td>24</td>
+						</tr>
+						<tr>
+							<td>7</td>
+							<td>14</td>
+							<td>21</td>
+							<td>28</td>
+							<td>
+								<div class="underline">05</div>10
+							</td>
+							<td>12</td>
+							<td>19</td>
+							<td>26</td>
+							<td>
+								<div class="underline">02</div>11
+							</td>
+							<td>7</td>
+							<td>16</td>
+							<td>23</td>
+							<td>30</td>
+							<td>7</td>
+							<td>14</td>
+							<td>21</td>
+							<td>28</td>
+							<td>
+								<div class="underline">04</div>01
+							</td>
+							<td>11</td>
+							<td>18</td>
+							<td>25</td>
+							<td>
+								<div class="underline">01</div>02
+							</td>
+							<td>8</td>
+							<td>15</td>
+							<td>22</td>
+							<td>
+								<div class="underline">01</div>03
+							</td>
+							<td>8</td>
+							<td>15</td>
+							<td>22</td>
+							<td>29</td>
+							<td>
+								<div class="underline">05</div>04
+							</td>
+							<td>12</td>
+							<td>19</td>
+							<td>26</td>
+							<td>
+								<div class="underline">03</div>05
+							</td>
+							<td>10</td>
+							<td>17</td>
+							<td>24</td>
+							<td>31</td>
+							<td>7</td>
+							<td>14</td>
+							<td>21</td>
+							<td>28</td>
+							<td>
+								<div class="underline">05</div>07
+							</td>
+							<td>12</td>
+							<td>19</td>
+							<td>26</td>
+							<td>
+								<div class="underline">02</div>08
+							</td>
+							<td>9</td>
+							<td>16</td>
+							<td>23</td>
+							<td>31</td>
+						</tr>
+
+						<tr>
+							<td>I</td>
+
+							<? loop_input(1, 52) ?>
+						</tr>
+
+						<tr>
+							<td>II</td>
+
+							<? loop_input(2, 52) ?>
+						</tr>
+
+						<tr>
+							<td>III</td>
+
+							<? loop_input(3, 52) ?>
+						</tr>
+
+						<tr>
+							<td>IV</td>
+
+							<? loop_input(4, 52) ?>
+						</tr>
 					</table>
 				</div>
 			</div>
@@ -275,7 +528,9 @@
 			training_form:       $('#training_form').val(),
 			qualification:       $('#qualification').val(),
 			specialty:           $('#specialty').val(),
-			specialization:      $('#specialization').val()
+			specialization:      $('#specialization').val(),
+
+			calendar:            calendar_data()
 		};
 
 		console.log(report);
@@ -285,4 +540,59 @@
 	{
 		window.open('.<?= RUDE_TEMPLATE_HTTP_INDEX . url::param(RUDE_TASK, RUDE_TASK_REPORT_PREVIEW, true) ?>', '_blank').focus();
 	}
+
+	function calendar_data()
+	{
+		var I   = calendar_struct_string('calendar-1');
+		var II  = calendar_struct_string('calendar-2');
+		var III = calendar_struct_string('calendar-3');
+		var IV  = calendar_struct_string('calendar-4');
+
+		return I + '~' + II + '~' + III + '~' + IV;
+	}
+
+	function calendar_struct_string(selector)
+	{
+		var str = '';
+
+//		[].forEach.call(selector, function(cell)
+//		{
+//			if (cell.value)
+//			{
+//				str += cell.value;
+//			}
+//
+//			str += ',';
+//		});
+
+		var elements = document.getElementsByClassName(selector);
+
+		for(var i = 0; i < elements.length; i++)
+		{
+//			alert(elements[i].value);
+
+			if (elements[i].value)
+			{
+				str += elements[i].value;
+			}
+
+			str += ',';
+		}
+
+		return rude_remove_last_char(str);
+	}
 </script>
+
+<?
+	function loop_input($id, $count)
+	{
+		for ($i = 0; $i < $count; $i++)
+		{
+			?>
+			<td>
+				<input type="text" maxlength="2" class="square-cell calendar-<?= (int) $id ?>" value="" />
+			</td>
+			<?
+		}
+	}
+?>

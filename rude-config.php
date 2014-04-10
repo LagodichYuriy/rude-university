@@ -68,8 +68,6 @@ define('RUDE_TEMPLATE_HTTP_INDEX',  '/' . RUDE_FILE_INDEX);
 
 
 
-
-
 define('RUDE_ROLE_ADMIN_ID',              '1');
 define('RUDE_ROLE_MODERATOR_ID',          '2');
 
@@ -81,6 +79,9 @@ define('RUDE_TASK_TABLE_PREVIEW',         'table_preview');
 define('RUDE_TASK_AJAX',                  'ajax');
 define('RUDE_TASK_LOGOUT',                'logout');
 define('RUDE_TASK_REPORT_PREVIEW',        'report_preview');
+
+
+define('RUDE_HTML_NEWLINE',               '<br />');
 
 
 
@@ -207,7 +208,7 @@ define('RUDE_TEXT_MANAGEMENT_DEPARTMENTS',    'Кафедры');
 define('RUDE_TEXT_MANAGEMENT_FACULTIES',      'Факультеты');
 define('RUDE_TEXT_MANAGEMENT_QUALIFICATIONS', 'Квалификации');
 define('RUDE_TEXT_MANAGEMENT_SPECIALTIES',    'Специальности');
-define('RUDE_TEXT_MANAGEMENT_REPORTS',        'Учебные планы');
+define('RUDE_TEXT_MANAGEMENT_REPORTS',        'Добавить новый');
 
 define('RUDE_TEXT_ADD',                       'Добавить');
 define('RUDE_TEXT_ADD_NEW_DEPARTMENT',        'Добавить новую кафедру');
@@ -224,7 +225,7 @@ define('RUDE_TEXT_DELETE_SELECTED',           'Удалить выбранное
 define('RUDE_TEXT_USERS',                     'Пользователи');
 define('RUDE_TEXT_NAVIGATION_PANEL',          'Панель навигации');
 define('RUDE_TEXT_SUMMARY_INFORMATION',       'Суммарная информация');
-define('RUDE_TEXT_EDUCATIONAL_PROGRAM',       'Учебная программа');
+define('RUDE_TEXT_EDUCATIONAL_PROGRAM',       'Учебные планы');
 
 define('RUDE_TEXT_UTF8_DOTS',                 '••••••••');
 
