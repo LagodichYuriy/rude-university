@@ -7,7 +7,6 @@
 			<div class="three fields">
 				<div class="field">
 					<label>Год набора</label>
-<<<<<<< HEAD
 					<input id="year" name="year" placeholder="<?= timestamp::current_year(); ?>" type="text">
 				</div>
 				<div class="field">
@@ -17,36 +16,17 @@
 				<div class="field">
 					<label>ФИО ректора</label>
 					<input id="rector" name="rector" placeholder="М.П. Батура" type="text">
-=======
-					<input placeholder="<?= timestamp::current_year(); ?>" type="text">
-				</div>
-				<div class="field">
-					<label>Срок обучения (лет)</label>
-					<input placeholder="4" type="text">
-				</div>
-				<div class="field">
-					<label>ФИО ректора</label>
-					<input placeholder="М.П. Батура" type="text">
->>>>>>> 50ccc2e4ffd02f6db1d20ffae8ac2dec7db8457f
 				</div>
 			</div>
 
 			<div class="field">
 				<label>Регистрационный номер учебного плана</label>
-<<<<<<< HEAD
 				<input id="registration_number" name="registration_number" placeholder="<?= timestamp::date() . '/000'; ?>" type="text">
-=======
-				<input placeholder="<?= timestamp::date() . '/000'; ?>" type="text">
->>>>>>> 50ccc2e4ffd02f6db1d20ffae8ac2dec7db8457f
 			</div>
 
 			<div class="field">
 				<div class="ui fluid selection dropdown active medium-font">
-<<<<<<< HEAD
 					<input type="hidden" id="training_form" name="training_form">
-=======
-					<input type="hidden" name="gender">
->>>>>>> 50ccc2e4ffd02f6db1d20ffae8ac2dec7db8457f
 					<div class="default text">Форма обучения</div>
 					<i class="dropdown icon"></i>
 					<div class="menu">
@@ -64,11 +44,7 @@
 
 			<div class="field">
 				<div class="ui fluid selection dropdown active medium-font">
-<<<<<<< HEAD
 					<input type="hidden" id="qualification" name="qualification">
-=======
-					<input type="hidden" name="gender">
->>>>>>> 50ccc2e4ffd02f6db1d20ffae8ac2dec7db8457f
 					<div class="default text">Квалификация специалиста</div>
 					<i class="dropdown icon"></i>
 					<div class="menu">
@@ -86,30 +62,17 @@
 
 			<div class="field">
 				<div class="ui fluid selection dropdown active medium-font">
-<<<<<<< HEAD
 					<input type="hidden" id="specialty" name="specialty">
-=======
-					<input type="hidden" name="gender">
->>>>>>> 50ccc2e4ffd02f6db1d20ffae8ac2dec7db8457f
 					<div class="default text">Специальность</div>
 					<i class="dropdown icon"></i>
 					<div class="menu">
 						<?
-<<<<<<< HEAD
 							$qualification_list = qualifications::get();
 
 							foreach ($qualification_list as $qualification)
 							{
 								?><div class="item" data-value="<?= $qualification->id ?>"><?= $qualification->name ?></div><?
 							}
-=======
-						$qualification_list = qualifications::get();
-
-						foreach ($qualification_list as $qualification)
-						{
-							?><div class="item" data-value="<?= $qualification->id ?>"><?= $qualification->name ?></div><?
-						}
->>>>>>> 50ccc2e4ffd02f6db1d20ffae8ac2dec7db8457f
 						?>
 					</div>
 				</div>
@@ -117,30 +80,17 @@
 
 			<div class="field">
 				<div class="ui fluid selection dropdown active medium-font">
-<<<<<<< HEAD
 					<input type="hidden" id="specialization" name="specialization">
-=======
-					<input type="hidden" name="gender">
->>>>>>> 50ccc2e4ffd02f6db1d20ffae8ac2dec7db8457f
 					<div class="default text">Специализация</div>
 					<i class="dropdown icon"></i>
 					<div class="menu">
 						<?
-<<<<<<< HEAD
 							$qualification_list = qualifications::get();
 
 							foreach ($qualification_list as $qualification)
 							{
 								?><div class="item" data-value="<?= $qualification->id ?>"><?= $qualification->name ?></div><?
 							}
-=======
-						$qualification_list = qualifications::get();
-
-						foreach ($qualification_list as $qualification)
-						{
-							?><div class="item" data-value="<?= $qualification->id ?>"><?= $qualification->name ?></div><?
-						}
->>>>>>> 50ccc2e4ffd02f6db1d20ffae8ac2dec7db8457f
 						?>
 					</div>
 				</div>
@@ -152,7 +102,6 @@
 					Список циклов (компоненты и модули специальности)
 				</div>
 				<div class="active content">
-<<<<<<< HEAD
 					<div class="fields">
 						<div class="field small-font width-80 padding-right-1">
 							<label>Название цикла</label>
@@ -174,21 +123,6 @@
 
 						</tbody>
 					</table>
-=======
-					<div class="two fields">
-						<div class="field small-font">
-							<label>Название цикла</label>
-							<input placeholder="Цикл социально-гуманитарных дисциплин" type="text">
-						</div>
-						<div class="field small-font margin-button">
-							<div class="ui green submit button mini" onclick="add_module()">Добавить</div>
-						</div>
-					</div>
-
-					<div>
-
-					</div>
->>>>>>> 50ccc2e4ffd02f6db1d20ffae8ac2dec7db8457f
 				</div>
 			</div>
 
@@ -196,13 +130,8 @@
 
 			<div class="field">
 				<div class="ui buttons">
-<<<<<<< HEAD
 					<div class="ui positive button" onclick="form_validate(); report_save()">Сохранить</div>
 					<div class="ui button submit" onclick="form_validate(); report_show();">Предпросмотр</div>
-=======
-					<div class="ui positive button">Сохранить</div>
-					<div class="ui button" onclick="show_report();">Предпросмотр</div>
->>>>>>> 50ccc2e4ffd02f6db1d20ffae8ac2dec7db8457f
 				</div>
 			</div>
 		</div>
@@ -213,7 +142,6 @@
 
 	$('.ui.accordion').accordion();
 
-<<<<<<< HEAD
 	function form_validate()
 	{
 		$('.ui.form').form(
@@ -354,20 +282,6 @@
 	}
 
 	function report_show()
-=======
-
-	function add_module()
-	{
-		var html = $('#modules').html();
-	}
-
-	function get_report()
-	{
-
-	}
-
-	function show_report()
->>>>>>> 50ccc2e4ffd02f6db1d20ffae8ac2dec7db8457f
 	{
 		window.open('.<?= RUDE_TEMPLATE_HTTP_INDEX . url::param(RUDE_TASK, RUDE_TASK_REPORT_PREVIEW, true) ?>', '_blank').focus();
 	}

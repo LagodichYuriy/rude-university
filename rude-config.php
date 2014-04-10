@@ -33,10 +33,7 @@ define('RUDE_TABLE_DISCIPLINES',       RUDE_DATABASE_PREFIX . 'disciplines');
 define('RUDE_TABLE_DISCIPLINES_TYPES', RUDE_DATABASE_PREFIX . 'disciplines_types');
 define('RUDE_TABLE_FACULTIES',         RUDE_DATABASE_PREFIX . 'faculties');
 define('RUDE_TABLE_QUALIFICATIONS',    RUDE_DATABASE_PREFIX . 'qualifications');
-<<<<<<< HEAD
 define('RUDE_TABLE_REPORTS',           RUDE_DATABASE_PREFIX . 'reports');
-=======
->>>>>>> 50ccc2e4ffd02f6db1d20ffae8ac2dec7db8457f
 define('RUDE_TABLE_ROLES',             RUDE_DATABASE_PREFIX . 'roles');
 define('RUDE_TABLE_SPECIALTIES',       RUDE_DATABASE_PREFIX . 'specialties');
 define('RUDE_TABLE_USERS',             RUDE_DATABASE_PREFIX . 'users');
