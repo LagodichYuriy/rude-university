@@ -4,7 +4,8 @@ namespace rude;
 
 class report_calendar
 {
-	public static function html()
+	/** @param report $report */
+	public static function html($report)
 	{
 		?>
 		<table class="full-width large-font">
@@ -21,28 +22,28 @@ class report_calendar
 		<table class="border font-10 full-width no-padding">
 			<? report_calendar::html_head() ?>
 
+			<?
+				$calendar_rows = explode('~', $report->calendar);
+			?>
+
 			<tr>
 				<td>I</td>
-
-				<? report_calendar::html_loop_input(1, 52) ?>
+				<? report_calendar::html_loop_input($calendar_rows[0]) ?>
 			</tr>
 
 			<tr>
 				<td>II</td>
-
-				<? report_calendar::html_loop_input(2, 52) ?>
+				<? report_calendar::html_loop_input($calendar_rows[1]) ?>
 			</tr>
 
 			<tr>
 				<td>III</td>
-
-				<? report_calendar::html_loop_input(3, 52) ?>
+				<? report_calendar::html_loop_input($calendar_rows[2]) ?>
 			</tr>
 
 			<tr>
 				<td>IV</td>
-
-				<? report_calendar::html_loop_input(4, 52) ?>
+				<? report_calendar::html_loop_input($calendar_rows[3]) ?>
 			</tr>
 		</table>
 		<?
@@ -312,15 +313,13 @@ class report_calendar
 		<?
 	}
 
-	function html_loop_input($id, $count)
+	function html_loop_input($calendar_row)
 	{
-		for ($i = 0; $i < $count; $i++)
+		$cells = explode(',', $calendar_row);
+
+		foreach ($cells as $cell)
 		{
-			?>
-			<td>
-				
-			</td>
-			<?
+			?><td><?= $cell ?></td><?
 		}
 	}
 }

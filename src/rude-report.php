@@ -4,26 +4,14 @@ namespace rude;
 
 class report
 {
-	private $id = null;   // id из БД
-	private $year = 0; // год набора
-
-	public function get_id()
-	{
-		return $this->id;
-	}
-
-	public function get_year()
-	{
-		return $this->year;
-	}
-
-	public function set_id($id)
-	{
-		$this->id = $id;
-	}
-
-	public function set_year($year)
-	{
-		$this->year = $year;
-	}
+	public $id                  = ''; // id из БД
+	public $year                = ''; // год набора
+	public $duration            = ''; // протяжённость обучения
+	public $rector              = ''; // ФИО ректора
+	public $registration_number = ''; // гегистрационный номер плана
+	public $training_form       = ''; // форма обучения
+	public $qualification       = ''; // квалификация
+	public $specialty           = ''; // специальность
+	public $specialization      = ''; // специализация
+	public $calendar            = ''; // календарь
 }

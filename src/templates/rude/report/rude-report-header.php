@@ -4,7 +4,8 @@ namespace rude;
 
 class report_header
 {
-	public static function html()
+	/** @param report $report */
+	public static function html($report)
 	{
 		?>
 		<table class="font-11 line-16 margin-bottom-50">
@@ -13,12 +14,12 @@ class report_header
 					<p>УТВЕРЖДАЮ</p>
 					<p>Ректор учреждения высшего образования</p>
 					<p>«Белорусский государственный университет информатики и радиоэлектроники»</p>
-					<p>__________ М.П. Батура</p>
+					<p>__________ <?= $report->rector ?></p>
 					<p>__________</p>
 
 					<div class="clear"></div>
 
-					<p>Регистрационный №__________</p>
+					<p>Регистрационный №<?= $report->registration_number ?></p>
 				</td>
 
 				<td class="width-50 font-12 center padding">
@@ -29,10 +30,10 @@ class report_header
 					<p>
 						<b>Для получения высшего образования</b>
 					</p>
-					<p>(вечерняя форма обучения высшего образования)</p>
-					<p>Специальность: <b>1-53 01 07 Информационные технологии и управление в технических системах</b></p>
-					<p>Специализация: <b>1-53 01 07 01 Информационные технологии проектирования систем управления</b></p>
-					<p>Для студентов набора 2013 года</p>
+					<p>(<?= $report->training_form ?>)</p>
+					<p>Специальность: <b><?= $report->specialty ?></b></p>
+					<p>Специализация: <b><?= $report->specialization ?></b></p>
+					<p>Для студентов набора <?= $report->year ?> года</p>
 				</td>
 
 				<td class="width-25">
@@ -45,11 +46,11 @@ class report_header
 
 					<p>
 						Квалификация специалиста:
-						Инженер по информационным технологиям и управлению
+						<?= $report->qualification ?>
 					</p>
 
 					<p>
-						Срок обучения в БГУИР 4 года
+						Срок обучения в БГУИР <?= $report->duration ?> <?= spell::years($report->duration) ?>
 					</p>
 				</td>
 			</tr>

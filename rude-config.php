@@ -74,6 +74,9 @@ define('RUDE_ROLE_MODERATOR_ID',          '2');
 define('RUDE_TASK',                       'task');
 define('RUDE_TARGET',                     'target');
 
+define('RUDE_TARGET_ADD',                 'add');
+define('RUDE_TARGET_EDIT',                'edit');
+
 define('RUDE_TASK_TABLE_PREVIEW',         'table_preview');
 
 define('RUDE_TASK_AJAX',                  'ajax');
@@ -208,12 +211,14 @@ define('RUDE_TEXT_MANAGEMENT_DEPARTMENTS',    'Кафедры');
 define('RUDE_TEXT_MANAGEMENT_FACULTIES',      'Факультеты');
 define('RUDE_TEXT_MANAGEMENT_QUALIFICATIONS', 'Квалификации');
 define('RUDE_TEXT_MANAGEMENT_SPECIALTIES',    'Специальности');
-define('RUDE_TEXT_MANAGEMENT_REPORTS',        'Добавить новый');
+define('RUDE_TEXT_MANAGEMENT_REPORTS',        'Все планы');
+define('RUDE_TEXT_MANAGEMENT_REPORTS_ADD',    'Добавить новый');
 
 define('RUDE_TEXT_ADD',                       'Добавить');
 define('RUDE_TEXT_ADD_NEW_DEPARTMENT',        'Добавить новую кафедру');
 define('RUDE_TEXT_ADD_NEW_FACULTY',           'Добавить новый факультет');
 define('RUDE_TEXT_ADD_NEW_QUALIFICATION',     'Добавить новую квалификацию');
+define('RUDE_TEXT_ADD_NEW_REPORT',            'Добавить новый учебный план');
 define('RUDE_TEXT_ADD_NEW_ROLE',              'Добавить новую роль');
 define('RUDE_TEXT_ADD_NEW_SPECIALTY',         'Добавить новую специальность');
 define('RUDE_TEXT_ADD_NEW_USER',              'Добавить нового пользователя');

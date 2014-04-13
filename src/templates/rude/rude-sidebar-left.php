@@ -28,8 +28,10 @@
 
 			<b><?= RUDE_TEXT_EDUCATIONAL_PROGRAM ?></b>
 			<div class="menu">
-				<a class="item" href="?task=<?= RUDE_TASK_MANAGEMENT_EDUCATION ?>"><?= RUDE_TEXT_MANAGEMENT_EDUCATION ?></a>
-				<a class="item" href="?task=<?= RUDE_TASK_MANAGEMENT_REPORTS   ?>"><?= RUDE_TEXT_MANAGEMENT_REPORTS   ?></a>
+<!--				<a class="item" href="?task=--><?//= RUDE_TASK_MANAGEMENT-_EDUCATION ?><!--">--><?//= RUDE_TEXT_MANAGEMENT_EDUCATION ?><!--</a>-->
+				<a class="item" href="?task=<?= RUDE_TASK_MANAGEMENT_REPORTS ?>"><?= RUDE_TEXT_MANAGEMENT_REPORTS ?></a>
+				<a class="item" href="?task=<?= RUDE_TASK_MANAGEMENT_REPORTS ?><?= url::param(RUDE_TARGET, RUDE_TARGET_ADD) ?>"><?= RUDE_TEXT_MANAGEMENT_REPORTS_ADD ?></a>
+
 			</div>
 
 			<div class="menu">

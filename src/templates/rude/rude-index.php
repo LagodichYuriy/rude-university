@@ -15,7 +15,7 @@
 			break;
 
 		case RUDE_TASK_REPORT_PREVIEW:
-			require_once 'rude-report-preview.php';
+			require_once 'report/rude-report-preview.php';
 			die;
 
 		default:
