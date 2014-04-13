@@ -135,7 +135,11 @@ define('RUDE_TASK_MANAGEMENT_EDUCATION',  'education_management');
 /* ==================================================================== */
 /* Report management section [ADD/EDIT/DELETE] + same AJAX combinations */
 /* ==================================================================== */
-define('RUDE_TASK_MANAGEMENT_REPORTS',    'report_management');
+define('RUDE_TASK_MANAGEMENT_REPORTS', 'report_management');
+
+define('RUDE_TASK_AJAX_REPORT_ADD',    'ajax_report_add');
+define('RUDE_TASK_AJAX_REPORT_EDIT',   'ajax_report_edit');
+define('RUDE_TASK_AJAX_REPORT_DELETE', 'ajax_report_delete');
 
 
 /* ===================================================================== */

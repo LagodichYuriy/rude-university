@@ -19,7 +19,7 @@ class report_header
 
 					<div class="clear"></div>
 
-					<p>Регистрационный №<?= $report->registration_number ?></p>
+					<p>Регистрационный №: <?= $report->registration_number ?></p>
 				</td>
 
 				<td class="width-50 font-12 center padding">

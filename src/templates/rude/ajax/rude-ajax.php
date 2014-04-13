@@ -3,6 +3,7 @@
 namespace rude;
 
 require_once 'rude-ajax-faculty.php';
+require_once 'rude-ajax-report.php';
 require_once 'rude-ajax-role.php';
 require_once 'rude-ajax-user.php';
 require_once 'rude-ajax-qualification.php';
@@ -163,6 +164,9 @@ switch ($target)
 		break;
 
 
+	case RUDE_TASK_AJAX_REPORT_ADD:
+		ajax_report::add();
+		break;
 
 
 
