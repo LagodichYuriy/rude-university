@@ -31,4 +31,52 @@ class specialties
 
 		return $database->get_object_list();
 	}
+
+	public static function delete($name)
+	{
+		$q = new dquery(RUDE_TABLE_SPECIALTIES);
+		$q->where(RUDE_FIELD_NAME, $name);
+		$q->limit(1);
+		$q->start();
+	}
+
+
+	public static function get_one($field = false)
+	{
+		$q = new query(RUDE_TABLE_SPECIALTIES);
+
+
+		if ($field === false)
+		{
+			$q->start();
+
+			return $q->get_object_list();
+		}
+
+
+		if (is_int($field))
+		{
+			$q->where(RUDE_FIELD_ID, $field);
+		}
+		else if (is_string($field))
+		{
+			$q->where(RUDE_FIELD_NAME, $field);
+		}
+
+		$q->start();
+
+
+		return $q->get_object();
+	}
+
+	public static function add($name, $id_qualificatio,$id_faculty)
+	{
+		$q = new cquery(RUDE_TABLE_SPECIALTIES);
+		$q->add(RUDE_FIELD_NAME, $name);
+		$q->add(qualification_id, $id_qualificatio);
+		$q->add(faculty_id, $id_faculty);
+		$q->start();
+
+		return $q->get_id();
+	}
 }

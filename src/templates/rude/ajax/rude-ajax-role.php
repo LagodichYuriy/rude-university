@@ -54,6 +54,113 @@ class ajax_role
 
 	public static function html_form_add()
 	{
+		if (!ajax_user::has_access())
+		{
+			die();
+		}
+
+		?>
+		<html>
+		<? require_once(RUDE_TEMPLATE_DIR . '/rude-header.php') ?>
+
+		<body class="ajax_bg">
+		<div>
+			<h1>Добавление роли</h1>
+			<p>Форма для добавления новых ролей</p>
+			<form id="form" name="form" method="post" class="ui form" action="index.php?task=<?= RUDE_TASK_AJAX_ROLE_ADD_FORM ?>">
+				<div class="field">
+					<label>Роль</label>
+					<div class="ui left labeled icon input">
+						<input id="<?=RUDE_FIELD_ROLE?>" name="<?=RUDE_FIELD_ROLE?>" type="text" placeholder="Роль">
+						<i class="user icon"></i>
+						<div class="ui corner label">
+							<i class="icon asterisk"></i>
+						</div>
+					</div>
+				</div>
+
+				<div class="inline field">
+					<div class="ui checkbox">
+						<input id="<?=RUDE_FIELD_ALLOW_USER_MANAGEMENT?>" name="<?=RUDE_FIELD_ALLOW_USER_MANAGEMENT?>"  type="checkbox">
+						<label>Управление пользователями</label>
+					</div>
+				</div>
+
+				<div class="inline field">
+					<div class="ui checkbox">
+						<input id="<?=RUDE_FIELD_ALLOW_ROLE_MANAGEMENT?>" name="<?=RUDE_FIELD_ALLOW_ROLE_MANAGEMENT?>"  type="checkbox">
+						<label>Управление ролями</label>
+					</div>
+				</div>
+
+
+
+				<div id="submit" class="ui blue submit button">Добавить</div>
+			</form>
+		</div>
+		<script>
+			$('.ui.checkbox')
+				.checkbox()
+			;
+			$('.ui.form').form(
+				{
+					role:
+					{
+						identifier: 'role',
+
+						rules:
+							[{
+								type: 'empty',
+								prompt: 'Пожалуйста, введите наименование факультета'
+							}]
+					}
+				});
+
+			$(".form").submit(function (event) {
+
+				event.preventDefault();
+
+				var role = $('#' + '<?= RUDE_FIELD_ROLE ?>').val();
+				var allow_user_management = 0;
+				var allow_role_management = 0;
+
+				if (role)
+				{
+					if ($('#' + '<?= RUDE_FIELD_ALLOW_USER_MANAGEMENT ?>').is(':checked')) { allow_user_management = 1; }
+					if ($('#' + '<?= RUDE_FIELD_ALLOW_ROLE_MANAGEMENT ?>').is(':checked')) { allow_role_management = 1; }
+				}
+				if (!role) {return true;}
+
+				$.ajax({
+					type: 'POST',
+					url: 'index.php',
+					data: {
+						task:     '<?= RUDE_TASK_AJAX ?>',
+						target:   '<?= RUDE_TASK_AJAX_ROLE_ADD ?>',
+
+						role:                  role,
+						allow_user_management: allow_user_management,
+						allow_role_management: allow_role_management
+					},
+
+					success: function(data)
+					{
+						parent.$.fancybox.close();
+					}
+				});
+				return true;
+			});
+		</script>
+
+
+		</body>
+
+		</html>
+	<?
+	}
+
+	public static function html_form_add1()
+	{
 		if (!ajax_role::has_access())
 		{
 			die();
@@ -163,48 +270,48 @@ class ajax_role
 			die();
 		}
 
+		$role_id = roles::get_id($role);
+
+
+
+
 		?>
 		<html>
 		<? require_once(RUDE_TEMPLATE_DIR . '/rude-header.php') ?>
 
-		<body>
-		<div id="stylized" class="myform">
-			<form id="form" name="form" method="post" action="index.php?task=<?= RUDE_TASK_ROLE_DELETE ?>">
-				<h1>Удаление роли</h1>
-				<p class="red">Внимание! Данная операция необратима!</p>
-
-				<?
-				$role_id = roles::get_id($role);
-				?>
-
-				Вы точно уверены, что хотите удалить роль <b>"<?= $role ?>"</b>?
-
+		<body class="ajax_bg">
+		<div>
+			<h1>Удаление роли</h1>
+			<p class="red">Внимание! Данная операция необратима!</p>
+			<form id="form" name="form" method="post" class="ui form" action="index.php?task=<?= RUDE_TASK_AJAX_ROLE_DELETE_FORM ?>">
+				Вы точно уверены, что хотите удалить роль <b>"<?= $role ?></b>"?
 				<div class="button-box">
-					<button class="button" type="submit" onclick="delete_role('<?= $role_id ?>'); parent.$.fancybox.close();">Да</button>
-					<button class="button-last" type="submit" onclick="parent.$.fancybox.close();">Нет</button>
+					<button class="ui blue submit button"  type="submit" onclick="delete_role('<?= $role_id ?>'); parent.$.fancybox.close();">Да</button>
+					<button style="float: right !important;" class="ui blue submit button"  type="submit" onclick="parent.$.fancybox.close();">Нет</button>
 				</div>
 			</form>
-
-			<script>
-				function delete_role(role_id)
-				{
-					$.ajax({
-						type: 'POST',
-						url: 'index.php',
-						data: {
-							task:     '<?= RUDE_TASK_AJAX ?>',
-							target:   '<?= RUDE_TASK_AJAX_ROLE_DELETE ?>',
-							role_id:  role_id
-						},
-
-						success: function(data)
-						{
-							parent.$.fancybox.close();
-						}
-					});
-				}
-			</script>
 		</div>
+		<script>
+			function delete_role(role_id)
+			{
+				$.ajax({
+					type: 'POST',
+					url: 'index.php',
+					data: {
+						task:     '<?= RUDE_TASK_AJAX ?>',
+						target:   '<?= RUDE_TASK_AJAX_ROLE_DELETE ?>',
+						role_id: '<?= $role_id ?>'
+					},
+
+					success: function(data)
+					{
+						parent.$.fancybox.close();
+					}
+				});
+			}
+		</script>
+
+
 		</body>
 
 		</html>

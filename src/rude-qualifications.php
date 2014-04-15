@@ -32,6 +32,34 @@ class qualifications
 		return $q->get_object();
 	}
 
+	public static function get_by_id($field = false)
+	{
+		$q = new query(RUDE_TABLE_QUALIFICATIONS);
+
+
+		if ($field === false)
+		{
+			$q->start();
+
+			return $q->get_object_list();
+		}
+
+
+		if (is_int($field))
+		{
+			$q->where(RUDE_FIELD_ID, $field);
+		}
+		else if (is_string($field))
+		{
+			$q->where(RUDE_FIELD_ID, $field);
+		}
+
+		$q->start();
+
+
+		return $q->get_object();
+	}
+
 	public static function add($name)
 	{
 		$q = new cquery(RUDE_TABLE_QUALIFICATIONS);
