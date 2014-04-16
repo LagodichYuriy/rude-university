@@ -20,13 +20,13 @@ function rude_animation(selector, data)
 	}).slideToggle('slow');
 }
 
--	/* ===================================== */
--	/* Helps to erase the last one character */
--	/* ===================================== */
--	function rude_remove_last_char(string)
--	{
--		return string.substring(0, string.length - 1);
--	}
+/* ===================================== */
+/* Helps to erase the last one character */
+/* ===================================== */
+function rude_remove_last_char(string)
+{
+	return string.substring(0, string.length - 1);
+}
 
 
 /* ======================================= */

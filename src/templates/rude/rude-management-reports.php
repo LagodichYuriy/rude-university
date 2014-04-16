@@ -7,6 +7,7 @@
 	switch (get(RUDE_TARGET))
 	{
 		case RUDE_TARGET_ADD:
+		case RUDE_TARGET_EDIT:
 			require_once 'report/rude-report-form.php';
 			break;
 

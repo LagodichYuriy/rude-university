@@ -1,5 +1,26 @@
 <? namespace rude; ?>
 
+<?
+	$report = new report();
+
+
+
+	$target = get(RUDE_TARGET);
+	$report_id = get(RUDE_FIELD_ID);
+
+	switch ($target)
+	{
+		case RUDE_TARGET_EDIT:
+			$report->load($report_id);
+			break;
+
+		default:
+			break;
+	}
+
+?>
+	<input id="report_id" name="report_id" type="hidden" value="<? if ($report_id) { echo $report_id; } ?>" />
+
 	<div class="middle">
 	<div class="middle-item full-width">
 
@@ -7,40 +28,68 @@
 	<div class="three fields">
 		<div class="field">
 			<label>Год набора</label>
-			<input id="year" name="year" placeholder="<?= timestamp::current_year(); ?>" type="text">
+			<input id="year" name="year" placeholder="<?= timestamp::current_year(); ?>" type="text" value="<?= $report->year ?>">
 		</div>
 		<div class="field">
 			<label>Срок обучения (лет)</label>
-			<input id="duration" name="duration" placeholder="4" type="text">
+			<input id="duration" name="duration" placeholder="4" type="text" value="<?= $report->duration ?>">
 		</div>
 		<div class="field">
 			<label>ФИО ректора</label>
-			<input id="rector" name="rector" placeholder="М.П. Батура" type="text">
+			<input id="rector" name="rector" placeholder="М.П. Батура" type="text" value="<?= $report->rector ?>">
 		</div>
 	</div>
 
 	<div class="field">
 		<label>Регистрационный номер учебного плана</label>
-		<input id="registration_number" name="registration_number" placeholder="<?= timestamp::date() . '/000'; ?>"
-			   type="text">
+		<input id="registration_number" name="registration_number" placeholder="<?= timestamp::date() . '/000'; ?>" type="text" value="<?= $report->registration_number ?>">
 	</div>
 
 	<div class="field">
 		<div class="ui fluid selection dropdown active medium-font">
-			<input type="hidden" id="training_form" name="training_form">
+			<?
+				$training_form_list = training_form::get();
+
+				$active = 0;
+
+				foreach ($training_form_list as $training_form)
+				{
+					if ($report->training_form)
+					{
+						$active++;
+
+						if ($report->training_form == $training_form->name)
+						{
+							break;
+						}
+					}
+				}
+			?>
+
+			<input type="hidden" id="training_form" name="training_form" <? if ($active) { ?>value="<?= $active ?>"<? } ?>>
 
 			<div class="default text">Форма обучения</div>
 			<i class="dropdown icon"></i>
 
 			<div id="training_form_list" class="menu">
 				<?
-				$class_list = classes::get();
+					$current = 0;
 
-				foreach ($class_list as $class)
-				{
-					?>
-					<div class="item" data-value="<?= $class->id ?>"><?= $class->name ?></div><?
-				}
+					foreach ($training_form_list as $training_form)
+					{
+						$current++;
+
+						$class = 'item';
+
+						if ($active == $current)
+						{
+							$class .= ' active';
+						}
+
+						?>
+							<div class="<?= $class ?>" data-value="<?= $training_form->id ?>"><?= $training_form->name ?></div>
+						<?
+					}
 				?>
 			</div>
 		</div>
@@ -48,20 +97,49 @@
 
 	<div class="field">
 		<div class="ui fluid selection dropdown active medium-font">
-			<input type="hidden" id="qualification" name="qualification">
+			<?
+				$qualification_list = qualifications::get();
+
+				$active = 0;
+
+				foreach ($qualification_list as $qualification)
+				{
+					if ($report->qualification)
+					{
+						$active++;
+
+						if ($report->qualification == $qualification->name)
+						{
+							break;
+						}
+					}
+				}
+			?>
+
+			<input type="hidden" id="qualification" name="qualification" <? if ($active) { ?>value="<?= $active ?>"<? } ?>>
 
 			<div class="default text">Квалификация специалиста</div>
 			<i class="dropdown icon"></i>
 
 			<div id="qualification_list" class="menu">
 				<?
-				$qualification_list = qualifications::get();
+					$current = 0;
 
-				foreach ($qualification_list as $qualification)
-				{
-					?>
-					<div class="item" data-value="<?= $qualification->id ?>"><?= $qualification->name ?></div><?
-				}
+					foreach ($qualification_list as $qualification)
+					{
+						$current++;
+
+						$class = 'item';
+
+						if ($active == $current)
+						{
+							$class .= ' active';
+						}
+
+						?>
+							<div class="<?= $class ?>" data-value="<?= $qualification->id ?>"><?= $qualification->name ?></div>
+						<?
+					}
 				?>
 			</div>
 		</div>
@@ -69,20 +147,49 @@
 
 	<div class="field">
 		<div class="ui fluid selection dropdown active medium-font">
-			<input type="hidden" id="specialty" name="specialty">
+			<?
+				$qualification_list = qualifications::get();
+
+				$active = 0;
+
+				foreach ($qualification_list as $qualification)
+				{
+					if ($report->specialty)
+					{
+						$active++;
+
+						if ($report->specialty == $qualification->name)
+						{
+							break;
+						}
+					}
+				}
+			?>
+
+			<input type="hidden" id="specialty" name="specialty" <? if ($active) { ?>value="<?= $active ?>"<? } ?>>
 
 			<div class="default text">Специальность</div>
 			<i class="dropdown icon"></i>
 
 			<div id="specialty_list" class="menu">
 				<?
-				$qualification_list = qualifications::get();
+					$current = 0;
 
-				foreach ($qualification_list as $qualification)
-				{
-					?>
-					<div class="item" data-value="<?= $qualification->id ?>"><?= $qualification->name ?></div><?
-				}
+					foreach ($qualification_list as $qualification)
+					{
+						$current++;
+
+						$class = 'item';
+
+						if ($active == $current)
+						{
+							$class .= ' active';
+						}
+
+						?>
+							<div class="<?= $class ?>" data-value="<?= $qualification->id ?>"><?= $qualification->name ?></div>
+						<?
+					}
 				?>
 			</div>
 		</div>
@@ -90,20 +197,49 @@
 
 	<div class="field">
 		<div class="ui fluid selection dropdown active medium-font">
-			<input type="hidden" id="specialization" name="specialization">
+			<?
+				$qualification_list = qualifications::get();
+
+				$active = 0;
+
+				foreach ($qualification_list as $qualification)
+				{
+					if ($report->specialization)
+					{
+						$active++;
+
+						if ($report->specialization == $qualification->name)
+						{
+							break;
+						}
+					}
+				}
+			?>
+
+			<input type="hidden" id="specialization" name="specialization" <? if ($active) { ?>value="<?= $active ?>"<? } ?>>
 
 			<div class="default text">Специализация</div>
 			<i class="dropdown icon"></i>
 
 			<div id="specialization_list" class="menu">
 				<?
-				$qualification_list = qualifications::get();
+					$current = 0;
 
-				foreach ($qualification_list as $qualification)
-				{
-					?>
-					<div class="item" data-value="<?= $qualification->id ?>"><?= $qualification->name ?></div><?
-				}
+					foreach ($qualification_list as $qualification)
+					{
+						$current++;
+
+						$class = 'item';
+
+						if ($active == $current)
+						{
+							$class .= ' active';
+						}
+
+						?>
+							<div class="<?= $class ?>" data-value="<?= $qualification->id ?>"><?= $qualification->name ?></div>
+						<?
+					}
 				?>
 			</div>
 		</div>
@@ -377,28 +513,37 @@
 		<td>31</td>
 	</tr>
 
+	<?
+		$rows = [false, false, false, false];
+
+		if ($report->calendar)
+		{
+			$rows = explode('~', $report->calendar);
+		}
+	?>
+
 	<tr>
 		<td>I</td>
 
-		<? loop_input(1, 52) ?>
+		<? loop_input(1, 52, $rows[0]) ?>
 	</tr>
 
 	<tr>
 		<td>II</td>
 
-		<? loop_input(2, 52) ?>
+		<? loop_input(2, 52, $rows[1]) ?>
 	</tr>
 
 	<tr>
 		<td>III</td>
 
-		<? loop_input(3, 52) ?>
+		<? loop_input(3, 52, $rows[2]) ?>
 	</tr>
 
 	<tr>
 		<td>IV</td>
 
-		<? loop_input(4, 52) ?>
+		<? loop_input(4, 52, $rows[3]) ?>
 	</tr>
 	</table>
 	</div>
@@ -409,7 +554,7 @@
 	<div class="field">
 		<div class="ui buttons">
 			<div class="ui positive button" onclick="form_validate(); report_struct()">Сохранить</div>
-			<div class="ui button submit" onclick="form_validate(); report_preview();">Предпросмотр</div>
+			<div class="ui button submit" onclick="report_preview();">Предпросмотр</div>
 		</div>
 	</div>
 	</div>
@@ -423,71 +568,79 @@
 	function form_validate()
 	{
 		$('.ui.form').form(
+		{
+			year: {
+				identifier: 'year',
+				rules: [
+					{
+						type: 'empty',
+						prompt: 'Пожалуйста, не оставляйте это поле пустым'
+					}
+				]
+			},
+			duration: {
+				identifier: 'duration',
+				rules: [
+					{
+						type: 'empty',
+						prompt: 'Пожалуйста, не оставляйте это поле пустым'
+					}
+				]
+			},
+			rector: {
+				identifier: 'rector',
+				rules: [
+					{
+						type: 'empty',
+						prompt: 'Пожалуйста, не оставляйте это поле пустым'
+					}
+				]
+			},
+			training_form: {
+				identifier: 'training_form',
+				rules: [
+					{
+						type: 'empty',
+						prompt: 'Пожалуйста, не оставляйте это поле пустым'
+					}
+				]
+			},
+			qualification: {
+				identifier: 'qualification',
+				rules: [
+					{
+						type: 'empty',
+						prompt: 'Пожалуйста, не оставляйте это поле пустым'
+					}
+				]
+			},
+			specialty: {
+				identifier: 'specialty',
+				rules: [
+					{
+						type: 'empty',
+						prompt: 'Пожалуйста, не оставляйте это поле пустым'
+					}
+				]
+			},
+			specialization: {
+				identifier: 'specialization',
+				rules: [
+					{
+						type: 'empty',
+						prompt: 'Пожалуйста, не оставляйте это поле пустым'
+					}
+				]
+			}
+		},
+		{
+			onSuccess: function(event)
 			{
-				year: {
-					identifier: 'year',
-					rules: [
-						{
-							type: 'empty',
-							prompt: 'Пожалуйста, не оставляйте это поле пустым'
-						}
-					]
-				},
-				duration: {
-					identifier: 'duration',
-					rules: [
-						{
-							type: 'empty',
-							prompt: 'Пожалуйста, не оставляйте это поле пустым'
-						}
-					]
-				},
-				rector: {
-					identifier: 'rector',
-					rules: [
-						{
-							type: 'empty',
-							prompt: 'Пожалуйста, не оставляйте это поле пустым'
-						}
-					]
-				},
-				training_form: {
-					identifier: 'training_form',
-					rules: [
-						{
-							type: 'empty',
-							prompt: 'Пожалуйста, не оставляйте это поле пустым'
-						}
-					]
-				},
-				qualification: {
-					identifier: 'qualification',
-					rules: [
-						{
-							type: 'empty',
-							prompt: 'Пожалуйста, не оставляйте это поле пустым'
-						}
-					]
-				},
-				specialty: {
-					identifier: 'specialty',
-					rules: [
-						{
-							type: 'empty',
-							prompt: 'Пожалуйста, не оставляйте это поле пустым'
-						}
-					]
-				},
-				specialization: {
-					identifier: 'specialization',
-					rules: [
-						{
-							type: 'empty',
-							prompt: 'Пожалуйста, не оставляйте это поле пустым'
-						}
-					]
-				}
-			});
+				report_save();
+
+//				event.preventDefault();
+			}
+		});
 
 		$('.ui.form').form('validate form');
 	}
@@ -528,6 +681,52 @@
 		}
 	}
 
+	function report_save()
+	{
+		var report_id = $('#report_id').val();
+
+		if (!report_id)
+		{
+			return report_add();
+		}
+
+		return report_update(report_id);
+	}
+
+	function report_add()
+	{
+		var url = '<?= url::ajax(RUDE_TASK_AJAX_REPORT_ADD) ?>' + report_query();
+
+		$.ajax(
+		{
+			type: 'POST',
+			url: url,
+
+			success: function(report_id)
+			{
+				alert('Учебный план был успешно сохранён');
+			}
+		});
+	}
+
+	function report_update(report_id)
+	{
+		var url = '<?= url::ajax(RUDE_TASK_AJAX_REPORT_EDIT) ?>&id=' + report_id + report_query();
+
+		$.ajax(
+		{
+			type: 'POST',
+			url: url,
+
+			success: function(data)
+			{
+				console.log(data);
+
+				alert('Учебный план был успешно обновлён');
+			}
+		});
+	}
+
 	function report_struct()
 	{
 		var report =
@@ -564,8 +763,6 @@
 		{
 			query += '&' + property + '=' + encodeURIComponent(report[property]);
 		}
-
-		console.log(query);
 
 		return query;
 	}
@@ -611,15 +808,21 @@
 	</script>
 
 <?
-function loop_input($id, $count)
+
+function loop_input($id, $count, $data_row = false)
 {
+	if ($data_row !== false)
+	{
+		$data_row = explode(',', $data_row);
+	}
+
 	for ($i = 0; $i < $count; $i++)
 	{
 		?>
 		<td>
-			<input type="text" maxlength="2" class="square-cell calendar-<?= (int)$id ?>" value=""/>
+			<input type="text" maxlength="2" class="square-cell calendar-<?= (int) $id ?>" value="<? if (isset($data_row[$i])) { echo $data_row[$i]; } ?>"/>
 		</td>
-	<?
+		<?
 	}
 }
 

@@ -10,11 +10,22 @@
 		<div id="info-reports">
 			<table class="ui collapsing table segment full-width">
 				<thead class="small-font">
-				<th>#</th>
-				<th>Наименование</th>
+					<th>#</th>
+					<th>Год</th>
+					<th>Ректор</th>
+					<th>Регистрационный номер</th>
+					<th>Форма обучения</th>
+					<th>Квалификация</th>
+					<th>Специальность</th>
+					<th>Специализация</th>
+
+					<th></th>
+
 				</thead>
 
 				<?
+
+				$i = 1;
 
 				$report_list = reports::get();
 
@@ -22,8 +33,14 @@
 				{
 					?>
 					<tr>
-						<td><?= $report->{RUDE_FIELD_ID} ?></td>
-						<td><?= $report->{RUDE_FIELD_NAME} ?></td>
+						<td><?= $i++ ?></td>
+						<td><?= $report->{RUDE_FIELD_YEAR} ?></td>
+						<td><?= $report->{RUDE_FIELD_RECTOR} ?></td>
+						<td><?= $report->{RUDE_FIELD_REGISTRATION_NUMBER} ?></td>
+						<td><?= $report->{RUDE_FIELD_TRAINING_FORM} ?></td>
+						<td><?= $report->{RUDE_FIELD_QUALIFICATION} ?></td>
+						<td><?= $report->{RUDE_FIELD_SPECIALTY} ?></td>
+						<td><?= $report->{RUDE_FIELD_SPECIALIZATION} ?></td>
 						<td>
 							<a href="<?= url::param(RUDE_TASK, RUDE_TASK_MANAGEMENT_REPORTS, true) . url::param(RUDE_TARGET, RUDE_TARGET_EDIT) . url::param(RUDE_FIELD_ID, $report->id) ?>"><img src="src/icons/edit.png" class="small-padding" title="<?= RUDE_TEXT_EDIT ?>" /></a>
 						</td>

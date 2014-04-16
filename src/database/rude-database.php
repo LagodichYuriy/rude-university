@@ -79,6 +79,7 @@ class database
 		return $table_columns;
 	}
 
+	/** @return mixed */
 	public function get_object_list()
 	{
 		$object_list = array();
@@ -91,6 +92,7 @@ class database
 		return $object_list;
 	}
 
+	/** @return mixed */
 	public function get_object()
 	{
 		if ($object = $this->result->fetch_object())

@@ -27,7 +27,6 @@ define('RUDE_ERR_SHOW_MESSAGES', true);
 /* ======================================================================== */
 /* Database table names which are frequently used in query() set of classes */
 /* ======================================================================== */
-define('RUDE_TABLE_CLASSES',           RUDE_DATABASE_PREFIX . 'classes');
 define('RUDE_TABLE_DEPARTMENTS',       RUDE_DATABASE_PREFIX . 'departments');
 define('RUDE_TABLE_DISCIPLINES',       RUDE_DATABASE_PREFIX . 'disciplines');
 define('RUDE_TABLE_DISCIPLINES_TYPES', RUDE_DATABASE_PREFIX . 'disciplines_types');
@@ -36,6 +35,7 @@ define('RUDE_TABLE_QUALIFICATIONS',    RUDE_DATABASE_PREFIX . 'qualifications');
 define('RUDE_TABLE_REPORTS',           RUDE_DATABASE_PREFIX . 'reports');
 define('RUDE_TABLE_ROLES',             RUDE_DATABASE_PREFIX . 'roles');
 define('RUDE_TABLE_SPECIALTIES',       RUDE_DATABASE_PREFIX . 'specialties');
+define('RUDE_TABLE_TRAINING_FORM',     RUDE_DATABASE_PREFIX . 'training_form');
 define('RUDE_TABLE_USERS',             RUDE_DATABASE_PREFIX . 'users');
 
 
@@ -269,6 +269,19 @@ define('RUDE_FIELD_NAME_TYPE_NAME',        'type_name');
 define('RUDE_FIELD_ALLOW_USER_MANAGEMENT', 'allow_user_management');
 define('RUDE_FIELD_ALLOW_ROLE_MANAGEMENT', 'allow_role_management');
 
+define('RUDE_FIELD_YEAR',                  'year');
+define('RUDE_FIELD_DURATION',              'duration');
+define('RUDE_FIELD_RECTOR',                'rector');
+define('RUDE_FIELD_REGISTRATION_NUMBER',   'registration_number');
+define('RUDE_FIELD_TRAINING_FORM_ID',      'training_form_id');
+define('RUDE_FIELD_SPECIALTY_ID',          'specialty_id');
+define('RUDE_FIELD_SPECIALIZATION_ID',     'specialization_id');
+define('RUDE_FIELD_CALENDAR',              'calendar');
+
+define('RUDE_FIELD_TRAINING_FORM',         'training_form');
+define('RUDE_FIELD_SPECIALTY',             'specialty');
+define('RUDE_FIELD_SPECIALIZATION',        'specialization');
+define('RUDE_FIELD_QUALIFICATION',         'qualification');
 
 
 /* =============================================== */
