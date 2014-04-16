@@ -3,11 +3,11 @@
 namespace rude;
 
 require_once 'rude-ajax-faculty.php';
-require_once 'rude-ajax-report.php';
 require_once 'rude-ajax-role.php';
 require_once 'rude-ajax-user.php';
 require_once 'rude-ajax-qualification.php';
 require_once 'rude-ajax-specialty.php';
+require_once 'rude-ajax-department.php';
 
 
 $target = get(RUDE_TARGET);
@@ -164,9 +164,38 @@ switch ($target)
 		break;
 
 
-	case RUDE_TASK_AJAX_REPORT_ADD:
-		ajax_report::add();
+
+
+
+
+
+	case RUDE_TASK_AJAX_DEPARTMENT_ADD_FORM:
+		ajax_department::html_form_add();
 		break;
+
+	case RUDE_TASK_AJAX_DEPARTMENT_ADD:
+		ajax_department::add();
+		break;
+
+	case RUDE_TASK_AJAX_DEPARTMENT_SUMMARY:
+		ajax_department::html();
+		break;
+
+	case RUDE_TASK_AJAX_DEPARTMENT_EDIT_FORM:
+		ajax_department::html_form_edit();
+		break;
+	case RUDE_TASK_AJAX_DEPARTMENT_EDIT:
+		ajax_department::edit();
+		break;
+
+	case RUDE_TASK_AJAX_DEPARTMENT_DELETE_FORM:
+		ajax_department::html_form_delete();
+		break;
+	case RUDE_TASK_AJAX_DEPARTMENT_DELETE:
+		ajax_department::delete();
+		break;
+
+
 
 
 

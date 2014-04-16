@@ -20,14 +20,14 @@ function rude_animation(selector, data)
 	}).slideToggle('slow');
 }
 
+-	/* ===================================== */
+-	/* Helps to erase the last one character */
+-	/* ===================================== */
+-	function rude_remove_last_char(string)
+-	{
+-		return string.substring(0, string.length - 1);
+-	}
 
-/* ===================================== */
-/* Helps to erase the last one character */
-/* ===================================== */
-function rude_remove_last_char(string)
-{
-	return string.substring(0, string.length - 1);
-}
 
 /* ======================================= */
 /* jQuery + fancybox popup section [users] */
@@ -39,7 +39,7 @@ $(document).ready(function ()
 		type: 'iframe',
 
 		width: 432 + 20,
-		height: 335 + 20 + 40,
+		height: 335  + 30,
 		fitToView : false,
 		autoSize : false,
 		'beforeClose': function()
@@ -59,7 +59,7 @@ $(document).ready(function ()
 		type: 'iframe',
 
 		width: 432 + 20,
-		height: 172 + 20 + 10,
+		height: 172,
 		fitToView : false,
 		autoSize : false,
 		'beforeClose': function()
@@ -118,7 +118,7 @@ $(document).ready(function ()
 		type: 'iframe',
 
 		width: 432 + 20,
-		height: 261 + 20,
+		height: 240,
 		fitToView : false,
 		autoSize : false,
 		'beforeClose': function()
@@ -134,7 +134,7 @@ $(document).ready(function ()
 		type: 'iframe',
 
 		width: 432 + 20,
-		height: 172 + 20 + 10,
+		height: 172,
 		fitToView : false,
 		autoSize : false,
 		'beforeClose': function()
@@ -176,7 +176,10 @@ $(document).ready(function ()
 		height: 239,
 		fitToView : false,
 		autoSize : false,
-
+		'beforeClose': function()
+		{
+			rude_reload_faculties();
+		}
 	});
 });
 
@@ -189,6 +192,10 @@ $(document).ready(function ()
 		height: 239,
 		fitToView : false,
 		autoSize : false,
+		'beforeClose': function()
+		{
+			rude_reload_faculties();
+		}
 
 	});
 });
@@ -203,11 +210,30 @@ $(document).ready(function ()
 		height: 172,
 		fitToView : false,
 		autoSize : false,
+		'beforeClose': function()
+		{
+			rude_reload_faculties();
+		}
 
 	});
 });
 
+function rude_reload_faculties()
+{
+	$.ajax({
+		type: 'POST',
+		url: 'index.php',
+		data: {
+			task:     'ajax',             // RUDE_TASK_AJAX
+			target:   'ajax_faculty_summary'// RUDE_TASK_AJAX_ROLE_SUMMARY
+		},
 
+		success: function(data)
+		{
+			rude_animation('#info-faculties', data);
+		}
+	});
+}
 
 
 /* ======================================= */
@@ -223,6 +249,10 @@ $(document).ready(function ()
 		height: 180,
 		fitToView : false,
 		autoSize : false,
+		'beforeClose': function()
+		{
+			rude_reload_qualifications();
+		}
 
 	});
 });
@@ -236,6 +266,10 @@ $(document).ready(function ()
 		height: 209,
 		fitToView : false,
 		autoSize : false,
+		'beforeClose': function()
+		{
+			rude_reload_qualifications();
+		}
 
 	});
 });
@@ -250,6 +284,183 @@ $(document).ready(function ()
 		height: 172,
 		fitToView : false,
 		autoSize : false,
+		'beforeClose': function()
+		{
+			rude_reload_qualifications();
+		}
 
 	});
 });
+
+function rude_reload_qualifications()
+{
+	$.ajax({
+		type: 'POST',
+		url: 'index.php',
+		data: {
+			task:     'ajax',             // RUDE_TASK_AJAX
+			target:   'ajax_qualification_summary'// RUDE_TASK_AJAX_ROLE_SUMMARY
+		},
+
+		success: function(data)
+		{
+			rude_animation('#info-qualification', data);
+		}
+	});
+}
+
+
+
+/* ======================================= */
+/* jQuery + fancybox popup section [specialty] */
+/* ======================================= */
+
+$(document).ready(function ()
+{
+	$(".fancybox-specialty").fancybox({
+		type: 'iframe',
+
+		width: 432 + 20,
+		height: 310,
+		fitToView : false,
+		autoSize : false,
+		'beforeClose': function()
+		{
+			rude_reload_specialty();
+		}
+
+	});
+});
+
+$(document).ready(function ()
+{
+	$(".fancybox-specialty-edit").fancybox({
+		type: 'iframe',
+
+		width: 432 + 20,
+		height: 310,
+		fitToView : false,
+		autoSize : false,
+		'beforeClose': function()
+		{
+			rude_reload_specialty();
+		}
+
+	});
+});
+
+
+$(document).ready(function ()
+{
+	$(".fancybox-specialty-delete").fancybox({
+		type: 'iframe',
+
+		width: 432 + 20,
+		height: 190,
+		fitToView : false,
+		autoSize : false,
+		'beforeClose': function()
+		{
+			rude_reload_specialty();
+		}
+
+	});
+});
+
+
+
+
+function rude_reload_specialty()
+{
+	$.ajax({
+		type: 'POST',
+		url: 'index.php',
+		data: {
+			task:     'ajax',             // RUDE_TASK_AJAX
+			target:   'ajax_specialty_summary'// RUDE_TASK_AJAX_ROLE_SUMMARY
+		},
+
+		success: function(data)
+		{
+			rude_animation('#info-specialties', data);
+		}
+	});
+}
+
+
+
+/* ======================================= */
+/* jQuery + fancybox popup section [department] */
+/* ======================================= */
+
+$(document).ready(function ()
+{
+	$(".fancybox-department").fancybox({
+		type: 'iframe',
+
+		width: 432 + 20,
+		height: 190,
+		fitToView : false,
+		autoSize : false,
+		'beforeClose': function()
+		{
+			rude_reload_department();
+		}
+
+	});
+});
+
+$(document).ready(function ()
+{
+	$(".fancybox-department-edit").fancybox({
+		type: 'iframe',
+
+		width: 432 + 20,
+		height: 190,
+		fitToView : false,
+		autoSize : false,
+		'beforeClose': function()
+		{
+			rude_reload_department();
+		}
+
+	});
+});
+
+
+$(document).ready(function ()
+{
+	$(".fancybox-department-delete").fancybox({
+		type: 'iframe',
+
+		width: 432 + 20,
+		height: 185,
+		fitToView : false,
+		autoSize : false,
+		'beforeClose': function()
+		{
+			rude_reload_department();
+		}
+
+	});
+});
+
+
+
+
+function rude_reload_department()
+{
+	$.ajax({
+		type: 'POST',
+		url: 'index.php',
+		data: {
+			task:     'ajax',             // RUDE_TASK_AJAX
+			target:   'ajax_department_summary'// RUDE_TASK_AJAX_ROLE_SUMMARY
+		},
+
+		success: function(data)
+		{
+			rude_animation('#info-department', data);
+		}
+	});
+}

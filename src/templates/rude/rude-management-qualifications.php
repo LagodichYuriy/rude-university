@@ -9,7 +9,7 @@
 			<a href="<?= url::ajax(RUDE_TASK_AJAX_QUALIFICATION_ADD_FORM) ?>" class="fancybox-qualification undecorated"><div class="tool-desc"><?= RUDE_TEXT_ADD_NEW_QUALIFICATION ?></div></a>
 		</div>
 
-		<div id="info-specialties">
+		<div id="info-qualification">
 			<? ajax_qualification::html(); ?>
 		</div>
 	</div>

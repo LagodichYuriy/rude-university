@@ -32,6 +32,63 @@ class faculties
 		return $q->get_object();
 	}
 
+
+	public static function getshort($field = false)
+	{
+		$q = new query(RUDE_TABLE_FACULTIES);
+
+
+		if ($field === false)
+		{
+			$q->start();
+
+			return $q->get_object_list();
+		}
+
+
+		if (is_int($field))
+		{
+			$q->where(RUDE_FIELD_ID, $field);
+		}
+		else if (is_string($field))
+		{
+			$q->where(RUDE_FIELD_SHORTNAME, $field);
+		}
+
+		$q->start();
+
+
+		return $q->get_object();
+	}
+
+	public static function getshort_by_id($field = false)
+	{
+		$q = new query(RUDE_TABLE_FACULTIES);
+
+
+		if ($field === false)
+		{
+			$q->start();
+
+			return $q->get_object_list();
+		}
+
+
+		if (is_int($field))
+		{
+			$q->where(RUDE_FIELD_ID, $field);
+		}
+		else if (is_string($field))
+		{
+			$q->where(RUDE_FIELD_ID, $field);
+		}
+
+		$q->start();
+
+
+		return $q->get_object();
+	}
+
 	public static function add($name, $shortname)
 	{
 		$q = new cquery(RUDE_TABLE_FACULTIES);

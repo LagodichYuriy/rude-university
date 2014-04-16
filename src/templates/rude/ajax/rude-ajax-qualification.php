@@ -304,6 +304,11 @@ class ajax_qualification
 					<td><?= $qualification->{RUDE_FIELD_NAME} ?></td>
 					<td>
 						<a href="<?= url::ajax(RUDE_TASK_AJAX_QUALIFICATION_EDIT_FORM) . url::param(RUDE_FIELD_NAME, $qualification->name) ?>" class="fancybox-qualification-edit"><img src="src/icons/edit.png" class="small-padding" title="<?= RUDE_TEXT_EDIT ?>" /></a>
+
+
+					</td>
+					<td>
+
 						<a href="<?= url::ajax(RUDE_TASK_AJAX_QUALIFICATION_DELETE_FORM) . url::param(RUDE_FIELD_NAME, $qualification->name) ?>" class="fancybox-qualification-delete"><img src="src/icons/remove.png" class="small-padding" title="<?= RUDE_TEXT_DELETE_SELECTED ?>" /></a>
 
 					</td>

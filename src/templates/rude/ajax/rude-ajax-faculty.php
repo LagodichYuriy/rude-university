@@ -333,7 +333,7 @@ class ajax_faculty
 	public static function html()
 	{
 		?>
-		<table class="ui collapsing table segment full-width">
+		<table id="info_faculties" class="ui collapsing table segment full-width">
 			<thead class="small-font">
 				<th>#</th>
 				<th>Полное наименование</th>
@@ -353,6 +353,11 @@ class ajax_faculty
 					<td><?= $faculty->{RUDE_FIELD_SHORTNAME} ?></td>
 					<td>
 						<a href="<?= url::ajax(RUDE_TASK_AJAX_FACULTY_EDIT_FORM) . url::param(RUDE_FIELD_NAME, $faculty->name) ?>" class="fancybox-faculties-edit"><img src="src/icons/edit.png" class="small-padding" title="<?= RUDE_TEXT_EDIT ?>" /></a>
+
+
+					</td>
+					<td>
+
 						<a href="<?= url::ajax(RUDE_TASK_AJAX_FACULTY_DELETE_FORM) . url::param(RUDE_FIELD_NAME, $faculty->name) ?>" class="fancybox-faculties-delete"><img src="src/icons/remove.png" class="small-padding" title="<?= RUDE_TEXT_DELETE_SELECTED ?>" /></a>
 
 					</td>
