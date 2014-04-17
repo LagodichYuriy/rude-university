@@ -32,7 +32,6 @@ class specializations
         return $q->get_object();
     }
 
-
     public static function getcode($field = false)
     {
         $q = new query(RUDE_TABLE_SPECIALIZATIONS);
@@ -53,34 +52,6 @@ class specializations
         else if (is_string($field))
         {
             $q->where(RUDE_FIELD_CODE, $field);
-        }
-
-        $q->start();
-
-
-        return $q->get_object();
-    }
-
-    public static function getcode_by_id($field = false)
-    {
-        $q = new query(RUDE_TABLE_SPECIALIZATIONS);
-
-
-        if ($field === false)
-        {
-            $q->start();
-
-            return $q->get_object_list();
-        }
-
-
-        if (is_int($field))
-        {
-            $q->where(RUDE_FIELD_ID, $field);
-        }
-        else if (is_string($field))
-        {
-            $q->where(RUDE_FIELD_ID, $field);
         }
 
         $q->start();

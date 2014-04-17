@@ -354,10 +354,10 @@ class ajax_specialization
                     <td><?= $specialization->{RUDE_FIELD_NAME} ?></td>
                     <td><?= $specialization->{RUDE_FIELD_CODE} ?></td>
                     <td class="no-padding width-20px">
-                        <a href="<?= url::ajax(RUDE_TASK_AJAX_SPECIALIZATION_EDIT_FORM) . url::param(RUDE_FIELD_NAME, $specialization->name) ?>" class="fancybox-faculties-edit"><img src="src/icons/edit.png" class="small-padding" title="<?= RUDE_TEXT_EDIT ?>" /></a>
+                        <a href="<?= url::ajax(RUDE_TASK_AJAX_SPECIALIZATION_EDIT_FORM) . url::param(RUDE_FIELD_NAME, $specialization->name) ?>" class="fancybox-specializations-edit"><img src="src/icons/edit.png" class="small-padding" title="<?= RUDE_TEXT_EDIT ?>" /></a>
                     </td>
                     <td class="no-padding no-border width-20px">
-                        <a href="<?= url::ajax(RUDE_TASK_AJAX_SPECIALIZATION_DELETE_FORM) . url::param(RUDE_FIELD_NAME, $specialization->name) ?>" class="fancybox-faculties-delete"><img src="src/icons/remove.png" class="small-padding" title="<?= RUDE_TEXT_DELETE_SELECTED ?>" /></a>
+                        <a href="<?= url::ajax(RUDE_TASK_AJAX_SPECIALIZATION_DELETE_FORM) . url::param(RUDE_FIELD_NAME, $specialization->name) ?>" class="fancybox-specializations-delete"><img src="src/icons/remove.png" class="small-padding" title="<?= RUDE_TEXT_DELETE_SELECTED ?>" /></a>
                     </td>
                 </tr>
             <?

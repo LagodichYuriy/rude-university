@@ -470,3 +470,74 @@ function rude_reload_department()
 		}
 	});
 }
+/* ======================================= */
+/* jQuery + fancybox popup section [specialization] */
+/* ======================================= */
+
+    $(document).ready(function ()
+    {
+        $(".fancybox-specializations").fancybox({
+            type: 'iframe',
+
+            width: 432 + 20,
+            height: 239,
+            fitToView : false,
+            autoSize : false,
+            'beforeClose': function()
+            {
+                rude_reload_specializations();
+            }
+        });
+    });
+
+    $(document).ready(function ()
+    {
+        $(".fancybox-specializations-edit").fancybox({
+            type: 'iframe',
+
+            width: 432 + 20,
+            height: 239,
+            fitToView : false,
+            autoSize : false,
+            'beforeClose': function()
+            {
+                rude_reload_specializations();
+            }
+
+        });
+    });
+
+
+    $(document).ready(function ()
+    {
+        $(".fancybox-specializations-delete").fancybox({
+            type: 'iframe',
+
+            width: 432 + 20,
+            height: 172,
+            fitToView : false,
+            autoSize : false,
+            'beforeClose': function()
+            {
+                rude_reload_specializations();
+            }
+
+        });
+    });
+
+    function rude_reload_specializations()
+    {
+        $.ajax({
+            type: 'POST',
+            url: 'index.php',
+            data: {
+                task:     'ajax',             // RUDE_TASK_AJAX
+                target:   'ajax_specialization_summary'// RUDE_TASK_AJAX_ROLE_SUMMARY
+            },
+
+            success: function(data)
+            {
+                rude_animation('#info-specializations', data);
+            }
+        });
+    }
