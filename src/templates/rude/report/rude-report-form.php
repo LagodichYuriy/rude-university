@@ -3,8 +3,6 @@
 <?
 	$report = new report();
 
-
-
 	$target = get(RUDE_TARGET);
 	$report_id = get(RUDE_FIELD_ID);
 
@@ -514,7 +512,7 @@
 	</tr>
 
 	<?
-		$rows = [false, false, false, false];
+		$rows = array(false, false, false, false);
 
 		if ($report->calendar)
 		{
@@ -737,10 +735,6 @@
 			duration:            $('#duration').val(),
 			rector:              $('#rector').val(),
 			registration_number: $('#registration_number').val(),
-//			training_form_id:    $('#training_form').val(),
-//			qualification_id:    $('#qualification').val(),
-//			specialty_id:        $('#specialty').val(),
-//			specialization_id:   $('#specialization').val(),
 
 			training_form:       semantic_ui_val('#training_form_list', $('#training_form').val()),
 			qualification:       semantic_ui_val('#qualification_list', $('#qualification').val()),
@@ -752,7 +746,20 @@
 
 		console.log(report);
 
+//		report_clean(report);
+
 		return report;
+	}
+
+	function report_clean(report)
+	{
+		for (var property in report)
+		{
+			if (!report[property])
+			{
+				delete report[property];
+			}
+		}
 	}
 
 	function report_query()

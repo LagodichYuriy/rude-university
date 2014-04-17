@@ -313,7 +313,7 @@ class report_calendar
 		<?
 	}
 
-	function html_loop_input($calendar_row)
+	public static function html_loop_input($calendar_row)
 	{
 		$cells = explode(',', $calendar_row);
 

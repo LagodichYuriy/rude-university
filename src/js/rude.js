@@ -21,9 +21,9 @@ function rude_redirect(url)
 
 function rude_animation(selector, data)
 {
-	$(selector).slideToggle('slow', function() {
+	$(selector).fadeOut('slow', function() {
 		$(selector).html(data)
-	}).slideToggle('slow');
+	}).fadeIn('slow');
 }
 
 /* ===================================== */

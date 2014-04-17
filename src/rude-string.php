@@ -14,7 +14,7 @@ class string
 		return substr($string, 0, -1);
 	}
 
-	function split($str, $l = 0)
+	public static function split($str, $l = 0)
 	{
 		if ($l > 0)
 		{

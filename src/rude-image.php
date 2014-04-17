@@ -32,7 +32,7 @@ class image
 		$this->font = $font;
 		$this->font_size = $font_size;
 
-		$this->text = $text;
+		$this->text = mb_convert_encoding($text, 'HTML-ENTITIES', 'UTF-8');
 		$this->angle = $angle;
 
 
