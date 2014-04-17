@@ -155,7 +155,7 @@ class ajax_user
 				<div class="field">
 					<label>Роль</label>
 					<div class="ui fluid selection dropdown">
-						<div class="text">Select</div>
+						<div class="text">выберите роль</div>
 						<i class="dropdown icon"></i>
 						<input type="hidden" id="<?=RUDE_FIELD_ROLE?>">
 						<div class="menu">
@@ -313,7 +313,7 @@ class ajax_user
 				</div>
 
 				<div class="field">
-					<label>Пароль(повторно)</label>
+					<label>Пароль (повторно)</label>
 					<div class="ui left labeled icon input">
 						<input id="<?=RUDE_FIELD_PASSWORD_REPEAT?>" name="<?=RUDE_FIELD_PASSWORD_REPEAT?>" type="text" value="<?=RUDE_TEXT_UTF8_DOTS?>" placeholder="Пароль">
 						<i class="user icon"></i>

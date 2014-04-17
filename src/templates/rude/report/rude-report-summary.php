@@ -18,6 +18,7 @@
 					<th>Квалификация</th>
 					<th>Специальность</th>
 					<th>Специализация</th>
+					<th>Срок обучения</th>
 
 					<th></th>
 
@@ -41,6 +42,8 @@
 						<td><?= $report->{RUDE_FIELD_QUALIFICATION} ?></td>
 						<td><?= $report->{RUDE_FIELD_SPECIALTY} ?></td>
 						<td><?= $report->{RUDE_FIELD_SPECIALIZATION} ?></td>
+						<td><?= $report->{RUDE_FIELD_DURATION} ?> <?= spell::years($report->{RUDE_FIELD_DURATION}) ?></td>
+
 						<td>
 							<a href="<?= url::param(RUDE_TASK, RUDE_TASK_MANAGEMENT_REPORTS, true) . url::param(RUDE_TARGET, RUDE_TARGET_EDIT) . url::param(RUDE_FIELD_ID, $report->id) ?>"><img src="src/icons/edit.png" class="small-padding" title="<?= RUDE_TEXT_EDIT ?>" /></a>
 						</td>

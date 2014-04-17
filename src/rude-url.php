@@ -20,4 +20,14 @@ class url
 
 		return $and . urlencode($name) . '=' . urlencode($val);
 	}
+
+	public static function task($task, $is_first_arg = false)
+	{
+		return url::param(RUDE_TASK, $task, $is_first_arg);
+	}
+
+	public static function target($target, $is_first_arg = false)
+	{
+		return url::param(RUDE_TARGET, $target, $is_first_arg);
+	}
 }

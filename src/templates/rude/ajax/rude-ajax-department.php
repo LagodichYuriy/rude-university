@@ -297,6 +297,9 @@ class ajax_department
 			<thead class="small-font">
 				<th>#</th>
 				<th>Наименование кафедры</th>
+
+				<th></th>
+				<th></th>
 			</thead>
 
 			<?
@@ -309,15 +312,11 @@ class ajax_department
 				<tr>
 					<td><?= $department->{RUDE_FIELD_ID} ?></td>
 					<td><?= $department->{RUDE_FIELD_NAME} ?></td>
-					<td>
+					<td class="no-padding width-20px">
 						<a href="<?= url::ajax(RUDE_TASK_AJAX_DEPARTMENT_EDIT_FORM) . url::param(RUDE_FIELD_NAME, $department->name) ?>" class="fancybox-department-edit"><img src="src/icons/edit.png" class="small-padding" title="<?= RUDE_TEXT_EDIT ?>" /></a>
-
-
 					</td>
-					<td>
-
+					<td class="no-padding no-border width-20px">
 						<a href="<?= url::ajax(RUDE_TASK_AJAX_DEPARTMENT_DELETE_FORM) . url::param(RUDE_FIELD_NAME, $department->name) ?>" class="fancybox-department-delete"><img src="src/icons/remove.png" class="small-padding" title="<?= RUDE_TEXT_DELETE_SELECTED ?>" /></a>
-
 					</td>
 				</tr>
 			<?

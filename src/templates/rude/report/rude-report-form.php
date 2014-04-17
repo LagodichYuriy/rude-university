@@ -554,7 +554,7 @@
 	<div class="field">
 		<div class="ui buttons">
 			<div class="ui positive button" onclick="form_validate(); report_struct()">Сохранить</div>
-			<div class="ui button submit" onclick="report_preview();">Предпросмотр</div>
+			<div class="ui button" onclick="report_preview();">Предпросмотр</div>
 		</div>
 	</div>
 	</div>
@@ -705,6 +705,8 @@
 			success: function(report_id)
 			{
 				alert('Учебный план был успешно сохранён');
+
+				rude_redirect('<?= url::task(RUDE_TASK_MANAGEMENT_REPORTS, true) . url::target(RUDE_TARGET_EDIT) ?>&id=' + parseInt(report_id));
 			}
 		});
 	}

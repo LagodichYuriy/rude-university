@@ -7,7 +7,13 @@ function rude_semantic_error(html)
 	$('.ui.error.message').show().html('<ul class="list"><li>' + html + '</li></ul>');
 }
 
-
+/* ================================= */
+/* JavaScript page redirect function */
+/* ================================= */
+function rude_redirect(url)
+{
+	window.location.replace(url);
+}
 
 /* ======================== */
 /* jQuery animation section */

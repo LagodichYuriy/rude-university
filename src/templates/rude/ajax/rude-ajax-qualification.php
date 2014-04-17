@@ -290,6 +290,9 @@ class ajax_qualification
 			<thead class="small-font">
 				<th>#</th>
 				<th>Наименование</th>
+
+				<th></th>
+				<th></th>
 			</thead>
 
 			<?
@@ -302,15 +305,11 @@ class ajax_qualification
 				<tr>
 					<td><?= $qualification->{RUDE_FIELD_ID} ?></td>
 					<td><?= $qualification->{RUDE_FIELD_NAME} ?></td>
-					<td>
+					<td class="no-padding width-20px">
 						<a href="<?= url::ajax(RUDE_TASK_AJAX_QUALIFICATION_EDIT_FORM) . url::param(RUDE_FIELD_NAME, $qualification->name) ?>" class="fancybox-qualification-edit"><img src="src/icons/edit.png" class="small-padding" title="<?= RUDE_TEXT_EDIT ?>" /></a>
-
-
 					</td>
-					<td>
-
+					<td class="no-padding no-border width-20px">
 						<a href="<?= url::ajax(RUDE_TASK_AJAX_QUALIFICATION_DELETE_FORM) . url::param(RUDE_FIELD_NAME, $qualification->name) ?>" class="fancybox-qualification-delete"><img src="src/icons/remove.png" class="small-padding" title="<?= RUDE_TEXT_DELETE_SELECTED ?>" /></a>
-
 					</td>
 				</tr>
 			<?

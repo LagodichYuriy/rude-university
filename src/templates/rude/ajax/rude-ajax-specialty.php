@@ -415,6 +415,9 @@ class ajax_specialty
 				<th>Факультет</th>
 				<th>Наименование</th>
 				<th>Квалификация</th>
+
+				<th></th>
+				<th></th>
 			</thead>
 
 			<?
@@ -431,15 +434,11 @@ class ajax_specialty
 					<td><?= $specialty->faculty_shortname  ?></td>
 					<td><?= $specialty->{RUDE_FIELD_NAME}  ?></td>
 					<td><?= $specialty->qualification_name ?></td>
-					<td>
+					<td class="no-padding width-20px">
 						<a href="<?= url::ajax(RUDE_TASK_AJAX_SPECIALTY_EDIT_FORM) . url::param(RUDE_FIELD_NAME, $specialty->name) ?>" class="fancybox-specialty-edit"><img src="src/icons/edit.png" class="small-padding" title="<?= RUDE_TEXT_EDIT ?>" /></a>
-
-
 					</td>
-					<td>
-
+					<td class="no-padding no-border width-20px">
 						<a href="<?= url::ajax(RUDE_TASK_AJAX_SPECIALTY_DELETE_FORM) . url::param(RUDE_FIELD_NAME, $specialty->name) ?>" class="fancybox-specialty-delete"><img src="src/icons/remove.png" class="small-padding" title="<?= RUDE_TEXT_DELETE_SELECTED ?>" /></a>
-
 					</td>
 				</tr>
 			<?
