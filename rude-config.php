@@ -5,9 +5,9 @@
 /* ============================== */
 
 define('RUDE_DATABASE_USER',   'root');
-define('RUDE_DATABASE_PASS',   '1234');
+define('RUDE_DATABASE_PASS',   '');
 define('RUDE_DATABASE_HOST',   'localhost');
-define('RUDE_DATABASE_NAME',   'university');
+define('RUDE_DATABASE_NAME',   'test');
 define('RUDE_DATABASE_PREFIX', 'univ_');
 
 
@@ -27,16 +27,17 @@ define('RUDE_ERR_SHOW_MESSAGES', true);
 /* ======================================================================== */
 /* Database table names which are frequently used in query() set of classes */
 /* ======================================================================== */
-define('RUDE_TABLE_DEPARTMENTS',       RUDE_DATABASE_PREFIX . 'departments');
-define('RUDE_TABLE_DISCIPLINES',       RUDE_DATABASE_PREFIX . 'disciplines');
-define('RUDE_TABLE_DISCIPLINES_TYPES', RUDE_DATABASE_PREFIX . 'disciplines_types');
-define('RUDE_TABLE_FACULTIES',         RUDE_DATABASE_PREFIX . 'faculties');
-define('RUDE_TABLE_QUALIFICATIONS',    RUDE_DATABASE_PREFIX . 'qualifications');
-define('RUDE_TABLE_REPORTS',           RUDE_DATABASE_PREFIX . 'reports');
-define('RUDE_TABLE_ROLES',             RUDE_DATABASE_PREFIX . 'roles');
-define('RUDE_TABLE_SPECIALTIES',       RUDE_DATABASE_PREFIX . 'specialties');
-define('RUDE_TABLE_TRAINING_FORM',     RUDE_DATABASE_PREFIX . 'training_form');
-define('RUDE_TABLE_USERS',             RUDE_DATABASE_PREFIX . 'users');
+define('RUDE_TABLE_DEPARTMENTS',        RUDE_DATABASE_PREFIX . 'departments');
+define('RUDE_TABLE_DISCIPLINES',        RUDE_DATABASE_PREFIX . 'disciplines');
+define('RUDE_TABLE_DISCIPLINES_TYPES',  RUDE_DATABASE_PREFIX . 'disciplines_types');
+define('RUDE_TABLE_FACULTIES',          RUDE_DATABASE_PREFIX . 'faculties');
+define('RUDE_TABLE_QUALIFICATIONS',     RUDE_DATABASE_PREFIX . 'qualifications');
+define('RUDE_TABLE_REPORTS',            RUDE_DATABASE_PREFIX . 'reports');
+define('RUDE_TABLE_ROLES',              RUDE_DATABASE_PREFIX . 'roles');
+define('RUDE_TABLE_SPECIALTIES',        RUDE_DATABASE_PREFIX . 'specialties');
+define('RUDE_TABLE_TRAINING_FORM',      RUDE_DATABASE_PREFIX . 'training_form');
+define('RUDE_TABLE_USERS',              RUDE_DATABASE_PREFIX . 'users');
+define('RUDE_TABLE_SPECIALIZATIONS',    RUDE_DATABASE_PREFIX . 'specializations');
 
 
 
@@ -71,7 +72,7 @@ define('RUDE_TEMPLATE_HTTP_INDEX',  '/' . RUDE_FILE_INDEX);
 define('RUDE_ROLE_ADMIN_ID',              '1');
 define('RUDE_ROLE_MODERATOR_ID',          '2');
 
-define('RUDE_TASK',                       'task');
+    define('RUDE_TASK',                       'task');
 define('RUDE_TARGET',                     'target');
 
 define('RUDE_TARGET_ADD',                 'add');
@@ -141,6 +142,18 @@ define('RUDE_TASK_AJAX_REPORT_ADD',    'ajax_report_add');
 define('RUDE_TASK_AJAX_REPORT_EDIT',   'ajax_report_edit');
 define('RUDE_TASK_AJAX_REPORT_DELETE', 'ajax_report_delete');
 
+/*
+
+*/
+define('RUDE_TASK_MANAGEMENT_SPECIALIZATIONS',      'specializations_management');
+
+define('RUDE_TASK_AJAX_SPECIALIZATION_ADD_FORM',    'ajax_specialization_add_form');
+define('RUDE_TASK_AJAX_SPECIALIZATION_EDIT_FORM'  , 'ajax_specialization_edit_form');
+define('RUDE_TASK_AJAX_SPECIALIZATION_DELETE_FORM', 'ajax_specialization_delete_form');
+define('RUDE_TASK_AJAX_SPECIALIZATION_ADD',         'ajax_specialization_add');
+define('RUDE_TASK_AJAX_SPECIALIZATION_EDIT',        'ajax_specialization_edit');
+define('RUDE_TASK_AJAX_SPECIALIZATION_DELETE',      'ajax_specialization_delete');
+define('RUDE_TASK_AJAX_SPECIALIZATION_SUMMARY',     'ajax_specialization_summary');
 
 /* ===================================================================== */
 /* Faculty management section [ADD/EDIT/DELETE] + same AJAX combinations */
@@ -217,6 +230,7 @@ define('RUDE_TEXT_MANAGEMENT_QUALIFICATIONS', 'Квалификации');
 define('RUDE_TEXT_MANAGEMENT_SPECIALTIES',    'Специальности');
 define('RUDE_TEXT_MANAGEMENT_REPORTS',        'Все планы');
 define('RUDE_TEXT_MANAGEMENT_REPORTS_ADD',    'Добавить новый');
+define('RUDE_TEXT_MANAGEMENT_SPECIALIZATIONS','Специализации');
 
 define('RUDE_TEXT_ADD',                       'Добавить');
 define('RUDE_TEXT_ADD_NEW_DEPARTMENT',        'Добавить новую кафедру');
@@ -226,6 +240,7 @@ define('RUDE_TEXT_ADD_NEW_REPORT',            'Добавить новый уч�
 define('RUDE_TEXT_ADD_NEW_ROLE',              'Добавить новую роль');
 define('RUDE_TEXT_ADD_NEW_SPECIALTY',         'Добавить новую специальность');
 define('RUDE_TEXT_ADD_NEW_USER',              'Добавить нового пользователя');
+define('RUDE_TEXT_ADD_NEW_SPECIALIZATION',    'Добавить новую специализацию');
 
 define('RUDE_TEXT_USER_ROLE',                 'Роль пользователя');
 define('RUDE_TEXT_LOGOUT',                    'Выход');
@@ -256,6 +271,7 @@ define('RUDE_FIELD_PASSWORD',              'password');
 define('RUDE_FIELD_PASSWORD_REPEAT',       'password_repeat');
 define('RUDE_FIELD_NAME',                  'name');
 define('RUDE_FIELD_SHORTNAME',             'shortname');
+define('RUDE_FIELD_CODE',                  'code');
 define('RUDE_FIELD_HASH',                  'hash');
 define('RUDE_FIELD_SALT',                  'salt');
 define('RUDE_FIELD_ROLE',                  'role');
