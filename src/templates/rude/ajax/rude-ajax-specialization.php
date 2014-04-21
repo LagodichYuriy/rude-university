@@ -307,12 +307,13 @@ class ajax_specialization
             function delete_specialization(name)
             {
                 $.ajax({
-                    type: 'POST',
-                    url: 'index.php',
+
+                    type:   'POST',
+                    url:    'index.php',
                     data: {
                         task:     '<?= RUDE_TASK_AJAX ?>',
                         target:   '<?= RUDE_TASK_AJAX_SPECIALIZATION_DELETE ?>',
-                        name: '<?= $name ?>'
+                        name:     '<?= $name ?>'
                     },
 
                     success: function(data)
@@ -335,11 +336,11 @@ class ajax_specialization
         ?>
         <table id="info_specializations" class="ui collapsing table segment full-width">
             <thead class="small-font">
-            <th>#</th>
-            <th>Наименование</th>
-            <th>Код</th>
-            <th></th>
-            <th></th>
+                <th>#</th>
+                <th>Наименование</th>
+                <th>Код</th>
+                <th></th>
+                <th></th>
             </thead>
 
             <?

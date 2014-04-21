@@ -532,7 +532,7 @@ function rude_reload_department()
             url: 'index.php',
             data: {
                 task:     'ajax',             // RUDE_TASK_AJAX
-                target:   'ajax_specialization_summary'// RUDE_TASK_AJAX_ROLE_SUMMARY
+                target:   'ajax_specialization_summary'// RUDE_TASK_AJAX_SPECIALIZATION_SUMMARY
             },
 
             success: function(data)
