@@ -145,7 +145,7 @@ define('RUDE_TASK_AJAX_REPORT_DELETE', 'ajax_report_delete');
 /*
 
 */
-define('RUDE_TASK_MANAGEMENT_SPECIALIZATIONS',      'specializations_management');
+define('RUDE_TASK_MANAGEMENT_SPECIALIZATIONS',      'specialization_management');
 
 define('RUDE_TASK_AJAX_SPECIALIZATION_ADD_FORM',    'ajax_specialization_add_form');
 define('RUDE_TASK_AJAX_SPECIALIZATION_EDIT_FORM'  , 'ajax_specialization_edit_form');

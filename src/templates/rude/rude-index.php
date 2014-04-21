@@ -50,7 +50,7 @@
 				require_once 'rude-management-specialties.php';
 				break;
 
-			case RUDE_TASK_MANAGEMENT_USERS:
+            case RUDE_TASK_MANAGEMENT_USERS:
 				require_once 'rude-management-users.php';
 				break;
 
@@ -61,6 +61,10 @@
 			case RUDE_TASK_MANAGEMENT_REPORTS:
 				require_once 'rude-management-reports.php';
 				break;
+
+            case RUDE_TASK_MANAGEMENT_SPECIALIZATIONS:
+                require_once 'rude-management-specializations.php';
+                break;
 
 			default:
 				require_once 'rude-index-default.php';

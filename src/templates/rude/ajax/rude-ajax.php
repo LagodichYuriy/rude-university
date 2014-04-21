@@ -220,6 +220,9 @@ switch ($target)
         ajax_specialization::html_form_delete();
         break;
 
+    case RUDE_TASK_AJAX_SPECIALIZATION_SUMMARY:
+        ajax_specialization::html();
+        break;
 
 
 	case RUDE_TASK_AJAX_REPORT_ADD:
