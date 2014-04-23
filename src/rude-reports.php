@@ -93,6 +93,7 @@ class reports
 		$q->update(RUDE_FIELD_SPECIALTY_ID,        $report->specialty_id);
 		$q->update(RUDE_FIELD_SPECIALIZATION_ID,   $report->specialization_id);
 		$q->update(RUDE_FIELD_CALENDAR,            $report->calendar);
+		$q->update(RUDE_FIELD_TIMETABLE,           $report->timetable);
 
 		$q->where(RUDE_FIELD_ID, (int) $report->id);
 

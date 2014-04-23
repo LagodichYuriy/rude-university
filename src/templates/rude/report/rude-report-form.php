@@ -16,6 +16,29 @@
 			break;
 	}
 
+//
+//	$disciplines = disciplines::get();
+//
+//	$name_list = null;
+//	$type_list = null;
+//
+//	foreach ($disciplines as $discipline)
+//	{
+//		if ($discipline->name)
+//		{
+//			$name_list[] = $discipline->name;
+//		}
+//
+//		if ($discipline->type_name)
+//		{
+//			$type_list[] = $discipline->type_name;
+//		}
+//	}
+//
+//	$name_list = array_values(array_unique($name_list));
+//	$type_list = array_values(array_unique($type_list));
+//
+//	$module_list = array_merge($name_list, $type_list);
 ?>
 	<input id="report_id" name="report_id" type="hidden" value="<? if ($report_id) { echo $report_id; } ?>" />
 
@@ -249,26 +272,124 @@
 		Список циклов (компоненты и модули специальности)
 	</div>
 	<div class="content">
-		<div class="fields">
-			<div class="field small-font width-80 padding-right-1">
-				<label>Название цикла</label>
-				<input id="module" name="module" placeholder="Цикл социально-гуманитарных дисциплин" type="text">
-			</div>
-			<div class="field small-font margin-button width-20">
-				<div class="ui green submit button mini margin-left-2" onclick="module_add()">Добавить</div>
-			</div>
-		</div>
+		<? require_once 'rude-report-timetable.php'; ?>
 
-		<table class="ui table segment small-font">
-			<thead>
+		<table id="module" class="ui table border full-width basic small-font padding-1px align-center min-cell-18">
 			<tr>
-				<th class="width-30px">#</th>
-				<th>Наименование</th>
-			</tr>
-			</thead>
-			<tbody id="modules">
+				<td rowspan="4">
+					<?= RUDE_REPORT_TABLE_NO ?>
+					<nobr>
+						<?= RUDE_REPORT_TABLE_NO_PP ?>
+					</nobr>
+				</td>
+				<td rowspan="4"><?= RUDE_REPORT_TABLE_CYCLE_NAME ?></td>
+				<td rowspan="4" class="relative bottom"><? new image(RUDE_REPORT_TABLE_DEPARTMENT) ?></td>
 
-			</tbody>
+				<td rowspan="1" colspan="9"><div class="nowrap"><?= RUDE_REPORT_TABLE_ACADEMIC_HOURS ?></div></td>
+				<td rowspan="1" colspan="31"><div class="nowrap"><?= RUDE_REPORT_TABLE_DISTRIBUTION ?></div></td>
+			</tr>
+
+			<tr>
+				<td rowspan="3" class="relative column bottom"><? new image(RUDE_REPORT_TABLE_EXAMS)                  ?></td>
+				<td rowspan="3" class="relative column bottom"><? new image(RUDE_REPORT_TABLE_CREDITS)                ?></td>
+				<td rowspan="3" class="relative column bottom"><? new image(RUDE_REPORT_TABLE_MODEL_CALCULATIONS)     ?></td>
+				<td rowspan="3" class="relative column bottom"><? new image(RUDE_REPORT_TABLE_TOTAL)                  ?></td>
+				<td rowspan="3" class="relative column bottom"><? new image(RUDE_REPORT_TABLE_CLASSROOM_FULL_TIME)    ?></td>
+				<td rowspan="3" class="relative column bottom"><? new image(RUDE_REPORT_TABLE_CLASSROOM_EVENING_TIME) ?></td>
+
+				<td colspan="3" class="tiny"><?= RUDE_REPORT_TABLE_OF_THEM ?></td>
+
+				<td colspan="6" class="tiny">I <?= RUDE_REPORT_TABLE_YEAR ?></td>
+				<td colspan="6" class="tiny">II <?= RUDE_REPORT_TABLE_YEAR ?></td>
+				<td colspan="6" class="tiny">III <?= RUDE_REPORT_TABLE_YEAR ?></td>
+				<td colspan="6" class="tiny">IV <?= RUDE_REPORT_TABLE_YEAR ?></td>
+				<td colspan="6" class="tiny">V <?= RUDE_REPORT_TABLE_YEAR ?></td>
+
+				<td rowspan="3" class="relative column bottom"><? new image(RUDE_REPORT_TABLE_FINAL_CREDITS) ?></td>
+			</tr>
+
+			<tr>
+				<td rowspan="2" class="relative bottom"><? new image(RUDE_REPORT_TABLE_LECTURES) ?></td>
+				<td rowspan="2" class="relative bottom"><? new image(RUDE_REPORT_TABLE_LABS) ?></td>
+				<td rowspan="2" class="relative bottom"><? new image(RUDE_REPORT_TABLE_SEMINARS) ?></td>
+
+				<td colspan="3" class="tiny"><div class="nowrap">I <?= RUDE_REPORT_TABLE_TOTAL_SEMESTER ?></div><div class="nowrap">17 <?= RUDE_REPORT_TABLE_TOTAL_WEEKS ?></div></td>
+				<td colspan="3" class="tiny"><div class="nowrap">II <?= RUDE_REPORT_TABLE_TOTAL_SEMESTER ?></div><div class="nowrap">17 <?= RUDE_REPORT_TABLE_TOTAL_WEEKS ?></div></td>
+				<td colspan="3" class="tiny"><div class="nowrap">III <?= RUDE_REPORT_TABLE_TOTAL_SEMESTER ?></div><div class="nowrap">17 <?= RUDE_REPORT_TABLE_TOTAL_WEEKS ?></div></td>
+				<td colspan="3" class="tiny"><div class="nowrap">IV <?= RUDE_REPORT_TABLE_TOTAL_SEMESTER ?></div><div class="nowrap">17 <?= RUDE_REPORT_TABLE_TOTAL_WEEKS ?></div></td>
+				<td colspan="3" class="tiny"><div class="nowrap">V <?= RUDE_REPORT_TABLE_TOTAL_SEMESTER ?></div><div class="nowrap">17 <?= RUDE_REPORT_TABLE_TOTAL_WEEKS ?></div></td>
+				<td colspan="3" class="tiny"><div class="nowrap">VI <?= RUDE_REPORT_TABLE_TOTAL_SEMESTER ?></div><div class="nowrap">17 <?= RUDE_REPORT_TABLE_TOTAL_WEEKS ?></div></td>
+				<td colspan="3" class="tiny"><div class="nowrap">VII <?= RUDE_REPORT_TABLE_TOTAL_SEMESTER ?></div><div class="nowrap">16 <?= RUDE_REPORT_TABLE_TOTAL_WEEKS ?></div></td>
+				<td colspan="3" class="tiny"><div class="nowrap">VIII <?= RUDE_REPORT_TABLE_TOTAL_SEMESTER ?></div><div class="nowrap">16 <?= RUDE_REPORT_TABLE_TOTAL_WEEKS ?></div></td>
+				<td colspan="3" class="tiny"><div class="nowrap">IX <?= RUDE_REPORT_TABLE_TOTAL_SEMESTER ?></div><div class="nowrap">16 <?= RUDE_REPORT_TABLE_TOTAL_WEEKS ?></div></td>
+				<td colspan="3" class="tiny"><div class="nowrap">X <?= RUDE_REPORT_TABLE_TOTAL_SEMESTER ?></div><div class="nowrap">7 <?= RUDE_REPORT_TABLE_TOTAL_WEEKS ?></div></td>
+			</tr>
+			<tr>
+				<? report_timetable::html_td_total() ?>
+				<? report_timetable::html_td_total() ?>
+				<? report_timetable::html_td_total() ?>
+				<? report_timetable::html_td_total() ?>
+				<? report_timetable::html_td_total() ?>
+				<? report_timetable::html_td_total() ?>
+				<? report_timetable::html_td_total() ?>
+				<? report_timetable::html_td_total() ?>
+				<? report_timetable::html_td_total() ?>
+				<? report_timetable::html_td_total() ?>
+			</tr>
+
+			<tr>
+				<? report_timetable::html_td_loop(1, 43); ?>
+			</tr>
+
+			<?
+
+			$timetable_rows = explode('~', $report->timetable);
+
+
+			foreach ($timetable_rows as $timetable_row)
+			{
+				if (!$timetable_row)
+				{
+					continue;
+				}
+
+				?>
+				<tr>
+					<?
+						$timetable_cols = explode(',', $timetable_row);
+
+						foreach ($timetable_cols as $timetable_col)
+						{
+							if ($timetable_col === $timetable_cols[0])
+							{
+								?><td><input type="text" class="first-cell square-cell timetable-0" value="<?= $timetable_col ?>"/></td><?
+
+								continue;
+							}
+
+							?><td><input type="text" class="square-cell timetable-0" value="<?= $timetable_col ?>"/></td><?
+						}
+					?>
+				</tr>
+			<?
+			}
+			?>
+
+			<tr>
+
+			</tr>
+
+<!--			<tr>-->
+<!--				--><?// // TODO: уебать по голове этих пидорасов ?>
+<!--			</tr>-->
+
+			<tfoot>
+				<tr>
+					<td colspan="2" class="no-border">
+						<div class="ui button mini green" onclick="module_add();">Добавить строку</div>
+					</td>
+				</tr>
+			</tfoot>
 		</table>
 	</div>
 
@@ -523,25 +644,25 @@
 	<tr>
 		<td>I</td>
 
-		<? loop_input(1, 52, $rows[0]) ?>
+		<? loop_input_calendar(1, 52, $rows[0]) ?>
 	</tr>
 
 	<tr>
 		<td>II</td>
 
-		<? loop_input(2, 52, $rows[1]) ?>
+		<? loop_input_calendar(2, 52, $rows[1]) ?>
 	</tr>
 
 	<tr>
 		<td>III</td>
 
-		<? loop_input(3, 52, $rows[2]) ?>
+		<? loop_input_calendar(3, 52, $rows[2]) ?>
 	</tr>
 
 	<tr>
 		<td>IV</td>
 
-		<? loop_input(4, 52, $rows[3]) ?>
+		<? loop_input_calendar(4, 52, $rows[3]) ?>
 	</tr>
 	</table>
 	</div>
@@ -666,17 +787,24 @@
 
 	function module_add()
 	{
-		module_validate();
+//		module_validate();
 
 
-		var module = $('#module').val();
+		var module = $('#module').html();
 
-		if (module)
+		var row = '<tr>';
+
+		row += '<td><input type="text" class="first-cell square-cell timetable-0" value=""/></td>';
+//		row += '';
+
+		for (var i = 1; i < 43; i++)
 		{
-			module_counter++;
-
-			$('#modules').append('<tr><td>' + module_counter + '</td><td>' + module + '</td></tr>');
+			row += '<td><input type="text" class="square-cell timetable-' + i + '" value=""/></td>';
 		}
+
+		row += '</tr>';
+
+		$('#module').append(row);
 	}
 
 	function report_save()
@@ -741,7 +869,8 @@
 			specialty:           semantic_ui_val('#specialty_list', $('#specialty').val()),
 			specialization:      semantic_ui_val('#specialization_list', $('#specialization').val()),
 
-			calendar: calendar_data()
+			calendar: calendar_data(),
+			timetable: timetable_data()
 		};
 
 		console.log(report);
@@ -781,6 +910,32 @@
 		window.open('.<?= RUDE_TEMPLATE_HTTP_INDEX . url::param(RUDE_TASK, RUDE_TASK_REPORT_PREVIEW, true) ?>' + report_query(), '_blank').focus();
 	}
 
+	function timetable_data()
+	{
+		var string = '';
+
+		$('#module .square-cell').each(function(i, obj) {
+
+			if ($(this).hasClass('first-cell'))
+			{
+				string = rude_remove_last_char(string);
+
+				if (string)
+				{
+					string += '~';
+				}
+			}
+
+			string += $(this).val() + ',';
+		});
+
+		string = rude_remove_last_char(string);
+
+		console.log(string);
+
+		return string;
+	}
+
 	function calendar_data()
 	{
 		var I = calendar_struct_string('calendar-1');
@@ -818,7 +973,7 @@
 
 <?
 
-function loop_input($id, $count, $data_row = false)
+function loop_input_calendar($id, $count, $data_row = false)
 {
 	if ($data_row !== false)
 	{
@@ -832,6 +987,23 @@ function loop_input($id, $count, $data_row = false)
 			<input type="text" maxlength="2" class="square-cell calendar-<?= (int) $id ?>" value="<? if (isset($data_row[$i])) { echo $data_row[$i]; } ?>"/>
 		</td>
 		<?
+	}
+}
+
+function loop_input_timetable($id, $count, $data_row = false)
+{
+	if ($data_row !== false)
+	{
+		$data_row = explode(',', $data_row);
+	}
+
+	for ($i = 0; $i < $count; $i++)
+	{
+		?>
+		<td>
+			<input type="text" class="square-cell timetable-<?= (int) $id ?>" value="<? if (isset($data_row[$i])) { echo $data_row[$i]; } ?>"/>
+		</td>
+	<?
 	}
 }
 

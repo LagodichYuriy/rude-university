@@ -596,6 +596,11 @@ h3
 	padding: 0!important;
 }
 
+.padding-1px td
+{
+	padding: 1px!important;
+}
+
 .no-border
 {
 	border: none!important;
@@ -627,8 +632,29 @@ h3
 
 .ui.table td
 {
-	border-left: 1px rgba(0,0,0,.05) solid;
-
 	/*text-align: center;*/
 	font-size: 11px;
+}
+
+.bottom
+{
+	vertical-align: bottom!important;
+	margin-bottom: 0;
+}
+
+.bottom img
+{
+	margin-left: -2px!important;
+	margin-bottom: 3px!important;
+}
+
+
+.font-10px
+{
+	font-size: 10px;
+}
+
+.relative
+{
+	position: relative;
 }

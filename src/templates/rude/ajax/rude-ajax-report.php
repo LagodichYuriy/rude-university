@@ -58,6 +58,7 @@ class ajax_report
 		$report->specialty_id        = $specialty->id;
 		$report->specialization_id   = $specialization->id;
 		$report->calendar            = get(RUDE_FIELD_CALENDAR);
+		$report->timetable           = get(RUDE_FIELD_TIMETABLE);
 
 		reports::update($report);
 	}

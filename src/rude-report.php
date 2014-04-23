@@ -18,6 +18,7 @@ class report
 	public $specialization      = ''; // специализация
 	public $specialization_id   = ''; // специализация (id)
 	public $calendar            = ''; // календарь
+	public $timetable           = ''; // основная таблица учебного плана
 
 	public function load($report_id)
 	{
@@ -37,5 +38,6 @@ class report
 		$this->specialization      = $report->specialization;
 		$this->specialization_id   = $report->specialization_id;
 		$this->calendar            = $report->calendar;
+		$this->timetable           = $report->timetable;
 	}
 }

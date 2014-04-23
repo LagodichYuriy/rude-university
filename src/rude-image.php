@@ -16,7 +16,7 @@ class image
 	private $width    = 0;    // image width
 	private $height   = 0;    // image height
 
-	private $font = '';       // text font
+	private $font     = '';   // text font
 
 	private $text     = '';   // image text;
 	private $angle    = 0;    // image rotate angle
@@ -64,9 +64,13 @@ class image
 
 		$this->image = $this->rotate($this->angle, $color_bg);
 
+
 		ob_start();
+
 		imagepng($this->image);
+
 		$this->bytecode = ob_get_clean();
+
 
 		imagecolordeallocate($this->image, $color_fg);
 		imagecolordeallocate($this->image, $color_bg);

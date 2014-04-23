@@ -16,6 +16,7 @@
 	$report->specialty           = get('specialty');
 	$report->specialization      = get('specialization');
 	$report->calendar            = get('calendar');
+	$report->timetable           = get('timetable');
 ?>
 <html>
 	<head>
