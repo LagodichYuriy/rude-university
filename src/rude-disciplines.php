@@ -54,7 +54,7 @@ class disciplines
 
     public static function add($name, $type_id)
     {
-        $q = new cquery(RUDE_TABLE_USERS);
+        $q = new cquery(RUDE_TABLE_DISCIPLINES);
         $q->add(RUDE_FIELD_NAME, $name);
         $q->add(RUDE_FIELD_NAME_TYPE_ID,  $type_id);
         $q->start();

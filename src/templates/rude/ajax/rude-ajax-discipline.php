@@ -6,15 +6,14 @@ class ajax_discipline
 {
     public static function add()
     {
-        $name       = get(RUDE_FIELD_USERNAME);
+        $name       = get(RUDE_FIELD_NAME);
         $type       = get(RUDE_FIELD_NAME_TYPE_NAME);
-
+disciplines::add($name, 1);
         $q = new query(RUDE_TABLE_DISCIPLINES_TYPES);
-        $q->where(RUDE_FIELD_ROLE, $type);
+        $q->where(RUDE_FIELD_NAME, $type);
         $q->start();
 
         $type = $q->get_object();
-
         if ($type === null)
         {
             die();
@@ -44,36 +43,14 @@ class ajax_discipline
 
         <body class="ajax_bg">
         <div>
-            <h1>Добавление пользователя</h1>
-            <p>Форма для добавления новых пользователей</p>
-            <form id="form" name="form" method="post" class="ui form" action="index.php?task=<?= RUDE_TASK_AJAX_USER_ADD_FORM ?>">
+            <h1>Добавление Дисциплины</h1>
+            <p>Форма для добавления новых дисциплин</p>
+            <form id="form" name="form" method="post" class="ui form" action="index.php?task=<?= RUDE_TASK_AJAX_DISCIPLINE_ADD_FORM ?>">
 
                 <div class="field">
-                    <label>Логин</label>
+                    <label>Наименование</label>
                     <div class="ui left labeled icon input">
-                        <input id="<?=RUDE_FIELD_USERNAME?>" name="<?=RUDE_FIELD_USERNAME?>" type="text" placeholder="Логин">
-                        <i class="user icon"></i>
-                        <div class="ui corner label">
-                            <i class="icon asterisk"></i>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="field">
-                    <label>Пароль</label>
-                    <div class="ui left labeled icon input">
-                        <input id="<?=RUDE_FIELD_PASSWORD?>" name="<?=RUDE_FIELD_PASSWORD?>" type="text" placeholder="Пароль">
-                        <i class="user icon"></i>
-                        <div class="ui corner label">
-                            <i class="icon asterisk"></i>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="field">
-                    <label>Пароль(повторно)</label>
-                    <div class="ui left labeled icon input">
-                        <input id="<?=RUDE_FIELD_PASSWORD_REPEAT?>" name="<?=RUDE_FIELD_PASSWORD_REPEAT?>" type="text" placeholder="Пароль(повторно)">
+                        <input id="<?=RUDE_FIELD_NAME?>" name="<?=RUDE_FIELD_NAME?>" type="text" placeholder="Наименование">
                         <i class="user icon"></i>
                         <div class="ui corner label">
                             <i class="icon asterisk"></i>
@@ -84,17 +61,17 @@ class ajax_discipline
 
 
                 <div class="field">
-                    <label>Роль</label>
+                    <label>Тип</label>
                     <div class="ui fluid selection dropdown">
-                        <div class="text">выберите роль</div>
+                        <div class="text">выберите тип дисциплины</div>
                         <i class="dropdown icon"></i>
-                        <input type="hidden" id="<?=RUDE_FIELD_ROLE?>">
+                        <input type="hidden" id="<?=RUDE_FIELD_NAME_TYPE_NAME?>">
                         <div class="menu">
-                            <?	$roles_list = roles::get();
-                            foreach ($roles_list as $role)
+                            <?	$types_list = disciplines::get_types();
+                            foreach ($types_list as $type)
                             {
                                 ?>
-                                <div class="item" data-value="<?= $role->role  ?>"><?= $role->role  ?></div>
+                                <div class="item" data-value="<?= $type->name  ?>"><?= $type->name ?></div>
                             <?
                             }?>
                         </div>
@@ -112,37 +89,16 @@ class ajax_discipline
             ;
             $('.ui.form').form(
                 {
-                    username:
+                    name:
                     {
-                        identifier: 'username',
+                        identifier: 'name',
 
                         rules:
                             [{
                                 type: 'empty',
-                                prompt: 'Пожалуйста, введите наименование факультета'
-                            }]
-                    },
-                    password:
-                    {
-                        identifier: 'password',
-
-                        rules:
-                            [{
-                                type: 'empty',
-                                prompt: 'Пожалуйста, введите наименование факультета'
-                            }]
-                    },
-                    password_repeat:
-                    {
-                        identifier: 'password_repeat',
-
-                        rules:
-                            [{
-                                type: 'empty',
-                                prompt: 'Пожалуйста, введите наименование факультета'
+                                prompt: 'Пожалуйста, введите наименование дисциплины'
                             }]
                     }
-
 
                 });
 
@@ -150,13 +106,11 @@ class ajax_discipline
 
                 event.preventDefault();
 
-                var username        = $('#<?= RUDE_FIELD_USERNAME ?>').val();
-                var password        = $('#<?= RUDE_FIELD_PASSWORD ?>').val();
-                var password_repeat = $('#<?= RUDE_FIELD_PASSWORD_REPEAT ?>').val();
+                var name        = $('#<?= RUDE_FIELD_NAME ?>').val();
 
-                var role            = $('#<?= RUDE_FIELD_ROLE ?>').val();
+                var type        = $('#<?= RUDE_FIELD_NAME_TYPE_NAME ?>').val();
 
-                if (!username || !password || !password_repeat || !(password == password_repeat))
+                if (!name )
                 {
                     return true; // allow default semantic-UI validation
 
@@ -167,11 +121,10 @@ class ajax_discipline
                     url: 'index.php',
                     data: {
                         task:     '<?= RUDE_TASK_AJAX ?>',
-                        target:   '<?= RUDE_TASK_AJAX_USER_ADD ?>',
+                        target:   '<?= RUDE_TASK_AJAX_DISCIPLINE_ADD ?>',
 
-                        username: username,
-                        password: password,
-                        role:     role
+                        name: name,
+                        type: type
                     },
 
                     success: function(data)
@@ -388,25 +341,25 @@ class ajax_discipline
 
         <body class="ajax_bg">
         <div>
-            <h1>Удаление факультета</h1>
+            <h1>Удаление дисциплины</h1>
             <p class="red">Внимание! Данная операция необратима!</p>
-            <form id="form" name="form" method="post" class="ui form" action="index.php?task=<?= RUDE_TASK_FACULTY_DELETE ?>">
-                Вы точно уверены, что хотите удалить факультет <b>"<?= $name ?></b>"?
+            <form id="form" name="form" method="post" class="ui form" action="index.php?task=<?= RUDE_TASK_AJAX_DISCIPLINE_DELETE ?>">
+                Вы точно уверены, что хотите удалить дисциплину <b>"<?= $name ?></b>"?
                 <div class="button-box">
-                    <button class="ui blue submit button"  type="submit" onclick="delete_faculty('<?= $name ?>'); parent.$.fancybox.close();">Да</button>
+                    <button class="ui blue submit button"  type="submit" onclick="delete_discipline('<?= $name ?>'); parent.$.fancybox.close();">Да</button>
                     <button style="float: right !important;" class="ui blue submit button"  type="submit" onclick="parent.$.fancybox.close();">Нет</button>
                 </div>
             </form>
         </div>
         <script>
-            function delete_faculty(name)
+            function delete_discipline(name)
             {
                 $.ajax({
                     type: 'POST',
                     url: 'index.php',
                     data: {
                         task:     '<?= RUDE_TASK_AJAX ?>',
-                        target:   '<?= RUDE_TASK_AJAX_FACULTY_DELETE ?>',
+                        target:   '<?= RUDE_TASK_AJAX_DISCIPLINE_DELETE ?>',
                         name: '<?= $name ?>'
                     },
 
