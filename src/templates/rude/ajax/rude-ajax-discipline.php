@@ -6,23 +6,29 @@ class ajax_discipline
 {
     public static function add()
     {
-        $name      = get(RUDE_FIELD_NAME);
-        $shortname = get(RUDE_FIELD_SHORTNAME);
+        $name       = get(RUDE_FIELD_USERNAME);
+        $type       = get(RUDE_FIELD_NAME_TYPE_NAME);
 
-        if ($name === false or $shortname === false)
+        $q = new query(RUDE_TABLE_DISCIPLINES_TYPES);
+        $q->where(RUDE_FIELD_ROLE, $type);
+        $q->start();
+
+        $type = $q->get_object();
+
+        if ($type === null)
         {
-            return false;
+            die();
         }
 
+        $type_id = $type->id;
 
-        $faculty_id = faculties::add($name, $shortname);
-        return $faculty_id;
+        $discipline_id = disciplines::add($name, $type_id);
     }
 
     public static function delete()
     {
         $name = get(RUDE_FIELD_NAME);
-        faculties::delete($name);
+        disciplines::delete($name);
     }
 
     public static function html_form_add()
@@ -38,13 +44,14 @@ class ajax_discipline
 
         <body class="ajax_bg">
         <div>
-            <h1>Добавление предмета</h1>
-            <p>Форма для добавления предмета</p>
-            <form id="form" name="form" method="post" class="ui form" action="index.php?task=<?= RUDE_TASK_AJAX_DISCIPLINE_ADD_FORM ?>">
+            <h1>Добавление пользователя</h1>
+            <p>Форма для добавления новых пользователей</p>
+            <form id="form" name="form" method="post" class="ui form" action="index.php?task=<?= RUDE_TASK_AJAX_USER_ADD_FORM ?>">
+
                 <div class="field">
-                    <label>Наименование</label>
+                    <label>Логин</label>
                     <div class="ui left labeled icon input">
-                        <input id="<?=RUDE_FIELD_NAME?>" name="<?=RUDE_FIELD_NAME?>" type="text" placeholder="Наименование">
+                        <input id="<?=RUDE_FIELD_USERNAME?>" name="<?=RUDE_FIELD_USERNAME?>" type="text" placeholder="Логин">
                         <i class="user icon"></i>
                         <div class="ui corner label">
                             <i class="icon asterisk"></i>
@@ -53,23 +60,48 @@ class ajax_discipline
                 </div>
 
                 <div class="field">
-                    <label>Тип</label>
+                    <label>Пароль</label>
+                    <div class="ui left labeled icon input">
+                        <input id="<?=RUDE_FIELD_PASSWORD?>" name="<?=RUDE_FIELD_PASSWORD?>" type="text" placeholder="Пароль">
+                        <i class="user icon"></i>
+                        <div class="ui corner label">
+                            <i class="icon asterisk"></i>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="field">
+                    <label>Пароль(повторно)</label>
+                    <div class="ui left labeled icon input">
+                        <input id="<?=RUDE_FIELD_PASSWORD_REPEAT?>" name="<?=RUDE_FIELD_PASSWORD_REPEAT?>" type="text" placeholder="Пароль(повторно)">
+                        <i class="user icon"></i>
+                        <div class="ui corner label">
+                            <i class="icon asterisk"></i>
+                        </div>
+                    </div>
+                </div>
+
+
+
+                <div class="field">
+                    <label>Роль</label>
                     <div class="ui fluid selection dropdown">
-                        <div class="text">Выберите тип</div>
+                        <div class="text">выберите роль</div>
                         <i class="dropdown icon"></i>
-                        <input type="hidden" id="<?=RUDE_FIELD_NAME?>">
+                        <input type="hidden" id="<?=RUDE_FIELD_ROLE?>">
                         <div class="menu">
-                            <div class="item" data-value="<?= 1  ?>"><?= 1  ?></div>
-                            <?	$types_list = disciplines::get_types();
-                            foreach ($types_list as $type)
+                            <?	$roles_list = roles::get();
+                            foreach ($roles_list as $role)
                             {
                                 ?>
-                                <div class="item" data-value="<?= $type->id  ?>"><?= $type->name  ?></div>
+                                <div class="item" data-value="<?= $role->role  ?>"><?= $role->role  ?></div>
                             <?
                             }?>
                         </div>
                     </div>
                 </div>
+
+
 
                 <div id="submit" class="ui blue submit button">Добавить</div>
             </form>
@@ -80,27 +112,51 @@ class ajax_discipline
             ;
             $('.ui.form').form(
                 {
-                    name:
+                    username:
                     {
-                        identifier: 'name',
+                        identifier: 'username',
 
                         rules:
                             [{
                                 type: 'empty',
-                                prompt: 'Пожалуйста, введите наименование дисциплины'
+                                prompt: 'Пожалуйста, введите наименование факультета'
+                            }]
+                    },
+                    password:
+                    {
+                        identifier: 'password',
+
+                        rules:
+                            [{
+                                type: 'empty',
+                                prompt: 'Пожалуйста, введите наименование факультета'
+                            }]
+                    },
+                    password_repeat:
+                    {
+                        identifier: 'password_repeat',
+
+                        rules:
+                            [{
+                                type: 'empty',
+                                prompt: 'Пожалуйста, введите наименование факультета'
                             }]
                     }
-                }
 
+
+                });
 
             $(".form").submit(function (event) {
 
                 event.preventDefault();
 
-                var discipline_name           = $('#<?= RUDE_FIELD_NAME ?>').val();
-                var type_id                   = $('#<?= RUDE_FIELD_NAME_TYPE_ID ?>').val();
+                var username        = $('#<?= RUDE_FIELD_USERNAME ?>').val();
+                var password        = $('#<?= RUDE_FIELD_PASSWORD ?>').val();
+                var password_repeat = $('#<?= RUDE_FIELD_PASSWORD_REPEAT ?>').val();
 
-                if (!discipline_name || !type_id )
+                var role            = $('#<?= RUDE_FIELD_ROLE ?>').val();
+
+                if (!username || !password || !password_repeat || !(password == password_repeat))
                 {
                     return true; // allow default semantic-UI validation
 
@@ -111,10 +167,11 @@ class ajax_discipline
                     url: 'index.php',
                     data: {
                         task:     '<?= RUDE_TASK_AJAX ?>',
-                        target:   '<?= RUDE_TASK_AJAX_DISCIPLINE_ADD ?>',
+                        target:   '<?= RUDE_TASK_AJAX_USER_ADD ?>',
 
-                        name:       discipline_name,
-                        type:       type_id
+                        username: username,
+                        password: password,
+                        role:     role
                     },
 
                     success: function(data)
@@ -141,15 +198,15 @@ class ajax_discipline
             die();
         }
 
-        $id       = get(RUDE_FIELD_ID);
-        $name = get(RUDE_FIELD_NAME);
-        $shortname = get(RUDE_FIELD_SHORTNAME);
+        $id         = get(RUDE_FIELD_ID);
+        $name       = get(RUDE_FIELD_NAME);
+        $type       = get(RUDE_FIELD_NAME_TYPE_NAME);
 
+        $type_id = disciplines::get_type_by_id($type);
+        $q = new uquery(RUDE_TABLE_DISCIPLINES);
 
-        $q = new uquery(RUDE_TABLE_FACULTIES);
-
-        if ($name) { $q->update(RUDE_FIELD_NAME,       $name); }
-        if ($shortname) { $q->update(RUDE_FIELD_SHORTNAME,       $shortname); }
+        if ($name)      { $q->update(RUDE_FIELD_NAME,                     $name); }
+        if ($type_id)   { $q->update(RUDE_FIELD_NAME_TYPE_ID,        (int)$type_id); }
 
 
 
@@ -168,38 +225,22 @@ class ajax_discipline
 
         ?>
         <html>
-        <? require_once(RUDE_TEMPLATE_DIR . '/rude-header.php') ?>
-        <? $name = get(RUDE_FIELD_NAME);
-        $faculties = faculties::get($name)?>
+        <? require_once(RUDE_TEMPLATE_DIR . '/rude-header.php');
+
+        $name = get(RUDE_FIELD_NAME);
+
+        $discipline = disciplines::get($name);?>
+
         <body class="ajax_bg">
         <div>
-            <h1>Редактирование факультета</h1>
-            <p>Форма для изменения факультетов</p>
-            <form id="form" name="form" method="post" class="ui form" action="index.php?task=<?= RUDE_TASK_AJAX_FACULTY_EDIT_FORM ?>">
+            <h1>Изменение дисциплины</h1>
+            <p>Форма для изменения дисциплины</p>
+            <form id="form" name="form" method="post" class="ui form" action="index.php?task=<?= RUDE_TASK_AJAX_DISCIPLINE_EDIT_FORM ?>">
+
                 <div class="field" hidden>
-                    <label>ID</label>
+                    <label>id</label>
                     <div class="ui left labeled icon input">
-                        <input id="<?=RUDE_FIELD_ID?>" name="<?=RUDE_FIELD_ID?>" value="<?=$faculties->id?>" type="text" placeholder="ID">
-                        <i class="user icon"></i>
-                        <div class="ui corner label">
-                            <i class="icon asterisk"></i>
-                        </div>
-                    </div>
-                </div>
-                <div class="field">
-                    <label>Полное наименование</label>
-                    <div class="ui left labeled icon input">
-                        <input id="<?=RUDE_FIELD_NAME?>" name="<?=RUDE_FIELD_NAME?>" value="<?=$faculties->name?>" type="text" placeholder="Полное наименование">
-                        <i class="user icon"></i>
-                        <div class="ui corner label">
-                            <i class="icon asterisk"></i>
-                        </div>
-                    </div>
-                </div>
-                <div class="field">
-                    <label>Сокращённое наименование</label>
-                    <div class="ui left labeled icon input">
-                        <input id="<?=RUDE_FIELD_SHORTNAME?>" name="<?=RUDE_FIELD_SHORTNAME?>" value="<?=$faculties->shortname?>" type="text" placeholder="Сокращённое наименование">
+                        <input id="<?=RUDE_FIELD_ID?>" name="<?=RUDE_FIELD_ID?>" type="text" value="<?= $name?>" placeholder="">
                         <i class="user icon"></i>
                         <div class="ui corner label">
                             <i class="icon asterisk"></i>
@@ -207,15 +248,52 @@ class ajax_discipline
                     </div>
                 </div>
 
+                <div class="field">
+                    <label>Наименование</label>
+                    <div class="ui left labeled icon input">
+                        <input id="<?=RUDE_FIELD_NAME?>" name="<?=RUDE_FIELD_NAME?>" type="text" value="<?= $discipline->name?>" placeholder="Наименование">
+                        <i class="user icon"></i>
+                        <div class="ui corner label">
+                            <i class="icon asterisk"></i>
+                        </div>
+                    </div>
+                </div>
+
+
+
+
+                <div class="field">
+                    <label>Тип</label>
+                    <div class="ui fluid selection dropdown">
+                        <div class="text">Выберите</div>
+                        <i class="dropdown icon"></i>
+                        <input type="hidden" id="<?=RUDE_FIELD_NAME_TYPE_NAME?>" value="<?= $discipline->name ?>">
+                        <div class="menu">
+                            <?	$types_list = disciplines::get_types();
+                            foreach ($types_list as $type)
+                            {
+                                ?>
+                                <div class="item" data-value="<?= $type->name  ?>"><?= $type->name  ?></div>
+                            <?
+                            }?>
+                        </div>
+                    </div>
+                </div>
+
+
+
                 <div id="submit" class="ui blue submit button">Изменить</div>
             </form>
         </div>
         <script>
+            $('.ui.selection.dropdown')
+                .dropdown()
+            ;
             $('.ui.form').form(
                 {
-                    name:
+                    username:
                     {
-                        identifier: 'name',
+                        identifier: 'username',
 
                         rules:
                             [{
@@ -223,15 +301,24 @@ class ajax_discipline
                                 prompt: 'Пожалуйста, введите наименование факультета'
                             }]
                     },
-
-                    shortname:
+                    password:
                     {
-                        identifier: 'shortname',
+                        identifier: 'password',
 
                         rules:
                             [{
                                 type: 'empty',
-                                prompt: 'Пожалуйста, введите сокращенное наименование факультета'
+                                prompt: 'Пожалуйста, введите наименование факультета'
+                            }]
+                    },
+                    password_repeat:
+                    {
+                        identifier: 'password_repeat',
+
+                        rules:
+                            [{
+                                type: 'empty',
+                                prompt: 'Пожалуйста, введите наименование факультета'
                             }]
                     }
 
@@ -241,13 +328,17 @@ class ajax_discipline
             $(".form").submit(function (event) {
 
                 event.preventDefault();
-                var faculty_id=$('#id').val();
-                var faculty_name = $('#name').val();
-                var faculty_shortname = $('#shortname').val();
 
-                if (!faculty_name || !faculty_shortname || !faculty_id)
+                var id              = $('#<?= RUDE_FIELD_ID ?>').val();
+                var username        = $('#<?= RUDE_FIELD_USERNAME ?>').val();
+                var password        = $('#<?= RUDE_FIELD_PASSWORD ?>').val();
+                var password_repeat = $('#<?= RUDE_FIELD_PASSWORD_REPEAT ?>').val();
+                var role            = $('#<?= RUDE_FIELD_ROLE ?>').val();
+
+                if (!username || !password || !password_repeat || !(password == password_repeat))
                 {
                     return true; // allow default semantic-UI validation
+
                 }
 
                 $.ajax({
@@ -255,11 +346,12 @@ class ajax_discipline
                     url: 'index.php',
                     data: {
                         task:     '<?= RUDE_TASK_AJAX ?>',
-                        target:   '<?= RUDE_TASK_AJAX_FACULTY_EDIT ?>',
+                        target:   '<?= RUDE_TASK_AJAX_USER_EDIT ?>',
 
-                        name: faculty_name,
-                        shortname: faculty_shortname,
-                        id: faculty_id
+                        id      : id,
+                        username: username,
+                        password: password,
+                        role:     role
                     },
 
                     success: function(data)
@@ -272,11 +364,13 @@ class ajax_discipline
             });
         </script>
 
+
         </body>
 
         </html>
     <?
     }
+
 
     public static function html_form_delete()
     {
