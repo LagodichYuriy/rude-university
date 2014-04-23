@@ -45,7 +45,7 @@ $(document).ready(function ()
 		type: 'iframe',
 
 		width: 432 + 20,
-		height: 335  + 30,
+		height: 335  + 40+20,
 		fitToView : false,
 		autoSize : false,
 		'beforeClose': function()
@@ -65,7 +65,7 @@ $(document).ready(function ()
 		type: 'iframe',
 
 		width: 432 + 20,
-		height: 172,
+		height: 172+20,
 		fitToView : false,
 		autoSize : false,
 		'beforeClose': function()
@@ -124,7 +124,7 @@ $(document).ready(function ()
 		type: 'iframe',
 
 		width: 432 + 20,
-		height: 240,
+		height: 240+20,
 		fitToView : false,
 		autoSize : false,
 		'beforeClose': function()
@@ -140,7 +140,7 @@ $(document).ready(function ()
 		type: 'iframe',
 
 		width: 432 + 20,
-		height: 172,
+		height: 172+20,
 		fitToView : false,
 		autoSize : false,
 		'beforeClose': function()
@@ -179,7 +179,7 @@ $(document).ready(function ()
 		type: 'iframe',
 
 		width: 432 + 20,
-		height: 239,
+		height: 239+20,
 		fitToView : false,
 		autoSize : false,
 		'beforeClose': function()
@@ -195,7 +195,7 @@ $(document).ready(function ()
 		type: 'iframe',
 
 		width: 432 + 20,
-		height: 239,
+		height: 239+20,
 		fitToView : false,
 		autoSize : false,
 		'beforeClose': function()
@@ -213,7 +213,7 @@ $(document).ready(function ()
 		type: 'iframe',
 
 		width: 432 + 20,
-		height: 172,
+		height: 172+20,
 		fitToView : false,
 		autoSize : false,
 		'beforeClose': function()
@@ -252,7 +252,7 @@ $(document).ready(function ()
 		type: 'iframe',
 
 		width: 432 + 20,
-		height: 180,
+		height: 180+20,
 		fitToView : false,
 		autoSize : false,
 		'beforeClose': function()
@@ -269,7 +269,7 @@ $(document).ready(function ()
 		type: 'iframe',
 
 		width: 432 + 20,
-		height: 209,
+		height: 209+20,
 		fitToView : false,
 		autoSize : false,
 		'beforeClose': function()
@@ -287,7 +287,7 @@ $(document).ready(function ()
 		type: 'iframe',
 
 		width: 432 + 20,
-		height: 172,
+		height: 172+20,
 		fitToView : false,
 		autoSize : false,
 		'beforeClose': function()
@@ -327,7 +327,7 @@ $(document).ready(function ()
 		type: 'iframe',
 
 		width: 432 + 20,
-		height: 310,
+		height: 310+20,
 		fitToView : false,
 		autoSize : false,
 		'beforeClose': function()
@@ -344,7 +344,7 @@ $(document).ready(function ()
 		type: 'iframe',
 
 		width: 432 + 20,
-		height: 310,
+		height: 310+20,
 		fitToView : false,
 		autoSize : false,
 		'beforeClose': function()
@@ -362,7 +362,7 @@ $(document).ready(function ()
 		type: 'iframe',
 
 		width: 432 + 20,
-		height: 190,
+		height: 190+20,
 		fitToView : false,
 		autoSize : false,
 		'beforeClose': function()
@@ -405,7 +405,7 @@ $(document).ready(function ()
 		type: 'iframe',
 
 		width: 432 + 20,
-		height: 190,
+		height: 190+20,
 		fitToView : false,
 		autoSize : false,
 		'beforeClose': function()
@@ -422,7 +422,7 @@ $(document).ready(function ()
 		type: 'iframe',
 
 		width: 432 + 20,
-		height: 190,
+		height: 190+20,
 		fitToView : false,
 		autoSize : false,
 		'beforeClose': function()
@@ -440,7 +440,7 @@ $(document).ready(function ()
 		type: 'iframe',
 
 		width: 432 + 20,
-		height: 185,
+		height: 185+20,
 		fitToView : false,
 		autoSize : false,
 		'beforeClose': function()
