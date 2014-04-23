@@ -88,10 +88,10 @@ class ajax_specialty
 				<div class="field">
 					<label>Факультет</label>
 					<div class="ui fluid selection dropdown">
-						<div class="text">Select</div>
-						<i class="dropdown icon"></i>
+						<div class="text">Выберите факультет</div>
+
 						<input type="hidden" id="faculties_name">
-						<div class="menu">
+						<div style="max-height: 100px;" class="menu">
 							<?	$faculty_list = faculties::get();
 							foreach ($faculty_list as $faculty)
 							{
@@ -118,11 +118,11 @@ class ajax_specialty
 
 				<div class="field">
 					<label>Квалификация</label>
-					<div class="ui fluid selection dropdown">
-						<div class="text">Select</div>
-						<i class="dropdown icon"></i>
+					<div maxlength="50" style="max-height: 16px;" class="ui fluid selection dropdown">
+						<div style="overflow: hidden; white-space: nowrap; text-overflow: ellipsis;width: 413px;" class="text">Выберите квалификацию</div>
+
 						<input type="hidden" id="qualificatio_name">
-						<div class="menu">
+						<div style="max-height: 50px; max-width:418px;" class="menu">
 							<?	$qualification_list = qualifications::get();
 							foreach ($qualification_list as $qualification)
 							{
@@ -141,7 +141,7 @@ class ajax_specialty
 		</div>
 		<script>
 			$('.ui.selection.dropdown')
-				.dropdown()
+				.dropdown('hide',25)
 			;
 			$('.ui.form').form(
 				{
@@ -225,11 +225,11 @@ class ajax_specialty
 				<div class="field">
 					<label>Факультет</label>
 					<div class="ui fluid selection dropdown">
-						<div class="text">Select</div>
-						<i class="dropdown icon"></i>
+						<div class="text">Выберите факультет</div>
+
 
 						<input type="hidden" id="faculties_name" value="<?=$faculties->shortname?>">
-						<div class="menu">
+						<div style="max-height: 100px;" class="menu">
 							<?	$faculty_list = faculties::get();
 							foreach ($faculty_list as $faculty)
 							{
@@ -268,15 +268,15 @@ class ajax_specialty
 				<div class="field">
 					<label>Квалификация</label>
 					<div class="ui fluid selection dropdown">
-						<div class="text">Select</div>
-						<i class="dropdown icon"></i>
+						<div style="overflow: hidden; white-space: nowrap; text-overflow: ellipsis;width: 413px;" class="text">Выберите квалификацию</div>
+
 						<input type="hidden" id="qualificatio_name" value="<?= $qualification->name ?>">
-						<div class="menu">
+						<div style="max-height: 50px;max-width:418px;" class="menu">
 							<?	$qualification_list = qualifications::get();
 							foreach ($qualification_list as $qualification)
 							{
 								?>
-								<div class="item" data-value="<?= $qualification->name  ?>"><?= $qualification->name  ?></div>
+								<div class="item" data-value="<?= $qualification->name  ?>"><?=$qualification->name  ?></div>
 							<?
 							}?>
 						</div>
