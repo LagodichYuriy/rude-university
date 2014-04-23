@@ -10,6 +10,7 @@ require_once 'rude-ajax-qualification.php';
 require_once 'rude-ajax-specialty.php';
 require_once 'rude-ajax-department.php';
 require_once 'rude-ajax-specialization.php';
+require_once 'rude-ajax-discipline.php';
 
 
 $target = get(RUDE_TARGET);
@@ -223,6 +224,34 @@ switch ($target)
     case RUDE_TASK_AJAX_SPECIALIZATION_SUMMARY:
         ajax_specialization::html();
         break;
+
+
+
+    case RUDE_TASK_AJAX_DISCIPLINE_ADD:
+        ajax_discipline::add();
+        break;
+    case RUDE_TASK_AJAX_DISCIPLINE_ADD_FORM;
+        ajax_discipline::html_form_add();
+        break;
+
+    case RUDE_TASK_AJAX_DISCIPLINE_EDIT:
+        ajax_discipline::edit();
+        break;
+    case RUDE_TASK_AJAX_DISCIPLINE_EDIT_FORM:
+        ajax_discipline::html_form_edit();
+        break;
+
+    case RUDE_TASK_AJAX_DISCIPLINE_DELETE:
+        ajax_discipline::delete();
+        break;
+    case RUDE_TASK_AJAX_DISCIPLINE_DELETE_FORM:
+        ajax_discipline::html_form_delete();
+        break;
+
+    case RUDE_TASK_AJAX_DISCIPLINE_SUMMARY:
+        ajax_discipline::html();
+        break;
+
 
 
 	case RUDE_TASK_AJAX_REPORT_ADD:

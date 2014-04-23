@@ -168,7 +168,18 @@ define('RUDE_TASK_AJAX_FACULTY_EDIT',        'ajax_faculty_edit');
 define('RUDE_TASK_AJAX_FACULTY_DELETE',      'ajax_faculty_delete');
 define('RUDE_TASK_AJAX_FACULTY_SUMMARY',     'ajax_faculty_summary');
 
+/* ===================================================================== */
+/* DISCIPLINE management section [ADD/EDIT/DELETE] + same AJAX combinations */
+/* ===================================================================== */
+define('RUDE_TASK_MANAGEMENT_DISCIPLINES',     'discipline_management');
 
+define('RUDE_TASK_AJAX_DISCIPLINE_ADD_FORM',    'ajax_discipline_add_form');
+define('RUDE_TASK_AJAX_DISCIPLINE_EDIT_FORM'  , 'ajax_discipline_edit_form');
+define('RUDE_TASK_AJAX_DISCIPLINE_DELETE_FORM', 'ajax_discipline_delete_form');
+define('RUDE_TASK_AJAX_DISCIPLINE_ADD',         'ajax_discipline_add');
+define('RUDE_TASK_AJAX_DISCIPLINE_EDIT',        'ajax_discipline_edit');
+define('RUDE_TASK_AJAX_DISCIPLINE_DELETE',      'ajax_discipline_delete');
+define('RUDE_TASK_AJAX_DISCIPLINE_SUMMARY',     'ajax_discipline_summary');
 /* ======================================================================== */
 /* Department management section [ADD/EDIT/DELETE] + same AJAX combinations */
 /* ======================================================================== */
@@ -231,6 +242,8 @@ define('RUDE_TEXT_MANAGEMENT_SPECIALTIES',    'Специальности');
 define('RUDE_TEXT_MANAGEMENT_REPORTS',        'Все планы');
 define('RUDE_TEXT_MANAGEMENT_REPORTS_ADD',    'Добавить новый');
 define('RUDE_TEXT_MANAGEMENT_SPECIALIZATIONS','Специализации');
+define('RUDE_TEXT_MANAGEMENT_DISCIPLINES',    'Предметы');
+
 
 define('RUDE_TEXT_ADD',                       'Добавить');
 define('RUDE_TEXT_ADD_NEW_DEPARTMENT',        'Добавить новую кафедру');
@@ -241,6 +254,7 @@ define('RUDE_TEXT_ADD_NEW_ROLE',              'Добавить новую ро�
 define('RUDE_TEXT_ADD_NEW_SPECIALTY',         'Добавить новую специальность');
 define('RUDE_TEXT_ADD_NEW_USER',              'Добавить нового пользователя');
 define('RUDE_TEXT_ADD_NEW_SPECIALIZATION',    'Добавить новую специализацию');
+define('RUDE_TEXT_ADD_NEW_DISCIPLINE',       'Добавить новый предмет');
 
 define('RUDE_TEXT_USER_ROLE',                 'Роль пользователя');
 define('RUDE_TEXT_LOGOUT',                    'Выход');
@@ -297,6 +311,7 @@ define('RUDE_FIELD_CALENDAR',              'calendar');
 define('RUDE_FIELD_TRAINING_FORM',         'training_form');
 define('RUDE_FIELD_SPECIALTY',             'specialty');
 define('RUDE_FIELD_SPECIALIZATION',        'specialization');
+define('RUDE_FIELD_DISCIPLINE',            'discipline');
 define('RUDE_FIELD_QUALIFICATION',         'qualification');
 
 

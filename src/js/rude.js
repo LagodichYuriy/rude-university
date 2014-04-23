@@ -541,3 +541,74 @@ function rude_reload_department()
             }
         });
     }
+
+/* ======================================= */
+/* jQuery + fancybox popup section [discipline] */
+/* ======================================= */
+
+$(document).ready(function ()
+{
+    $(".fancybox-disciplines").fancybox({
+        type: 'iframe',
+
+        width: 432 + 20,
+        height: 239,
+        fitToView : false,
+        autoSize : false,
+        'beforeClose': function()
+        {
+            rude_reload_disciplines();
+        }
+    });
+});
+
+$(document).ready(function ()
+{
+    $(".fancybox-disciplines-edit").fancybox({
+        type: 'iframe',
+
+        width: 432 + 20,
+        height: 239,
+        fitToView : false,
+        autoSize : false,
+        'beforeClose': function()
+        {
+            rude_reload_disciplines();
+        }
+
+    });
+});
+
+
+$(document).ready(function ()
+{
+    $(".fancybox-disciplines-delete").fancybox({
+        type: 'iframe',
+
+        width: 432 + 20,
+        height: 172,
+        fitToView : false,
+        autoSize : false,
+        'beforeClose': function()
+        {
+            rude_reload_discuplines();
+        }
+    });
+});
+
+function rude_reload_disciplines()
+{
+    $.ajax({
+        type: 'POST',
+        url: 'index.php',
+        data: {
+            task:     'ajax',             // RUDE_TASK_AJAX
+            target:   'ajax_discipline_summary'// RUDE_TASK_AJAX_SPECIALIZATION_SUMMARY
+        },
+
+        success: function(data)
+        {
+            rude_animation('#info-disciplines', data);
+        }
+    });
+}

@@ -31,4 +31,22 @@ class disciplines
 
 		return $q->get_object_list();
 	}
+
+    public static function add($name, $type)
+    {
+        $q = new cquery(RUDE_TABLE_DISCIPLINES);
+        $q->add(RUDE_FIELD_NAME, $name);
+        $q->add(RUDE_FIELD_NAME_TYPE_NAME, $type);
+        $q->start();
+
+        return $q->get_id();
+    }
+
+    public static function delete($name)
+    {
+        $q = new dquery(RUDE_TABLE_DISCIPLINES);
+        $q->where(RUDE_FIELD_NAME, $name);
+        $q->limit(1);
+        $q->start();
+    }
 }
