@@ -146,6 +146,7 @@ define('RUDE_TASK_AJAX_REPORT_DELETE', 'ajax_report_delete');
 
 */
 define('RUDE_TASK_MANAGEMENT_SPECIALIZATIONS',      'specialization_management');
+define('RUDE_TASK_SPECIALIZATION_DELETE',           'specialization_delete');
 
 define('RUDE_TASK_AJAX_SPECIALIZATION_ADD_FORM',    'ajax_specialization_add_form');
 define('RUDE_TASK_AJAX_SPECIALIZATION_EDIT_FORM'  , 'ajax_specialization_edit_form');
@@ -159,6 +160,7 @@ define('RUDE_TASK_AJAX_SPECIALIZATION_SUMMARY',     'ajax_specialization_summary
 /* Faculty management section [ADD/EDIT/DELETE] + same AJAX combinations */
 /* ===================================================================== */
 define('RUDE_TASK_MANAGEMENT_FACULTIES',     'faculty_management');
+define('RUDE_TASK_FACULTY_DELETE',           'faculty_delete');
 
 define('RUDE_TASK_AJAX_FACULTY_ADD_FORM',    'ajax_faculty_add_form');
 define('RUDE_TASK_AJAX_FACULTY_EDIT_FORM'  , 'ajax_faculty_edit_form');
@@ -172,6 +174,7 @@ define('RUDE_TASK_AJAX_FACULTY_SUMMARY',     'ajax_faculty_summary');
 /* DISCIPLINE management section [ADD/EDIT/DELETE] + same AJAX combinations */
 /* ===================================================================== */
 define('RUDE_TASK_MANAGEMENT_DISCIPLINES',     'discipline_management');
+define('RUDE_TASK_DISCIPLINE_DELETE',          'discipline_delete');
 
 define('RUDE_TASK_AJAX_DISCIPLINE_ADD_FORM',    'ajax_discipline_add_form');
 define('RUDE_TASK_AJAX_DISCIPLINE_EDIT_FORM'  , 'ajax_discipline_edit_form');
@@ -184,6 +187,7 @@ define('RUDE_TASK_AJAX_DISCIPLINE_SUMMARY',     'ajax_discipline_summary');
 /* Department management section [ADD/EDIT/DELETE] + same AJAX combinations */
 /* ======================================================================== */
 define('RUDE_TASK_MANAGEMENT_DEPARTMENTS',      'department_management');
+define('RUDE_TASK_DEPARTMENT_DELETE',           'department_delete');
 
 define('RUDE_TASK_AJAX_DEPARTMENT_ADD_FORM',    'ajax_department_add_form');
 define('RUDE_TASK_AJAX_DEPARTMENT_EDIT_FORM'  , 'ajax_department_edit_form');
@@ -198,6 +202,7 @@ define('RUDE_TASK_AJAX_DEPARTMENT_SUMMARY',     'ajax_department_summary');
 /* Qualification management section [ADD/EDIT/DELETE] + same AJAX combinations */
 /* =========================================================================== */
 define('RUDE_TASK_MANAGEMENT_QUALIFICATIONS',      'qualification_management');
+define('RUDE_TASK_QUALIFICATION_DELETE',           'qualification_delete');
 
 define('RUDE_TASK_AJAX_QUALIFICATION_ADD_FORM',    'ajax_qualification_add_form');
 define('RUDE_TASK_AJAX_QUALIFICATION_EDIT_FORM'  , 'ajax_qualification_edit_form');
@@ -212,6 +217,7 @@ define('RUDE_TASK_AJAX_QUALIFICATION_SUMMARY',     'ajax_qualification_summary')
 /* Specialty management section [ADD/EDIT/DELETE] + same AJAX combinations */
 /* ======================================================================= */
 define('RUDE_TASK_MANAGEMENT_SPECIALTIES',     'specialty_management');
+define('RUDE_TASK_SPECIALTIES_DELETE',         'specialty_delete');
 
 define('RUDE_TASK_AJAX_SPECIALTY_ADD_FORM',    'ajax_specialty_add_form');
 define('RUDE_TASK_AJAX_SPECIALTY_EDIT_FORM'  , 'ajax_specialty_edit_form');

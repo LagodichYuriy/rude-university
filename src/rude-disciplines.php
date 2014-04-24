@@ -32,16 +32,18 @@ class disciplines
         if (is_int($field))
         {
             $q->where(RUDE_FIELD_ID, $field);
+            $q->start();
+
+            return $q->get_object();
         }
         else if (is_string($field))
         {
             $q->where(RUDE_FIELD_NAME, $field);
+            $q->start();
+
+            return $q->get_object();
         }
 
-        $q->start();
-
-
-        return $q->get_object();
 	}
 
 	public static function get_types()
@@ -70,18 +72,21 @@ class disciplines
         $q->start();
     }
 
-    public static function get_type_by_id($type_name)
+    public static function get_id_by_name($type_name)
     {
-        $types = disciplines::get_types();
-
-        foreach ($types as $type)
+        $q = new query(RUDE_TABLE_DISCIPLINES_TYPES);
+        $q->where(RUDE_FIELD_NAME_TYPE_NAME, $type_name);
+        $q->start();
+        if($q->get_object())
         {
-            if ($type->role == $type_name)
-            {
-                return $type->id;
-            }
+        return $q->get_object()->id;
+        }
+        else
+        {
+            return null;
         }
 
-        return null;
+
+
     }
 }

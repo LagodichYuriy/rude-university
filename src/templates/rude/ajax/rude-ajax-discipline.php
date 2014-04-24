@@ -65,7 +65,7 @@ class ajax_discipline
                     <div class="ui fluid selection dropdown">
                         <div class="text">выберите тип дисциплины</div>
                         <i class="dropdown icon"></i>
-                        <input type="hidden" id="<?=RUDE_FIELD_NAME_TYPE_NAME?>">
+                        <input type="hidden" id="<?=RUDE_FIELD_NAME_TYPE_NAME?>" >
                         <div class="menu">
                             <?	$types_list = disciplines::get_types();
                             foreach ($types_list as $type)
@@ -108,7 +108,7 @@ class ajax_discipline
 
                 var type        = $('#<?= RUDE_FIELD_NAME_TYPE_NAME ?>').val();
 
-                if (!name )
+                if (!name ||!type)
                 {
                     return true; // allow default semantic-UI validation
                 }
@@ -121,7 +121,7 @@ class ajax_discipline
                         target:   '<?= RUDE_TASK_AJAX_DISCIPLINE_ADD ?>',
 
                         name: name,
-                        type: type
+                        type_name: type
                     },
 
                     success: function(data)
@@ -141,6 +141,7 @@ class ajax_discipline
     <?
     }
 
+
     public static function edit()
     {
         if (!ajax_user::has_access())
@@ -152,11 +153,15 @@ class ajax_discipline
         $name       = get(RUDE_FIELD_NAME);
         $type       = get(RUDE_FIELD_NAME_TYPE_NAME);
 
-        $type_id = disciplines::get_type_by_id($type);
-        $q = new uquery(RUDE_TABLE_DISCIPLINES);
+
+        $q          = new uquery(RUDE_TABLE_DISCIPLINES);
 
         if ($name)      { $q->update(RUDE_FIELD_NAME,                     $name); }
+        if($type)
+        {
+        $type_id    = disciplines::get_id_by_name($type);
         if ($type_id)   { $q->update(RUDE_FIELD_NAME_TYPE_ID,        (int)$type_id); }
+        }
 
 
 
@@ -179,7 +184,7 @@ class ajax_discipline
 
         $name = get(RUDE_FIELD_NAME);
 
-        $discipline = disciplines::get($name);?>
+        $discipline = disciplines::get((string)$name);?>
 
         <body class="ajax_bg">
         <div>
@@ -190,7 +195,7 @@ class ajax_discipline
                 <div class="field" hidden>
                     <label>id</label>
                     <div class="ui left labeled icon input">
-                        <input id="<?=RUDE_FIELD_ID?>" name="<?=RUDE_FIELD_ID?>" type="text" value="<?= $name?>" placeholder="">
+                        <input id="<?=RUDE_FIELD_ID?>" name="<?=RUDE_FIELD_ID?>" type="text" value="<?= $discipline->id?>" placeholder="">
                         <i class="user icon"></i>
                         <div class="ui corner label">
                             <i class="icon asterisk"></i>
@@ -217,7 +222,7 @@ class ajax_discipline
                     <div class="ui fluid selection dropdown">
                         <div class="text">Выберите</div>
                         <i class="dropdown icon"></i>
-                        <input type="hidden" id="<?=RUDE_FIELD_NAME_TYPE_NAME?>" value="<?= $discipline->name ?>">
+                        <input type="hidden" id="<?=RUDE_FIELD_NAME_TYPE_NAME?>">
                         <div class="menu">
                             <?	$types_list = disciplines::get_types();
                             foreach ($types_list as $type)
@@ -243,7 +248,7 @@ class ajax_discipline
                 {
                     name:
                     {
-                        identifier: 'username',
+                        identifier: 'name',
 
                         rules:
                             [{
@@ -274,9 +279,9 @@ class ajax_discipline
                         task:     '<?= RUDE_TASK_AJAX ?>',
                         target:   '<?= RUDE_TASK_AJAX_DISCIPLINE_EDIT ?>',
 
-                        id:     id,
-                        name:   name,
-                        type:   type
+                        id:         id,
+                        name:       name,
+                        type_name:  type
                     },
 
                     success: function(data)
@@ -314,7 +319,7 @@ class ajax_discipline
         <div>
             <h1>Удаление дисциплины</h1>
             <p class="red">Внимание! Данная операция необратима!</p>
-            <form id="form" name="form" method="post" class="ui form" action="index.php?task=<?= RUDE_TASK_AJAX_DISCIPLINE_DELETE ?>">
+            <form id="form" name="form" method="post" class="ui form" action="index.php?task=<?= RUDE_TASK_DISCIPLINE_DELETE ?>">
                 Вы точно уверены, что хотите удалить дисциплину <b>"<?= $name ?></b>"?
                 <div class="button-box">
                     <button class="ui blue submit button"  type="submit" onclick="delete_discipline('<?= $name ?>'); parent.$.fancybox.close();">Да</button>
@@ -331,7 +336,7 @@ class ajax_discipline
                     data: {
                         task:     '<?= RUDE_TASK_AJAX ?>',
                         target:   '<?= RUDE_TASK_AJAX_DISCIPLINE_DELETE ?>',
-                        name: '<?= $name ?>'
+                        name:     '<?= $name ?>'
                     },
 
                     success: function(data)

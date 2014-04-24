@@ -591,7 +591,7 @@ $(document).ready(function ()
         autoSize : false,
         'beforeClose': function()
         {
-            rude_reload_discuplines();
+            rude_reload_disciplines();
         }
     });
 });
