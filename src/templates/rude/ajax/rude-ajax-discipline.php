@@ -296,7 +296,6 @@ class ajax_discipline
     <?
     }
 
-
     public static function html_form_delete()
     {
         if (!ajax_user::has_access())
