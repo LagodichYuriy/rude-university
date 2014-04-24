@@ -8,7 +8,7 @@ class ajax_discipline
     {
         $name       = get(RUDE_FIELD_NAME);
         $type       = get(RUDE_FIELD_NAME_TYPE_NAME);
-disciplines::add($name, 1);
+
         $q = new query(RUDE_TABLE_DISCIPLINES_TYPES);
         $q->where(RUDE_FIELD_NAME, $type);
         $q->start();
@@ -78,8 +78,6 @@ disciplines::add($name, 1);
                     </div>
                 </div>
 
-
-
                 <div id="submit" class="ui blue submit button">Добавить</div>
             </form>
         </div>
@@ -113,7 +111,6 @@ disciplines::add($name, 1);
                 if (!name )
                 {
                     return true; // allow default semantic-UI validation
-
                 }
 
                 $.ajax({
@@ -244,7 +241,7 @@ disciplines::add($name, 1);
             ;
             $('.ui.form').form(
                 {
-                    username:
+                    name:
                     {
                         identifier: 'username',
 
@@ -253,29 +250,7 @@ disciplines::add($name, 1);
                                 type: 'empty',
                                 prompt: 'Пожалуйста, введите наименование факультета'
                             }]
-                    },
-                    password:
-                    {
-                        identifier: 'password',
-
-                        rules:
-                            [{
-                                type: 'empty',
-                                prompt: 'Пожалуйста, введите наименование факультета'
-                            }]
-                    },
-                    password_repeat:
-                    {
-                        identifier: 'password_repeat',
-
-                        rules:
-                            [{
-                                type: 'empty',
-                                prompt: 'Пожалуйста, введите наименование факультета'
-                            }]
                     }
-
-
                 });
 
             $(".form").submit(function (event) {
@@ -283,12 +258,10 @@ disciplines::add($name, 1);
                 event.preventDefault();
 
                 var id              = $('#<?= RUDE_FIELD_ID ?>').val();
-                var username        = $('#<?= RUDE_FIELD_USERNAME ?>').val();
-                var password        = $('#<?= RUDE_FIELD_PASSWORD ?>').val();
-                var password_repeat = $('#<?= RUDE_FIELD_PASSWORD_REPEAT ?>').val();
-                var role            = $('#<?= RUDE_FIELD_ROLE ?>').val();
+                var name            = $('#<?= RUDE_FIELD_NAME ?>').val();
+                var type            = $('#<?= RUDE_FIELD_NAME_TYPE_NAME ?>').val();
 
-                if (!username || !password || !password_repeat || !(password == password_repeat))
+                if (!name )
                 {
                     return true; // allow default semantic-UI validation
 
@@ -299,12 +272,11 @@ disciplines::add($name, 1);
                     url: 'index.php',
                     data: {
                         task:     '<?= RUDE_TASK_AJAX ?>',
-                        target:   '<?= RUDE_TASK_AJAX_USER_EDIT ?>',
+                        target:   '<?= RUDE_TASK_AJAX_DISCIPLINE_EDIT ?>',
 
-                        id      : id,
-                        username: username,
-                        password: password,
-                        role:     role
+                        id:     id,
+                        name:   name,
+                        type:   type
                     },
 
                     success: function(data)
@@ -400,7 +372,7 @@ disciplines::add($name, 1);
                 <tr>
                     <td><?= $discipline->{RUDE_FIELD_ID} ?></td>
                     <td><?= $discipline->{RUDE_FIELD_NAME} ?></td>
-                    <td><?= $discipline->{RUDE_FIELD_NAME_TYPE_ID} ?></td>
+                    <td><?= $discipline->{RUDE_FIELD_NAME_TYPE_NAME} ?></td>
                     <td class="no-padding width-20px">
                         <a href="<?= url::ajax(RUDE_TASK_AJAX_DISCIPLINE_EDIT_FORM) . url::param(RUDE_FIELD_NAME, $discipline->name) ?>" class="fancybox-disciplines-edit"><img src="src/icons/edit.png" class="small-padding" title="<?= RUDE_TEXT_EDIT ?>" /></a>
                     </td>
