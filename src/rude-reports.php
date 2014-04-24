@@ -97,8 +97,6 @@ class reports
 
 		$q->where(RUDE_FIELD_ID, (int) $report->id);
 
-		debug($q->sql());
-
 		$q->start();
 	}
 }

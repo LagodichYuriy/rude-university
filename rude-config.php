@@ -5,9 +5,9 @@
 /* ============================== */
 
 define('RUDE_DATABASE_USER',   'root');
-define('RUDE_DATABASE_PASS',   '');
+define('RUDE_DATABASE_PASS',   '1234');
 define('RUDE_DATABASE_HOST',   'localhost');
-define('RUDE_DATABASE_NAME',   'test');
+define('RUDE_DATABASE_NAME',   'university');
 define('RUDE_DATABASE_PREFIX', 'univ_');
 
 

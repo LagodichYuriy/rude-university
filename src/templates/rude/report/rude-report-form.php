@@ -375,15 +375,11 @@
 			}
 			?>
 
-			<tr>
-
-			</tr>
-
-<!--			<tr>-->
-<!--				--><?// // TODO: уебать по голове этих пидорасов ?>
-<!--			</tr>-->
-
 			<tfoot>
+				<tr>
+					<td colspan="43" class="no-border height-20"></td>
+				</tr>
+
 				<tr>
 					<td colspan="2" class="no-border">
 						<div class="ui button mini green" onclick="module_add();">Добавить строку</div>
@@ -930,8 +926,6 @@
 		});
 
 		string = rude_remove_last_char(string);
-
-		console.log(string);
 
 		return string;
 	}

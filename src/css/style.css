@@ -658,3 +658,28 @@ h3
 {
 	position: relative;
 }
+
+.line-height-3px
+{
+	line-height: 3px;
+}
+
+.margin-bottom-17px-neg
+{
+	margin-bottom: -17px!important;
+}
+
+.line-height-17px
+{
+	line-height: 17px;
+}
+
+.padding-bottom-12px
+{
+	padding-bottom: 12px;
+}
+
+.height-20
+{
+	height: 20px;
+}

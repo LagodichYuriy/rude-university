@@ -88,7 +88,7 @@ class report_timetable
 
 						foreach ($timetable_cols as $timetable_col)
 						{
-							?><td><?= $timetable_col ?></td><?
+							?><td><b><?= $timetable_col ?></b></td><?
 						}
 					?>
 					</tr>
