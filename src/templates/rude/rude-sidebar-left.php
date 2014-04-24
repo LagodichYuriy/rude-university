@@ -20,10 +20,12 @@
 
 			<b><?= RUDE_TEXT_SUMMARY_INFORMATION ?></b>
 			<div class="menu">
-				<a class="item" href="?task=<?= RUDE_TASK_MANAGEMENT_DEPARTMENTS    ?>"><?= RUDE_TEXT_MANAGEMENT_DEPARTMENTS    ?></a>
-				<a class="item" href="?task=<?= RUDE_TASK_MANAGEMENT_FACULTIES      ?>"><?= RUDE_TEXT_MANAGEMENT_FACULTIES      ?></a>
-				<a class="item" href="?task=<?= RUDE_TASK_MANAGEMENT_QUALIFICATIONS ?>"><?= RUDE_TEXT_MANAGEMENT_QUALIFICATIONS ?></a>
-				<a class="item" href="?task=<?= RUDE_TASK_MANAGEMENT_SPECIALTIES    ?>"><?= RUDE_TEXT_MANAGEMENT_SPECIALTIES    ?></a>
+				<a class="item" href="?task=<?= RUDE_TASK_MANAGEMENT_DEPARTMENTS    ?>"><?= RUDE_TEXT_MANAGEMENT_DEPARTMENTS        ?></a>
+				<a class="item" href="?task=<?= RUDE_TASK_MANAGEMENT_FACULTIES      ?>"><?= RUDE_TEXT_MANAGEMENT_FACULTIES          ?></a>
+				<a class="item" href="?task=<?= RUDE_TASK_MANAGEMENT_QUALIFICATIONS ?>"><?= RUDE_TEXT_MANAGEMENT_QUALIFICATIONS     ?></a>
+				<a class="item" href="?task=<?= RUDE_TASK_MANAGEMENT_SPECIALTIES    ?>"><?= RUDE_TEXT_MANAGEMENT_SPECIALTIES        ?></a>
+                <a class="item" href="?task=<?= RUDE_TASK_MANAGEMENT_SPECIALIZATIONS?>"><?= RUDE_TEXT_MANAGEMENT_SPECIALIZATIONS    ?></a>
+                <a class="item" href="?task=<?= RUDE_TASK_MANAGEMENT_DISCIPLINES    ?>"><?= RUDE_TEXT_MANAGEMENT_DISCIPLINES        ?></a>
 			</div>
 
 			<b><?= RUDE_TEXT_EDUCATIONAL_PROGRAM ?></b>
