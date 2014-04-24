@@ -307,6 +307,7 @@ define('RUDE_FIELD_TRAINING_FORM_ID',      'training_form_id');
 define('RUDE_FIELD_SPECIALTY_ID',          'specialty_id');
 define('RUDE_FIELD_SPECIALIZATION_ID',     'specialization_id');
 define('RUDE_FIELD_CALENDAR',              'calendar');
+define('RUDE_FIELD_TIMETABLE',             'timetable');
 
 define('RUDE_FIELD_TRAINING_FORM',         'training_form');
 define('RUDE_FIELD_SPECIALTY',             'specialty');

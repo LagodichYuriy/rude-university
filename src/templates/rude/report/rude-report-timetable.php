@@ -6,7 +6,7 @@ require_once 'rude-report-lang.php';
 
 class report_timetable
 {
-	public static function html()
+	public static function html($report)
 	{
 		?>
 		<table class="border font-10 full-width">
@@ -48,7 +48,7 @@ class report_timetable
 				<td rowspan="2" class="relative bottom"><? new image(RUDE_REPORT_TABLE_LABS) ?></td>
 				<td rowspan="2" class="relative bottom"><? new image(RUDE_REPORT_TABLE_SEMINARS) ?></td>
 
-				<td colspan="3" class="tiny"><div class="nowrap">I <?= RUDE_REPORT_TABLE_TOTAL_SEMESTER ?></div><div class="nowrap">17<?= RUDE_REPORT_TABLE_TOTAL_WEEKS ?></div></td>
+				<td colspan="3" class="tiny"><div class="nowrap">I <?= RUDE_REPORT_TABLE_TOTAL_SEMESTER ?></div><div class="nowrap">17 <?= RUDE_REPORT_TABLE_TOTAL_WEEKS ?></div></td>
 				<td colspan="3" class="tiny"><div class="nowrap">II <?= RUDE_REPORT_TABLE_TOTAL_SEMESTER ?></div><div class="nowrap">17 <?= RUDE_REPORT_TABLE_TOTAL_WEEKS ?></div></td>
 				<td colspan="3" class="tiny"><div class="nowrap">III <?= RUDE_REPORT_TABLE_TOTAL_SEMESTER ?></div><div class="nowrap">17 <?= RUDE_REPORT_TABLE_TOTAL_WEEKS ?></div></td>
 				<td colspan="3" class="tiny"><div class="nowrap">IV <?= RUDE_REPORT_TABLE_TOTAL_SEMESTER ?></div><div class="nowrap">17 <?= RUDE_REPORT_TABLE_TOTAL_WEEKS ?></div></td>
@@ -76,11 +76,25 @@ class report_timetable
 				<? report_timetable::html_td_loop(1, 43); ?>
 			</tr>
 
-			<tr>
-				<? report_timetable::html_td_empty(1) ?>
-				<td>Цикл социально­гуманитарных дисциплин</td>
-				<? report_timetable::html_td_empty(41) ?>
-			</tr>
+			<?
+				$timetable_rows = explode('~', $report->timetable);
+
+				foreach ($timetable_rows as $timetable_row)
+				{
+					?>
+					<tr>
+					<?
+						$timetable_cols = explode(',', $timetable_row);
+
+						foreach ($timetable_cols as $timetable_col)
+						{
+							?><td><?= $timetable_col ?></td><?
+						}
+					?>
+					</tr>
+					<?
+				}
+			?>
 		</table>
 	<?
 	}
