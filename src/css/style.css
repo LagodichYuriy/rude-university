@@ -483,7 +483,7 @@ h3
 
 #container
 {
-	padding-left: 276px;
+	padding-left: 14px;
 	padding-right: 34px;
 	position: relative;
 }
@@ -657,4 +657,15 @@ h3
 .relative
 {
 	position: relative;
+}
+
+.sidebar_button
+{
+	background-color: #000000;
+
+	height: 100%;
+	left: 0px;
+	position: fixed;
+	top: 0px;
+	width: 15px;
 }
