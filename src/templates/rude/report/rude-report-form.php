@@ -799,6 +799,17 @@
 
 		for (var i = 1; i < 43; i++)
 		{
+			if (i == 1){
+				row += '<td><select type="text" class="square-cell timetable-2" value="">'+
+					'<? $disciplines_list = disciplines::get();foreach ($disciplines_list as $disciplines){?>'+
+					'<option>'+'<?=$disciplines->name  ?>'+'</option>'+
+					'<?	}?>'+
+
+					'<? $disciplines_type_list = disciplines::get_types();foreach ($disciplines_type_list as $disciplines_type){?>'+
+					'<option>'+'<?=$disciplines_type->name  ?>'+'</option>'+
+					'<?	}?>'+
+					'</select></td>';
+			}else
 			row += '<td><input type="text" class="square-cell timetable-' + i + '" value=""/></td>';
 		}
 
