@@ -39,6 +39,7 @@ require_once './src/rude-specialties.php';
 require_once './src/rude-training-form.php';
 require_once './src/rude-users.php';
 require_once './src/rude-specializations.php';
+require_once './src/rude-calendar-legend.php';
 
 require_once './src/rude-report.php';
 

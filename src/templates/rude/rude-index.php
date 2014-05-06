@@ -66,9 +66,13 @@
                 require_once 'rude-management-specializations.php';
                 break;
 
-            case RUDE_TASK_MANAGEMENT_DISCIPLINES:
-                require_once 'rude-management-disciplines.php';
-                break;
+			case RUDE_TASK_MANAGEMENT_DISCIPLINES:
+				require_once 'rude-management-disciplines.php';
+				break;
+
+			case RUDE_TASK_MANAGEMENT_CALENDAR_LEGENDS:
+				require_once 'rude-management-calendar-legend.php';
+				break;
 
 			default:
 				require_once 'rude-index-default.php';
