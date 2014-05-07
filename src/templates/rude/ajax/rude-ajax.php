@@ -11,6 +11,7 @@ require_once 'rude-ajax-specialty.php';
 require_once 'rude-ajax-department.php';
 require_once 'rude-ajax-specialization.php';
 require_once 'rude-ajax-discipline.php';
+require_once 'rude-ajax-calendar-legend.php';
 
 
 $target = get(RUDE_TARGET);
@@ -261,6 +262,37 @@ switch ($target)
 	case RUDE_TASK_AJAX_REPORT_EDIT:
 		ajax_report::edit();
 		break;
+
+
+
+
+
+	case RUDE_TASK_AJAX_CALENDAR_LEGEND_ADD_FORM:
+		ajax_calendar_legend::html_form_add();
+		break;
+
+	case RUDE_TASK_AJAX_CALENDAR_LEGEND_ADD:
+		ajax_calendar_legend::add();
+		break;
+
+	case RUDE_TASK_AJAX_CALENDAR_LEGEND_SUMMARY:
+		ajax_calendar_legend::html();
+		break;
+
+	case RUDE_TASK_AJAX_CALENDAR_LEGEND_EDIT_FORM:
+		ajax_calendar_legend::html_form_edit();
+		break;
+	case RUDE_TASK_AJAX_CALENDAR_LEGEND_EDIT:
+		ajax_calendar_legend::edit();
+		break;
+
+	case RUDE_TASK_AJAX_CALENDAR_LEGEND_DELETE_FORM:
+		ajax_calendar_legend::html_form_delete();
+		break;
+	case RUDE_TASK_AJAX_CALENDAR_LEGEND_DELETE:
+		ajax_calendar_legend::delete();
+		break;
+
 
 	default:
 		break;

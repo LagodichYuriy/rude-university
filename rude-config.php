@@ -38,6 +38,7 @@ define('RUDE_TABLE_SPECIALTIES',        RUDE_DATABASE_PREFIX . 'specialties');
 define('RUDE_TABLE_TRAINING_FORM',      RUDE_DATABASE_PREFIX . 'training_form');
 define('RUDE_TABLE_USERS',              RUDE_DATABASE_PREFIX . 'users');
 define('RUDE_TABLE_SPECIALIZATIONS',    RUDE_DATABASE_PREFIX . 'specializations');
+define('RUDE_TABLE_CALENDAR_LEGENDS',   RUDE_DATABASE_PREFIX . 'calendar_legend');
 
 
 
@@ -249,6 +250,7 @@ define('RUDE_TEXT_MANAGEMENT_REPORTS',        'Все планы');
 define('RUDE_TEXT_MANAGEMENT_REPORTS_ADD',    'Добавить новый');
 define('RUDE_TEXT_MANAGEMENT_SPECIALIZATIONS','Специализации');
 define('RUDE_TEXT_MANAGEMENT_DISCIPLINES',    'Предметы');
+define('RUDE_TEXT_MANAGEMENT_CALENDAR_LEGENDS',    'Условные обозначения');
 
 
 define('RUDE_TEXT_ADD',                       'Добавить');
@@ -261,6 +263,9 @@ define('RUDE_TEXT_ADD_NEW_SPECIALTY',         'Добавить новую сп�
 define('RUDE_TEXT_ADD_NEW_USER',              'Добавить нового пользователя');
 define('RUDE_TEXT_ADD_NEW_SPECIALIZATION',    'Добавить новую специализацию');
 define('RUDE_TEXT_ADD_NEW_DISCIPLINE',       'Добавить новый предмет');
+define('RUDE_TEXT_ADD_NEW_CALENDAR_LEGEND',       'Добавить новое условное обозначение');
+
+
 
 define('RUDE_TEXT_USER_ROLE',                 'Роль пользователя');
 define('RUDE_TEXT_LOGOUT',                    'Выход');
@@ -290,6 +295,7 @@ define('RUDE_FIELD_USERNAME',              'username');
 define('RUDE_FIELD_PASSWORD',              'password');
 define('RUDE_FIELD_PASSWORD_REPEAT',       'password_repeat');
 define('RUDE_FIELD_NAME',                  'name');
+define('RUDE_FIELD_SIMBOL',                  'simbol');
 define('RUDE_FIELD_SHORTNAME',             'shortname');
 define('RUDE_FIELD_CODE',                  'code');
 define('RUDE_FIELD_HASH',                  'hash');
@@ -331,3 +337,17 @@ define('RUDE_CODE_SUCCESS',                    '1');
 define('RUDE_CODE_FAILED_TO_INIT_SESSION',     '2');
 define('RUDE_CODE_WRONG_USERNAME_OR_PASSWORD', '5');
 define('RUDE_CODE_USER_IS_NOT_EXISTS',         '6');
+
+/* ======================================================================== */
+/* Calendar legend management section [ADD/EDIT/DELETE] + same AJAX combinations */
+/* ======================================================================== */
+define('RUDE_TASK_MANAGEMENT_CALENDAR_LEGENDS',      'calendar_legend_management');
+define('RUDE_TASK_CALENDAR_LEGEND_DELETE',           'calendar_legend_delete');
+
+define('RUDE_TASK_AJAX_CALENDAR_LEGEND_ADD_FORM',    'ajax_calendar_legend_add_form');
+define('RUDE_TASK_AJAX_CALENDAR_LEGEND_EDIT_FORM'  , 'ajax_calendar_legend_edit_form');
+define('RUDE_TASK_AJAX_CALENDAR_LEGEND_DELETE_FORM', 'ajax_calendar_legend_delete_form');
+define('RUDE_TASK_AJAX_CALENDAR_LEGEND_ADD',         'ajax_calendar_legend_add');
+define('RUDE_TASK_AJAX_CALENDAR_LEGEND_EDIT',        'ajax_calendar_legend_edit');
+define('RUDE_TASK_AJAX_CALENDAR_LEGEND_DELETE',      'ajax_calendar_legend_delete');
+define('RUDE_TASK_AJAX_CALENDAR_LEGEND_SUMMARY',     'ajax_calendar_legend_summary');
