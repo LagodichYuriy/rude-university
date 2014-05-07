@@ -1,6 +1,6 @@
 <? namespace rude; ?>
 
-<div id="navigation">
+<div id="navigation" class="relative">
 	<? require_once 'ajax/rude-ajax-user.php'; ?>
 	<? require_once 'ajax/rude-ajax-role.php'; ?>
 

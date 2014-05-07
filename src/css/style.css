@@ -659,6 +659,11 @@ h3
 	position: relative;
 }
 
+.absolute
+{
+	position: absolute;
+}
+
 .line-height-3px
 {
 	line-height: 3px;

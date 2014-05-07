@@ -18,13 +18,21 @@
 
 body
 {
-	height: 42cm;
-	min-height: 42cm;
-	max-height: 42cm;
+	/*height: 42cm;*/
+	/*min-height: 42cm;*/
+	/*max-height: 42cm;*/
 
-	width: 29.7cm;
-	min-width: 29.7cm;
-	max-width: 29.7cm;
+	/*width: 29.7cm;*/
+	/*min-width: 29.7cm;*/
+	/*max-width: 29.7cm;*/
+
+	height: 29.7cm;
+	min-height: 29.7cm;
+	max-height: 29.7cm;
+
+	width: 42cm;
+	min-width: 42cm;
+	max-width: 42cm;
 
 	font-family: 'LiberationSerif';
 }

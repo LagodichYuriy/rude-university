@@ -46,9 +46,9 @@ require_once './src/rude-ajax.php';
 
 require_once './src/plugins/table/table.php';
 
-
 \rude\timestamp::set_timezone(RUDE_TIMEZONE);
 
+error_reporting(-1);
 
 $is_valid = \rude\session::init();
 
