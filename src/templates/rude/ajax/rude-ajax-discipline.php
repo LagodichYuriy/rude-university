@@ -156,15 +156,27 @@ class ajax_discipline
 
         $q          = new uquery(RUDE_TABLE_DISCIPLINES);
 
-        if ($name)      { $q->update(RUDE_FIELD_NAME,                     $name); }
-        if($type)
+        $d          = new query(RUDE_TABLE_DISCIPLINES_TYPES);
+
+        $d->where(RUDE_FIELD_NAME, $type);
+        $d->start();
+
+        $type = $d->get_object();
+
+        if ($type === null)
         {
-        $type_id    = disciplines::get_id_by_name($type);
-        if ($type_id)   { $q->update(RUDE_FIELD_NAME_TYPE_ID,        (int)$type_id); }
+            die();
         }
 
+        if ($name)
+        {
+            $q->update(RUDE_FIELD_NAME,                     $name);
+        }
 
-
+        if($type)
+        {
+            $q->update(RUDE_FIELD_NAME_TYPE_ID,        (int)$type->id);
+        }
 
         $q->where(RUDE_FIELD_ID, (int) $id);
         $q->limit(1);
