@@ -548,67 +548,140 @@ function rude_reload_department()
 
 $(document).ready(function ()
 {
-    $(".fancybox-disciplines").fancybox({
-        type: 'iframe',
+	$(".fancybox-disciplines").fancybox({
+		type: 'iframe',
 
-        width: 432 + 20,
-        height: 239,
-        fitToView : false,
-        autoSize : false,
-        'beforeClose': function()
-        {
-            rude_reload_disciplines();
-        }
-    });
+		width: 432 + 20,
+		height: 239,
+		fitToView : false,
+		autoSize : false,
+		'beforeClose': function()
+		{
+			rude_reload_disciplines();
+		}
+	});
 });
 
 $(document).ready(function ()
 {
-    $(".fancybox-disciplines-edit").fancybox({
-        type: 'iframe',
+	$(".fancybox-disciplines-edit").fancybox({
+		type: 'iframe',
 
-        width: 432 + 20,
-        height: 239,
-        fitToView : false,
-        autoSize : false,
-        'beforeClose': function()
-        {
-            rude_reload_disciplines();
-        }
+		width: 432 + 20,
+		height: 239,
+		fitToView : false,
+		autoSize : false,
+		'beforeClose': function()
+		{
+			rude_reload_disciplines();
+		}
 
-    });
+	});
 });
 
 
 $(document).ready(function ()
 {
-    $(".fancybox-disciplines-delete").fancybox({
-        type: 'iframe',
+	$(".fancybox-disciplines-delete").fancybox({
+		type: 'iframe',
 
-        width: 432 + 20,
-        height: 172,
-        fitToView : false,
-        autoSize : false,
-        'beforeClose': function()
-        {
-            rude_reload_disciplines();
-        }
-    });
+		width: 432 + 20,
+		height: 172,
+		fitToView : false,
+		autoSize : false,
+		'beforeClose': function()
+		{
+			rude_reload_disciplines();
+		}
+	});
 });
 
 function rude_reload_disciplines()
 {
-    $.ajax({
-        type: 'POST',
-        url: 'index.php',
-        data: {
-            task:     'ajax',             // RUDE_TASK_AJAX
-            target:   'ajax_discipline_summary'// RUDE_TASK_AJAX_SPECIALIZATION_SUMMARY
-        },
+	$.ajax({
+		type: 'POST',
+		url: 'index.php',
+		data: {
+			task:     'ajax',             // RUDE_TASK_AJAX
+			target:   'ajax_discipline_summary'// RUDE_TASK_AJAX_SPECIALIZATION_SUMMARY
+		},
 
-        success: function(data)
-        {
-            rude_animation('#info-disciplines', data);
-        }
-    });
+		success: function(data)
+		{
+			rude_animation('#info-disciplines', data);
+		}
+	});
+}
+
+
+
+/* ======================================= */
+/* jQuery + fancybox popup section [calendar_legend] */
+/* ======================================= */
+
+$(document).ready(function ()
+{
+	$(".fancybox-calendar_legend").fancybox({
+		type: 'iframe',
+
+		width: 432 + 20,
+		height: 239+50+10,
+		fitToView : false,
+		autoSize : false,
+		'beforeClose': function()
+		{
+			rude_reload_calendar_legend();
+		}
+	});
+});
+
+$(document).ready(function ()
+{
+	$(".fancybox-calendar_legend-edit").fancybox({
+		type: 'iframe',
+
+		width: 432 + 20,
+		height: 239+50+10,
+		fitToView : false,
+		autoSize : false,
+		'beforeClose': function()
+		{
+			rude_reload_calendar_legend();
+		}
+
+	});
+});
+
+
+$(document).ready(function ()
+{
+	$(".fancybox-calendar_legend-delete").fancybox({
+		type: 'iframe',
+
+		width: 432 + 20,
+		height: 172+40+10,
+		fitToView : false,
+		autoSize : false,
+		'beforeClose': function()
+		{
+			rude_reload_calendar_legend();
+		}
+	});
+});
+
+function rude_reload_calendar_legend()
+{
+	$.ajax({
+		type: 'POST',
+		url: 'index.php',
+		data: {
+			task:     'ajax',             // RUDE_TASK_AJAX
+			target:   'ajax_calendar_legend_summary'// RUDE_TASK_AJAX_SPECIALIZATION_SUMMARY
+		},
+
+		success: function(data)
+		{
+			rude_animation('#info-calendar_legend', data);
+		}
+	});
 }
