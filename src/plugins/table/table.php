@@ -169,5 +169,5 @@ class table
 	</tr>
 	<? table::table_body(); ?>
 
-
+z
 </table>

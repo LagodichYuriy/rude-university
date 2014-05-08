@@ -71,22 +71,4 @@ class disciplines
         $q->limit(1);
         $q->start();
     }
-
-    public static function get_id_by_name($type_name)
-    {
-        $q = new query(RUDE_TABLE_DISCIPLINES_TYPES);
-        $q->where(RUDE_FIELD_NAME_TYPE_NAME, $type_name);
-        $q->start();
-        if($q->get_object())
-        {
-        return $q->get_object()->id;
-        }
-        else
-        {
-            return null;
-        }
-
-
-
-    }
 }
