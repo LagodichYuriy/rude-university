@@ -40,15 +40,55 @@
 			<div class="menu">
 				<a class="item" href="?task=<?= RUDE_TASK_LOGOUT ?>"><?= RUDE_TEXT_LOGOUT ?></a>
 			</div>
+			<div class="sidebar_button" onclick="$('.vertical.sidebar').sidebar('toggle');
+			if ($('.vertical.sidebar').sidebar('is open'))
+			{
+				document.cookie = 'sidebar_is_showed=1;path=\;expires=42000';
+			}
+				else
+			{
+				document.cookie = 'sidebar_is_showed=0;path=\;expires=42000';
+			};
+			">
+			</div>
 		</div>
 	</div>
-	<div class="sidebar_button" onclick="$('.vertical.sidebar').sidebar('toggle');"></div>
 </div>
 
 
 <script>
-	$('.vertical.sidebar')
-		.sidebar('toggle')
-	;
+	function getCookie(name) {
+		var cookie = " " + document.cookie;
+		var search = " " + name + "=";
+		var setStr = null;
+		var offset = 0;
+		var end = 0;
+		if (cookie.length > 0) {
+			offset = cookie.indexOf(search);
+			if (offset != -1) {
+				offset += search.length;
+				end = cookie.indexOf(";", offset)
+				if (end == -1) {
+					end = cookie.length;
+				}
+				setStr = unescape(cookie.substring(offset, end));
+			}
+		}
+		return(setStr);
+	}
+
+	$('.vertical.sidebar').sidebar('show')
+
+
+	if (getCookie('sidebar_is_showed')=='1')
+	{
+		$('.vertical.sidebar').sidebar('show')
+		$('.vertical.sidebar').sidebar('push page')
+	}
+	else
+	{
+		$('.vertical.sidebar').sidebar('hide')
+
+	};
 </script>
 
