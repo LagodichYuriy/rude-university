@@ -84,11 +84,13 @@ class report_timetable
 					?>
 					<tr>
 					<?
+						$i = 1;
+
 						$timetable_cols = explode(',', $timetable_row);
 
 						foreach ($timetable_cols as $timetable_col)
 						{
-							?><td><b><?= $timetable_col ?></b></td><?
+							?><td class="timetable-<?= $i++ ?>"><b><?= $timetable_col ?></b></td><?
 						}
 					?>
 					</tr>

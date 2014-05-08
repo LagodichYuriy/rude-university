@@ -44,12 +44,19 @@
 			if ($('.vertical.sidebar').sidebar('is open'))
 			{
 				document.cookie = 'sidebar_is_showed=1;path=\;expires=42000';
+
+				iconLeft();
 			}
 				else
 			{
 				document.cookie = 'sidebar_is_showed=0;path=\;expires=42000';
-			};
+
+				iconRight();
+			}
 			">
+				<div id="sidebar-trigger" class="relative full-height">
+					<i id="sidebar-trigger-left"  class="sidebar-trigger triangle left  icon" style="display: none!important;"></i>
+				</div>
 			</div>
 		</div>
 	</div>
@@ -57,6 +64,16 @@
 
 
 <script>
+	function iconRight()
+	{
+		$('#sidebar-trigger').html('<i class="sidebar-trigger triangle right icon"></i>');
+	}
+
+	function iconLeft()
+	{
+		$('#sidebar-trigger').html('<i class="sidebar-trigger triangle left icon"></i>');
+	}
+
 	function getCookie(name) {
 		var cookie = " " + document.cookie;
 		var search = " " + name + "=";
@@ -77,18 +94,20 @@
 		return(setStr);
 	}
 
-	$('.vertical.sidebar').sidebar('show')
+	$('.vertical.sidebar').sidebar('show');
+	iconLeft();
 
 
 	if (getCookie('sidebar_is_showed')=='1')
 	{
-		$('.vertical.sidebar').sidebar('show')
-		$('.vertical.sidebar').sidebar('push page')
+		$('.vertical.sidebar').sidebar('show');
+		$('.vertical.sidebar').sidebar('push page');
+		iconLeft();
 	}
 	else
 	{
-		$('.vertical.sidebar').sidebar('hide')
-
-	};
+		$('.vertical.sidebar').sidebar('hide');
+		iconRight();
+	}
 </script>
 

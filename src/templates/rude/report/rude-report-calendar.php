@@ -2,7 +2,7 @@
 
 namespace rude;
 
-define('RUDE_HTML_CALENDAR_COLUMN_WIDTH', 86);
+define('RUDE_HTML_CALENDAR_COLUMN_WIDTH', 105);
 
 class report_calendar
 {
@@ -23,7 +23,7 @@ class report_calendar
 
 		<div class="relative">
 			<div class="calendar-left">
-				<table class="border font-10 no-padding">
+				<table class="border font-10 no-padding no-margin-right">
 					<? report_calendar::html_head() ?>
 
 					<?
@@ -53,33 +53,32 @@ class report_calendar
 			</div>
 
 			<div class="calendar-right">
-				<table class="border font-10 no-padding">
+				<table class="border font-10 no-padding width-8cm">
 					<tr>
-						<th class="large-width">
-							<? new image('Теоретическое', RUDE_HTML_CALENDAR_COLUMN_WIDTH, RUDE_REPORT_IMAGE_DEFAULT_HEIGHT, 90, RUDE_IMAGE_DEFAULT_FONT, 8) ?>
-							<? new image('обучение',      RUDE_HTML_CALENDAR_COLUMN_WIDTH, RUDE_REPORT_IMAGE_DEFAULT_HEIGHT, 90, RUDE_IMAGE_DEFAULT_FONT, 8) ?>
+						<th class="large-width height-120px">
+							<? new image('Теоретическое', RUDE_HTML_CALENDAR_COLUMN_WIDTH) ?>
+							<? new image('обучение',      RUDE_HTML_CALENDAR_COLUMN_WIDTH) ?>
 						</th>
-						<th class="large-width">
-							<? new image('Экзаменационные', RUDE_HTML_CALENDAR_COLUMN_WIDTH, RUDE_REPORT_IMAGE_DEFAULT_HEIGHT, 90, RUDE_IMAGE_DEFAULT_FONT, 8) ?>
-							<? new image('сессии',          RUDE_HTML_CALENDAR_COLUMN_WIDTH, RUDE_REPORT_IMAGE_DEFAULT_HEIGHT, 90, RUDE_IMAGE_DEFAULT_FONT, 8) ?>
+						<th class="large-width height-120px">
+							<? new image('Экзаменационные', RUDE_HTML_CALENDAR_COLUMN_WIDTH) ?>
+							<? new image('сессии',          RUDE_HTML_CALENDAR_COLUMN_WIDTH) ?>
 						</th>
-						<th class="medium-width"><? new image('Практики', RUDE_HTML_CALENDAR_COLUMN_WIDTH, RUDE_REPORT_IMAGE_DEFAULT_HEIGHT, 90, RUDE_IMAGE_DEFAULT_FONT, 8) ?></th>
-						<th class="large-width">
-							<? new image('Дипломное',      RUDE_HTML_CALENDAR_COLUMN_WIDTH, RUDE_REPORT_IMAGE_DEFAULT_HEIGHT, 90, RUDE_IMAGE_DEFAULT_FONT, 8) ?>
-							<? new image('проектирование', RUDE_HTML_CALENDAR_COLUMN_WIDTH, RUDE_REPORT_IMAGE_DEFAULT_HEIGHT, 90, RUDE_IMAGE_DEFAULT_FONT, 8) ?>
+						<th class="medium-width height-120px"><? new image('Практики', RUDE_HTML_CALENDAR_COLUMN_WIDTH) ?></th>
+						<th class="large-width height-120px">
+							<? new image('Дипломное',      RUDE_HTML_CALENDAR_COLUMN_WIDTH) ?>
+							<? new image('проектирование', RUDE_HTML_CALENDAR_COLUMN_WIDTH) ?>
 						</th>
-						<th class="large-width">
-							<? new image('Итоговая',   RUDE_HTML_CALENDAR_COLUMN_WIDTH, RUDE_REPORT_IMAGE_DEFAULT_HEIGHT, 90, RUDE_IMAGE_DEFAULT_FONT, 8) ?>
-							<? new image('аттестация', RUDE_HTML_CALENDAR_COLUMN_WIDTH, RUDE_REPORT_IMAGE_DEFAULT_HEIGHT, 90, RUDE_IMAGE_DEFAULT_FONT, 8) ?>
+						<th class="large-width height-120px">
+							<? new image('Итоговая',   RUDE_HTML_CALENDAR_COLUMN_WIDTH) ?>
+							<? new image('аттестация', RUDE_HTML_CALENDAR_COLUMN_WIDTH) ?>
 						</th>
 
-						<th class="medium-width"><? new image('Каникулы', RUDE_HTML_CALENDAR_COLUMN_WIDTH, RUDE_REPORT_IMAGE_DEFAULT_HEIGHT, 90, RUDE_IMAGE_DEFAULT_FONT, 8) ?></th>
-						<th class="medium-width"><? new image('Всего',    RUDE_HTML_CALENDAR_COLUMN_WIDTH, RUDE_REPORT_IMAGE_DEFAULT_HEIGHT, 90, RUDE_IMAGE_DEFAULT_FONT, 8) ?></th>
+						<th class="medium-width height-120px"><? new image('Каникулы', RUDE_HTML_CALENDAR_COLUMN_WIDTH) ?></th>
+						<th class="medium-width height-120px double-border-left"><? new image('Всего',    RUDE_HTML_CALENDAR_COLUMN_WIDTH) ?></th>
 					</tr>
 
-					<tr>
-						<? report_calendar::html_calendar_total($calendar_rows) ?>
-					</tr>
+					<? report_calendar::html_calendar_total($calendar_rows) ?>
+
 				</table>
 			</div>
 		</div>
@@ -88,14 +87,69 @@ class report_calendar
 
 	public static function html_calendar_total($calendar_rows)
 	{
-//		foreach ()
+		$total_spaces    = 0;
+		$total_session   = 0;
+		$total_exams     = 0;
+		$total_practice  = 0;
+		$total_diplomas  = 0;
+		$total_holidays  = 0;
+		$total_total     = 0;
+
+		for ($i = 0; $i < count($calendar_rows); $i++)
+		{
+			$calendar_row = explode(',', $calendar_rows[$i]);
+			$calendar_arr = array_count_values($calendar_row);
+
+
+			$spaces    = get('', $calendar_arr, 0);
+			$session   = get(':', $calendar_arr, 0);
+			$exams     = get('=', $calendar_arr, 0);
+			$practice  = get('O', $calendar_arr, 0) + get('o', $calendar_arr, 0) + get('О', $calendar_arr, 0) + get('о', $calendar_arr, 0);
+			$practice += get('X', $calendar_arr, 0) + get('x', $calendar_arr, 0) + get('х', $calendar_arr, 0) + get('Х', $calendar_arr, 0);
+			$diplomas  = get('/', $calendar_arr, 0);
+			$holidays  = get('=', $calendar_arr, 0);
+
+			$total = $spaces + $session + $exams + $practice + $diplomas + $holidays;
+
+			$total_spaces    += $session;
+			$total_session   += $session;
+			$total_exams     += $exams;
+			$total_practice  += $practice;
+			$total_diplomas  += $diplomas;
+			$total_holidays  += $holidays;
+			$total_total     += $total;
+
+			?>
+			<tr>
+				<td class="calendar-right-td"><?= $spaces   ?></td>
+				<td class="calendar-right-td"><?= $session  ?></td>
+				<td class="calendar-right-td"><?= $exams    ?></td>
+				<td class="calendar-right-td"><?= $practice ?></td>
+				<td class="calendar-right-td"><?= $diplomas ?></td>
+				<td class="calendar-right-td"><?= $holidays ?></td>
+				<td class="calendar-right-td double-border-left"><b><?= $total    ?></b></td>
+			</tr>
+			<?
+		}
+
+		?>
+		<tr>
+			<td class="calendar-right-td double-border-top"><b><?= $total_spaces   ?></b></td>
+			<td class="calendar-right-td double-border-top"><b><?= $total_session  ?></b></td>
+			<td class="calendar-right-td double-border-top"><b><?= $total_exams    ?></b></td>
+			<td class="calendar-right-td double-border-top"><b><?= $total_practice ?></b></td>
+			<td class="calendar-right-td double-border-top"><b><?= $total_diplomas ?></b></td>
+			<td class="calendar-right-td double-border-top"><b><?= $total_holidays ?></b></td>
+			<td class="calendar-right-td double-border-left"><b><?= $total_total    ?></b></td>
+		</tr>
+		<?
 	}
 	
 	public static function html_head()
 	{
 		?>
 		<tr>
-			<th rowspan="3">
+			<th rowspan="3" class="height-120px">
 				<div>
 					<?= string::after_each_char(RUDE_TABLE_TIME_BUDGET_COURSES, RUDE_HTML_NEWLINE); ?>
 				</div>

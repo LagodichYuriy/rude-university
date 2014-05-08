@@ -247,7 +247,52 @@ th
 	float: left;
 }
 
+.calendar-right-td
+{
+	width: 40px!important;
+}
+
 .large-width
 {
 	width: 32px!important;
+}
+
+.timetable-2
+{
+	min-width: 230px;
+}
+
+.width-8cm
+{
+	width: 8cm;
+}
+
+.double-border-top
+{
+	border-top: 2px solid #bbb!important;
+}
+
+.double-border-left
+{
+	border-left: 2px solid #bbb!important;
+}
+
+.double-border-bottom
+{
+	border-bottom: 2px solid #bbb!important;
+}
+
+.double-border-right
+{
+	border-right: 2px solid #bbb!important;
+}
+
+.height-120px
+{
+	height: 120px;
+}
+
+.no-margin-right
+{
+	margin-right: 0;
 }

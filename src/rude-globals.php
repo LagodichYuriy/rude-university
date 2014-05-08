@@ -1,8 +1,8 @@
 <?
 
-function get($what, $src = false, $default = false)
+function get($what, $src = null, $default = false)
 {
-	if ($src === false)
+	if ($src === null)
 	{
 		$src = $_REQUEST;
 	}
