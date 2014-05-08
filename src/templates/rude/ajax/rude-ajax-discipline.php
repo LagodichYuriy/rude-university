@@ -45,6 +45,7 @@ class ajax_discipline
         <div>
             <h1>Добавление Дисциплины</h1>
             <p>Форма для добавления новых дисциплин</p>
+
             <form id="form" name="form" method="post" class="ui form" action="index.php?task=<?= RUDE_TASK_AJAX_DISCIPLINE_ADD_FORM ?>">
 
                 <div class="field">
@@ -62,20 +63,21 @@ class ajax_discipline
 
                 <div class="field">
                     <label>Тип</label>
-                    <div class="ui fluid selection dropdown">
+                    <div style="max-height: 16px;" class="ui fluid selection dropdown">
+
                         <div class="text">выберите тип дисциплины</div>
-                        <i class="dropdown icon"></i>
-                        <input type="hidden" id="<?=RUDE_FIELD_NAME_TYPE_NAME?>" >
-                        <div class="menu">
-                            <?	$types_list = disciplines::get_types();
+                            <i class="dropdown icon"></i>
+                                <input type="hidden" id="<?=RUDE_FIELD_NAME_TYPE_NAME?>" >
+                                    <div style="..." class="menu">
+                                        <?	$types_list = disciplines::get_types();
                             foreach ($types_list as $type)
                             {
                                 ?>
                                 <div class="item" data-value="<?= $type->name  ?>"><?= $type->name ?></div>
                             <?
                             }?>
+                                    </div>
                         </div>
-                    </div>
                 </div>
 
                 <div id="submit" class="ui blue submit button">Добавить</div>
@@ -156,15 +158,22 @@ class ajax_discipline
 
         $q          = new uquery(RUDE_TABLE_DISCIPLINES);
 
-        if ($name)      { $q->update(RUDE_FIELD_NAME,                     $name); }
-        if($type)
+        if ($name)
         {
-        $type_id    = disciplines::get_id_by_name($type);
-        if ($type_id)   { $q->update(RUDE_FIELD_NAME_TYPE_ID,        (int)$type_id); }
+            $q->update(RUDE_FIELD_NAME,                     $name);
         }
 
+        $d          = new query(RUDE_TABLE_DISCIPLINES_TYPES);
 
+        $d->where(RUDE_FIELD_NAME, $type);
+        $d->start();
 
+        $type = $d->get_object();
+
+        if($type)
+        {
+            $q->update(RUDE_FIELD_NAME_TYPE_ID,        (int)$type->id);
+        }
 
         $q->where(RUDE_FIELD_ID, (int) $id);
         $q->limit(1);

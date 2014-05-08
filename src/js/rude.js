@@ -480,7 +480,7 @@ function rude_reload_department()
             type: 'iframe',
 
             width: 432 + 20,
-            height: 239,
+            height: 265,
             fitToView : false,
             autoSize : false,
             'beforeClose': function()
@@ -496,7 +496,7 @@ function rude_reload_department()
             type: 'iframe',
 
             width: 432 + 20,
-            height: 239,
+            height: 299,
             fitToView : false,
             autoSize : false,
             'beforeClose': function()
@@ -514,7 +514,7 @@ function rude_reload_department()
             type: 'iframe',
 
             width: 432 + 20,
-            height: 172,
+            height: 197,
             fitToView : false,
             autoSize : false,
             'beforeClose': function()
@@ -552,7 +552,7 @@ $(document).ready(function ()
 		type: 'iframe',
 
 		width: 432 + 20,
-		height: 239,
+		height: 250 + 20,
 		fitToView : false,
 		autoSize : false,
 		'beforeClose': function()
@@ -568,7 +568,7 @@ $(document).ready(function ()
 		type: 'iframe',
 
 		width: 432 + 20,
-		height: 239,
+		height: 270,
 		fitToView : false,
 		autoSize : false,
 		'beforeClose': function()
