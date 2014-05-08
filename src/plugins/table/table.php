@@ -159,5 +159,5 @@ public static function calculate_table_body($number_of_courses)
     </tr>
     <?table::table_body();?>
 
-
+z
 </table>
