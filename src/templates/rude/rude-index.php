@@ -30,7 +30,7 @@
 	<? require_once 'rude-sidebar-left.php'; ?>
 </div>
 
-<div id="container"  onclick="$('.vertical.sidebar').sidebar('hide');">
+<div id="container">
 	<?
 		switch ($task)
 		{
