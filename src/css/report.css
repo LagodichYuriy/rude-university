@@ -116,7 +116,7 @@ th
 
 .full-width
 {
-	width: 100%;
+	width: 41.8cm;
 }
 
 .line-16
@@ -231,7 +231,23 @@ th
 	margin-bottom: 50px;
 }
 
-.default
+.float
 {
+	float: left;
+}
 
+.calendar-left
+{
+	width: 29.5cm;
+}
+
+.calendar-right
+{
+	width: 12.2cm;
+	float: left;
+}
+
+.large-width
+{
+	width: 32px!important;
 }

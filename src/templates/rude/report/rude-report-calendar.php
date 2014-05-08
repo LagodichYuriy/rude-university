@@ -2,6 +2,8 @@
 
 namespace rude;
 
+define('RUDE_HTML_CALENDAR_COLUMN_WIDTH', 86);
+
 class report_calendar
 {
 	/** @param report $report */
@@ -19,34 +21,74 @@ class report_calendar
 			</tr>
 		</table>
 
-		<table class="border font-10 full-width no-padding">
-			<? report_calendar::html_head() ?>
+		<div class="relative">
+			<div class="calendar-left">
+				<table class="border font-10 no-padding">
+					<? report_calendar::html_head() ?>
 
-			<?
-				$calendar_rows = explode('~', $report->calendar);
-			?>
+					<?
+						$calendar_rows = explode('~', $report->calendar);
+					?>
 
-			<tr>
-				<td>I</td>
-				<? report_calendar::html_loop_input($calendar_rows[0]) ?>
-			</tr>
+					<tr>
+						<td>I</td>
+						<? report_calendar::html_loop_input($calendar_rows[0]) ?>
+					</tr>
 
-			<tr>
-				<td>II</td>
-				<? report_calendar::html_loop_input($calendar_rows[1]) ?>
-			</tr>
+					<tr>
+						<td>II</td>
+						<? report_calendar::html_loop_input($calendar_rows[1]) ?>
+					</tr>
 
-			<tr>
-				<td>III</td>
-				<? report_calendar::html_loop_input($calendar_rows[2]) ?>
-			</tr>
+					<tr>
+						<td>III</td>
+						<? report_calendar::html_loop_input($calendar_rows[2]) ?>
+					</tr>
 
-			<tr>
-				<td>IV</td>
-				<? report_calendar::html_loop_input($calendar_rows[3]) ?>
-			</tr>
-		</table>
+					<tr>
+						<td>IV</td>
+						<? report_calendar::html_loop_input($calendar_rows[3]) ?>
+					</tr>
+				</table>
+			</div>
+
+			<div class="calendar-right">
+				<table class="border font-10 no-padding">
+					<tr>
+						<th class="large-width">
+							<? new image('Теоретическое', RUDE_HTML_CALENDAR_COLUMN_WIDTH, RUDE_REPORT_IMAGE_DEFAULT_HEIGHT, 90, RUDE_IMAGE_DEFAULT_FONT, 8) ?>
+							<? new image('обучение',      RUDE_HTML_CALENDAR_COLUMN_WIDTH, RUDE_REPORT_IMAGE_DEFAULT_HEIGHT, 90, RUDE_IMAGE_DEFAULT_FONT, 8) ?>
+						</th>
+						<th class="large-width">
+							<? new image('Экзаменационные', RUDE_HTML_CALENDAR_COLUMN_WIDTH, RUDE_REPORT_IMAGE_DEFAULT_HEIGHT, 90, RUDE_IMAGE_DEFAULT_FONT, 8) ?>
+							<? new image('сессии',          RUDE_HTML_CALENDAR_COLUMN_WIDTH, RUDE_REPORT_IMAGE_DEFAULT_HEIGHT, 90, RUDE_IMAGE_DEFAULT_FONT, 8) ?>
+						</th>
+						<th class="medium-width"><? new image('Практики', RUDE_HTML_CALENDAR_COLUMN_WIDTH, RUDE_REPORT_IMAGE_DEFAULT_HEIGHT, 90, RUDE_IMAGE_DEFAULT_FONT, 8) ?></th>
+						<th class="large-width">
+							<? new image('Дипломное',      RUDE_HTML_CALENDAR_COLUMN_WIDTH, RUDE_REPORT_IMAGE_DEFAULT_HEIGHT, 90, RUDE_IMAGE_DEFAULT_FONT, 8) ?>
+							<? new image('проектирование', RUDE_HTML_CALENDAR_COLUMN_WIDTH, RUDE_REPORT_IMAGE_DEFAULT_HEIGHT, 90, RUDE_IMAGE_DEFAULT_FONT, 8) ?>
+						</th>
+						<th class="large-width">
+							<? new image('Итоговая',   RUDE_HTML_CALENDAR_COLUMN_WIDTH, RUDE_REPORT_IMAGE_DEFAULT_HEIGHT, 90, RUDE_IMAGE_DEFAULT_FONT, 8) ?>
+							<? new image('аттестация', RUDE_HTML_CALENDAR_COLUMN_WIDTH, RUDE_REPORT_IMAGE_DEFAULT_HEIGHT, 90, RUDE_IMAGE_DEFAULT_FONT, 8) ?>
+						</th>
+
+						<th class="medium-width"><? new image('Каникулы', RUDE_HTML_CALENDAR_COLUMN_WIDTH, RUDE_REPORT_IMAGE_DEFAULT_HEIGHT, 90, RUDE_IMAGE_DEFAULT_FONT, 8) ?></th>
+						<th class="medium-width"><? new image('Всего',    RUDE_HTML_CALENDAR_COLUMN_WIDTH, RUDE_REPORT_IMAGE_DEFAULT_HEIGHT, 90, RUDE_IMAGE_DEFAULT_FONT, 8) ?></th>
+					</tr>
+
+					<tr>
+						<? report_calendar::html_calendar_total($calendar_rows) ?>
+					</tr>
+				</table>
+			</div>
+		</div>
 		<?
+	}
+
+	public static function html_calendar_total($calendar_rows)
+	{
+//		foreach ()
 	}
 	
 	public static function html_head()
