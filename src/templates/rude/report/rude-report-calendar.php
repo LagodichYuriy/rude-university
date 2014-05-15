@@ -81,6 +81,22 @@ class report_calendar
 
 				</table>
 			</div>
+
+			<div style="width: 1115px; text-align: center; margin: 0px auto; display: inline-block;">
+				<div style="width: 850px; margin: 0px auto; text-align: left;padding-left:200px;">
+					<div style="width: 200px; display: run-in; margin-left: -97px;">Обозначения:</div>
+					<ul style="display: inherit;list-style-type: none;margin: 0px;padding: 0px;">
+						<?$cldr_legend=calendar_legends::get();
+						foreach ($cldr_legend as $calendar_legend)
+						{?>
+							<li style="width: 150px; display: inline-block;">
+								<p style="width: 20px; border: 1px solid black; display: inline-block; text-align: center;"><?= $calendar_legend->simbol ?></p>
+								─ <?= $calendar_legend->name ?>
+							</li>
+						<?}	?>
+					</ul>
+				</div>
+			</div>
 		</div>
 		<?
 	}
