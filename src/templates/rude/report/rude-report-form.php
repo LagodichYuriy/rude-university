@@ -806,7 +806,14 @@
 					'<?	}?>'+
 					'</select></td>';
 			}else
-			row += '<td><input type="text" class="square-cell timetable-' + i + '" value=""/></td>';
+				if (i == 2){
+					row += '<td><select type="text" class="square-cell timetable-3" value="">'+
+						'<? $departments_list = departments::get();foreach ($departments_list as $departments){?>'+
+						'<option>'+'<?=$departments->name  ?>'+'</option>'+
+						'<?	}?>'+
+						'</select></td>';
+				}else
+					row += '<td><input type="text" class="square-cell timetable-' + i + '" value=""/></td>';
 		}
 
 		row += '</tr>';
