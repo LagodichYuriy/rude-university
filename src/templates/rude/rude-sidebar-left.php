@@ -27,6 +27,7 @@
 				<a class="item" href="?task=<?= RUDE_TASK_MANAGEMENT_SPECIALIZATIONS?>"><?= RUDE_TEXT_MANAGEMENT_SPECIALIZATIONS    ?></a>
 				<a class="item" href="?task=<?= RUDE_TASK_MANAGEMENT_DISCIPLINES    ?>"><?= RUDE_TEXT_MANAGEMENT_DISCIPLINES        ?></a>
 				<a class="item" href="?task=<?= RUDE_TASK_MANAGEMENT_CALENDAR_LEGENDS    ?>"><?= RUDE_TEXT_MANAGEMENT_CALENDAR_LEGENDS       ?></a>
+				<a class="item" href="?task=<?= RUDE_TASK_MANAGEMENT_DIRECTIONS    ?>"><?= RUDE_TEXT_MANAGEMENT_DIRECTIONS       ?></a>
 			</div>
 
 			<b><?= RUDE_TEXT_EDUCATIONAL_PROGRAM ?></b>

@@ -685,3 +685,77 @@ function rude_reload_calendar_legend()
 		}
 	});
 }
+
+
+
+
+/* ======================================= */
+/* jQuery + fancybox popup section [direction] */
+/* ======================================= */
+
+$(document).ready(function ()
+{
+	$(".fancybox-directions").fancybox({
+		type: 'iframe',
+
+		width: 432 + 20,
+		height: 239+50+10,
+		fitToView : false,
+		autoSize : false,
+		'beforeClose': function()
+		{
+			rude_reload_direction();
+		}
+	});
+});
+
+$(document).ready(function ()
+{
+	$(".fancybox-directions-edit").fancybox({
+		type: 'iframe',
+
+		width: 432 + 20,
+		height: 239+50+10,
+		fitToView : false,
+		autoSize : false,
+		'beforeClose': function()
+		{
+			rude_reload_direction();
+		}
+
+	});
+});
+
+
+$(document).ready(function ()
+{
+	$(".fancybox-directions-delete").fancybox({
+		type: 'iframe',
+
+		width: 432 + 20,
+		height: 172+40+10,
+		fitToView : false,
+		autoSize : false,
+		'beforeClose': function()
+		{
+			rude_reload_direction();
+		}
+	});
+});
+
+function rude_reload_direction()
+{
+	$.ajax({
+		type: 'POST',
+		url: 'index.php',
+		data: {
+			task:     'ajax',             // RUDE_TASK_AJAX
+			target:   'ajax_direction_summary'// RUDE_TASK_AJAX_SPECIALIZATION_SUMMARY
+		},
+
+		success: function(data)
+		{
+			rude_animation('#info-direction', data);
+		}
+	});
+}
