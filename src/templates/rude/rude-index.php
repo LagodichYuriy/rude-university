@@ -74,6 +74,10 @@
 				require_once 'rude-management-calendar-legend.php';
 				break;
 
+			case RUDE_TASK_MANAGEMENT_DIRECTIONS:
+				require_once 'rude-management-directions.php';
+				break;
+
 			default:
 				require_once 'rude-index-default.php';
 				break;

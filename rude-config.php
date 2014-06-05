@@ -39,6 +39,7 @@ define('RUDE_TABLE_TRAINING_FORM',      RUDE_DATABASE_PREFIX . 'training_form');
 define('RUDE_TABLE_USERS',              RUDE_DATABASE_PREFIX . 'users');
 define('RUDE_TABLE_SPECIALIZATIONS',    RUDE_DATABASE_PREFIX . 'specializations');
 define('RUDE_TABLE_CALENDAR_LEGENDS',   RUDE_DATABASE_PREFIX . 'calendar_legend');
+define('RUDE_TABLE_DIRECTIONS',   RUDE_DATABASE_PREFIX . 'directions');
 
 
 
@@ -251,6 +252,7 @@ define('RUDE_TEXT_MANAGEMENT_REPORTS_ADD',    'Добавить новый');
 define('RUDE_TEXT_MANAGEMENT_SPECIALIZATIONS','Специализации');
 define('RUDE_TEXT_MANAGEMENT_DISCIPLINES',    'Предметы');
 define('RUDE_TEXT_MANAGEMENT_CALENDAR_LEGENDS',    'Условные обозначения');
+define('RUDE_TEXT_MANAGEMENT_DIRECTIONS',    'Основные направления');
 
 
 define('RUDE_TEXT_ADD',                       'Добавить');
@@ -264,6 +266,7 @@ define('RUDE_TEXT_ADD_NEW_USER',              'Добавить нового п�
 define('RUDE_TEXT_ADD_NEW_SPECIALIZATION',    'Добавить новую специализацию');
 define('RUDE_TEXT_ADD_NEW_DISCIPLINE',       'Добавить новый предмет');
 define('RUDE_TEXT_ADD_NEW_CALENDAR_LEGEND',       'Добавить новое условное обозначение');
+define('RUDE_TEXT_ADD_NEW_DIRECTION',       'Добавить новое направление');
 
 
 
@@ -351,3 +354,18 @@ define('RUDE_TASK_AJAX_CALENDAR_LEGEND_ADD',         'ajax_calendar_legend_add')
 define('RUDE_TASK_AJAX_CALENDAR_LEGEND_EDIT',        'ajax_calendar_legend_edit');
 define('RUDE_TASK_AJAX_CALENDAR_LEGEND_DELETE',      'ajax_calendar_legend_delete');
 define('RUDE_TASK_AJAX_CALENDAR_LEGEND_SUMMARY',     'ajax_calendar_legend_summary');
+
+
+/* ======================================================================== */
+/* DIRECTION management section [ADD/EDIT/DELETE] + same AJAX combinations */
+/* ======================================================================== */
+define('RUDE_TASK_MANAGEMENT_DIRECTIONS',      'direction_management');
+define('RUDE_TASK_DIRECTION_DELETE',           'direction_delete');
+
+define('RUDE_TASK_AJAX_DIRECTION_ADD_FORM',    'ajax_direction_add_form');
+define('RUDE_TASK_AJAX_DIRECTION_EDIT_FORM'  , 'ajax_direction_edit_form');
+define('RUDE_TASK_AJAX_DIRECTION_DELETE_FORM', 'ajax_direction_delete_form');
+define('RUDE_TASK_AJAX_DIRECTION_ADD',         'ajax_direction_add');
+define('RUDE_TASK_AJAX_DIRECTION_EDIT',        'ajax_direction_edit');
+define('RUDE_TASK_AJAX_DIRECTION_DELETE',      'ajax_direction_delete');
+define('RUDE_TASK_AJAX_DIRECTION_SUMMARY',     'ajax_direction_summary');
